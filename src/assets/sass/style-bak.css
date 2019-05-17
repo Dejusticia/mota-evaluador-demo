@@ -1,0 +1,291 @@
+/* # Table of Contents
+- Defaults
+	- Typographic Elements
+- Structure and Layout
+	- Site Containers
+- Skip Links
+- Site Header
+	- Title Area
+- Site Navigation
+	- Accessible Menu
+	- Site Header Navigation
+	- Primary and Secondary Navigation
+	- Responsive Navigation
+- Content Area
+- Site Footer
+- Media Queries
+	- Max-width: 1280px
+	- Max-width: 1023px
+	- Max-width: 880px
+
+/* # Defaults
+---------------------------------------------------------------------------------------------------- */
+
+/* ## Typographic Elements
+--------------------------------------------- */
+html {
+    font-size: 62.5%; /* 10px browser default */
+}
+/* Chrome fix */
+body > div {
+    font-size: 1.8rem;
+}
+body {
+    color: #333;
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 1.8rem;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /*! font-size: 2rem; */
+}
+/* ## Headings
+--------------------------------------------- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 700;
+	line-height: 1.4;
+	margin: 0;
+}
+
+/* ## Screen Reader Text
+--------------------------------------------- */
+
+.screen-reader-text,
+.screen-reader-text span,
+.screen-reader-shortcut {
+	position: absolute !important;
+	clip: rect(0, 0, 0, 0);
+	height: 1px;
+	width: 1px;
+	border: 0;
+	overflow: hidden;
+}
+
+.screen-reader-text:focus,
+.screen-reader-shortcut:focus,
+.genesis-nav-menu .search input[type="submit"]:focus,
+.widget_search input[type="submit"]:focus  {
+	clip: auto !important;
+	height: auto;
+	width: auto;
+	display: block;
+	font-size: 1em;
+	font-weight: bold;
+	padding: 15px 23px 14px;
+	color: #333;
+	background: #fff;
+	z-index: 100000; /* Above WP toolbar. */
+	text-decoration: none;
+	box-shadow: 0 0 2px 2px rgba(0,0,0,.6);
+}
+
+.more-link {
+    position: relative;
+}
+
+/* # Structure and Layout
+---------------------------------------------------------------------------------------------------- */
+
+/* ## Site Containers
+--------------------------------------------- */
+
+/* # Skip Links
+---------------------------------------------------------------------------------------------------- */
+
+.skip-link {
+	margin: 0;
+}
+
+.skip-link li {
+	height: 0;
+	width: 0;
+	list-style: none;
+}
+
+/* Display outline on focus */
+:focus {
+	color: #333;
+	outline: #ccc solid 1px;
+}
+
+/* # Site Header
+---------------------------------------------------------------------------------------------------- */
+
+/* ## Title Area
+--------------------------------------------- */
+
+/* # Site Navigation
+---------------------------------------------------------------------------------------------------- */
+
+/* ## Accessible Menu
+--------------------------------------------- */
+
+/* ## Site Header Navigation
+--------------------------------------------- */
+
+header {
+    background-color: #fccc11;
+}
+header nav {
+    margin: 0 auto;
+    max-width: 90%;
+}
+ul[role="menubar"] {
+    margin: 0 auto;
+    padding: 0;
+    font-size: 110%;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+ul[role="menubar"] [role="menuitem"],
+ul[role="menubar"] [role="separator"] {
+    padding: 0.25em;
+    background-color: transparent;
+}
+
+ul[role="menubar"] [role="separator"] {
+    padding-top: 0.15em;
+    background-image: url('../img/separator.png');
+    background-position: center;
+    background-repeat: repeat-x;
+}
+
+ul[role="menubar"] [role="menuitem"]:focus,
+ul[role="menubar"] [role="menuitem"]:hover,
+ul[role="menubar"] [role="separator"]:focus,
+ul[role="menubar"] [role="separator"]:hover {
+  background-color: black;
+  color: white;
+}
+
+ul[role="menubar"] a[role="menuitem"] {
+  text-decoration: none;
+  color: black;
+}
+
+ul[role="menubar"] li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul[role="menubar"] > li,
+ul[role="menubar"] h1 {
+    display: inline-block;
+    font-size: 1em;
+    position: relative;
+}
+ul[role="menubar"] h1 {
+    margin: 0;
+}
+
+ul[role="menubar"] > li.has-submenu > a::after {
+  content: url('../img/svg/caret-down-12px.svg');
+  padding-left: 0.25em;
+}
+
+ul[role="menubar"] > li.has-submenu > a::after {
+  content: url('../img/svg/caret-down-yellow-12px.svg');
+  padding-left: 0.25em;
+}
+
+ul[role="menubar"] ul[role="menu"] {
+    display: none;
+    position: absolute;
+    top: -2px;
+    left: 0;
+    margin: 0;
+    padding: 0;
+}
+
+ul[role="menubar"] ul[role="menu"] li a {
+  display: block;
+  width: 10em;
+}
+
+ul[role="menubar"] ul[role="menu"] a[aria-haspopup="true"]::after {
+  content: url('../images/right-arrow-brown.png');
+  padding-right: 2em;
+}
+/* # Content Area
+---------------------------------------------------------------------------------------------------- */
+
+/* ## Evaluate Form
+--------------------------------------------- */
+
+section[aria-labelledby="evalue-header"] > h2,
+section[aria-labelledby="evalue-header"] > form {
+    margin: 0 auto;
+    max-width: 90%;
+}
+section[aria-labelledby="evalue-header"] {
+    background-color: #012f89;
+}
+
+/* ## Main Content Area
+--------------------------------------------- */
+
+#main-content {
+    margin: 0 auto;
+    max-width: 90%;
+}
+/* # Site Footer
+---------------------------------------------------------------------------------------------------- */
+
+.rodape {
+    background-color: #be2a2c;
+}
+.rodape nav {
+    margin: 0 auto;
+    max-width: 90%;
+}
+
+/* # Media Queries
+---------------------------------------------------------------------------------------------------- */
+
+/* ## Tablet
+--------------------------------------------- */
+
+@media only screen and (min-width: 640px) {
+    header nav,
+    section[aria-labelledby="evalue-header"] > h2,
+    section[aria-labelledby="evalue-header"] > form,
+    #main-content,
+    .rodape nav {
+        max-width: 80%;
+    }
+}
+
+/* ## Small Desktops and Laptops
+--------------------------------------------- */
+
+@media only screen and (min-width: 880px) {
+    header nav,
+    section[aria-labelledby="evalue-header"] > h2,
+    section[aria-labelledby="evalue-header"] > form,
+    #main-content,
+    .rodape nav {
+        max-width: 75%;
+    }
+}
+
+/* ## Medium and Large Desktops and Laptops
+--------------------------------------------- */
+
+@media only screen and (min-width: 1024px) {
+    header nav,
+    section[aria-labelledby="evalue-header"] > h2,
+    section[aria-labelledby="evalue-header"] > form,
+    #main-content,
+    .rodape nav {
+        max-width: 1024px;
+    }
+}
