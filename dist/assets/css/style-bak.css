@@ -1,0 +1,330 @@
+/*!
+ * mota-evaluador v0.1.0
+ * Evaluador de Transparencia Activa en Colombia - Iniciativa MOTA
+ * (c) 2019 
+ * MIT License
+ * https://github.com/Dejusticia/mota-evaluador-publico
+ */
+
+/* # Table of Contents
+- Defaults
+	- Typographic Elements
+- Structure and Layout
+	- Site Containers
+- Skip Links
+- Site Header
+	- Title Area
+- Site Navigation
+	- Accessible Menu
+	- Site Header Navigation
+	- Primary and Secondary Navigation
+	- Responsive Navigation
+- Content Area
+- Site Footer
+- Media Queries
+	- Max-width: 1280px
+	- Max-width: 1023px
+	- Max-width: 880px
+
+/* # Defaults
+---------------------------------------------------------------------------------------------------- */
+/* ## Typographic Elements
+--------------------------------------------- */
+/* line 26, src/assets/sass/style-bak.css */
+html {
+  font-size: 62.5%;
+  /* 10px browser default */
+}
+
+/* Chrome fix */
+/* line 30, src/assets/sass/style-bak.css */
+body > div {
+  font-size: 1.8rem;
+}
+
+/* line 33, src/assets/sass/style-bak.css */
+body {
+  color: #333;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 1.8rem;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /*! font-size: 2rem; */
+}
+
+/* ## Headings
+--------------------------------------------- */
+/* line 45, src/assets/sass/style-bak.css */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* ## Screen Reader Text
+--------------------------------------------- */
+/* line 59, src/assets/sass/style-bak.css */
+.screen-reader-text,
+.screen-reader-text span,
+.screen-reader-shortcut {
+  position: absolute !important;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  width: 1px;
+  border: 0;
+  overflow: hidden;
+}
+
+/* line 70, src/assets/sass/style-bak.css */
+.screen-reader-text:focus,
+.screen-reader-shortcut:focus,
+.genesis-nav-menu .search input[type="submit"]:focus,
+.widget_search input[type="submit"]:focus {
+  clip: auto !important;
+  height: auto;
+  width: auto;
+  display: block;
+  font-size: 1em;
+  font-weight: bold;
+  padding: 15px 23px 14px;
+  color: #333;
+  background: #fff;
+  z-index: 100000;
+  /* Above WP toolbar. */
+  text-decoration: none;
+  -webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+          box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+}
+
+/* line 88, src/assets/sass/style-bak.css */
+.more-link {
+  position: relative;
+}
+
+/* # Structure and Layout
+---------------------------------------------------------------------------------------------------- */
+/* ## Site Containers
+--------------------------------------------- */
+/* # Skip Links
+---------------------------------------------------------------------------------------------------- */
+/* line 101, src/assets/sass/style-bak.css */
+.skip-link {
+  margin: 0;
+}
+
+/* line 105, src/assets/sass/style-bak.css */
+.skip-link li {
+  height: 0;
+  width: 0;
+  list-style: none;
+}
+
+/* Display outline on focus */
+/* line 112, src/assets/sass/style-bak.css */
+:focus {
+  color: #333;
+  outline: #ccc solid 1px;
+}
+
+/* # Site Header
+---------------------------------------------------------------------------------------------------- */
+/* ## Title Area
+--------------------------------------------- */
+/* # Site Navigation
+---------------------------------------------------------------------------------------------------- */
+/* ## Accessible Menu
+--------------------------------------------- */
+/* ## Site Header Navigation
+--------------------------------------------- */
+/* line 132, src/assets/sass/style-bak.css */
+header {
+  background-color: #fccc11;
+}
+
+/* line 135, src/assets/sass/style-bak.css */
+header nav {
+  margin: 0 auto;
+  max-width: 90%;
+}
+
+/* line 139, src/assets/sass/style-bak.css */
+ul[role="menubar"] {
+  margin: 0 auto;
+  padding: 0;
+  font-size: 110%;
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+/* line 148, src/assets/sass/style-bak.css */
+ul[role="menubar"] [role="menuitem"],
+ul[role="menubar"] [role="separator"] {
+  padding: 0.25em;
+  background-color: transparent;
+}
+
+/* line 154, src/assets/sass/style-bak.css */
+ul[role="menubar"] [role="separator"] {
+  padding-top: 0.15em;
+  background-image: url("../img/separator.png");
+  background-position: center;
+  background-repeat: repeat-x;
+}
+
+/* line 161, src/assets/sass/style-bak.css */
+ul[role="menubar"] [role="menuitem"]:focus,
+ul[role="menubar"] [role="menuitem"]:hover,
+ul[role="menubar"] [role="separator"]:focus,
+ul[role="menubar"] [role="separator"]:hover {
+  background-color: black;
+  color: white;
+}
+
+/* line 169, src/assets/sass/style-bak.css */
+ul[role="menubar"] a[role="menuitem"] {
+  text-decoration: none;
+  color: black;
+}
+
+/* line 174, src/assets/sass/style-bak.css */
+ul[role="menubar"] li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 180, src/assets/sass/style-bak.css */
+ul[role="menubar"] > li,
+ul[role="menubar"] h1 {
+  display: inline-block;
+  font-size: 1em;
+  position: relative;
+}
+
+/* line 186, src/assets/sass/style-bak.css */
+ul[role="menubar"] h1 {
+  margin: 0;
+}
+
+/* line 190, src/assets/sass/style-bak.css */
+ul[role="menubar"] > li.has-submenu > a::after {
+  content: url("../img/svg/caret-down-12px.svg");
+  padding-left: 0.25em;
+}
+
+/* line 195, src/assets/sass/style-bak.css */
+ul[role="menubar"] > li.has-submenu > a::after {
+  content: url("../img/svg/caret-down-yellow-12px.svg");
+  padding-left: 0.25em;
+}
+
+/* line 200, src/assets/sass/style-bak.css */
+ul[role="menubar"] ul[role="menu"] {
+  display: none;
+  position: absolute;
+  top: -2px;
+  left: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 209, src/assets/sass/style-bak.css */
+ul[role="menubar"] ul[role="menu"] li a {
+  display: block;
+  width: 10em;
+}
+
+/* line 214, src/assets/sass/style-bak.css */
+ul[role="menubar"] ul[role="menu"] a[aria-haspopup="true"]::after {
+  content: url("../images/right-arrow-brown.png");
+  padding-right: 2em;
+}
+
+/* # Content Area
+---------------------------------------------------------------------------------------------------- */
+/* ## Evaluate Form
+--------------------------------------------- */
+/* line 224, src/assets/sass/style-bak.css */
+section[aria-labelledby="evalue-header"] > h2,
+section[aria-labelledby="evalue-header"] > form {
+  margin: 0 auto;
+  max-width: 90%;
+}
+
+/* line 229, src/assets/sass/style-bak.css */
+section[aria-labelledby="evalue-header"] {
+  background-color: #012f89;
+}
+
+/* ## Main Content Area
+--------------------------------------------- */
+/* line 236, src/assets/sass/style-bak.css */
+#main-content {
+  margin: 0 auto;
+  max-width: 90%;
+}
+
+/* # Site Footer
+---------------------------------------------------------------------------------------------------- */
+/* line 243, src/assets/sass/style-bak.css */
+.rodape {
+  background-color: #be2a2c;
+}
+
+/* line 246, src/assets/sass/style-bak.css */
+.rodape nav {
+  margin: 0 auto;
+  max-width: 90%;
+}
+
+/* # Media Queries
+---------------------------------------------------------------------------------------------------- */
+/* ## Tablet
+--------------------------------------------- */
+@media only screen and (min-width: 640px) {
+  /* line 258, src/assets/sass/style-bak.css */
+  header nav,
+  section[aria-labelledby="evalue-header"] > h2,
+  section[aria-labelledby="evalue-header"] > form,
+  #main-content,
+  .rodape nav {
+    max-width: 80%;
+  }
+}
+
+/* ## Small Desktops and Laptops
+--------------------------------------------- */
+@media only screen and (min-width: 880px) {
+  /* line 271, src/assets/sass/style-bak.css */
+  header nav,
+  section[aria-labelledby="evalue-header"] > h2,
+  section[aria-labelledby="evalue-header"] > form,
+  #main-content,
+  .rodape nav {
+    max-width: 75%;
+  }
+}
+
+/* ## Medium and Large Desktops and Laptops
+--------------------------------------------- */
+@media only screen and (min-width: 1024px) {
+  /* line 284, src/assets/sass/style-bak.css */
+  header nav,
+  section[aria-labelledby="evalue-header"] > h2,
+  section[aria-labelledby="evalue-header"] > form,
+  #main-content,
+  .rodape nav {
+    max-width: 1024px;
+  }
+}
