@@ -97,9 +97,7 @@ h6 {
 
 /* line 81, src/assets/sass/style.css */
 .screen-reader-text:focus,
-.screen-reader-shortcut:focus,
-.genesis-nav-menu .search input[type="submit"]:focus,
-.widget_search input[type="submit"]:focus {
+.screen-reader-shortcut:focus {
   clip: auto !important;
   height: auto;
   width: auto;
@@ -116,14 +114,14 @@ h6 {
           box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
 }
 
-/* line 99, src/assets/sass/style.css */
+/* line 97, src/assets/sass/style.css */
 .more-link {
   position: relative;
 }
 
 /* ## Buttons
 --------------------------------------------- */
-/* line 106, src/assets/sass/style.css */
+/* line 104, src/assets/sass/style.css */
 .mdc-button {
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -158,14 +156,14 @@ h6 {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-/* line 134, src/assets/sass/style.css */
+/* line 132, src/assets/sass/style.css */
 .mdc-button:hover {
   cursor: pointer;
   background-color: #222;
   color: #fcfcfc;
 }
 
-/* line 139, src/assets/sass/style.css */
+/* line 137, src/assets/sass/style.css */
 .mdc-button::before, .mdc-button::after {
   position: absolute;
   border-radius: 50%;
@@ -174,33 +172,33 @@ h6 {
   content: "";
 }
 
-/* line 146, src/assets/sass/style.css */
+/* line 144, src/assets/sass/style.css */
 .mdc-button::before {
   -webkit-transition: opacity 15ms linear, background-color 15ms linear;
   transition: opacity 15ms linear, background-color 15ms linear;
   z-index: 1;
 }
 
-/* line 152, src/assets/sass/style.css */
+/* line 150, src/assets/sass/style.css */
 .mdc-button--raised,
 .mdc-button--unelevated {
   padding: 0 16px;
 }
 
-/* line 157, src/assets/sass/style.css */
+/* line 155, src/assets/sass/style.css */
 .mdc-button--raised::before, .mdc-button--raised::after,
 .mdc-button--unelevated::before,
 .mdc-button--unelevated::after {
   background-color: #fff;
 }
 
-/* line 163, src/assets/sass/style.css */
+/* line 161, src/assets/sass/style.css */
 .mdc-button--raised:hover::before,
 .mdc-button--unelevated:hover::before {
   opacity: 0.08;
 }
 
-/* line 167, src/assets/sass/style.css */
+/* line 165, src/assets/sass/style.css */
 .mdc-button--raised:not(.mdc-ripple-upgraded):focus::before, .mdc-button--raised.mdc-ripple-upgraded--background-focused::before,
 .mdc-button--unelevated:not(.mdc-ripple-upgraded):focus::before,
 .mdc-button--unelevated.mdc-ripple-upgraded--background-focused::before {
@@ -209,18 +207,86 @@ h6 {
   opacity: 0.24;
 }
 
+/* ## Meter Element
+--------------------------------------------- */
+/* line 177, src/assets/sass/style.css */
+meter {
+  /* For Firefox */
+  background: #EEE;
+  -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2) inset;
+          box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2) inset;
+  border-radius: 3px;
+}
+
+/* line 184, src/assets/sass/style.css */
+meter::-moz-meter-bar {
+  border-radius: 3px;
+}
+
+/* line 188, src/assets/sass/style.css */
+meter:-moz-meter-optimum::-moz-meter-bar {
+  background: #86CC00;
+}
+
+/* line 192, src/assets/sass/style.css */
+meter:-moz-meter-sub-optimum::-moz-meter-bar {
+  background: #FFDB1A;
+}
+
+/* line 196, src/assets/sass/style.css */
+meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
+  background: #CC4600;
+}
+
+/* line 200, src/assets/sass/style.css */
+meter::-webkit-meter-bar {
+  background: #EEE;
+  -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2) inset;
+          box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2) inset;
+  border-radius: 3px;
+}
+
+/* line 206, src/assets/sass/style.css */
+meter::-webkit-meter-optimum-value {
+  background: #86CC00;
+  /* Green */
+  border-radius: 3px;
+}
+
+/* line 211, src/assets/sass/style.css */
+meter::-webkit-meter-suboptimum-value {
+  background: #FFDB1A;
+  /* Yellow */
+  border-radius: 3px;
+}
+
+/* line 216, src/assets/sass/style.css */
+meter::-webkit-meter-even-less-good-value {
+  background: #CC4600;
+  /* Red */
+  border-radius: 3px;
+}
+
+/* ## Forms and Forms Elements (input, textarea, etc)
+--------------------------------------------- */
+/* line 224, src/assets/sass/style.css */
+input {
+  -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2) inset;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2) inset;
+}
+
 /* # Structure and Layout
 ---------------------------------------------------------------------------------------------------- */
 /* ## Site Containers
 --------------------------------------------- */
 /* # Skip Links
 ---------------------------------------------------------------------------------------------------- */
-/* line 185, src/assets/sass/style.css */
+/* line 239, src/assets/sass/style.css */
 .skip-link {
   margin: 0;
 }
 
-/* line 189, src/assets/sass/style.css */
+/* line 243, src/assets/sass/style.css */
 .skip-link li {
   height: 0;
   width: 0;
@@ -228,7 +294,7 @@ h6 {
 }
 
 /* Display outline on focus */
-/* line 196, src/assets/sass/style.css */
+/* line 250, src/assets/sass/style.css */
 :focus {
   color: #333;
   outline: #ccc solid 1px;
@@ -244,18 +310,18 @@ h6 {
 --------------------------------------------- */
 /* ## Site Header Navigation
 --------------------------------------------- */
-/* line 216, src/assets/sass/style.css */
+/* line 270, src/assets/sass/style.css */
 header {
   background-color: #fccc11;
 }
 
-/* line 219, src/assets/sass/style.css */
+/* line 273, src/assets/sass/style.css */
 header nav {
   margin: 0 auto;
   max-width: 95%;
 }
 
-/* line 223, src/assets/sass/style.css */
+/* line 277, src/assets/sass/style.css */
 ul[role="menubar"] {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -272,14 +338,14 @@ ul[role="menubar"] {
   padding: 0;
 }
 
-/* line 234, src/assets/sass/style.css */
+/* line 288, src/assets/sass/style.css */
 ul[role="menubar"] [role="menuitem"],
 ul[role="menubar"] [role="separator"] {
   padding: 0.25em;
   background-color: transparent;
 }
 
-/* line 240, src/assets/sass/style.css */
+/* line 294, src/assets/sass/style.css */
 ul[role="menubar"] [role="separator"] {
   padding-top: 0.15em;
   background-image: url("../img/separator.png");
@@ -287,7 +353,7 @@ ul[role="menubar"] [role="separator"] {
   background-repeat: repeat-x;
 }
 
-/* line 247, src/assets/sass/style.css */
+/* line 301, src/assets/sass/style.css */
 ul[role="menubar"] [role="menuitem"]:focus,
 ul[role="menubar"] [role="menuitem"]:hover,
 ul[role="menubar"] [role="separator"]:focus,
@@ -296,20 +362,20 @@ ul[role="menubar"] [role="separator"]:hover {
   color: white;
 }
 
-/* line 255, src/assets/sass/style.css */
+/* line 309, src/assets/sass/style.css */
 ul[role="menubar"] a[role="menuitem"] {
   text-decoration: none;
   color: black;
 }
 
-/* line 260, src/assets/sass/style.css */
+/* line 314, src/assets/sass/style.css */
 ul[role="menubar"] li {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-/* line 266, src/assets/sass/style.css */
+/* line 320, src/assets/sass/style.css */
 ul[role="menubar"] > li,
 ul[role="menubar"] h1 {
   display: inline-block;
@@ -318,24 +384,24 @@ ul[role="menubar"] h1 {
   text-align: center;
 }
 
-/* line 273, src/assets/sass/style.css */
+/* line 327, src/assets/sass/style.css */
 ul[role="menubar"] h1 {
   margin: 0;
 }
 
-/* line 277, src/assets/sass/style.css */
+/* line 331, src/assets/sass/style.css */
 ul[role="menubar"] > li.has-submenu > a::after {
   content: url("../img/svg/caret-down-12px.svg");
   padding-left: 0.25em;
 }
 
-/* line 282, src/assets/sass/style.css */
+/* line 336, src/assets/sass/style.css */
 ul[role="menubar"] > li.has-submenu > a::after {
   content: url("../img/svg/caret-down-yellow-12px.svg");
   padding-left: 0.25em;
 }
 
-/* line 287, src/assets/sass/style.css */
+/* line 341, src/assets/sass/style.css */
 ul[role="menubar"] ul[role="menu"] {
   display: none;
   position: absolute;
@@ -345,13 +411,13 @@ ul[role="menubar"] ul[role="menu"] {
   padding: 0;
 }
 
-/* line 296, src/assets/sass/style.css */
+/* line 350, src/assets/sass/style.css */
 ul[role="menubar"] ul[role="menu"] li a {
   display: block;
   width: 10em;
 }
 
-/* line 301, src/assets/sass/style.css */
+/* line 355, src/assets/sass/style.css */
 ul[role="menubar"] ul[role="menu"] a[aria-haspopup="true"]::after {
   content: url("../images/right-arrow-brown.png");
   padding-right: 2em;
@@ -361,7 +427,7 @@ ul[role="menubar"] ul[role="menu"] a[aria-haspopup="true"]::after {
 ---------------------------------------------------------------------------------------------------- */
 /* ## Evaluate Form
 --------------------------------------------- */
-/* line 311, src/assets/sass/style.css */
+/* line 365, src/assets/sass/style.css */
 section[aria-labelledby="evalue-header"] > h2,
 section[aria-labelledby="evalue-header"] > form {
   margin: 0 auto;
@@ -369,7 +435,7 @@ section[aria-labelledby="evalue-header"] > form {
   padding: 2rem 0;
 }
 
-/* line 317, src/assets/sass/style.css */
+/* line 371, src/assets/sass/style.css */
 section[aria-labelledby="evalue-header"] {
   background-color: #012f89;
   color: #efefef;
@@ -379,19 +445,19 @@ section[aria-labelledby="evalue-header"] {
 
 /* ## Main Content Area
 --------------------------------------------- */
-/* line 327, src/assets/sass/style.css */
+/* line 381, src/assets/sass/style.css */
 .main-content {
   margin: 0 auto;
   max-width: 90%;
   padding: 2rem 0;
 }
 
-/* line 333, src/assets/sass/style.css */
+/* line 387, src/assets/sass/style.css */
 .main-content section {
   padding: 2rem 0;
 }
 
-/* line 337, src/assets/sass/style.css */
+/* line 391, src/assets/sass/style.css */
 .main-content h2,
 .main-content h3,
 .main-content h4 {
@@ -399,25 +465,25 @@ section[aria-labelledby="evalue-header"] {
   padding-bottom: 1rem;
 }
 
-/* line 344, src/assets/sass/style.css */
+/* line 398, src/assets/sass/style.css */
 .main-content details {
   padding: 1rem 1rem 2rem 1rem;
   border-bottom: 1px dashed #ccc;
 }
 
-/* line 348, src/assets/sass/style.css */
+/* line 402, src/assets/sass/style.css */
 .main-content details:nth-of-type(even) {
   background-color: #fafafa;
 }
 
 /* # Site Footer
 ---------------------------------------------------------------------------------------------------- */
-/* line 355, src/assets/sass/style.css */
+/* line 409, src/assets/sass/style.css */
 .rodape {
   background-color: #be2a2c;
 }
 
-/* line 358, src/assets/sass/style.css */
+/* line 412, src/assets/sass/style.css */
 .rodape nav {
   margin: 0 auto;
   max-width: 90%;
@@ -427,154 +493,182 @@ section[aria-labelledby="evalue-header"] {
 ---------------------------------------------------------------------------------------------------- */
 /* ## elevantions from Material Design. See https://material-components.github.io/material-components-web-catalog/#/component/elevation
 --------------------------------------------- */
-/* line 368, src/assets/sass/style.css */
+/* line 422, src/assets/sass/style.css */
 .mdc-elevation--z0 {
   -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
 }
 
-/* line 373, src/assets/sass/style.css */
+/* line 427, src/assets/sass/style.css */
 .mdc-elevation--z1 {
   -webkit-box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
 }
 
-/* line 378, src/assets/sass/style.css */
+/* line 432, src/assets/sass/style.css */
 .mdc-elevation--z2 {
   -webkit-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 }
 
-/* line 383, src/assets/sass/style.css */
+/* line 437, src/assets/sass/style.css */
 .mdc-elevation--z3 {
   -webkit-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
 }
 
-/* line 388, src/assets/sass/style.css */
+/* line 442, src/assets/sass/style.css */
 .mdc-elevation--z4 {
   -webkit-box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 }
 
-/* line 393, src/assets/sass/style.css */
+/* line 447, src/assets/sass/style.css */
 .mdc-elevation--z5 {
   -webkit-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
 }
 
-/* line 398, src/assets/sass/style.css */
+/* line 452, src/assets/sass/style.css */
 .mdc-elevation--z6 {
   -webkit-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
 }
 
-/* line 403, src/assets/sass/style.css */
+/* line 457, src/assets/sass/style.css */
 .mdc-elevation--z7 {
   -webkit-box-shadow: 0px 4px 5px -2px rgba(0, 0, 0, 0.2), 0px 7px 10px 1px rgba(0, 0, 0, 0.14), 0px 2px 16px 1px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 4px 5px -2px rgba(0, 0, 0, 0.2), 0px 7px 10px 1px rgba(0, 0, 0, 0.14), 0px 2px 16px 1px rgba(0, 0, 0, 0.12);
 }
 
-/* line 408, src/assets/sass/style.css */
+/* line 462, src/assets/sass/style.css */
 .mdc-elevation--z8 {
   -webkit-box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
 }
 
-/* line 413, src/assets/sass/style.css */
+/* line 467, src/assets/sass/style.css */
 .mdc-elevation--z9 {
   -webkit-box-shadow: 0px 5px 6px -3px rgba(0, 0, 0, 0.2), 0px 9px 12px 1px rgba(0, 0, 0, 0.14), 0px 3px 16px 2px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 5px 6px -3px rgba(0, 0, 0, 0.2), 0px 9px 12px 1px rgba(0, 0, 0, 0.14), 0px 3px 16px 2px rgba(0, 0, 0, 0.12);
 }
 
-/* line 418, src/assets/sass/style.css */
+/* line 472, src/assets/sass/style.css */
 .mdc-elevation--z10 {
   -webkit-box-shadow: 0px 6px 6px -3px rgba(0, 0, 0, 0.2), 0px 10px 14px 1px rgba(0, 0, 0, 0.14), 0px 4px 18px 3px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 6px 6px -3px rgba(0, 0, 0, 0.2), 0px 10px 14px 1px rgba(0, 0, 0, 0.14), 0px 4px 18px 3px rgba(0, 0, 0, 0.12);
 }
 
-/* line 423, src/assets/sass/style.css */
+/* line 477, src/assets/sass/style.css */
 .mdc-elevation--z11 {
   -webkit-box-shadow: 0px 6px 7px -4px rgba(0, 0, 0, 0.2), 0px 11px 15px 1px rgba(0, 0, 0, 0.14), 0px 4px 20px 3px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 6px 7px -4px rgba(0, 0, 0, 0.2), 0px 11px 15px 1px rgba(0, 0, 0, 0.14), 0px 4px 20px 3px rgba(0, 0, 0, 0.12);
 }
 
-/* line 428, src/assets/sass/style.css */
+/* line 482, src/assets/sass/style.css */
 .mdc-elevation--z12 {
   -webkit-box-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2), 0px 12px 17px 2px rgba(0, 0, 0, 0.14), 0px 5px 22px 4px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2), 0px 12px 17px 2px rgba(0, 0, 0, 0.14), 0px 5px 22px 4px rgba(0, 0, 0, 0.12);
 }
 
-/* line 433, src/assets/sass/style.css */
+/* line 487, src/assets/sass/style.css */
 .mdc-elevation--z13 {
   -webkit-box-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2), 0px 13px 19px 2px rgba(0, 0, 0, 0.14), 0px 5px 24px 4px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2), 0px 13px 19px 2px rgba(0, 0, 0, 0.14), 0px 5px 24px 4px rgba(0, 0, 0, 0.12);
 }
 
-/* line 438, src/assets/sass/style.css */
+/* line 492, src/assets/sass/style.css */
 .mdc-elevation--z14 {
   -webkit-box-shadow: 0px 7px 9px -4px rgba(0, 0, 0, 0.2), 0px 14px 21px 2px rgba(0, 0, 0, 0.14), 0px 5px 26px 4px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 7px 9px -4px rgba(0, 0, 0, 0.2), 0px 14px 21px 2px rgba(0, 0, 0, 0.14), 0px 5px 26px 4px rgba(0, 0, 0, 0.12);
 }
 
-/* line 443, src/assets/sass/style.css */
+/* line 497, src/assets/sass/style.css */
 .mdc-elevation--z15 {
   -webkit-box-shadow: 0px 8px 9px -5px rgba(0, 0, 0, 0.2), 0px 15px 22px 2px rgba(0, 0, 0, 0.14), 0px 6px 28px 5px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 8px 9px -5px rgba(0, 0, 0, 0.2), 0px 15px 22px 2px rgba(0, 0, 0, 0.14), 0px 6px 28px 5px rgba(0, 0, 0, 0.12);
 }
 
-/* line 448, src/assets/sass/style.css */
+/* line 502, src/assets/sass/style.css */
 .mdc-elevation--z16 {
   -webkit-box-shadow: 0px 8px 10px -5px rgba(0, 0, 0, 0.2), 0px 16px 24px 2px rgba(0, 0, 0, 0.14), 0px 6px 30px 5px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 8px 10px -5px rgba(0, 0, 0, 0.2), 0px 16px 24px 2px rgba(0, 0, 0, 0.14), 0px 6px 30px 5px rgba(0, 0, 0, 0.12);
 }
 
-/* line 453, src/assets/sass/style.css */
+/* line 507, src/assets/sass/style.css */
 .mdc-elevation--z17 {
   -webkit-box-shadow: 0px 8px 11px -5px rgba(0, 0, 0, 0.2), 0px 17px 26px 2px rgba(0, 0, 0, 0.14), 0px 6px 32px 5px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 8px 11px -5px rgba(0, 0, 0, 0.2), 0px 17px 26px 2px rgba(0, 0, 0, 0.14), 0px 6px 32px 5px rgba(0, 0, 0, 0.12);
 }
 
-/* line 458, src/assets/sass/style.css */
+/* line 512, src/assets/sass/style.css */
 .mdc-elevation--z18 {
   -webkit-box-shadow: 0px 9px 11px -5px rgba(0, 0, 0, 0.2), 0px 18px 28px 2px rgba(0, 0, 0, 0.14), 0px 7px 34px 6px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 9px 11px -5px rgba(0, 0, 0, 0.2), 0px 18px 28px 2px rgba(0, 0, 0, 0.14), 0px 7px 34px 6px rgba(0, 0, 0, 0.12);
 }
 
-/* line 463, src/assets/sass/style.css */
+/* line 517, src/assets/sass/style.css */
 .mdc-elevation--z19 {
   -webkit-box-shadow: 0px 9px 12px -6px rgba(0, 0, 0, 0.2), 0px 19px 29px 2px rgba(0, 0, 0, 0.14), 0px 7px 36px 6px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 9px 12px -6px rgba(0, 0, 0, 0.2), 0px 19px 29px 2px rgba(0, 0, 0, 0.14), 0px 7px 36px 6px rgba(0, 0, 0, 0.12);
 }
 
-/* line 468, src/assets/sass/style.css */
+/* line 522, src/assets/sass/style.css */
 .mdc-elevation--z20 {
   -webkit-box-shadow: 0px 10px 13px -6px rgba(0, 0, 0, 0.2), 0px 20px 31px 3px rgba(0, 0, 0, 0.14), 0px 8px 38px 7px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 10px 13px -6px rgba(0, 0, 0, 0.2), 0px 20px 31px 3px rgba(0, 0, 0, 0.14), 0px 8px 38px 7px rgba(0, 0, 0, 0.12);
 }
 
-/* line 473, src/assets/sass/style.css */
+/* line 527, src/assets/sass/style.css */
 .mdc-elevation--z21 {
   -webkit-box-shadow: 0px 10px 13px -6px rgba(0, 0, 0, 0.2), 0px 21px 33px 3px rgba(0, 0, 0, 0.14), 0px 8px 40px 7px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 10px 13px -6px rgba(0, 0, 0, 0.2), 0px 21px 33px 3px rgba(0, 0, 0, 0.14), 0px 8px 40px 7px rgba(0, 0, 0, 0.12);
 }
 
-/* line 478, src/assets/sass/style.css */
+/* line 532, src/assets/sass/style.css */
 .mdc-elevation--z22 {
   -webkit-box-shadow: 0px 10px 14px -6px rgba(0, 0, 0, 0.2), 0px 22px 35px 3px rgba(0, 0, 0, 0.14), 0px 8px 42px 7px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 10px 14px -6px rgba(0, 0, 0, 0.2), 0px 22px 35px 3px rgba(0, 0, 0, 0.14), 0px 8px 42px 7px rgba(0, 0, 0, 0.12);
 }
 
-/* line 483, src/assets/sass/style.css */
+/* line 537, src/assets/sass/style.css */
 .mdc-elevation--z23 {
   -webkit-box-shadow: 0px 11px 14px -7px rgba(0, 0, 0, 0.2), 0px 23px 36px 3px rgba(0, 0, 0, 0.14), 0px 9px 44px 8px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 11px 14px -7px rgba(0, 0, 0, 0.2), 0px 23px 36px 3px rgba(0, 0, 0, 0.14), 0px 9px 44px 8px rgba(0, 0, 0, 0.12);
 }
 
-/* line 488, src/assets/sass/style.css */
+/* line 542, src/assets/sass/style.css */
 .mdc-elevation--z24 {
   -webkit-box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+}
+
+/* ## modifiers
+--------------------------------------------- */
+/* line 550, src/assets/sass/style.css */
+.no-border,
+*.no-border {
+  border: none;
+}
+
+/* line 555, src/assets/sass/style.css */
+.no-padding,
+*.no-padding {
+  padding: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+}
+
+/* line 564, src/assets/sass/style.css */
+.no-margin,
+*.no-margin {
+  margin: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
 }
 
 /* # Media Queries
@@ -586,7 +680,7 @@ section[aria-labelledby="evalue-header"] {
 /* ## Medium and Large Desktops and Laptops
 --------------------------------------------- */
 @media only screen and (min-width: 1024px) {
-  /* line 513, src/assets/sass/style.css */
+  /* line 594, src/assets/sass/style.css */
   header nav,
   section[aria-labelledby="evalue-header"] > h2,
   section[aria-labelledby="evalue-header"] > form,
@@ -594,7 +688,7 @@ section[aria-labelledby="evalue-header"] {
   .rodape nav {
     max-width: 1024px;
   }
-  /* line 520, src/assets/sass/style.css */
+  /* line 601, src/assets/sass/style.css */
   header nav {
     max-width: 1024px;
   }

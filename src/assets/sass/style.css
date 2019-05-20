@@ -79,9 +79,7 @@ h6 {
 }
 
 .screen-reader-text:focus,
-.screen-reader-shortcut:focus,
-.genesis-nav-menu .search input[type="submit"]:focus,
-.widget_search input[type="submit"]:focus  {
+.screen-reader-shortcut:focus  {
 	clip: auto !important;
 	height: auto;
 	width: auto;
@@ -172,6 +170,62 @@ h6 {
           transition-duration: 75ms;
   opacity: 0.24;
 }
+
+/* ## Meter Element
+--------------------------------------------- */
+
+meter {
+    /* For Firefox */
+    background: #EEE;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.2) inset;
+    border-radius: 3px;
+}
+
+meter::-moz-meter-bar {
+    border-radius: 3px;
+}
+
+meter:-moz-meter-optimum::-moz-meter-bar {
+    background: #86CC00;
+}
+
+meter:-moz-meter-sub-optimum::-moz-meter-bar {
+    background: #FFDB1A;
+}
+
+meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
+    background: #CC4600;
+}
+
+meter::-webkit-meter-bar {
+    background: #EEE;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.2) inset;
+    border-radius: 3px;
+}
+
+meter::-webkit-meter-optimum-value {
+    background: #86CC00; /* Green */
+    border-radius: 3px;
+}
+
+meter::-webkit-meter-suboptimum-value {
+    background: #FFDB1A; /* Yellow */
+    border-radius: 3px;
+}
+
+meter::-webkit-meter-even-less-good-value {
+    background: #CC4600; /* Red */
+    border-radius: 3px;
+}
+
+/* ## Forms and Forms Elements (input, textarea, etc)
+--------------------------------------------- */
+
+input {
+  -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2) inset;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2) inset;
+}
+
 
 /* # Structure and Layout
 ---------------------------------------------------------------------------------------------------- */
@@ -489,6 +543,33 @@ section[aria-labelledby="evalue-header"] {
   -webkit-box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
           box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
 }
+
+/* ## modifiers
+--------------------------------------------- */
+
+.no-border,
+*.no-border {
+    border: none;
+}
+
+.no-padding,
+*.no-padding {
+    padding: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+}
+
+.no-margin,
+*.no-margin {
+    margin: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+}
+
 /* # Media Queries
 ---------------------------------------------------------------------------------------------------- */
 
