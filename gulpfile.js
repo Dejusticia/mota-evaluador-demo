@@ -19,7 +19,7 @@ var settings = {
  */
 
 var paths = {
-	input: 'src/assets/',
+	input: ['src/assets/', 'src/copy/'],
 	output: 'dist/',
 	scripts: {
 		input: 'src/assets/js/*',
@@ -38,7 +38,7 @@ var paths = {
 		input: 'src/copy/**/*',
 		output: 'dist/'
 	},
-	reload: './dist/'
+	reload: ['./dist/']
 };
 
 
