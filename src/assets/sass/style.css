@@ -279,7 +279,7 @@ ul[role="menubar"] {
     flex-wrap: wrap;
     font-size: 110%;
     height: 10rem;
-    justify-content: space-between;
+    justify-content: center;
     list-style: none;
     margin: 0 auto;
     padding: 0;
@@ -323,6 +323,9 @@ ul[role="menubar"] h1 {
     font-size: 1.6rem;
     position: relative;
     text-align: center;
+}
+.menubar-logo {
+    flex-basis: 100%;
 }
 ul[role="menubar"] h1 {
     margin: 0;
@@ -373,6 +376,14 @@ section[aria-labelledby="evalue-header"] {
     color: #efefef;
     padding: 2rem 0;
     text-align: center;
+}
+
+#evalue-url {
+    width: 75%;
+}
+section[aria-labelledby="evalue-header"] input[type="submit"] {
+    width: 17%;
+    margin-left: 5%;
 }
 
 /* ## Main Content Area
@@ -577,7 +588,12 @@ section[aria-labelledby="evalue-header"] {
 --------------------------------------------- */
 
 @media only screen and (min-width: 640px) {
-
+  ul[role="menubar"] {
+      justify-content: space-between;
+  }
+  .menubar-logo {
+      flex-basis: initial;
+  }
 }
 
 /* ## Small Desktops and Laptops
