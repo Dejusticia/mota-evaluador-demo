@@ -10,12 +10,16 @@ This project adheres to [Semantic Versioning](http://semver.org/)
 
 ## Unreleased
 
-## [2019-05-17] - 0.1.0
+## [2019-05-22] - 0.2.0
 
 - Improved markup
 - Improved style
-- Added test results
-- Added accessible menu scripts (see https://www.w3.org/TR/wai-aria-practices/examples/menubar/menubar-1/menubar-1.html)
+- Added dummy test reports
+- Added accessible menu scripts (see <https://www.w3.org/TR/wai-aria-practices/examples/menubar/menubar-1/menubar-1.html)>
+- Initial Report Results Logic
+- HTML5 template element Polyfill by Brian Blakely ( see <https://jsfiddle.net/brianblakely/h3EmY/>)
+
+## [2019-05-17] - 0.1.0
 
 ### Added
 - Basic project structure and files;

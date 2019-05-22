@@ -1,68 +1,96 @@
-/* POLYFILL */
+/* HTML5 template element Polyfill. TODO: Test on IE */
 (function templatePolyfill(d) {
-	if ('content' in d.createElement('template')) {
-		return false;
-	}
+    if ('content' in d.createElement('template')) {
+        return false;
+    }
 
-	var qPlates = d.getElementsByTagName('template'),
-		plateLen = qPlates.length,
-		elPlate,
-		qContent,
-		contentLen,
-		docContent;
+    var qPlates = d.getElementsByTagName('template'),
+        plateLen = qPlates.length,
+        elPlate,
+        qContent,
+        contentLen,
+        docContent;
 
-	for (var x = 0; x < plateLen; ++x) {
-		elPlate = qPlates[x];
-		qContent = elPlate.childNodes;
-		contentLen = qContent.length;
-		docContent = d.createDocumentFragment();
+    for (var x = 0; x < plateLen; ++x) {
+        elPlate = qPlates[x];
+        qContent = elPlate.childNodes;
+        contentLen = qContent.length;
+        docContent = d.createDocumentFragment();
 
-		while (qContent[0]) {
-			docContent.appendChild(qContent[0]);
-		}
+        while (qContent[0]) {
+            docContent.appendChild(qContent[0]);
+        }
 
-		elPlate.content = docContent;
-	}
+        elPlate.content = docContent;
+    }
 })(document);
-var container = document.querySelector('.obligaciones-legales.insatisfactorias');
-var ruleset;
-var getRuleset = function(){
-	atomic('http://localhost:3000/rulesets/ruleset-general.json', { responseType: 'json'})
-		.then(function (response) {
-			ruleset = response.data;
-			console.log('success ruleset', ruleset); // xhr.responseText
-			console.log('success full response', response.xhr);  // full response
-			return response.data;
-		})
-		.catch(function (error) {
-			console.log('error code', error.status); // xhr.status
-			console.log('error description', error.statusText); // xhr.statusText
-		});
-}
-var processRuleset = function (ruleset) {
-	var rules = ruleset.rules;
-	// Loop through each of the comments and add them to the comments list.
-	for (var i = 0; i < rules.length; i++) {
-		var rule = rules[i];
-		var tmpl = document.getElementById('template-resultados-criteria').content.cloneNode(true);
-		tmpl.querySelector('summary').innerText = rule.rule;
-		tmpl.querySelector('details p').innerText = rule.shortDescription +  ' <a href="#" class="more-link">Más Informaciones.</a>';
-		tmpl.querySelector('td.resultados-criteria-tipo').innerText = rule.type;
-		container.appendChild(tmpl);
-	}
-};
-var processResults = function(results){
-	var gradeGeneral = grades.general;
-	var gradeGeneralNormalized = grades.generalNormalized;
-	var obligations = grades.obligations;
-	var recommendations = grades.recommendations;
-	// Loop through each of the comments and add them to the comments list.
-	for (var i = 0; i < obligations.length; i++) {
-		var obligation = obligations[i];
-		var tmpl = document.getElementById('template-resultados-criteria').content.cloneNode(true);
-		tmpl.querySelector('.comment-author').innerText = comment.author;
-		tmpl.querySelector('.comment-body').innerText = comment.body;
-		commentsList.appendChild(tmpl);
-	}
-}
+;(function (window, document, undefined) {
+    'use strict';
+    var container, form, input, report, summaryUrlElement, summaryDateElement;
+    var getReport = function () {
+        atomic('http://localhost:3000/reports/report-corteconstitucional-gov-co.json', { responseType: 'json' })
+            .then(function (response) {
+                report = response.data;
+                //console.log('success report', report); // xhr.responseText
+                processReport(report);
+                return report;
+            })
+            .catch(function (error) {
+                console.error('error code', error.status); // xhr.status
+                console.error('error description', error.statusText); // xhr.statusText
+            });
+    };
+    var processReport = function (report) {
+        var rules = report.rules;
+        // Loop through each of the comments and add them to the comments list.
+        summaryUrlElement.innerHTML = '<b>URL:</b>' + report.meta.entityUrl;
+        var summaryDate = report.meta.lastEvaluationDate;
+        summaryDate = summaryDate.replace( 'T', ' - ');
+        summaryDate = summaryDate.substring(0 , summaryDate.length - 6);
+        summaryDateElement.innerHTML = '<b>Fecha de Evaluación:</b>' + summaryDate;
+        for (var i = 0; i < rules.length; i++) {
+            var rule = rules[i];
+            var grade = rule.grade;
+            var gradePoints = '0';
+            var tmpl = document.getElementById('template-resultados-criteria').content.cloneNode(true);
+            var gradeMeter = tmpl.querySelector('.resultados-criteria-grado meter');
+            var gradeLabel = tmpl.querySelector('.resultados-criteria-grado label');
+            if ('AAA' === grade) {
+                gradePoints = 100;
+            } else if ('AA' === grade) {
+                gradePoints = 50;
+            } else if ('A' === grade) {
+                gradePoints = 20;
+            }
+            tmpl.querySelector('summary').innerText = rule.title;
+            tmpl.querySelector('details p').innerHTML = '<p>' + rule.shortDescription + ' <a href="#" class="more-link">Más Informaciones.</a></p>';
+            tmpl.querySelector('td.resultados-criteria-tipo').innerText = rule.type;
+            gradeLabel.innerText = grade;
+            gradeMeter.setAttribute('value', gradePoints);
+            gradeMeter.innerText = gradePoints;
+            container.appendChild(tmpl);
+        }
+    };
+    container = document.querySelector('.obligaciones-legales.insatisfactorias');
+    form = document.getElementById('evalue-form');
+    input = document.getElementById('evalue-url');
+    summaryUrlElement = document.getElementById('resultados-sumario-url');
+    summaryDateElement = document.getElementById('resultados-sumario-fecha');
 
+    //
+    // Methods
+    //
+
+    /**
+     * Handle submit events
+     */
+    var submitHandler = function (event) {
+        event.preventDefault();
+        if ( form === event.target) {
+            getReport();
+        }
+    };
+    // Create a submit handler
+    document.addEventListener('submit', submitHandler, false);
+
+})(window, document);

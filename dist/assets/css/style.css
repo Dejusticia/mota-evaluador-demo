@@ -329,13 +329,13 @@ ul[role="menubar"] {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   font-size: 110%;
-  height: 10rem;
+  height: 5rem;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   list-style: none;
   margin: 0 auto;
-  padding: 0;
+  padding: 1rem 0;
 }
 
 /* line 288, src/assets/sass/style.css */
@@ -718,8 +718,9 @@ section[aria-labelledby="evalue-header"] input[type="submit"] {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
+    height: 3rem;
   }
-  /* line 608, src/assets/sass/style.css */
+  /* line 609, src/assets/sass/style.css */
   .menubar-logo {
     -ms-flex-preferred-size: initial;
         flex-basis: initial;
@@ -728,19 +729,28 @@ section[aria-labelledby="evalue-header"] input[type="submit"] {
 
 /* ## Small Desktops and Laptops
 --------------------------------------------- */
-/* ## Medium and Large Desktops and Laptops
+/* ## Medium Desktops and Laptops
 --------------------------------------------- */
 @media only screen and (min-width: 1024px) {
-  /* line 624, src/assets/sass/style.css */
+  /* line 625, src/assets/sass/style.css */
   header nav,
   section[aria-labelledby="evalue-header"] > h2,
   section[aria-labelledby="evalue-header"] > form,
   .main-content,
   .rodape nav {
-    max-width: 1024px;
+    max-width: 90%;
   }
-  /* line 631, src/assets/sass/style.css */
-  header nav {
+}
+
+/* ## Large Desktops and Laptops
+--------------------------------------------- */
+@media only screen and (min-width: 1200px) {
+  /* line 638, src/assets/sass/style.css */
+  header nav,
+  section[aria-labelledby="evalue-header"] > h2,
+  section[aria-labelledby="evalue-header"] > form,
+  .main-content,
+  .rodape nav {
     max-width: 1024px;
   }
 }
