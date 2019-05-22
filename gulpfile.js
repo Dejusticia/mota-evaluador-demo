@@ -22,7 +22,7 @@ var paths = {
 	input: ['src/assets/', 'src/copy/'],
 	output: 'dist/',
 	scripts: {
-		input: 'src/assets/js/*',
+		input: 'src/assets/js/**/*',
 		polyfills: '.polyfill.js',
 		output: 'dist/assets/js/'
 	},
@@ -35,7 +35,7 @@ var paths = {
 		output: 'dist/assets/img/svg/'
 	},
 	copy: {
-		input: 'src/copy/**/*',
+		input: ['src/copy/**/*'],
 		output: 'dist/'
 	},
 	reload: ['./dist/']

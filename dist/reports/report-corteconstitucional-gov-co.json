@@ -1,0 +1,28 @@
+{
+    "meta": {
+        "Entity Name": "Corte Constitucional",
+        "Root URL": "http://www.corteconstitucional.gov.co",
+        "Last Evaluation Date": "2019-05-21T22:44:57+00:00",
+        "Last Evaluation Epoch": "1558478697",
+        "Protocol Specification": "https://mota.dejusticia.org/specs/mota-active-transparency-specificiation/",
+        "Specification URI": "https://mota.dejusticia.org/specs/colombia-corte-constitucional/",
+        "Sitemap": "http://www.corteconstitucional.gov.co/sitemap.xml",
+        "Transparency Config": "http://www.corteconstitucional.gov.co/transparency.xml"
+    },
+    "grades": {
+        "general": "275",
+        "generalNormalized": "40",
+        "obligations": {
+            "websiteExistence": "A",
+            "freeAccess": "AAA",
+            "estructuraOrganica": "A"
+        },
+        "recommendations": {
+            "universalityDirectAccess": "",
+            "universalidadPatronesDeAcessibilidadeYWebStandards": "",
+            "universalityPerformance": "AAA",
+            "seguridadConexionEncriptada": "A",
+            "dadosAbiertosAcesoViaApiRest": "A"
+        }
+    }
+}

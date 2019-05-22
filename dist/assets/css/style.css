@@ -490,17 +490,37 @@ section[aria-labelledby="evalue-header"] input[type="submit"] {
 
 /* line 413, src/assets/sass/style.css */
 .main-content details:nth-of-type(even) {
-  background-color: #fafafa;
+  background-color: #f3f3f3;
+}
+
+/* line 416, src/assets/sass/style.css */
+.resultados-criteria table {
+  width: 100%;
+  background-color: #cddeff;
+  padding: 1rem;
+  text-align: left;
+}
+
+/* line 422, src/assets/sass/style.css */
+.resultados-criteria thead {
+  background-color: #acc8ff;
+  line-height: 2;
+}
+
+/* line 426, src/assets/sass/style.css */
+.resultados-criteria th,
+.resultados-criteria td {
+  padding-left: 1rem;
 }
 
 /* # Site Footer
 ---------------------------------------------------------------------------------------------------- */
-/* line 420, src/assets/sass/style.css */
+/* line 434, src/assets/sass/style.css */
 .rodape {
   background-color: #be2a2c;
 }
 
-/* line 423, src/assets/sass/style.css */
+/* line 437, src/assets/sass/style.css */
 .rodape nav {
   margin: 0 auto;
   max-width: 90%;
@@ -510,151 +530,151 @@ section[aria-labelledby="evalue-header"] input[type="submit"] {
 ---------------------------------------------------------------------------------------------------- */
 /* ## elevantions from Material Design. See https://material-components.github.io/material-components-web-catalog/#/component/elevation
 --------------------------------------------- */
-/* line 433, src/assets/sass/style.css */
+/* line 447, src/assets/sass/style.css */
 .mdc-elevation--z0 {
   -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
 }
 
-/* line 438, src/assets/sass/style.css */
+/* line 452, src/assets/sass/style.css */
 .mdc-elevation--z1 {
   -webkit-box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
 }
 
-/* line 443, src/assets/sass/style.css */
+/* line 457, src/assets/sass/style.css */
 .mdc-elevation--z2 {
   -webkit-box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 }
 
-/* line 448, src/assets/sass/style.css */
+/* line 462, src/assets/sass/style.css */
 .mdc-elevation--z3 {
   -webkit-box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
 }
 
-/* line 453, src/assets/sass/style.css */
+/* line 467, src/assets/sass/style.css */
 .mdc-elevation--z4 {
   -webkit-box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 }
 
-/* line 458, src/assets/sass/style.css */
+/* line 472, src/assets/sass/style.css */
 .mdc-elevation--z5 {
   -webkit-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
 }
 
-/* line 463, src/assets/sass/style.css */
+/* line 477, src/assets/sass/style.css */
 .mdc-elevation--z6 {
   -webkit-box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
 }
 
-/* line 468, src/assets/sass/style.css */
+/* line 482, src/assets/sass/style.css */
 .mdc-elevation--z7 {
   -webkit-box-shadow: 0px 4px 5px -2px rgba(0, 0, 0, 0.2), 0px 7px 10px 1px rgba(0, 0, 0, 0.14), 0px 2px 16px 1px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 4px 5px -2px rgba(0, 0, 0, 0.2), 0px 7px 10px 1px rgba(0, 0, 0, 0.14), 0px 2px 16px 1px rgba(0, 0, 0, 0.12);
 }
 
-/* line 473, src/assets/sass/style.css */
+/* line 487, src/assets/sass/style.css */
 .mdc-elevation--z8 {
   -webkit-box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
 }
 
-/* line 478, src/assets/sass/style.css */
+/* line 492, src/assets/sass/style.css */
 .mdc-elevation--z9 {
   -webkit-box-shadow: 0px 5px 6px -3px rgba(0, 0, 0, 0.2), 0px 9px 12px 1px rgba(0, 0, 0, 0.14), 0px 3px 16px 2px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 5px 6px -3px rgba(0, 0, 0, 0.2), 0px 9px 12px 1px rgba(0, 0, 0, 0.14), 0px 3px 16px 2px rgba(0, 0, 0, 0.12);
 }
 
-/* line 483, src/assets/sass/style.css */
+/* line 497, src/assets/sass/style.css */
 .mdc-elevation--z10 {
   -webkit-box-shadow: 0px 6px 6px -3px rgba(0, 0, 0, 0.2), 0px 10px 14px 1px rgba(0, 0, 0, 0.14), 0px 4px 18px 3px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 6px 6px -3px rgba(0, 0, 0, 0.2), 0px 10px 14px 1px rgba(0, 0, 0, 0.14), 0px 4px 18px 3px rgba(0, 0, 0, 0.12);
 }
 
-/* line 488, src/assets/sass/style.css */
+/* line 502, src/assets/sass/style.css */
 .mdc-elevation--z11 {
   -webkit-box-shadow: 0px 6px 7px -4px rgba(0, 0, 0, 0.2), 0px 11px 15px 1px rgba(0, 0, 0, 0.14), 0px 4px 20px 3px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 6px 7px -4px rgba(0, 0, 0, 0.2), 0px 11px 15px 1px rgba(0, 0, 0, 0.14), 0px 4px 20px 3px rgba(0, 0, 0, 0.12);
 }
 
-/* line 493, src/assets/sass/style.css */
+/* line 507, src/assets/sass/style.css */
 .mdc-elevation--z12 {
   -webkit-box-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2), 0px 12px 17px 2px rgba(0, 0, 0, 0.14), 0px 5px 22px 4px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2), 0px 12px 17px 2px rgba(0, 0, 0, 0.14), 0px 5px 22px 4px rgba(0, 0, 0, 0.12);
 }
 
-/* line 498, src/assets/sass/style.css */
+/* line 512, src/assets/sass/style.css */
 .mdc-elevation--z13 {
   -webkit-box-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2), 0px 13px 19px 2px rgba(0, 0, 0, 0.14), 0px 5px 24px 4px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2), 0px 13px 19px 2px rgba(0, 0, 0, 0.14), 0px 5px 24px 4px rgba(0, 0, 0, 0.12);
 }
 
-/* line 503, src/assets/sass/style.css */
+/* line 517, src/assets/sass/style.css */
 .mdc-elevation--z14 {
   -webkit-box-shadow: 0px 7px 9px -4px rgba(0, 0, 0, 0.2), 0px 14px 21px 2px rgba(0, 0, 0, 0.14), 0px 5px 26px 4px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 7px 9px -4px rgba(0, 0, 0, 0.2), 0px 14px 21px 2px rgba(0, 0, 0, 0.14), 0px 5px 26px 4px rgba(0, 0, 0, 0.12);
 }
 
-/* line 508, src/assets/sass/style.css */
+/* line 522, src/assets/sass/style.css */
 .mdc-elevation--z15 {
   -webkit-box-shadow: 0px 8px 9px -5px rgba(0, 0, 0, 0.2), 0px 15px 22px 2px rgba(0, 0, 0, 0.14), 0px 6px 28px 5px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 8px 9px -5px rgba(0, 0, 0, 0.2), 0px 15px 22px 2px rgba(0, 0, 0, 0.14), 0px 6px 28px 5px rgba(0, 0, 0, 0.12);
 }
 
-/* line 513, src/assets/sass/style.css */
+/* line 527, src/assets/sass/style.css */
 .mdc-elevation--z16 {
   -webkit-box-shadow: 0px 8px 10px -5px rgba(0, 0, 0, 0.2), 0px 16px 24px 2px rgba(0, 0, 0, 0.14), 0px 6px 30px 5px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 8px 10px -5px rgba(0, 0, 0, 0.2), 0px 16px 24px 2px rgba(0, 0, 0, 0.14), 0px 6px 30px 5px rgba(0, 0, 0, 0.12);
 }
 
-/* line 518, src/assets/sass/style.css */
+/* line 532, src/assets/sass/style.css */
 .mdc-elevation--z17 {
   -webkit-box-shadow: 0px 8px 11px -5px rgba(0, 0, 0, 0.2), 0px 17px 26px 2px rgba(0, 0, 0, 0.14), 0px 6px 32px 5px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 8px 11px -5px rgba(0, 0, 0, 0.2), 0px 17px 26px 2px rgba(0, 0, 0, 0.14), 0px 6px 32px 5px rgba(0, 0, 0, 0.12);
 }
 
-/* line 523, src/assets/sass/style.css */
+/* line 537, src/assets/sass/style.css */
 .mdc-elevation--z18 {
   -webkit-box-shadow: 0px 9px 11px -5px rgba(0, 0, 0, 0.2), 0px 18px 28px 2px rgba(0, 0, 0, 0.14), 0px 7px 34px 6px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 9px 11px -5px rgba(0, 0, 0, 0.2), 0px 18px 28px 2px rgba(0, 0, 0, 0.14), 0px 7px 34px 6px rgba(0, 0, 0, 0.12);
 }
 
-/* line 528, src/assets/sass/style.css */
+/* line 542, src/assets/sass/style.css */
 .mdc-elevation--z19 {
   -webkit-box-shadow: 0px 9px 12px -6px rgba(0, 0, 0, 0.2), 0px 19px 29px 2px rgba(0, 0, 0, 0.14), 0px 7px 36px 6px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 9px 12px -6px rgba(0, 0, 0, 0.2), 0px 19px 29px 2px rgba(0, 0, 0, 0.14), 0px 7px 36px 6px rgba(0, 0, 0, 0.12);
 }
 
-/* line 533, src/assets/sass/style.css */
+/* line 547, src/assets/sass/style.css */
 .mdc-elevation--z20 {
   -webkit-box-shadow: 0px 10px 13px -6px rgba(0, 0, 0, 0.2), 0px 20px 31px 3px rgba(0, 0, 0, 0.14), 0px 8px 38px 7px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 10px 13px -6px rgba(0, 0, 0, 0.2), 0px 20px 31px 3px rgba(0, 0, 0, 0.14), 0px 8px 38px 7px rgba(0, 0, 0, 0.12);
 }
 
-/* line 538, src/assets/sass/style.css */
+/* line 552, src/assets/sass/style.css */
 .mdc-elevation--z21 {
   -webkit-box-shadow: 0px 10px 13px -6px rgba(0, 0, 0, 0.2), 0px 21px 33px 3px rgba(0, 0, 0, 0.14), 0px 8px 40px 7px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 10px 13px -6px rgba(0, 0, 0, 0.2), 0px 21px 33px 3px rgba(0, 0, 0, 0.14), 0px 8px 40px 7px rgba(0, 0, 0, 0.12);
 }
 
-/* line 543, src/assets/sass/style.css */
+/* line 557, src/assets/sass/style.css */
 .mdc-elevation--z22 {
   -webkit-box-shadow: 0px 10px 14px -6px rgba(0, 0, 0, 0.2), 0px 22px 35px 3px rgba(0, 0, 0, 0.14), 0px 8px 42px 7px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 10px 14px -6px rgba(0, 0, 0, 0.2), 0px 22px 35px 3px rgba(0, 0, 0, 0.14), 0px 8px 42px 7px rgba(0, 0, 0, 0.12);
 }
 
-/* line 548, src/assets/sass/style.css */
+/* line 562, src/assets/sass/style.css */
 .mdc-elevation--z23 {
   -webkit-box-shadow: 0px 11px 14px -7px rgba(0, 0, 0, 0.2), 0px 23px 36px 3px rgba(0, 0, 0, 0.14), 0px 9px 44px 8px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 11px 14px -7px rgba(0, 0, 0, 0.2), 0px 23px 36px 3px rgba(0, 0, 0, 0.14), 0px 9px 44px 8px rgba(0, 0, 0, 0.12);
 }
 
-/* line 553, src/assets/sass/style.css */
+/* line 567, src/assets/sass/style.css */
 .mdc-elevation--z24 {
   -webkit-box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
   box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
@@ -662,13 +682,13 @@ section[aria-labelledby="evalue-header"] input[type="submit"] {
 
 /* ## modifiers
 --------------------------------------------- */
-/* line 561, src/assets/sass/style.css */
+/* line 575, src/assets/sass/style.css */
 .no-border,
 *.no-border {
   border: none;
 }
 
-/* line 566, src/assets/sass/style.css */
+/* line 580, src/assets/sass/style.css */
 .no-padding,
 *.no-padding {
   padding: 0;
@@ -678,7 +698,7 @@ section[aria-labelledby="evalue-header"] input[type="submit"] {
   padding-top: 0;
 }
 
-/* line 575, src/assets/sass/style.css */
+/* line 589, src/assets/sass/style.css */
 .no-margin,
 *.no-margin {
   margin: 0;
@@ -693,13 +713,13 @@ section[aria-labelledby="evalue-header"] input[type="submit"] {
 /* ## Tablet
 --------------------------------------------- */
 @media only screen and (min-width: 640px) {
-  /* line 591, src/assets/sass/style.css */
+  /* line 605, src/assets/sass/style.css */
   ul[role="menubar"] {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
   }
-  /* line 594, src/assets/sass/style.css */
+  /* line 608, src/assets/sass/style.css */
   .menubar-logo {
     -ms-flex-preferred-size: initial;
         flex-basis: initial;
@@ -711,7 +731,7 @@ section[aria-labelledby="evalue-header"] input[type="submit"] {
 /* ## Medium and Large Desktops and Laptops
 --------------------------------------------- */
 @media only screen and (min-width: 1024px) {
-  /* line 610, src/assets/sass/style.css */
+  /* line 624, src/assets/sass/style.css */
   header nav,
   section[aria-labelledby="evalue-header"] > h2,
   section[aria-labelledby="evalue-header"] > form,
@@ -719,7 +739,7 @@ section[aria-labelledby="evalue-header"] input[type="submit"] {
   .rodape nav {
     max-width: 1024px;
   }
-  /* line 617, src/assets/sass/style.css */
+  /* line 631, src/assets/sass/style.css */
   header nav {
     max-width: 1024px;
   }

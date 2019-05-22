@@ -194,7 +194,7 @@ meter:-moz-meter-sub-optimum::-moz-meter-bar {
 }
 
 meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
-    background: #CC4600;
+    background: #CC4600;//0,2,3,5
 }
 
 meter::-webkit-meter-bar {
@@ -411,7 +411,21 @@ section[aria-labelledby="evalue-header"] input[type="submit"] {
     border-bottom: 1px dashed #ccc;
 }
 .main-content details:nth-of-type(even) {
-    background-color: #fafafa;
+    background-color: #f3f3f3;
+}
+.resultados-criteria table {
+    width: 100%;
+    background-color: #cddeff;
+    padding: 1rem;
+    text-align: left;
+}
+.resultados-criteria thead {
+    background-color: #acc8ff;
+    line-height: 2;
+}
+.resultados-criteria th,
+.resultados-criteria td {
+    padding-left: 1rem;
 }
 
 /* # Site Footer
