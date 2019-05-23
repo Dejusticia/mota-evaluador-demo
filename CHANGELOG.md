@@ -2,13 +2,26 @@
 
 Project: Evaluador de Transparencia Activa en Colombia - Iniciativa MOTA
 Description: Evaluador de Transparencia Activa en Colombia - Iniciativa MOTA
-Version: 0.1.0
+Version: 0.2.0
 Keywords: transparency, transparencia, transparencia activa, active transparency, monitor, veeduria, Colombia
 
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/)
 
 ## Unreleased
+
+## [2019-05-23] - 0.2.0
+
+### Added
+- Improved markup
+- Improved style
+- Added dummy test reports
+- Added accessible menu scripts (see <https://www.w3.org/TR/wai-aria-practices/examples/menubar/menubar-1/menubar-1.html)>
+- Initial App Logic
+- HTML5 template element Polyfill by Brian Blakely ( see <https://jsfiddle.net/brianblakely/h3EmY/>)
+
+### Changed
+- javascript variables, classes and ids changed to english for easier collaboration;
 
 ## [2019-05-17] - 0.1.0
 
