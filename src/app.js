@@ -1,47 +1,4 @@
-/*!
- * mota-evaluador v0.1.0
- * Evaluador de Transparencia Activa en Colombia - Iniciativa MOTA
- * (c) 2019 
- * MIT License
- * https://github.com/Dejusticia/mota-evaluador-publico
- */
-
-/*  TODO: Test on IE */
-/**
-* HTML5 template element Polyfill by Brian Blakely. See <https://jsfiddle.net/brianblakely/h3EmY/>
-* @param  {object}  d  The document.
-*/
-(function templatePolyfill(d) {
-    if ('content' in d.createElement('template')) {
-        return false;
-    }
-
-    var qPlates = d.getElementsByTagName('template'),
-        plateLen = qPlates.length,
-        elPlate,
-        qContent,
-        contentLen,
-        docContent;
-
-    for (var x = 0; x < plateLen; ++x) {
-        elPlate = qPlates[x];
-        qContent = elPlate.childNodes;
-        contentLen = qContent.length;
-        docContent = d.createDocumentFragment();
-
-        while (qContent[0]) {
-            docContent.appendChild(qContent[0]);
-        }
-
-        elPlate.content = docContent;
-    }
-})(document);
-/*  TODO: Test on IE */
-/**
-* HTML5 template element Polyfill by Brian Blakely. See <https://jsfiddle.net/brianblakely/h3EmY/>
-* @param  {object}  d  The document.
-*/
-
+/*  Don't forget to load utilities.js first */
 /*!
  * Evaluador de Transparencia Activa en Colombia - Iniciativa MOTA 0.2.0
  * Evaluates governmental websites compliances to legal obligations and best practices.
@@ -49,7 +6,6 @@
  * MIT License
  * https://github.com/Dejusticia/mota-evaluador-publico
  */
-
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
         define([], (function () {
@@ -79,27 +35,30 @@
     * @uses Atomic by Chris Ferdinandi. See <https://github.com/cferdinandi/atomic/>
     * @param  {String}  url      The url for retrieving the data from.
     * @param  {Object}  options  An object holding options for this
+    * @return {mixed}  a report on
     */
-    var getReport = function ( url, options ) {
-        var options;
+    var getReport = function ( url ) {
 
-        // Default settings
-        var defaults = {
-            responseType: 'json',
-        };
-        atomic('http://localhost:3000/reports/report-corteconstitucional-gov-co.json', options)
-            .then((function (response) {
+        atomic( url, { responseType: 'json' } )
+            .then(function (response) {
                 report = response.data;
                 //console.log('success report', report); // xhr.responseText
                 processReport(report);
                 return report;
-            }))
-            .catch((function (error) {
+            })
+            .catch(function (error) {
                 console.error('error code', error.status); // xhr.status
                 console.error('error description', error.statusText); // xhr.statusText
-            }));
+            });
     };
+
+    /**
+    * Process report JSON populate reports areas with results markup based on a template.
+    * @uses getReport method {@link #getReport}
+    * @param     {Object}    report    A JSON file with a report.
+    */
     var processReport = function (report) {
+
         //
         // Variables
         //
@@ -111,10 +70,10 @@
         //
 
         /**
-        * Get the index for the listener
-        * @param  {Array}   arr      The listeners for an event
-        * @param  {Array}   listener The listener details
-        * @return {Integer}          The index of the listener
+        * Add the resulting markup to the proper container on the page.
+        * @param  {String}   resultTemplate  The markup for a criteria evaluation result instance.
+        * @param  {String}   grade           The grade for a criteria evaluation result instance.
+        * @param  {String}   ruleType        The type of the rule (obligation or recommendation) for a criteria evaluation result instance.
         */
         var addResult = function (resultTemplate, grade, ruleType) {
             if ('recommendation' === ruleType) {
@@ -197,7 +156,7 @@
     var submitHandler = function (event) {
         event.preventDefault();
         if ( form === event.target) {
-            getReport();
+            getReport( 'http://localhost:3000/reports/report-corteconstitucional-gov-co.json' );
         }
     };
     // Create a submit handler

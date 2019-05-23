@@ -1,4 +1,8 @@
-/* HTML5 template element Polyfill. TODO: Test on IE */
+/*  TODO: Test on IE */
+/**
+* HTML5 template element Polyfill by Brian Blakely. See <https://jsfiddle.net/brianblakely/h3EmY/>
+* @param  {object}  d  The document.
+*/
 (function templatePolyfill(d) {
     if ('content' in d.createElement('template')) {
         return false;
@@ -24,12 +28,58 @@
         elPlate.content = docContent;
     }
 })(document);
-;(function (window, document, undefined) {
+/*  TODO: Test on IE */
+/**
+* HTML5 template element Polyfill by Brian Blakely. See <https://jsfiddle.net/brianblakely/h3EmY/>
+* @param  {object}  d  The document.
+*/
+
+/*!
+ * Evaluador de Transparencia Activa en Colombia - Iniciativa MOTA 0.2.0
+ * Evaluates governmental websites compliances to legal obligations and best practices.
+ * (c) 2019 Celso Bessa
+ * MIT License
+ * https://github.com/Dejusticia/mota-evaluador-publico
+ */
+
+(function (root, factory) {
+    if (typeof define === 'function' && define.amd) {
+        define([], (function () {
+            return factory(root);
+        }));
+    } else if (typeof exports === 'object') {
+        module.exports = factory(root);
+    } else {
+        root.Gumshoe = factory(root);
+    }
+})(typeof global !== 'undefined' ? global : typeof window !== 'undefined' ? window : this, (function (window) {
     'use strict';
+
+    //
+    // Variables
+    //
+
     var obligationsUnsatisfactoryContainer, obligationsPartialContainer, obligationsSatisfactoryContainer, recommendationsUnsatisfactoryContainer, recommendationsPartialContainer, recommendationsSatisfactoryContainer;
     var form, input, report, summaryUrlElement, summaryDateElement;
-    var getReport = function () {
-        atomic('http://localhost:3000/reports/report-corteconstitucional-gov-co.json', { responseType: 'json' })
+
+    //
+    // Methods
+    //
+
+    /**
+    * Retrieves transparency report data from a given url.
+    * @uses Atomic by Chris Ferdinandi. See <https://github.com/cferdinandi/atomic/>
+    * @param  {String}  url      The url for retrieving the data from.
+    * @param  {Object}  options  An object holding options for this
+    */
+    var getReport = function ( url, options ) {
+        var options;
+
+        // Default settings
+        var defaults = {
+            responseType: 'json',
+        };
+        atomic('http://localhost:3000/reports/report-corteconstitucional-gov-co.json', options)
             .then(function (response) {
                 report = response.data;
                 //console.log('success report', report); // xhr.responseText
@@ -42,22 +92,62 @@
             });
     };
     var processReport = function (report) {
+        //
+        // Variables
+        //
         var rules = report.rules;
-        // Loop through each of the comments and add them to the comments list.
-        summaryUrlElement.innerHTML = '<b>URL:</b>' + report.meta.entityUrl;
         var summaryDate = report.meta.lastEvaluationDate;
-        summaryDate = summaryDate.replace( 'T', ' - ');
-        summaryDate = summaryDate.substring(0 , summaryDate.length - 6);
+
+        //
+        // Methods
+        //
+
+        /**
+        * Get the index for the listener
+        * @param  {Array}   arr      The listeners for an event
+        * @param  {Array}   listener The listener details
+        * @return {Integer}          The index of the listener
+        */
+        var addResult = function (resultTemplate, grade, ruleType) {
+            if ('recommendation' === ruleType) {
+                switch (grade) {
+                    case 'AAA':
+                        obligationsSatisfactoryContainer.appendChild(resultTemplate);
+                        break;
+                    case 'AA':
+                        obligationsPartialContainer.appendChild(resultTemplate);
+                        break;
+                    default:
+                        obligationsUnsatisfactoryContainer.appendChild(resultTemplate);
+                }
+            } else {
+                switch (grade) {
+                    case 'AAA':
+                        recommendationsSatisfactoryContainer.appendChild(resultTemplate);
+                        break;
+                    case 'AA':
+                        recommendationsPartialContainer.appendChild(resultTemplate);
+                        break;
+                    default:
+                        recommendationsUnsatisfactoryContainer.appendChild(resultTemplate);
+                }
+            }
+
+        };
+        summaryUrlElement.innerHTML = '<b>URL:</b>' + report.meta.entityUrl;
+        summaryDate = summaryDate.replace('T', ' - ');
+        summaryDate = summaryDate.substring(0, summaryDate.length - 6);
         summaryDateElement.innerHTML = '<b>Fecha de Evaluación:</b>' + summaryDate;
         for (var i = 0; i < rules.length; i++) {
             var rule = rules[i];
             var ruleId = rule.rule;
+            var ruleType = rule.type;
             var grade = rule.grade;
             var gradePoints = '0';
-            var tmpl = document.getElementById('template-results-criteria').content.cloneNode(true);
-            var gradeMeter = tmpl.querySelector('.results-criteria-grade meter');
-            var gradeLabel = tmpl.querySelector('.results-criteria-grade label');
-            var detailsElement = tmpl.querySelector('.results-criteria');
+            var resultTemplate = document.getElementById('template-results-criteria').content.cloneNode(true);
+            var gradeMeter = resultTemplate.querySelector('.results-criteria-grade meter');
+            var gradeLabel = resultTemplate.querySelector('.results-criteria-grade label');
+            var detailsElement = resultTemplate.querySelector('.results-criteria');
             if ('AAA' === grade) {
                 gradePoints = 100;
             } else if ('AA' === grade) {
@@ -65,9 +155,9 @@
             } else if ('A' === grade) {
                 gradePoints = 20;
             }
-            tmpl.querySelector('summary').innerText = rule.title;
-            tmpl.querySelector('details p').innerHTML = '<p>' + rule.shortDescription + ' <a href="#" class="more-link">Más Informaciones.</a></p>';
-            tmpl.querySelector('td.results-criteria-type').innerText = rule.type;
+            resultTemplate.querySelector('summary').innerText = rule.title;
+            resultTemplate.querySelector('details p').innerHTML = '<p>' + rule.shortDescription + ' <a href="#" class="more-link">Más Informaciones.</a></p>';
+            resultTemplate.querySelector('td.results-criteria-type').innerText = ruleType;
             detailsElement.setAttribute( 'id', 'criteria-' + ruleId)
             gradeLabel.innerText = grade;
             gradeLabel.setAttribute('for', 'grade-' + ruleId);
@@ -75,29 +165,7 @@
             gradeMeter.setAttribute('id', 'grade-' + ruleId);
             gradeMeter.setAttribute('name', 'grade-' + ruleId);
             gradeMeter.innerText = gradePoints;
-            if ( 'recommendation' === rule.type ){
-                switch( grade ) {
-                    case 'AAA':
-                        obligationsSatisfactoryContainer.appendChild(tmpl);
-                        break;
-                    case 'AA':
-                        obligationsPartialContainer.appendChild(tmpl);
-                        break;
-                    default:
-                        obligationsUnsatisfactoryContainer.appendChild(tmpl);
-                }
-            } else {
-                switch (grade) {
-                    case 'AAA':
-                        recommendationsSatisfactoryContainer.appendChild(tmpl);
-                        break;
-                    case 'AA':
-                        recommendationsPartialContainer.appendChild(tmpl);
-                        break;
-                    default:
-                        recommendationsUnsatisfactoryContainer.appendChild(tmpl);
-                }
-            }
+            addResult(resultTemplate, grade, ruleType);
         }
     };
     obligationsUnsatisfactoryContainer = document.querySelector('.legal-obligations.unsatisfactory');
@@ -127,4 +195,4 @@
     // Create a submit handler
     document.addEventListener('submit', submitHandler, false);
 
-})(window, document);
+}));
