@@ -6,7 +6,7 @@
  * https://github.com/Dejusticia/mota-evaluador-publico
  */
 
-/* HTML5 template element Polyfill */
+/* HTML5 template element Polyfill. TODO: Test on IE */
 (function templatePolyfill(d) {
     if ('content' in d.createElement('template')) {
         return false;
@@ -34,7 +34,8 @@
 })(document);
 ;(function (window, document, undefined) {
     'use strict';
-    var container, form, input, report, summaryUrlElement, summaryDateElement;
+    var obligationsUnsatisfactoryContainer, obligationsPartialContainer, obligationsSatisfactoryContainer, recommendationsUnsatisfactoryContainer, recommendationsPartialContainer, recommendationsSatisfactoryContainer;
+    var form, input, report, summaryUrlElement, summaryDateElement;
     var getReport = function () {
         atomic('http://localhost:3000/reports/report-corteconstitucional-gov-co.json', { responseType: 'json' })
             .then((function (response) {
@@ -58,11 +59,13 @@
         summaryDateElement.innerHTML = '<b>Fecha de Evaluación:</b>' + summaryDate;
         for (var i = 0; i < rules.length; i++) {
             var rule = rules[i];
+            var ruleId = rule.rule;
             var grade = rule.grade;
             var gradePoints = '0';
-            var tmpl = document.getElementById('template-resultados-criteria').content.cloneNode(true);
-            var gradeMeter = tmpl.querySelector('.resultados-criteria-grado meter');
-            var gradeLabel = tmpl.querySelector('.resultados-criteria-grado label');
+            var tmpl = document.getElementById('template-results-criteria').content.cloneNode(true);
+            var gradeMeter = tmpl.querySelector('.results-criteria-grade meter');
+            var gradeLabel = tmpl.querySelector('.results-criteria-grade label');
+            var detailsElement = tmpl.querySelector('.results-criteria');
             if ('AAA' === grade) {
                 gradePoints = 100;
             } else if ('AA' === grade) {
@@ -72,18 +75,49 @@
             }
             tmpl.querySelector('summary').innerText = rule.title;
             tmpl.querySelector('details p').innerHTML = '<p>' + rule.shortDescription + ' <a href="#" class="more-link">Más Informaciones.</a></p>';
-            tmpl.querySelector('td.resultados-criteria-tipo').innerText = rule.type;
+            tmpl.querySelector('td.results-criteria-type').innerText = rule.type;
+            detailsElement.setAttribute( 'id', 'criteria-' + ruleId)
             gradeLabel.innerText = grade;
+            gradeLabel.setAttribute('for', 'grade-' + ruleId);
             gradeMeter.setAttribute('value', gradePoints);
+            gradeMeter.setAttribute('id', 'grade-' + ruleId);
+            gradeMeter.setAttribute('name', 'grade-' + ruleId);
             gradeMeter.innerText = gradePoints;
-            container.appendChild(tmpl);
+            if ( 'recommendation' === rule.type ){
+                switch( grade ) {
+                    case 'AAA':
+                        obligationsSatisfactoryContainer.appendChild(tmpl);
+                        break;
+                    case 'AA':
+                        obligationsPartialContainer.appendChild(tmpl);
+                        break;
+                    default:
+                        obligationsUnsatisfactoryContainer.appendChild(tmpl);
+                }
+            } else {
+                switch (grade) {
+                    case 'AAA':
+                        recommendationsSatisfactoryContainer.appendChild(tmpl);
+                        break;
+                    case 'AA':
+                        recommendationsPartialContainer.appendChild(tmpl);
+                        break;
+                    default:
+                        recommendationsUnsatisfactoryContainer.appendChild(tmpl);
+                }
+            }
         }
     };
-    container = document.querySelector('.obligaciones-legales.insatisfactorias');
-    form = document.getElementById('evalue-form');
-    input = document.getElementById('evalue-url');
-    summaryUrlElement = document.getElementById('resultados-sumario-url');
-    summaryDateElement = document.getElementById('resultados-sumario-fecha');
+    obligationsUnsatisfactoryContainer = document.querySelector('.legal-obligations.unsatisfactory');
+    obligationsPartialContainer = document.querySelector('.legal-obligations.partial');
+    obligationsSatisfactoryContainer = document.querySelector('.legal-obligations.satisfactory');
+    recommendationsUnsatisfactoryContainer = document.querySelector('.recommendations.unsatisfactory');
+    recommendationsPartialContainer = document.querySelector('.recommendations.partial');
+    recommendationsSatisfactoryContainer = document.querySelector('.recommendations.satisfactory');
+    form = document.getElementById('evaluate-form');
+    input = document.getElementById('evaluate-url');
+    summaryUrlElement = document.getElementById('results-summary-url');
+    summaryDateElement = document.getElementById('results-summary-date');
 
     //
     // Methods

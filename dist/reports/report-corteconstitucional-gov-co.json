@@ -7,7 +7,9 @@
         "protocolSpeficication": "https://mota.dejusticia.org/specs/mota-active-transparency-specificiation/",
         "specificationUri": "https://mota.dejusticia.org/specs/colombia-corte-constitucional/",
         "sitemap": "http://www.corteconstitucional.gov.co/sitemap.xml",
-        "transparencyConfig": "http://www.corteconstitucional.gov.co/transparency.xml"
+        "transparencyConfig": "http://www.corteconstitucional.gov.co/transparency.xml",
+        "generalGrade": "275",
+        "generalGradeNormalized": "40"
     },
     "rules": [
         {
