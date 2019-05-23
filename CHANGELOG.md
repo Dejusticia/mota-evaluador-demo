@@ -2,7 +2,7 @@
 
 Project: Evaluador de Transparencia Activa en Colombia - Iniciativa MOTA
 Description: Evaluador de Transparencia Activa en Colombia - Iniciativa MOTA
-Version: 0.1.0
+Version: 0.2.0
 Keywords: transparency, transparencia, transparencia activa, active transparency, monitor, veeduria, Colombia
 
 All notable changes to this project will be documented in this file.
