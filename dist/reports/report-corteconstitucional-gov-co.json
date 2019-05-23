@@ -1,0 +1,72 @@
+{
+    "meta": {
+        "entityName": "Corte Constitucional",
+        "entityUrl": "http://www.corteconstitucional.gov.co",
+        "lastEvaluationDate": "2019-05-21T22:44:57+00:00",
+        "lastEvaluationEpoch": "1558478697",
+        "protocolSpeficication": "https://mota.dejusticia.org/specs/mota-active-transparency-specificiation/",
+        "specificationUri": "https://mota.dejusticia.org/specs/colombia-corte-constitucional/",
+        "sitemap": "http://www.corteconstitucional.gov.co/sitemap.xml",
+        "transparencyConfig": "http://www.corteconstitucional.gov.co/transparency.xml",
+        "generalGrade": "275",
+        "generalGradeNormalized": "40"
+    },
+    "rules": [
+        {
+            "rule": "websiteExistence",
+            "title": "Existencia de sitio Web",
+            "shortDescription": "La entidade deberá mantener um sítio web, que deberá estar disponible para acesso via una URI oficial por cualquier user-agent.",
+            "type": "obligation",
+            "grade": "AAA"
+        },
+        {
+            "rule": "freeAccess",
+            "title": "Régimen de Acceso - Gratuidad",
+            "shortDescription": "El sítio debe tener aceso gratuidad a los servicios judiciales informáticos que presta la Corte, exceto para casos previstos en ley e reglamentos.",
+            "type": "obligation",
+            "grade": "AAA"
+        },
+        {
+            "rule": "universalityDirectAccess",
+            "title": "Universalidad: Acceso Directo",
+            "shortDescription": "Los servicios informáticos que presta la Corte deben ser abiertos a todo el público que desee acceder a ellos y no deben estar restringidos a ciertos usuarios previo registro y recepción de una clave de acceso.",
+            "type": "recommendation",
+            "grade": "AAA"
+        },
+        {
+            "rule": "universalidadPatronesDeAcessibilidadeYWebStandards",
+            "title": "Universalidad: Patrones de Acesibilidad y Web Standards",
+            "shortDescription": "Los sitios deben permitir acesso tecnologias asistivas como lectores de tela, asistentes por voz, etc;aceso sin uso de javascript, dispositivos variados y en condiciones variadas de conexiones.",
+            "type": "recommendation",
+            "grade": "A"
+        },
+        {
+            "rule": "universalityPerformance",
+            "title": "Universalidad: Performance",
+            "shortDescription": "Los sitios deben permitir acesso con velocidade rasonable y estable mismo em malas condiciones de aceso, como conexión por dispositivos móbiles en reds de baja performance.",
+            "type": "recommendation",
+            "grade": "AA"
+        },
+        {
+            "rule": "seguridadConexionEncriptada",
+            "title": "Seguridad: Conexión Encriptada",
+            "shortDescription": "El sítio és acessible en conexión encriptada (SSL/TLS).",
+            "type": "recommendation",
+            "grade": "AAA"
+        },
+        {
+            "rule": "dadosAbiertosAcesoViaApiRest",
+            "title": "Dados Abiertos: Acceso vía API REST",
+            "shortDescription": "Los contenidos del sitio son acesibles por una API REST con datos estructurados, incluso meta-dados.",
+            "type": "recommendation",
+            "grade": ""
+        },
+        {
+            "rule": "estructuraOrganica",
+            "title": "Estructura orgánica",
+            "shortDescription": "Descripción de la forma en que se compone y se organiza la entidade y no tan sólo la cabeza o principal órgano que se trate.",
+            "type": "obligation",
+            "grade": "A"
+        }
+    ]
+}

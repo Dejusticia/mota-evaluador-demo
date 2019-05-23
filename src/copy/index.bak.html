@@ -1,0 +1,791 @@
+<!doctype html>
+<html class="no-js" lang="es-co">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Evaluador de Transparencia Activa en Colombia - Iniciativa MOTA</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="manifest" href="dist/site.webmanifest">
+        <link rel="apple-touch-icon" href="icon.png">
+        <!-- Place favicon.ico in the root directory -->
+        <link rel="stylesheet" href="assets/css/normalize.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <meta name="theme-color" content="#fafafa">
+    </head>
+
+    <body>
+        <!--[if IE]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+    <![endif]-->
+    <ul class="skip-link">
+        <li><a href="#menubar1" class="screen-reader-shortcut"> Pular para navegação primária</a></li>
+        <li><a href="#main-content" class="screen-reader-shortcut"> Pular para o conteúdo</a></li>
+    </ul>
+    <header class="cabecera-principal mdc-elevation--z2">
+        <nav aria-label="Navegación Evaluador de Transparencia Activa en Colombia">
+            <ul id="menubar1" role="menubar" aria-label="Navegación Evaluador de Transparencia Activa en Colombia">
+                <li role="none" class="menubar-logo">
+                    <h1><a role="menuitem" href="#" title="Início">Evaluador de Transparencia Activa</a></h1>
+                </li>
+                <li role="none">
+                    <a role="menuitem" href="#" tabindex="0">
+                        Início
+                    </a>
+                </li>
+                <li role="none">
+                    <a role="menuitem" href="#" aria-haspopup="true" aria-expanded="false" tabindex="0">
+                        Sepa Más
+                    </a>
+                    <ul role="menu" aria-label="Campus Tours">
+                        <li role="none">
+                            <a role="menuitem" href="#" tabindex="-1">
+                                Acerca del Proyecto
+                            </a>
+                        </li>
+                        <li role="none">
+                            <a role="menuitem" href="#" tabindex="-1">
+                                Especificación
+                            </a>
+                        </li>
+                        <li role="none">
+                            <a role="menuitem" href="#" tabindex="-1">
+                                Libreria de Patrones
+                            </a>
+                        </li>
+                        <li role="none">
+                            <a role="menuitem" href="#" tabindex="-1">
+                                Repositórios (Github)
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main id="content-area">
+        <section aria-labelledby="evalue-header">
+            <h2 id="evalue-header">Evalue un sítio web</h2>
+            <form aria-labelledby="evalue-url-leyenda">
+                <fieldset class="no-border no-margin no-padding">
+                    <legend id="evalue-url-leyenda" class="screen-reader-text">rellene el campo con la URL de lo sitio a evaluar</legend>
+                    <label for="evalue-url" class="screen-reader-text">URL</label>
+                    <input id="evalue-url" type="url" size="25">
+                    <input type="submit" value="Evalue" class="mdc-button mdc-button--unelevated">
+                </fieldset>
+            </form>
+        </section>
+        <div id="main-content" class="main-content">
+            <h2 id="resultados-cabecera">Resultados de La Evaluacción</h2>
+            <section id="resultados-sumario">
+                <h3>Sumário de La Evaluacción</h3>
+                <label for="resultados-grado-final">Insatisfactório (49)</label>
+                <meter id="resultados-grado-final" name="resultados-grado-final" min="0" low="50" high="90" max="100" optimum="100" value="48">
+                    0-49
+                </meter>
+                <ul>
+                    <li id="resultados-sumario-url"><span class="screen-reader-text">URL:</span></li>
+                    <li id="resultados-sumario-fecha"><span class="screen-reader-text">Fecha de Evaluación:</span></li>
+                    <li id="resultados-sumario-referencia">
+                        <span class="screen-reader-text">Referencia:</span>
+                        <label for="referencia-satisfactorio">90-100 (satisfactório)</label>
+                        <meter id="referencia-satisfactorio" name="referencia-satisfactorio" min="0" low="50" high="90" max="100" optimum="100" value="95">
+                            90-100
+                        </meter>
+                        <label for="referencia-parcial">50-89 (parcial, debe mejorar)</label>
+                        <meter id="referencia-parcial" name="referencia-satisfactorio" min="0" low="50" high="90" max="100" optimum="100" value="60">
+                            50-89
+                        </meter>
+                        <label for="referencia-insatisfactorio">0-49 (insatisfactório)</label>
+                        </meter>
+                        <meter id="referencia-insatisfactorio" name="referencia-satisfactorio" min="0" low="50" high="90" optimum="100" max="100" value="30">
+                            0-49
+                        </meter>
+                    </li>
+                </ul>
+            </section>
+            <section class="obligaciones-legales insatisfactorias">
+                <h3>Obligaciones Legales - Insatisfactórias</h3>
+                <details id="estructura-organica" class="resultados-criteria">
+                    <summary>Estructura orgánica - La forma en que se compone y se organiza la entidade</summary>
+                    <p>Descripción de la forma en que se compone y se organiza la entidade y no tan sólo la cabeza o principal órgano que se trate. <a href="#" class="more-link">Más Informaciones.</a></p>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="resultados-criteria-grado">
+                                    Grado
+                                </th>
+                                <th class="resultados-criteria-tipo">
+                                    Tipo
+                                </th>
+                                <th class="resultados-criteria-prioridad">
+                                    Prioridad
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="resultados-criteria-grado">
+                                    <label for="estructura-organica-grado">0-</label>
+                                    </meter>
+                                    <meter id="estructura-organica-grado" name="estructura-organica-grado" min="0" low="30" high="90" max="100" optimum="100" value="20"></meter>
+                                        -
+                                    </meter>
+                                </td>
+                                <td class="resultados-criteria-tipo">
+                                    Obligaciones
+                                </td>
+                                <td class="resultados-criteria-prioridad">
+                                    Alta
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </details>
+                <details id="estructura-organica" class="resultados-criteria">
+                    <summary>Descripción de funciones y deberes</summary>
+                    <p>Descripción de funciones y deberes entidade en general y no tan sólo la cabeza o principal órgano que se trate.
+                        <a href="#" class="more-link">Más Informaciones.</a></p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="resultados-criteria-grado">
+                                    Grado
+                                </th>
+                                <th class="resultados-criteria-tipo">
+                                    Tipo
+                                </th>
+                                <th class="resultados-criteria-prioridad">
+                                    Prioridad
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="resultados-criteria-grado">
+                                    <label for="estructura-organica-grado">A</label>
+                                    </meter>
+                                    <meter id="estructura-organica-grado" name="estructura-organica-grad" min="0" low="30" high="90" max="100" optimum="100" value="20">
+                                        A
+                                    </meter>
+                                </td>
+                                <td class="resultados-criteria-tipo">
+                                    Obligaciones
+                                </td>
+                                <td class="resultados-criteria-prioridad">
+                                    Alta
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </details><details id="estructura-organica" class="resultados-criteria">
+                    <summary>Políticas</summary>
+                    <p>El sitio de la entidade debe contener una o más páginas con los contenidos de las políticas adoptadas que afecten al
+                    público, junto con sus fundamentos e interpretaciones. <a href="#" class="more-link">Más Informaciones.</a></p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="resultados-criteria-grado">
+                                    Grado
+                                </th>
+                                <th class="resultados-criteria-tipo">
+                                    Tipo
+                                </th>
+                                <th class="resultados-criteria-prioridad">
+                                    Prioridad
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="resultados-criteria-grado">
+                                    <label for="estructura-organica-grado">A</label>
+                                    </meter>
+                                    <meter id="estructura-organica-grado" name="estructura-organica-grado" min="0" low="30" high="90" max="100" optimum="100" value="20">
+                                        AA
+                                    </meter>
+                                </td>
+                                <td class="resultados-criteria-tipo">
+                                    Obligaciones
+                                </td>
+                                <td class="resultados-criteria-prioridad">
+                                    Alta
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </details>
+                <details id="estructura-organica" class="resultados-criteria">
+                    <summary>Participación Ciudadana - Mecanismos de Presentación Directa</summary>
+                    <p>El sitio de la entidade debe ofrecer mecanismos de presentación directa de solicitudes, quejas y reclamos a disposición
+                    del público.</a></p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="resultados-criteria-grado">
+                                    Grado
+                                </th>
+                                <th class="resultados-criteria-tipo">
+                                    Tipo
+                                </th>
+                                <th class="resultados-criteria-prioridad">
+                                    Prioridad
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="resultados-criteria-grado">
+                                    <label for="estructura-organica-grado">A</label>
+                                    </meter>
+                                    <meter id="estructura-organica-grado" name="estructura-organica-grado" min="0" low="30" high="90" max="100" optimum="100" value="20">
+                                        20
+                                    </meter>
+                                </td>
+                                <td class="resultados-criteria-tipo">
+                                    Obligaciones
+                                </td>
+                                <td class="resultados-criteria-prioridad">
+                                    Alta
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </details>
+            </section>
+            <section class="obligaciones-legales parcial">
+                <h3>Obligaciones Legales - Parcial</h3>
+                <details id="estructura-organica" class="resultados-criteria">
+                    <summary>Estructura orgánica - La forma en que se compone y se organiza la entidade</summary>
+                    <p>Descripción de la forma en que se compone y se organiza la entidade y no tan sólo la cabeza o principal órgano
+                        que se trate. <a href="#" class="more-link">Más Informaciones.</a></p>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="resultados-criteria-grado">
+                                    Grado
+                                </th>
+                                <th class="resultados-criteria-tipo">
+                                    Tipo
+                                </th>
+                                <th class="resultados-criteria-prioridad">
+                                    Prioridad
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="resultados-criteria-grado">
+                                    <label for="estructura-organica-grado">A</label>
+                                    </meter>
+                                    <meter id="estructura-organica-grado" name="estructura-organica-grado" min="0" low="30" high="90" max="100" optimum="100" value="20">
+                                        0
+                                    </meter>
+                                </td>
+                                <td class="resultados-criteria-tipo">
+                                    Obligaciones
+                                </td>
+                                <td class="resultados-criteria-prioridad">
+                                    Alta
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </details>
+                <details id="estructura-organica" class="resultados-criteria">
+                    <summary>Estructura orgánica - La forma en que se compone y se organiza la entidade</summary>
+                    <p>Descripción de la forma en que se compone y se organiza la entidade y no tan sólo la cabeza o principal órgano que se trate. <a href="#" class="more-link">Más Informaciones.</a></p>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="resultados-criteria-grado">
+                                    Grado
+                                </th>
+                                <th class="resultados-criteria-tipo">
+                                    Tipo
+                                </th>
+                                <th class="resultados-criteria-prioridad">
+                                    Prioridad
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="resultados-criteria-grado">
+                                    <label for="estructura-organica-grado">A</label>
+                                    </meter>
+                                    <meter id="estructura-organica-grado" name="estructura-organica-grado" min="0" low="30" high="90" max="100" optimum="100" value="20">
+                                        0
+                                    </meter>
+                                </td>
+                                <td class="resultados-criteria-tipo">
+                                    Obligaciones
+                                </td>
+                                <td class="resultados-criteria-prioridad">
+                                    Alta
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </details>
+                <details id="estructura-organica" class="resultados-criteria">
+                    <summary>Estructura orgánica - La forma en que se compone y se organiza la entidade</summary>
+                    <p>Descripción de la forma en que se compone y se organiza la entidade y no tan sólo la cabeza o principal órgano que se trate. <a href="#" class="more-link">Más Informaciones.</a></p>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="resultados-criteria-grado">
+                                    Grado
+                                </th>
+                                <th class="resultados-criteria-tipo">
+                                    Tipo
+                                </th>
+                                <th class="resultados-criteria-prioridad">
+                                    Prioridad
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="resultados-criteria-grado">
+                                    <label for="estructura-organica-grado">A</label>
+                                    </meter>
+                                    <meter id="estructura-organica-grado" name="estructura-organica-grado" min="0" low="30" high="90" max="100" optimum="100" value="20">
+                                        0
+                                    </meter>
+                                </td>
+                                <td class="resultados-criteria-tipo">
+                                    Obligaciones
+                                </td>
+                                <td class="resultados-criteria-prioridad">
+                                    Alta
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </details>
+                <details id="estructura-organica" class="resultados-criteria">
+                    <summary>Estructura orgánica - La forma en que se compone y se organiza la entidade</summary>
+                    <p>Descripción de la forma en que se compone y se organiza la entidade y no tan sólo la cabeza o principal órgano que se trate. <a href="#" class="more-link">Más Informaciones.</a></p>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="resultados-criteria-grado">
+                                    Grado
+                                </th>
+                                <th class="resultados-criteria-tipo">
+                                    Tipo
+                                </th>
+                                <th class="resultados-criteria-prioridad">
+                                    Prioridad
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="resultados-criteria-grado">
+                                    <label for="estructura-organica-grado">A</label>
+                                    </meter>
+                                    <meter id="estructura-organica-grado" name="estructura-organica-grado" min="0" low="30" high="90" max="100" optimum="100" value="20">
+                                        0
+                                    </meter>
+                                </td>
+                                <td class="resultados-criteria-tipo">
+                                    Obligaciones
+                                </td>
+                                <td class="resultados-criteria-prioridad">
+                                    Alta
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </details>
+            </section>
+            <section class="recomendaciones insatisfactorias">
+                <h3>Recommendaciones - Insatisfactórias</h3>
+                <details id="estructura-organica" class="resultados-criteria">
+                    <summary>Universalidad: Patrones de Acessibilidade y Web Standards</summary>
+                    <p>Los sitios deben permitir acesso tecnologias asistivas como lectores de tela, asistentes por voz, etc;aceso sin uso de javascript, dispositivos variados y en condiciones variadas de conexiones. <a href="#" class="more-link">Más Informaciones.</a></p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="resultados-criteria-grado">
+                                    Grado
+                                </th>
+                                <th class="resultados-criteria-tipo">
+                                    Tipo
+                                </th>
+                                <th class="resultados-criteria-prioridad">
+                                    Prioridad
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="resultados-criteria-grado">
+                                    <label for="estructura-organica-grado">A</label>
+                                    </meter>
+                                    <meter id="estructura-organica-grado" name="estructura-organica-grado" min="0" low="30" high="90" max="100" optimum="100" value="20">
+                                        1
+                                    </meter>
+                                </td>
+                                <td class="resultados-criteria-tipo">
+                                    Obligaciones
+                                </td>
+                                <td class="resultados-criteria-prioridad">
+                                    Alta
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </details>
+                <details id="estructura-organica" class="resultados-criteria">
+                    <summary>Universalidad: Patrones de Acessibilidade y Web Standards</summary>
+                    <p>Los sitios deben permitir acesso tecnologias asistivas como lectores de tela, asistentes por voz, etc;aceso sin uso de javascript, dispositivos variados y en condiciones variadas de conexiones. <a href="#" class="more-link">Más Informaciones.</a></p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="resultados-criteria-grado">
+                                    Grado
+                                </th>
+                                <th class="resultados-criteria-tipo">
+                                    Tipo
+                                </th>
+                                <th class="resultados-criteria-prioridad">
+                                    Prioridad
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="resultados-criteria-grado">
+                                    <label for="estructura-organica-grado">A</label>
+                                    </meter>
+                                    <meter id="estructura-organica-grado" name="estructura-organica-grado" min="0" low="30" high="90" max="100" optimum="100" value="20">
+                                        1
+                                    </meter>
+                                </td>
+                                <td class="resultados-criteria-tipo">
+                                    Obligaciones
+                                </td>
+                                <td class="resultados-criteria-prioridad">
+                                    Alta
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </details>
+                <details id="estructura-organica" class="resultados-criteria">
+                    <summary>Universalidad: Patrones de Acessibilidade y Web Standards</summary>
+                    <p>Los sitios deben permitir acesso tecnologias asistivas como lectores de tela, asistentes por voz, etc;aceso sin uso de javascript, dispositivos variados y en condiciones variadas de conexiones. <a href="#" class="more-link">Más Informaciones.</a></p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="resultados-criteria-grado">
+                                    Grado
+                                </th>
+                                <th class="resultados-criteria-tipo">
+                                    Tipo
+                                </th>
+                                <th class="resultados-criteria-prioridad">
+                                    Prioridad
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="resultados-criteria-grado">
+                                    <label for="estructura-organica-grado">A</label>
+                                    </meter>
+                                    <meter id="estructura-organica-grado" name="estructura-organica-grado" min="0" low="30" high="90" max="100" optimum="100" value="20">
+                                        1
+                                    </meter>
+                                </td>
+                                <td class="resultados-criteria-tipo">
+                                    Obligaciones
+                                </td>
+                                <td class="resultados-criteria-prioridad">
+                                    Alta
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </details>
+            </section>
+            <section class="recommendaciones parcial">
+                <h3>Recommendaciones - Parciales</h3>
+                <details id="estructura-organica" class="resultados-criteria">
+                    <summary>Universalidad: Patrones de Acessibilidade y Web Standards</summary>
+                    <p>Los sitios deben permitir acesso tecnologias asistivas como lectores de tela, asistentes por voz, etc;aceso sin uso de javascript, dispositivos variados y en condiciones variadas de conexiones. <a href="#" class="more-link">Más Informaciones.</a></p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="resultados-criteria-grado">
+                                    Grado
+                                </th>
+                                <th class="resultados-criteria-tipo">
+                                    Tipo
+                                </th>
+                                <th class="resultados-criteria-prioridad">
+                                    Prioridad
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="resultados-criteria-grado">
+                                    <label for="estructura-organica-grado">A</label>
+                                    </meter>
+                                    <meter id="estructura-organica-grado" name="estructura-organica-grado" min="0" low="30" high="90" max="100" optimum="100" value="20">
+                                        2
+                                    </meter>
+                                </td>
+                                <td class="resultados-criteria-tipo">
+                                    Obligaciones
+                                </td>
+                                <td class="resultados-criteria-prioridad">
+                                    Alta
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </details>
+                <details id="estructura-organica" class="resultados-criteria">
+                    <summary>Universalidad: Patrones de Acessibilidade y Web Standards</summary>
+                    <p>Los sitios deben permitir acesso tecnologias asistivas como lectores de tela, asistentes por voz, etc;aceso sin uso de javascript, dispositivos variados y en condiciones variadas de conexiones. <a href="#" class="more-link">Más Informaciones.</a></p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="resultados-criteria-grado">
+                                    Grado
+                                </th>
+                                <th class="resultados-criteria-tipo">
+                                    Tipo
+                                </th>
+                                <th class="resultados-criteria-prioridad">
+                                    Prioridad
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="resultados-criteria-grado">
+                                    <label for="estructura-organica-grado">A</label>
+                                    </meter>
+                                    <meter id="estructura-organica-grado" name="estructura-organica-grado" min="0" low="30" high="90" max="100" optimum="100" value="20">
+                                        2
+                                    </meter>
+                                </td>
+                                <td class="resultados-criteria-tipo">
+                                    Obligaciones
+                                </td>
+                                <td class="resultados-criteria-prioridad">
+                                    Alta
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </details>
+            </section>
+            <section class="obligaciones-legales satisfactorias">
+                <h3>Obligaciones - Satisfactório</h3>
+                <details id="estructura-organica" class="resultados-criteria">
+                    <summary>Universalidad: Patrones de Acessibilidade y Web Standards</summary>
+                    <p>Los sitios deben permitir acesso tecnologias asistivas como lectores de tela, asistentes por voz, etc;aceso sin
+                        uso de javascript, dispositivos variados y en condiciones variadas de conexiones. <a href="#" class="more-link">Más
+                            Informaciones.</a></p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="resultados-criteria-grado">
+                                    Grado
+                                </th>
+                                <th class="resultados-criteria-tipo">
+                                    Tipo
+                                </th>
+                                <th class="resultados-criteria-prioridad">
+                                    Prioridad
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="resultados-criteria-grado">
+                                    <label for="estructura-organica-grado">A</label>
+                                    </meter>
+                                    <meter id="estructura-organica-grado" name="estructura-organica-grado" min="0" low="30" high="90" max="100" optimum="100" value="20">
+                                        2
+                                    </meter>
+                                </td>
+                                <td class="resultados-criteria-tipo">
+                                    Obligaciones
+                                </td>
+                                <td class="resultados-criteria-prioridad">
+                                    Alta
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </details>
+                <details id="estructura-organica" class="resultados-criteria">
+                    <summary>Universalidad: Patrones de Acessibilidade y Web Standards</summary>
+                    <p>Los sitios deben permitir acesso tecnologias asistivas como lectores de tela, asistentes por voz, etc;aceso sin
+                        uso de javascript, dispositivos variados y en condiciones variadas de conexiones. <a href="#" class="more-link">Más
+                            Informaciones.</a></p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="resultados-criteria-grado">
+                                    Grado
+                                </th>
+                                <th class="resultados-criteria-tipo">
+                                    Tipo
+                                </th>
+                                <th class="resultados-criteria-prioridad">
+                                    Prioridad
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="resultados-criteria-grado">
+                                    <label for="estructura-organica-grado">A</label>
+                                    </meter>
+                                    <meter id="estructura-organica-grado" name="estructura-organica-grado" min="0" low="30" high="90" max="100" optimum="100" value="20">
+                                        2
+                                    </meter>
+                                </td>
+                                <td class="resultados-criteria-tipo">
+                                    Obligaciones
+                                </td>
+                                <td class="resultados-criteria-prioridad">
+                                    Alta
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </details>
+                <details id="estructura-organica" class="resultados-criteria">
+                    <summary>Universalidad: Patrones de Acessibilidade y Web Standards</summary>
+                    <p>Los sitios deben permitir acesso tecnologias asistivas como lectores de tela, asistentes por voz, etc;aceso sin
+                        uso de javascript, dispositivos variados y en condiciones variadas de conexiones. <a href="#" class="more-link">Más
+                            Informaciones.</a></p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="resultados-criteria-grado">
+                                    Grado
+                                </th>
+                                <th class="resultados-criteria-tipo">
+                                    Tipo
+                                </th>
+                                <th class="resultados-criteria-prioridad">
+                                    Prioridad
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="resultados-criteria-grado">
+                                    <label for="estructura-organica-grado">A</label>
+                                    </meter>
+                                    <meter id="estructura-organica-grado" name="estructura-organica-grado" min="0" low="30" high="90" max="100" optimum="100" value="20">
+                                        2
+                                    </meter>
+                                </td>
+                                <td class="resultados-criteria-tipo">
+                                    Obligaciones
+                                </td>
+                                <td class="resultados-criteria-prioridad">
+                                    Alta
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </details>
+                <h3>Recommendaciones - Satisfactório</h3>
+                <details id="estructura-organica" class="resultados-criteria">
+                    <summary>Universalidad: Patrones de Acessibilidade y Web Standards</summary>
+                    <p>Los sitios deben permitir acesso tecnologias asistivas como lectores de tela, asistentes por voz, etc;aceso sin
+                        uso de javascript, dispositivos variados y en condiciones variadas de conexiones. <a href="#" class="more-link">Más
+                            Informaciones.</a></p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="resultados-criteria-grado">
+                                    Grado
+                                </th>
+                                <th class="resultados-criteria-tipo">
+                                    Tipo
+                                </th>
+                                <th class="resultados-criteria-prioridad">
+                                    Prioridad
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="resultados-criteria-grado">
+                                    <label for="estructura-organica-grado">A</label>
+                                    </meter>
+                                    <meter id="estructura-organica-grado" name="estructura-organica-grado" min="0" low="30" high="90" max="100" optimum="100" value="20">
+                                        2
+                                    </meter>
+                                </td>
+                                <td class="resultados-criteria-tipo">
+                                    Obligaciones
+                                </td>
+                                <td class="resultados-criteria-prioridad">
+                                    Alta
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </details>
+            </section>
+        </div>
+    </main>
+    <footer class="rodape">
+        <nav aria-label="Evaluador de Transparencia Activa en Colombia">
+            <ul id="menubar2" role="menubar" aria-label="Evaluador de Transparencia Activa en Colombia">
+                <li role="none" class="menubar-logo">
+                    <a role="menuitem" href="/" title="Início">Evaluador de Transparencia Activa en Colombia</a>
+                </li>
+                <li role="none">
+                    <a role="menuitem" href="#" tabindex="0">
+                        Evalua
+                    </a>
+                </li>
+                <li role="none">
+                    <a role="menuitem" href="#" tabindex="-1">
+                        Guias
+                    </a>
+                </li>
+                <li role="none">
+                    <a role="menuitem" href="#" tabindex="-1">
+                        Especificación
+                    </a>
+                </li>
+                <li role="none">
+                    <a role="menuitem" href="#" tabindex="-1">
+                        El Proyecto
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </footer>
+    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID.
+    <script async defer>
+        //window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+        //ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
+    </script>
+    <script src="https://www.google-analytics.com/analytics.js" async defer></script>-->
+    <script src="assets/js/vendor/atomic.min.js" async defer></script>
+    </body>
+
+</html>

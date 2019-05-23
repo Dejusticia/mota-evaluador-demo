@@ -194,7 +194,7 @@ meter:-moz-meter-sub-optimum::-moz-meter-bar {
 }
 
 meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
-    background: #CC4600;
+    background: #CC4600;//0,2,3,5
 }
 
 meter::-webkit-meter-bar {
@@ -278,11 +278,11 @@ ul[role="menubar"] {
     display: flex;
     flex-wrap: wrap;
     font-size: 110%;
-    height: 10rem;
+    height: 5rem;
     justify-content: center;
     list-style: none;
     margin: 0 auto;
-    padding: 0;
+    padding: 1rem 0;
 }
 
 ul[role="menubar"] [role="menuitem"],
@@ -365,23 +365,23 @@ ul[role="menubar"] ul[role="menu"] a[aria-haspopup="true"]::after {
 /* ## Evaluate Form
 --------------------------------------------- */
 
-section[aria-labelledby="evalue-header"] > h2,
-section[aria-labelledby="evalue-header"] > form {
+section[aria-labelledby="evaluate-header"] > h2,
+section[aria-labelledby="evaluate-header"] > form {
     margin: 0 auto;
     max-width: 90%;
     padding: 2rem 0;
 }
-section[aria-labelledby="evalue-header"] {
+section[aria-labelledby="evaluate-header"] {
     background-color: #012f89;
     color: #efefef;
     padding: 2rem 0;
     text-align: center;
 }
 
-#evalue-url {
+#evaluate-url {
     width: 75%;
 }
-section[aria-labelledby="evalue-header"] input[type="submit"] {
+section[aria-labelledby="evaluate-header"] input[type="submit"] {
     width: 17%;
     margin-left: 5%;
 }
@@ -411,16 +411,30 @@ section[aria-labelledby="evalue-header"] input[type="submit"] {
     border-bottom: 1px dashed #ccc;
 }
 .main-content details:nth-of-type(even) {
-    background-color: #fafafa;
+    background-color: #f3f3f3;
+}
+.results-criteria table {
+    width: 100%;
+    background-color: #cddeff;
+    padding: 1rem;
+    text-align: left;
+}
+.results-criteria thead {
+    background-color: #acc8ff;
+    line-height: 2;
+}
+.results-criteria th,
+.results-criteria td {
+    padding-left: 1rem;
 }
 
 /* # Site Footer
 ---------------------------------------------------------------------------------------------------- */
 
-.rodape {
+.footer {
     background-color: #be2a2c;
 }
-.rodape nav {
+.footer nav {
     margin: 0 auto;
     max-width: 90%;
 }
@@ -590,6 +604,7 @@ section[aria-labelledby="evalue-header"] input[type="submit"] {
 @media only screen and (min-width: 640px) {
   ul[role="menubar"] {
       justify-content: space-between;
+      height: 3rem;
   }
   .menubar-logo {
       flex-basis: initial;
@@ -603,18 +618,28 @@ section[aria-labelledby="evalue-header"] input[type="submit"] {
 
 }
 
-/* ## Medium and Large Desktops and Laptops
+/* ## Medium Desktops and Laptops
 --------------------------------------------- */
 
 @media only screen and (min-width: 1024px) {
     header nav,
-    section[aria-labelledby="evalue-header"] > h2,
-    section[aria-labelledby="evalue-header"] > form,
+    section[aria-labelledby="evaluate-header"] > h2,
+    section[aria-labelledby="evaluate-header"] > form,
     .main-content,
-    .rodape nav {
-        max-width: 1024px;
+    .footer nav {
+        max-width: 90%;
     }
-    header nav {
+}
+
+/* ## Large Desktops and Laptops
+--------------------------------------------- */
+
+@media only screen and (min-width: 1200px) {
+    header nav,
+    section[aria-labelledby="evaluate-header"] > h2,
+    section[aria-labelledby="evaluate-header"] > form,
+    .main-content,
+    .footer nav {
         max-width: 1024px;
     }
 }
