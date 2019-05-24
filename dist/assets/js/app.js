@@ -76,18 +76,11 @@
 
     /**
     * Retrieves transparency report data from a given url.
-    * @uses Atomic by Chris Ferdinandi. See <https://github.com/cferdinandi/atomic/>
-    * @param  {String}  url      The url for retrieving the data from.
-    * @param  {Object}  options  An object holding options for this
+    * @requires Atomic by Chris Ferdinandi. See <https://github.com/cferdinandi/atomic/>
+    * @param  {string}  url  the url for retrieving the data from.
     */
-    var getReport = function ( url, options ) {
-        var options;
-
-        // Default settings
-        var defaults = {
-            responseType: 'json',
-        };
-        atomic('http://localhost:3000/reports/report-corteconstitucional-gov-co.json', options)
+    var getReport = function ( url) {
+        atomic('http://localhost:3000/reports/report-corteconstitucional-gov-co.json', { responseType: 'json'})
             .then((function (response) {
                 report = response.data;
                 //console.log('success report', report); // xhr.responseText
@@ -99,54 +92,60 @@
                 console.error('error description', error.statusText); // xhr.statusText
             }));
     };
+
+    /**
+    * Add a result markup to one of the results container in main page.
+    * @param  {string}  markup    The result markup.
+    * @param  {string}  grade     The grade received by the related evaluation.
+    * @param  {string}  ruleType  The type of the criteria (obligation or recommendation).
+    */
+    var addResult = function (markup, grade, ruleType) {
+        if ('recommendation' === ruleType) {
+            switch (grade) {
+                case 'AAA':
+                    obligationsSatisfactoryContainer.appendChild(markup);
+                    break;
+                case 'AA':
+                    obligationsPartialContainer.appendChild(markup);
+                    break;
+                default:
+                    obligationsUnsatisfactoryContainer.appendChild(markup);
+            }
+        } else {
+            switch (grade) {
+                case 'AAA':
+                    recommendationsSatisfactoryContainer.appendChild(markup);
+                    break;
+                case 'AA':
+                    recommendationsPartialContainer.appendChild(markup);
+                    break;
+                default:
+                    recommendationsUnsatisfactoryContainer.appendChild(markup);
+            }
+        }
+
+    };
+
+    /**
+    * Process report JSON and add results to the main content area.
+    * @requires getReport
+    * @requires addResult
+    * @param  {string}  report   A JSON object with the evaluation report.
+    */
     var processReport = function (report) {
+
         //
         // Variables
         //
         var rules = report.rules;
         var summaryDate = report.meta.lastEvaluationDate;
 
-        //
-        // Methods
-        //
+        // TODO: cleanup results containers and site info
+        // TODO: add loading spinners or similar feature while is evaluating.
 
-        /**
-        * Get the index for the listener
-        * @param  {Array}   arr      The listeners for an event
-        * @param  {Array}   listener The listener details
-        * @return {Integer}          The index of the listener
-        */
-        var addResult = function (resultTemplate, grade, ruleType) {
-            if ('recommendation' === ruleType) {
-                switch (grade) {
-                    case 'AAA':
-                        obligationsSatisfactoryContainer.appendChild(resultTemplate);
-                        break;
-                    case 'AA':
-                        obligationsPartialContainer.appendChild(resultTemplate);
-                        break;
-                    default:
-                        obligationsUnsatisfactoryContainer.appendChild(resultTemplate);
-                }
-            } else {
-                switch (grade) {
-                    case 'AAA':
-                        recommendationsSatisfactoryContainer.appendChild(resultTemplate);
-                        break;
-                    case 'AA':
-                        recommendationsPartialContainer.appendChild(resultTemplate);
-                        break;
-                    default:
-                        recommendationsUnsatisfactoryContainer.appendChild(resultTemplate);
-                }
-            }
-
-        };
-        summaryUrlElement.innerHTML = '<b>URL:</b>' + report.meta.entityUrl;
-        summaryDate = summaryDate.replace('T', ' - ');
-        summaryDate = summaryDate.substring(0, summaryDate.length - 6);
-        summaryDateElement.innerHTML = '<b>Fecha de Evaluación:</b>' + summaryDate;
         for (var i = 0; i < rules.length; i++) {
+
+            // TODO: Encapsulate as method. START
             var rule = rules[i];
             var ruleId = rule.rule;
             var ruleType = rule.type;
@@ -173,9 +172,30 @@
             gradeMeter.setAttribute('id', 'grade-' + ruleId);
             gradeMeter.setAttribute('name', 'grade-' + ruleId);
             gradeMeter.innerText = gradePoints;
+            // TODO: Encapsulate as method. FINISH
+
+            summaryUrlElement.innerHTML = '<b>URL:</b>' + report.meta.entityUrl;
+
+            //TODO: encapsulate as method: normalize date.
+            summaryDate = summaryDate.replace('T', ' - ');
+            summaryDate = summaryDate.substring(0, summaryDate.length - 6);
+            summaryDateElement.innerHTML = '<b>Fecha de Evaluación:</b>' + summaryDate;
+
             addResult(resultTemplate, grade, ruleType);
         }
     };
+
+    /**
+     * Handle submit events
+     */
+    var submitHandler = function (event) {
+        event.preventDefault();
+        if (form === event.target) {
+            getReport();
+        }
+    };
+
+    // get all containers. TODO: maybe encapsulate as method
     obligationsUnsatisfactoryContainer = document.querySelector('.legal-obligations.unsatisfactory');
     obligationsPartialContainer = document.querySelector('.legal-obligations.partial');
     obligationsSatisfactoryContainer = document.querySelector('.legal-obligations.satisfactory');
@@ -187,20 +207,7 @@
     summaryUrlElement = document.getElementById('results-summary-url');
     summaryDateElement = document.getElementById('results-summary-date');
 
-    //
-    // Methods
-    //
-
-    /**
-     * Handle submit events
-     */
-    var submitHandler = function (event) {
-        event.preventDefault();
-        if ( form === event.target) {
-            getReport();
-        }
-    };
-    // Create a submit handler
+    // Create a submit event listener
     document.addEventListener('submit', submitHandler, false);
 
 }));
