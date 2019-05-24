@@ -29,6 +29,32 @@
         elPlate.content = docContent;
     }
 })(document);
+/**
+ * Array.prototype.forEach() polyfill
+ * @author Chris Ferdinandi
+ * @license MIT
+ */
+if (!Array.prototype.forEach) {
+    Array.prototype.forEach = function (callback, thisArg) {
+        thisArg = thisArg || window;
+        for (var i = 0; i < this.length; i++) {
+            callback.call(thisArg, this[i], i, this);
+        }
+    };
+}
+/**
+ * NodeList.prototype.forEach() polyfill
+ * https://developer.mozilla.org/en-US/docs/Web/API/NodeList/forEach#Polyfill
+ */
+if (window.NodeList && !NodeList.prototype.forEach) {
+    NodeList.prototype.forEach = function (callback, thisArg) {
+        thisArg = thisArg || window;
+        for (var i = 0; i < this.length; i++) {
+            callback.call(thisArg, this[i], i, this);
+        }
+    };
+}
+
 /*!
  * Deep merge two or more objects into the first.
  * (c) 2019 Chris Ferdinandi, MIT License, https://gomakethings.com

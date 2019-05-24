@@ -6,50 +6,7 @@
  * https://github.com/Dejusticia/mota-evaluador-publico
  */
 
-/*  TODO: Test on IE */
-/**
-* HTML5 template element Polyfill by Brian Blakely. See <https://jsfiddle.net/brianblakely/h3EmY/>
-* @param  {object}  d  The document.
-*/
-(function templatePolyfill(d) {
-    if ('content' in d.createElement('template')) {
-        return false;
-    }
-
-    var qPlates = d.getElementsByTagName('template'),
-        plateLen = qPlates.length,
-        elPlate,
-        qContent,
-        contentLen,
-        docContent;
-
-    for (var x = 0; x < plateLen; ++x) {
-        elPlate = qPlates[x];
-        qContent = elPlate.childNodes;
-        contentLen = qContent.length;
-        docContent = d.createDocumentFragment();
-
-        while (qContent[0]) {
-            docContent.appendChild(qContent[0]);
-        }
-
-        elPlate.content = docContent;
-    }
-})(document);
-/*  TODO: Test on IE */
-/**
-* HTML5 template element Polyfill by Brian Blakely. See <https://jsfiddle.net/brianblakely/h3EmY/>
-* @param  {object}  d  The document.
-*/
-
-/*!
- * Evaluador de Transparencia Activa en Colombia - Iniciativa MOTA 0.2.0
- * Evaluates governmental websites compliances to legal obligations and best practices.
- * (c) 2019 Celso Bessa
- * MIT License
- * https://github.com/Dejusticia/mota-evaluador-publico
- */
-
+/*  Don't forget to load utilities.js first */
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
         define([], (function () {
@@ -67,7 +24,7 @@
     // Variables
     //
 
-    var obligationsUnsatisfactoryContainer, obligationsPartialContainer, obligationsSatisfactoryContainer, recommendationsUnsatisfactoryContainer, recommendationsPartialContainer, recommendationsSatisfactoryContainer;
+    var obligationsUnsatisfactoryContainer, obligationsPartialContainer, obligationsSatisfactoryContainer, recommendationsUnsatisfactoryContainer, recommendationsPartialContainer, recommendationsSatisfactoryContainer, resultsContainers;
     var form, input, report, summaryUrlElement, summaryDateElement;
 
     //
@@ -95,13 +52,12 @@
 
     /**
     * Add a result markup to one of the results container in main page.
-    * @param  {string}  markup    The result markup.
-    * @param  {string}  grade     The grade received by the related evaluation.
-    * @param  {string}  ruleType  The type of the criteria (obligation or recommendation).
+    * @param  {string}  markup  The result markup.
+    * @param  {object}  rule    The rule object.
     */
-    var addResult = function (markup, grade, ruleType) {
-        if ('recommendation' === ruleType) {
-            switch (grade) {
+    var addResult = function (markup, rule) {
+        if ('recommendation' === rule.type) {
+            switch (rule.grade) {
                 case 'AAA':
                     obligationsSatisfactoryContainer.appendChild(markup);
                     break;
@@ -112,7 +68,7 @@
                     obligationsUnsatisfactoryContainer.appendChild(markup);
             }
         } else {
-            switch (grade) {
+            switch (rule.grade) {
                 case 'AAA':
                     recommendationsSatisfactoryContainer.appendChild(markup);
                     break;
@@ -124,6 +80,56 @@
             }
         }
 
+    };
+    /**
+    * Process a result template markup.
+    * @param  {string}  markup    The result template markup.
+    * @param  {object}  rule     The rule object.
+    * @param  {string}  markup    The processed result markup.
+    */
+    var processMarkup = function (markup, rule) {
+        var ruleId = rule.ruleId;
+        var gradeMeter = markup.querySelector('.results-criteria-grade meter');
+        var gradeLabel = markup.querySelector('.results-criteria-grade label');
+        var detailsElement = markup.querySelector('.results-criteria');
+        markup.querySelector('summary').innerText = rule.title;
+        markup.querySelector('details p').innerHTML = '<p>' + rule.shortDescription + ' <a href="#" class="more-link">Más Informaciones.</a></p>';
+        detailsElement.setAttribute('id', 'criteria-' + ruleId);
+        gradeLabel.innerText = rule.grade;
+        gradeLabel.setAttribute('for', 'grade-' + ruleId);
+        gradeMeter.setAttribute('value', rule.gradePoints);
+        gradeMeter.setAttribute('id', 'grade-' + ruleId);
+        gradeMeter.setAttribute('name', 'grade-' + ruleId);
+        gradeMeter.innerText =rule.gradePoints;
+        return markup;
+    };
+
+    /**
+    * Transforms an ISO formatted date in a more human friendly date.
+    * @param  {string}  date   An ISO formatted date string.
+    * @return  {return}  date   An more human friendly date string.
+    */
+    var transformDate = function (date) {
+        date = date.replace('T', ' - ');
+        date = date.substring(0, date.length - 6);
+        return date;
+    };
+
+    /**
+    * Get all document DOM elements we will need to manipulate
+    */
+    var getDomElements = function () {
+        obligationsUnsatisfactoryContainer = document.querySelector('.legal-obligations.unsatisfactory .results-content');
+        obligationsPartialContainer = document.querySelector('.legal-obligations.partial .results-content');
+        obligationsSatisfactoryContainer = document.querySelector('.legal-obligations.satisfactory .results-content');
+        recommendationsUnsatisfactoryContainer = document.querySelector('.recommendations.unsatisfactory .results-content');
+        recommendationsPartialContainer = document.querySelector('.recommendations.partial .results-content');
+        recommendationsSatisfactoryContainer = document.querySelector('.recommendations.satisfactory .results-content');
+        form = document.getElementById('evaluate-form');
+        input = document.getElementById('evaluate-url');
+        summaryUrlElement = document.getElementById('results-summary-url');
+        summaryDateElement = document.getElementById('results-summary-date');
+        resultsContainers = document.querySelectorAll('.results-content');
     };
 
     /**
@@ -140,54 +146,33 @@
         var rules = report.rules;
         var summaryDate = report.meta.lastEvaluationDate;
 
-        // TODO: cleanup results containers and site info
-        // TODO: add loading spinners or similar feature while is evaluating.
+        // cleanup results containers and site info
+        resultsContainers.forEach((function (elem, index) {
+            elem.innerHTML = '<div role="progressbar" class="mdc-linear-progress mdc-linear-progress--indeterminate"><div class="mdc-linear-progress__buffering-dots"></div><div class="mdc-linear-progress__buffer"></div><div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar"><span class="mdc-linear-progress__bar-inner"></span></div><div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar"><span class="mdc-linear-progress__bar-inner"></span></div></div>';
+        }));
+
+        summaryUrlElement.innerHTML = '';
+        summaryDateElement.innerHTML = '';
 
         for (var i = 0; i < rules.length; i++) {
 
-            // TODO: Encapsulate as method. START
             var rule = rules[i];
-            var ruleId = rule.rule;
-            var ruleType = rule.type;
             var grade = rule.grade;
             var gradePoints = '0';
-            var resultTemplate = document.getElementById('template-results-criteria').content.cloneNode(true);
-            var gradeMeter = resultTemplate.querySelector('.results-criteria-grade meter');
-            var gradeLabel = resultTemplate.querySelector('.results-criteria-grade label');
-            var detailsElement = resultTemplate.querySelector('.results-criteria');
-            if ('AAA' === grade) {
-                gradePoints = 100;
-            } else if ('AA' === grade) {
-                gradePoints = 50;
-            } else if ('A' === grade) {
-                gradePoints = 20;
-            }
-            resultTemplate.querySelector('summary').innerText = rule.title;
-            resultTemplate.querySelector('details p').innerHTML = '<p>' + rule.shortDescription + ' <a href="#" class="more-link">Más Informaciones.</a></p>';
-            resultTemplate.querySelector('td.results-criteria-type').innerText = ruleType;
-            detailsElement.setAttribute( 'id', 'criteria-' + ruleId)
-            gradeLabel.innerText = grade;
-            gradeLabel.setAttribute('for', 'grade-' + ruleId);
-            gradeMeter.setAttribute('value', gradePoints);
-            gradeMeter.setAttribute('id', 'grade-' + ruleId);
-            gradeMeter.setAttribute('name', 'grade-' + ruleId);
-            gradeMeter.innerText = gradePoints;
-            // TODO: Encapsulate as method. FINISH
-
-            summaryUrlElement.innerHTML = '<b>URL:</b>' + report.meta.entityUrl;
-
-            //TODO: encapsulate as method: normalize date.
-            summaryDate = summaryDate.replace('T', ' - ');
-            summaryDate = summaryDate.substring(0, summaryDate.length - 6);
-            summaryDateElement.innerHTML = '<b>Fecha de Evaluación:</b>' + summaryDate;
-
-            addResult(resultTemplate, grade, ruleType);
+            var markup = document.getElementById('template-results-criteria').content.cloneNode(true);
+            markup = processMarkup(markup, rule);
+            addResult(markup, rule);
         }
+
+        summaryUrlElement.innerHTML = '<b>URL:</b>' + report.meta.entityUrl;
+        summaryDateElement.innerHTML = '<b>Fecha de Evaluación:</b>' + transformDate(summaryDate);
     };
 
+
     /**
-     * Handle submit events
-     */
+    * Handle all document submit events.
+    * @param  {object}  event   The event object.
+    */
     var submitHandler = function (event) {
         event.preventDefault();
         if (form === event.target) {
@@ -195,18 +180,7 @@
         }
     };
 
-    // get all containers. TODO: maybe encapsulate as method
-    obligationsUnsatisfactoryContainer = document.querySelector('.legal-obligations.unsatisfactory');
-    obligationsPartialContainer = document.querySelector('.legal-obligations.partial');
-    obligationsSatisfactoryContainer = document.querySelector('.legal-obligations.satisfactory');
-    recommendationsUnsatisfactoryContainer = document.querySelector('.recommendations.unsatisfactory');
-    recommendationsPartialContainer = document.querySelector('.recommendations.partial');
-    recommendationsSatisfactoryContainer = document.querySelector('.recommendations.satisfactory');
-    form = document.getElementById('evaluate-form');
-    input = document.getElementById('evaluate-url');
-    summaryUrlElement = document.getElementById('results-summary-url');
-    summaryDateElement = document.getElementById('results-summary-date');
-
+    getDomElements();
     // Create a submit event listener
     document.addEventListener('submit', submitHandler, false);
 

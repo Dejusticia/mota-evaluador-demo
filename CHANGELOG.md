@@ -16,13 +16,22 @@ This project adheres to [Semantic Versioning](http://semver.org/)
 - Javascript utilities file:
   - HTML5 template element Polyfill
   - Deep merge for objects by Chris Ferdinandi
+  - Array.prototype.forEach() and NodeList.prototype.forEach() polyfills by Chris Ferdinandi
+- Progress Indicator for when results are being retrieved
 
 ### Changed
-- Added rules to ruleset-general.json and dummy report;
+- Added new rules to ruleset-general.json and dummy report;
+- Improved ruleset-general and reports json with more information for each criteria;
 - Improved javascript inline documentation
+- Abstracted some code into new functions/methods on app script:
+  - processMarkup
+  - getDomElements
+- Improved app methods
+- moved HTML5 template element Polyfill to utilities.js
 
 ### Fixed
 - Rogue markdown markup on index.html
+- broken markup on index.html
 
 ## [2019-05-23] - 0.2.0
 
