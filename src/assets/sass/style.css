@@ -883,6 +883,9 @@ section[aria-labelledby="evaluate-header"] input[type="submit"] {
   transition: opacity 250ms 0ms cubic-bezier(0.4, 0, 0.6, 1);
   overflow: hidden;
 }
+details + .mdc-linear-progress {
+  display: none;
+}
 .mdc-linear-progress__bar {
   position: absolute;
   width: 100%;

@@ -11,12 +11,14 @@ This project adheres to [Semantic Versioning](http://semver.org/)
 
 ## Unreleased
 
+
 ### Added
 - Version information to HTML head
 - Javascript utilities file:
   - HTML5 template element Polyfill
   - Deep merge for objects by Chris Ferdinandi
   - Array.prototype.forEach() and NodeList.prototype.forEach() polyfills by Chris Ferdinandi
+  - ChildNode.prepend() polyfill by Chris Ferdinandi (adapted from jszhou original polyfill )
 - Progress Indicator for when results are being retrieved
 
 ### Changed

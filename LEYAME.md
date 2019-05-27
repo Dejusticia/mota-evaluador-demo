@@ -1,1 +1,1 @@
-#MOTA - Active Transparency Specification
+# Evaluador de Transparencia Activa en Colombia - Iniciativa MOTA

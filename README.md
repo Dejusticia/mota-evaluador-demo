@@ -1,1 +1,1 @@
-#MOTA - Active Transparency Specification
+# Active Transparency Evaluator - MOTA Initiative

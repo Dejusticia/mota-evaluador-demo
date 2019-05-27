@@ -59,24 +59,24 @@
         if ('recommendation' === rule.type) {
             switch (rule.grade) {
                 case 'AAA':
-                    obligationsSatisfactoryContainer.appendChild(markup);
+                    obligationsSatisfactoryContainer.prepend(markup);
                     break;
                 case 'AA':
-                    obligationsPartialContainer.appendChild(markup);
+                    obligationsPartialContainer.prepend(markup);
                     break;
                 default:
-                    obligationsUnsatisfactoryContainer.appendChild(markup);
+                    obligationsUnsatisfactoryContainer.prepend(markup);
             }
         } else {
             switch (rule.grade) {
                 case 'AAA':
-                    recommendationsSatisfactoryContainer.appendChild(markup);
+                    recommendationsSatisfactoryContainer.prepend(markup);
                     break;
                 case 'AA':
-                    recommendationsPartialContainer.appendChild(markup);
+                    recommendationsPartialContainer.prepend(markup);
                     break;
                 default:
-                    recommendationsUnsatisfactoryContainer.appendChild(markup);
+                    recommendationsUnsatisfactoryContainer.prepend(markup);
             }
         }
 

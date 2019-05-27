@@ -1011,6 +1011,11 @@ section[aria-labelledby="evaluate-header"] input[type="submit"] {
 }
 
 /* line 886, src/assets/sass/style.css */
+details + .mdc-linear-progress {
+  display: none;
+}
+
+/* line 889, src/assets/sass/style.css */
 .mdc-linear-progress__bar {
   position: absolute;
   width: 100%;
@@ -1025,7 +1030,7 @@ section[aria-labelledby="evaluate-header"] input[type="submit"] {
   transition: transform 250ms 0ms cubic-bezier(0.4, 0, 0.6, 1), -webkit-transform 250ms 0ms cubic-bezier(0.4, 0, 0.6, 1);
 }
 
-/* line 901, src/assets/sass/style.css */
+/* line 904, src/assets/sass/style.css */
 .mdc-linear-progress__bar-inner {
   display: inline-block;
   position: absolute;
@@ -1035,7 +1040,7 @@ section[aria-labelledby="evaluate-header"] input[type="submit"] {
   animation: none;
 }
 
-/* line 909, src/assets/sass/style.css */
+/* line 912, src/assets/sass/style.css */
 .mdc-linear-progress__buffering-dots {
   position: absolute;
   width: 100%;
@@ -1046,7 +1051,7 @@ section[aria-labelledby="evaluate-header"] input[type="submit"] {
   background-size: 10px 4px;
 }
 
-/* line 918, src/assets/sass/style.css */
+/* line 921, src/assets/sass/style.css */
 .mdc-linear-progress__buffer {
   position: absolute;
   width: 100%;
@@ -1059,37 +1064,37 @@ section[aria-labelledby="evaluate-header"] input[type="submit"] {
   transition: transform 250ms 0ms cubic-bezier(0.4, 0, 0.6, 1), -webkit-transform 250ms 0ms cubic-bezier(0.4, 0, 0.6, 1);
 }
 
-/* line 931, src/assets/sass/style.css */
+/* line 934, src/assets/sass/style.css */
 .mdc-linear-progress__primary-bar {
   -webkit-transform: scaleX(0);
   transform: scaleX(0);
 }
 
-/* line 936, src/assets/sass/style.css */
+/* line 939, src/assets/sass/style.css */
 .mdc-linear-progress__secondary-bar {
   visibility: hidden;
 }
 
-/* line 939, src/assets/sass/style.css */
+/* line 942, src/assets/sass/style.css */
 .mdc-linear-progress--indeterminate .mdc-linear-progress__bar {
   -webkit-transition: none;
   transition: none;
 }
 
-/* line 944, src/assets/sass/style.css */
+/* line 947, src/assets/sass/style.css */
 .mdc-linear-progress--indeterminate .mdc-linear-progress__primary-bar {
   left: -145.166611%;
   -webkit-animation: primary-indeterminate-translate 2s infinite linear;
   animation: primary-indeterminate-translate 2s infinite linear;
 }
 
-/* line 949, src/assets/sass/style.css */
+/* line 952, src/assets/sass/style.css */
 .mdc-linear-progress--indeterminate .mdc-linear-progress__primary-bar > .mdc-linear-progress__bar-inner {
   -webkit-animation: primary-indeterminate-scale 2s infinite linear;
   animation: primary-indeterminate-scale 2s infinite linear;
 }
 
-/* line 953, src/assets/sass/style.css */
+/* line 956, src/assets/sass/style.css */
 .mdc-linear-progress--indeterminate .mdc-linear-progress__secondary-bar {
   left: -54.888891%;
   -webkit-animation: secondary-indeterminate-translate 2s infinite linear;
@@ -1097,13 +1102,13 @@ section[aria-labelledby="evaluate-header"] input[type="submit"] {
   visibility: visible;
 }
 
-/* line 959, src/assets/sass/style.css */
+/* line 962, src/assets/sass/style.css */
 .mdc-linear-progress--indeterminate .mdc-linear-progress__secondary-bar > .mdc-linear-progress__bar-inner {
   -webkit-animation: secondary-indeterminate-scale 2s infinite linear;
   animation: secondary-indeterminate-scale 2s infinite linear;
 }
 
-/* line 963, src/assets/sass/style.css */
+/* line 966, src/assets/sass/style.css */
 .mdc-linear-progress--reversed .mdc-linear-progress__bar,
 .mdc-linear-progress--reversed .mdc-linear-progress__buffer {
   right: 0;
@@ -1111,82 +1116,82 @@ section[aria-labelledby="evaluate-header"] input[type="submit"] {
   transform-origin: center right;
 }
 
-/* line 970, src/assets/sass/style.css */
+/* line 973, src/assets/sass/style.css */
 .mdc-linear-progress--reversed .mdc-linear-progress__primary-bar {
   -webkit-animation-name: primary-indeterminate-translate-reverse;
   animation-name: primary-indeterminate-translate-reverse;
 }
 
-/* line 974, src/assets/sass/style.css */
+/* line 977, src/assets/sass/style.css */
 .mdc-linear-progress--reversed .mdc-linear-progress__secondary-bar {
   -webkit-animation-name: secondary-indeterminate-translate-reverse;
   animation-name: secondary-indeterminate-translate-reverse;
 }
 
-/* line 978, src/assets/sass/style.css */
+/* line 981, src/assets/sass/style.css */
 .mdc-linear-progress--reversed .mdc-linear-progress__buffering-dots {
   -webkit-animation: buffering-reverse 250ms infinite linear;
   animation: buffering-reverse 250ms infinite linear;
 }
 
-/* line 982, src/assets/sass/style.css */
+/* line 985, src/assets/sass/style.css */
 .mdc-linear-progress--closed {
   opacity: 0;
 }
 
-/* line 986, src/assets/sass/style.css */
+/* line 989, src/assets/sass/style.css */
 .mdc-linear-progress__bar-inner {
   background-color: #6200ee;
   /* @alternate */
   background-color: var(--mdc-theme-primary, #6200ee);
 }
 
-/* line 992, src/assets/sass/style.css */
+/* line 995, src/assets/sass/style.css */
 .mdc-linear-progress__buffering-dots {
   background-image: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' enable-background='new 0 0 5 2' xml:space='preserve' viewBox='0 0 5 2' preserveAspectRatio='none slice'%3E%3Ccircle cx='1' cy='1' r='1' fill='%23e6e6e6'/%3E%3C/svg%3E");
 }
 
-/* line 996, src/assets/sass/style.css */
+/* line 999, src/assets/sass/style.css */
 .mdc-linear-progress__buffer {
   background-color: #e6e6e6;
 }
 
-/* line 1000, src/assets/sass/style.css */
+/* line 1003, src/assets/sass/style.css */
 .mdc-linear-progress--indeterminate.mdc-linear-progress--reversed .mdc-linear-progress__primary-bar {
   right: -145.166611%;
   left: auto;
 }
 
-/* line 1004, src/assets/sass/style.css */
+/* line 1007, src/assets/sass/style.css */
 .mdc-linear-progress--indeterminate.mdc-linear-progress--reversed .mdc-linear-progress__secondary-bar {
   right: -54.888891%;
   left: auto;
 }
 
-/* line 1009, src/assets/sass/style.css */
+/* line 1012, src/assets/sass/style.css */
 .hero-linear-progress-indicator {
   width: 100%;
 }
 
-/* line 1013, src/assets/sass/style.css */
+/* line 1016, src/assets/sass/style.css */
 .demo-linear-progress-indicator {
   margin-top: 32px;
 }
 
-/* line 1017, src/assets/sass/style.css */
+/* line 1020, src/assets/sass/style.css */
 .results-content .mdc-linear-progress {
   margin: 2rem auto;
 }
 
 /* ## modifiers
 --------------------------------------------- */
-/* line 1024, src/assets/sass/style.css */
+/* line 1027, src/assets/sass/style.css */
 .no-border,
 *.no-border {
   border: none;
 }
 
-/* line 1029, src/assets/sass/style.css */
+/* line 1032, src/assets/sass/style.css */
 .no-padding,
 *.no-padding {
   padding: 0;
@@ -1196,7 +1201,7 @@ section[aria-labelledby="evaluate-header"] input[type="submit"] {
   padding-top: 0;
 }
 
-/* line 1038, src/assets/sass/style.css */
+/* line 1041, src/assets/sass/style.css */
 .no-margin,
 *.no-margin {
   margin: 0;
@@ -1211,14 +1216,14 @@ section[aria-labelledby="evaluate-header"] input[type="submit"] {
 /* ## Tablet
 --------------------------------------------- */
 @media only screen and (min-width: 640px) {
-  /* line 1054, src/assets/sass/style.css */
+  /* line 1057, src/assets/sass/style.css */
   ul[role="menubar"] {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
     height: 3rem;
   }
-  /* line 1058, src/assets/sass/style.css */
+  /* line 1061, src/assets/sass/style.css */
   .menubar-logo {
     -ms-flex-preferred-size: initial;
         flex-basis: initial;
@@ -1230,7 +1235,7 @@ section[aria-labelledby="evaluate-header"] input[type="submit"] {
 /* ## Medium Desktops and Laptops
 --------------------------------------------- */
 @media only screen and (min-width: 1024px) {
-  /* line 1074, src/assets/sass/style.css */
+  /* line 1077, src/assets/sass/style.css */
   header nav,
   section[aria-labelledby="evaluate-header"] > h2,
   section[aria-labelledby="evaluate-header"] > form,
@@ -1243,7 +1248,7 @@ section[aria-labelledby="evaluate-header"] input[type="submit"] {
 /* ## Large Desktops and Laptops
 --------------------------------------------- */
 @media only screen and (min-width: 1200px) {
-  /* line 1087, src/assets/sass/style.css */
+  /* line 1090, src/assets/sass/style.css */
   header nav,
   section[aria-labelledby="evaluate-header"] > h2,
   section[aria-labelledby="evaluate-header"] > form,
