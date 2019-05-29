@@ -12,8 +12,8 @@
         <link rel="stylesheet" href="assets/css/normalize.css">
         <link rel="stylesheet" href="assets/css/style.css">
         <meta name="theme-color" content="#fafafa">
+        <meta name="version" content="0.2.0">
     </head>
-
     <body>
         <!--[if IE]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
@@ -89,7 +89,7 @@
                     <li id="results-summary-reference">
                         <b>Referencia de Grados:</b><br>
                         <label for="reference-satisfactory">90-100 (satisfactório)</label>
-                        <meter id="reference-satisfactory" name="reference-satisfactory" min="0" low="50" high="90" max="100" optimum="100" value="95">
+                        <meter id="reference-satisfactory" name="reference-satisfactory" min="0" low="50" high="90" max="100" optimum="100" value="100">
                             90-100
                         </meter>
                         <label for="reference-partial">50-89 (parcial, debe mejorar)</label>
@@ -97,7 +97,6 @@
                             50-89
                         </meter>
                         <label for="reference-unsatisfactory">0-49 (insatisfactório)</label>
-                        </meter>
                         <meter id="reference-unsatisfactory" name="reference-unsatisfactory" min="0" low="50" high="90" optimum="100" max="100" value="30">
                             0-49
                         </meter>
@@ -106,27 +105,39 @@
             </section>
             <section class="legal-obligations unsatisfactory">
                 <h3>Obligaciones Legales - Insatisfactórias</h3>
-                <p><small>Haga clic en los siguientes títulos para ver los detalles de cada criterio.</small></p>
+                <div class="results-content">
+
+                </div>
             </section>
             <section class="legal-obligations partial">
                 <h3>Obligaciones Legales - Parcial</h3>
-                <p><small>Haga clic en los siguientes títulos para ver los detalles de cada criterio.</small></p>
+                <div class="results-content">
+
+                </div>
             </section>
             <section class="recommendations unsatisfactory">
                 <h3>Recommendaciones - Insatisfactórias</h3>
-                <p><small>Haga clic en los siguientes títulos para ver los detalles de cada criterio.</small></p>
+                <div class="results-content">
+
+                </div>
             </section>
             <section class="recommendations partial">
                 <h3>Recommendaciones - Parciales</h3>
-                <p><small>Haga clic en los siguientes títulos para ver los detalles de cada criterio.</small></p>
+                <div class="results-content">
+
+                </div>
             </section>
             <section class="legal-obligations satisfactory">
                 <h3>Obligaciones - Satisfactório</h3>
-                <p><small>Haga clic en los siguientes títulos para ver los detalles de cada criterio.</small></p>
+                <div class="results-content">
+
+                </div>
             </section>
             <section class="recommendations satisfactory">
                 <h3>Recommendaciones - Satisfactório</h3>
-                <p><small>Haga clic en los siguientes títulos para ver los detalles de cada criterio.</small></p>
+                <div class="results-content">
+
+                </div>
             </section>
         </div>
     </main>
@@ -180,9 +191,6 @@
                         <th class="results-criteria-grade">
                             Grado
                         </th>
-                        <th class="results-criteria-type">
-                            Tipo
-                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -193,9 +201,6 @@
                                 max="100" optimum="100" value="0">
                                 0
                             </meter>
-                        </td>
-                        <td class="results-criteria-type">
-                            Obligaciones
                         </td>
                     </tr>
                 </tbody>
@@ -209,6 +214,7 @@
     </script>
     <script src="https://www.google-analytics.com/analytics.js" async defer></script>-->
     <script src="assets/js/vendor/atomic/atomic.min.js" async defer></script>
+    <script src="assets/js/utilities.js" async defer></script>
     <script src="assets/js/app.js" async defer></script>
     </body>
 </html>
