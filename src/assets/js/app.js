@@ -28,8 +28,15 @@
     * @requires Atomic by Chris Ferdinandi. See <https://github.com/cferdinandi/atomic/>
     * @param  {string}  url  the url for retrieving the data from.
     */
-    var getReport = function ( url) {
-        atomic('http://localhost:3000/reports/report-corteconstitucional-gov-co.json', { responseType: 'json'})
+    var getReport = function (url) {
+
+        // cleanup results containers and site info
+        resultsContainers.forEach(function (elem, index) {
+            elem.innerHTML = '<div role="progressbar" class="mdc-linear-progress mdc-linear-progress--indeterminate"><div class="mdc-linear-progress__buffering-dots"></div><div class="mdc-linear-progress__buffer"></div><div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar"><span class="mdc-linear-progress__bar-inner"></span></div><div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar"><span class="mdc-linear-progress__bar-inner"></span></div></div>';
+        });
+
+        // fetch a report from the report repository
+        atomic('https://bitbucket.org/dejusticia/mota-evaluador-publico/raw/7f85c84eec046050830154a3249436acb74a223f/dist/reports/report-corteconstitucional-gov-co.json')
             .then(function (response) {
                 report = response.data;
                 //console.log('success report', report); // xhr.responseText
@@ -137,11 +144,6 @@
         //
         var rules = report.rules;
         var summaryDate = report.meta.lastEvaluationDate;
-
-        // cleanup results containers and site info
-        resultsContainers.forEach(function (elem, index) {
-            elem.innerHTML = '<div role="progressbar" class="mdc-linear-progress mdc-linear-progress--indeterminate"><div class="mdc-linear-progress__buffering-dots"></div><div class="mdc-linear-progress__buffer"></div><div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar"><span class="mdc-linear-progress__bar-inner"></span></div><div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar"><span class="mdc-linear-progress__bar-inner"></span></div></div>';
-        });
 
         summaryUrlElement.innerHTML = '';
         summaryDateElement.innerHTML = '';
