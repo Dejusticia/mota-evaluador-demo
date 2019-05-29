@@ -135,7 +135,7 @@
         },
         {
             "ruleId": "directorioDeFuncionariosCompleto",
-            "title": "Estructura orgánica",
+            "title": "Directorio de funcionarios - Completo",
             "shortDescription": "El sitio web contiene un directorio de funcionarios con informaciones completas: Nombres y apellidos; correo electrónico; Teléfono del despacho y dependencia; Formación académica; Experiencia laboral y profesional; Sanciones aplicadas.",
             "type": "obligation",
             "grade": "A",
@@ -153,7 +153,7 @@
             "ruleId": "sancionesAplicadasAServidoresPublicos",
             "title": "Sanciones aplicadas a servidores públicos",
             "shortDescription": "Es posible encontrar informaciones sobre sanciones disciplinarias o de otro tipo que hayan sido impuestas  a funcionarios de la entidad.",
-            "type": "obligation",
+            "type": "recommendation",
             "grade": "A",
             "gradePoints": "20"
         },

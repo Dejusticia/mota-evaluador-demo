@@ -11,7 +11,6 @@ This project adheres to [Semantic Versioning](http://semver.org/)
 
 ## Unreleased
 
-
 ### Added
 - Version information to HTML head
 - Javascript utilities file:
@@ -33,7 +32,6 @@ This project adheres to [Semantic Versioning](http://semver.org/)
 
 ### Fixed
 - Rogue markdown markup on index.html
-- broken markup on index.html
 
 ## [2019-05-23] - 0.2.0
 

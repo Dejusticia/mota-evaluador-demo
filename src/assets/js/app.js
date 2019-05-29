@@ -36,7 +36,7 @@
         });
 
         // fetch a report from the report repository
-        atomic('https://bitbucket.org/dejusticia/mota-evaluador-publico/raw/7f85c84eec046050830154a3249436acb74a223f/dist/reports/report-corteconstitucional-gov-co.json')
+        atomic('http://localhost:3000/reports/report-corteconstitucional-gov-co.json')
             .then(function (response) {
                 report = response.data;
                 //console.log('success report', report); // xhr.responseText
