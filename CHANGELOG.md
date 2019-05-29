@@ -11,6 +11,8 @@ This project adheres to [Semantic Versioning](http://semver.org/)
 
 ## Unreleased
 
+## [2019-05-29] - 0.3.0
+
 ### Added
 - Version information to HTML head
 - Javascript utilities file:
@@ -19,6 +21,9 @@ This project adheres to [Semantic Versioning](http://semver.org/)
   - Array.prototype.forEach() and NodeList.prototype.forEach() polyfills by Chris Ferdinandi
   - ChildNode.prepend() polyfill by Chris Ferdinandi (adapted from jszhou original polyfill )
 - Progress Indicator for when results are being retrieved
+- CSV/JSON conversion utilities for development purposes
+  - csvtojson
+  - jsonexport
 
 ### Changed
 - Added new rules to ruleset-general.json and dummy report;
