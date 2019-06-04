@@ -1,4 +1,4 @@
-rules.ruleId,rules.title,rules.shortDescription,rules.grade,rules.type,rules.gradePoints
+ruleId,title,shortDescription,grade,type,gradePoints
 websiteExistence,Existencia de sitio Web,"La entidade deberá mantener um sítio web, que deberá estar disponible para acesso via una URI oficial por cualquier user-agent.",AAA,obligation,100
 freeAccess,Régimen de Acceso - Gratuidad,"El sítio debe tener aceso gratuidad a los servicios judiciales informáticos que presta la Corte, exceto para casos previstos en ley e reglamentos.",AAA,obligation,100
 universalityDirectAccess,Universalidad: Acceso Directo,Los servicios informáticos que presta la Corte deben ser abiertos a todo el público que desee acceder a ellos y no deben estar restringidos a ciertos usuarios previo registro y recepción de una clave de acceso.,AAA,recommendation,100
