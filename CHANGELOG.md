@@ -11,6 +11,20 @@ This project adheres to [Semantic Versioning](http://semver.org/)
 
 ## Unreleased
 
+### Added:
+- getValidDomainInfo method on app
+- parseUri utility
+- URIs handling for the form. Only .gov.co domains are valid. A valid domain now is required;
+
+### Changed:
+
+- Improved csvtojsonconverter.js:
+	- work with multiples CSV files in a folder;
+	- Add meta information based on CSV information;
+
+### Fixed
+- Recommendations and Obligations results inserted in the wrong places in the page
+
 ## [2019-05-29] - 0.3.0
 
 ### Added

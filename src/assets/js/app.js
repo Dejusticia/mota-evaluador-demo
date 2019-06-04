@@ -24,19 +24,43 @@
     //
 
     /**
+    * Parse URL, validate it and return domain info.
+    *
+    * @description Checks if URI is from a .gov.co site and return an array with (sub)domain, basename
+    *              for files, report file names and other info.
+    * @requires parseUri by Steven Levithan. @see <stevenlevithan.com>
+    * @param  {string}  url  the url for retrieving the domain info.
+    * @return {object}  domainInfo  Domain info.
+    */
+    var getValidDomainInfo = function (url) {
+        var domainInfo, basename, urlParameters = parseUri( sanitizeHTML( String( url ) ) );
+        if (-1 === urlParameters.host.indexOf('gov.co') ) {
+            throw new Error('This URI is invalid');
+        }
+        basename = urlParameters.host.replace(/\./g, '-');
+        domainInfo = {
+            host: urlParameters.host,
+            basename: basename,
+            reportBasename: 'report-' + basename,
+        }
+        return domainInfo;
+    };
+
+    /**
     * Retrieves transparency report data from a given url.
     * @requires Atomic by Chris Ferdinandi. See <https://github.com/cferdinandi/atomic/>
     * @param  {string}  url  the url for retrieving the data from.
+    * @return {object} report object on success, error object on error.
     */
     var getReport = function (url) {
-
+        var urlObject = getValidDomainInfo(url);
         // cleanup results containers and site info
         resultsContainers.forEach(function (elem, index) {
             elem.innerHTML = '<div role="progressbar" class="mdc-linear-progress mdc-linear-progress--indeterminate"><div class="mdc-linear-progress__buffering-dots"></div><div class="mdc-linear-progress__buffer"></div><div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar"><span class="mdc-linear-progress__bar-inner"></span></div><div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar"><span class="mdc-linear-progress__bar-inner"></span></div></div>';
         });
 
         // fetch a report from the report repository
-        atomic('http://localhost:3000/reports/report-corteconstitucional-gov-co.json')
+        atomic( 'http://localhost:3000/reports/' + urlObject.reportBasename + '.json' )//
             .then(function (response) {
                 report = response.data;
                 //console.log('success report', report); // xhr.responseText
@@ -46,6 +70,7 @@
             .catch(function (error) {
                 console.error('error code', error.status); // xhr.status
                 console.error('error description', error.statusText); // xhr.statusText
+                throw new Error('This request returned an error with the code:' + "\n" + error.status);
             });
     };
 
@@ -58,17 +83,6 @@
         if ('recommendation' === rule.type) {
             switch (rule.grade) {
                 case 'AAA':
-                    obligationsSatisfactoryContainer.prepend(markup);
-                    break;
-                case 'AA':
-                    obligationsPartialContainer.prepend(markup);
-                    break;
-                default:
-                    obligationsUnsatisfactoryContainer.prepend(markup);
-            }
-        } else {
-            switch (rule.grade) {
-                case 'AAA':
                     recommendationsSatisfactoryContainer.prepend(markup);
                     break;
                 case 'AA':
@@ -76,6 +90,17 @@
                     break;
                 default:
                     recommendationsUnsatisfactoryContainer.prepend(markup);
+            }
+        } else {
+            switch (rule.grade) {
+                case 'AAA':
+                    obligationsSatisfactoryContainer.prepend(markup);
+                    break;
+                case 'AA':
+                    obligationsPartialContainer.prepend(markup);
+                    break;
+                default:
+                    obligationsUnsatisfactoryContainer.prepend(markup);
             }
         }
 
@@ -170,7 +195,8 @@
     var submitHandler = function (event) {
         event.preventDefault();
         if (form === event.target) {
-            getReport();
+            console.log(input.value);
+            getReport(input.value);
         }
     };
 
