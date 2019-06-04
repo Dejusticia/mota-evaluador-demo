@@ -1,4 +1,4 @@
-rules.ruleId,rules.title,rules.shortDescription,rules.grade,rules.type,rules.gradePoints
+ç,rules.title,rules.shortDescription,rules.grade,rules.type,rules.gradePoints
 websiteExistence,Existencia de sitio Web,"La entidade deberá mantener um sítio web, que deberá estar disponible para acesso via una URI oficial por cualquier user-agent.",AAA,obligation,100
 freeAccess,Régimen de Acceso - Gratuidad,"El sítio debe tener aceso gratuidad a los servicios judiciales informáticos que presta la Corte, exceto para casos previstos en ley e reglamentos.",AAA,obligation,100
 universalityDirectAccess,Universalidad: Acceso Directo,Los servicios informáticos que presta la Corte deben ser abiertos a todo el público que desee acceder a ellos y no deben estar restringidos a ciertos usuarios previo registro y recepción de una clave de acceso.,AAA,recommendation,100
@@ -14,7 +14,7 @@ horarioDeAtencionAlPublico,Horario de Atención al Público,"Informaciones sobre
 presupuesto,Presupuesto,"El presupuesto de la entidad para la respectiva vigencia debe estar disponible para verificación del público. Puede ser el presupuesto inicial o final. Eo presupuesto debe ofrecer datos (valores, ingresos, gastos) de forma clara, organizada y desagregado.",A,obligation,20
 ejecucionHistoricaAnual,Ejecución Histórica Anual,"Información relativa al presupuesto ejecutado en el año en curso, idealmente con porcentajes de ejecución, y deben ofrecer datos de forma clara, organizada y encontrarse desagregados.",,obligation,0
 planesDeGastoPublicoPorAnoFiscal,Planes de gasto público por año fiscal,Afazer,A,obligation,20
-directorioDeFuncionariosBasico,Directorio de funcionarios - Básico,El sitio web contiene un directorio de funcionarios con sus informaciones básicas: Nombres y apellidos; correo electrónico; Teléfono del despacho y dependencia.,A,obligation,20
+directorioDeFuncionariosBasico,Directorio de funcionarios - Básico,El sitio web contiene un directorio de funcionarios con sus informaciones básicas: Nombres y apellidos; correo electrónico; Teléfono del despacho y dependencia.,,obligation,0
 directorioDeFuncionariosCompleto,Directorio de funcionarios - Completo,El sitio web contiene un directorio de funcionarios con informaciones completas: Nombres y apellidos; correo electrónico; Teléfono del despacho y dependencia; Formación académica; Experiencia laboral y profesional; Sanciones aplicadas.,,obligation,0
 escalasSalariales,Escalas salariales,"Es posible encontrar una tabla con los rangos de salarios de la entidad, identificado por el título ""Rangos de salario por nivel"", y el decreto de asignaciones salariales de la entidad en un lugar visible.",A,obligation,20
 sancionesAplicadasAServidoresPublicos,Sanciones aplicadas a servidores públicos,Es posible encontrar informaciones sobre sanciones disciplinarias o de otro tipo que hayan sido impuestas  a funcionarios de la entidad.,,obligation,0
@@ -22,12 +22,12 @@ directorioConInformacionesDeContratosConContratistasBasico,Directorio con Inform
 directorioConInformacionesDeContratosConContratistasCompleto,Directorio con Informaciones de Contratos de Contratistas - Completo,El sitio web contiene contiene un directorio de funcionarios de informaciones completas: Nombres y apellidos; correo electrónico; Teléfono del despacho y dependencia; Formación académica; Experiencia laboral y profesional; Sanciones aplicadas;Objeto del contrato.,,obligation,0
 normasGenerales,Normas generales,"Existencia de una sección con normas y reglamentos pertinentes para la entidad: decretos, circulares, leyes, etc. relativas a creacción e reglamentos de la entidad.",A,obligation,20
 normasReglamentarias,Normas Reglamentarias,Existencia de información sobrenormas reglamentarias pertinentes a la entidad: resoluciones y directivas.,A,obligation,20
-manuales,Manuales,AFAZER,A,obligation,20
+manuales,Manuales,AFAZER,,obligation,0
 metasYObjectivos,Metas y Objetivos,AFAZER,,obligation,0
-resultadoDeAuditorias,Resultado de Auditorías,AFAZER,A,obligation,20
+resultadoDeAuditorias,Resultado de Auditorías,AFAZER,,obligation,0
 indicadoresDeDesempeno,Indicadores de Desempeño,Las entidades deben proveer información sobre los indicadores de desempeño que utilizan y reportes con estadísticas y análisis del desempeño de la entidad (en relación a _________) y de sus funcionarios.,,obligation,0
 planAnticorrupcionYDeAtencionAlCiudadano,Plan Anticorrupción y de Atención al Ciudadano,AFAZER,,obligation,0
-planDeComprasYAdquisicion,Plan anual de compras y adquisiciones,"La entidad debe ofrecer informaciones de su Plan de Compras Anual. El documento MOTA - Reglas Contextuales especifica normas necesarias por entidad, o clases de entidad.",A,obligation,20
+planDeComprasYAdquisicion,Plan anual de compras y adquisiciones,"La entidad debe ofrecer informaciones de su Plan de Compras Anual. El documento MOTA - Reglas Contextuales especifica normas necesarias por entidad, o clases de entidad.",,obligation,0
 atencionAlCiudadano,Atención al ciudadano,"El sitio de la entidad debe contener una o más páginas con información de los servicios que brinda directamente al público, incluyendo i) normas ii) formularios y formatos y, iii) protocolos de atención a diferentes públicos.",,obligation,0
 tramites,Trámites,"El sitio de la entidad debe contener una o más páginas con informaciones de los trámites que se pueden agotar en la entidad, incluyendo i) normativa(s) relacionada(s) ii) proceso a seguir, incluso formularios y formatos y, iii) costos asociados.",A,obligation,20
 procedimientos,Procedimientos,El sitio de la entidad debe contener una o más páginas con informaciones sobre los procedimientos que se siguen para tomar decisiones en diferentes áreas y procesos.,A,obligation,20
