@@ -11,6 +11,12 @@ This project adheres to [Semantic Versioning](http://semver.org/)
 
 ## Unreleased
 
+### Changed:
+
+- Improved csvtojsonconverter.js:
+	- work with multiples CSV files in a folder;
+	- Add meta information based on CSV information;
+
 ## [2019-05-29] - 0.3.0
 
 ### Added
