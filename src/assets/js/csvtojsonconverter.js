@@ -15,7 +15,7 @@ reportsInFolder.forEach(function(element){
     let csvFilePath = 'src/copy/reports/' + element;
     let jsonFilePath = csvFilePath.replace('.csv', '.json');
     let fileBasename = element.substr(7).replace( '-gov-co', '').replace('.csv', '');
-    let entityName = fileBasename.toUpperCase();
+    let entityName = fileBasename.replace('www-', '').toUpperCase();
     let entityUrl = fileBasename + '.gov.co';
     let obj = {
         meta: {

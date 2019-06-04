@@ -43,5 +43,8 @@
     "jshint-stylish": "2.2.1",
     "jsonexport": "^2.4.1",
     "lazypipe": "1.0.1"
+  },
+  "dependencies": {
+    "url-parse": "^1.4.7"
   }
 }
