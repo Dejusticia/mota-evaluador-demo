@@ -357,14 +357,6 @@
             "gradePoints": "20"
         },
         {
-            "ruleId": "estructuraOrganica",
-            "title": "Estructura orgánica",
-            "shortDescription": "AFAZER",
-            "type": "obligation",
-            "grade": "AA",
-            "gradePoints": "50"
-        },
-        {
             "ruleId": "mecanismosDeVigilancia",
             "title": "Mecanismos de Vigilancia",
             "shortDescription": "AFAZER",
