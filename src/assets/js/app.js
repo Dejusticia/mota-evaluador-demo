@@ -117,7 +117,7 @@
         var gradeLabel = markup.querySelector('.results-criteria-grade label');
         var detailsElement = markup.querySelector('.results-criteria');
         markup.querySelector('summary').innerText = rule.title;
-        markup.querySelector('details p').innerHTML = '<p>' + rule.shortDescription + ' <a href="#" class="more-link">Más Informaciones.</a></p>';
+        markup.querySelector('details p').innerHTML = '<p>' + rule.shortDescription + ' <a href="' + rule.ruleSpecificationUrl +'" class="more-link">Más Informaciones.</a></p>';
         detailsElement.setAttribute('id', 'criteria-' + ruleId);
         gradeLabel.innerText = rule.grade;
         gradeLabel.setAttribute('for', 'grade-' + ruleId);
