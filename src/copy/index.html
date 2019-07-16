@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="assets/css/normalize.css">
         <link rel="stylesheet" href="assets/css/style.css">
         <meta name="theme-color" content="#fafafa">
-        <meta name="version" content="0.2.0">
+        <meta name="version" content="0.4.0">
     </head>
     <body>
         <!--[if IE]>
@@ -66,7 +66,7 @@
     <main id="content-area">
         <section aria-labelledby="evaluate-header">
             <h2 id="evaluate-header">Evalue un sítio web</h2>
-            <form aria-labelledby="evaluate-url-legend" id="evaluate-form" action="https://mota.dejusticia.org/evaluador/reporte/">
+            <form aria-labelledby="evaluate-url-legend" id="evaluate-form">
                 <fieldset class="no-border no-margin no-padding">
                     <legend id="evaluate-url-legend" class="screen-reader-text">rellene el campo con la URL de lo sitio a evaluar</legend>
                     <label for="evaluate-url" class="screen-reader-text">URL</label>
@@ -77,32 +77,54 @@
         </section>
         <div id="main-content" class="main-content">
             <h2 id="results-header">Resultados de La Evaluacción</h2>
-            <section id="results-summary">
+            <div id="results-summary">
                 <h3>Sumário de La Evaluacción</h3>
-                <label for="results-grade-final">Insatisfactório (49)</label>
-                <meter id="results-grade-final" name="results-grade-final" min="0" low="50" high="90" max="100" optimum="100" value="48">
-                    0-49
-                </meter>
+                <div id="results-summary-error" class="inactive">
+                </div>
+                <div class="results-grade-final">
+                    <label for="results-grade-final" class="inactive"></label>
+                    <meter id="results-grade-final" name="results-grade-final" min="0" low="50" high="90" max="100" optimum="100" value="48" class="inactive">
+                        0-49
+                    </meter>
+                </div>
                 <ul>
                     <li id="results-summary-url"><span class="screen-reader-text">URL:</span></li>
                     <li id="results-summary-date"><span class="screen-reader-text">Fecha de Evaluación:</span></li>
                     <li id="results-summary-reference">
-                        <b>Referencia de Grados:</b><br>
-                        <label for="reference-satisfactory">90-100 (satisfactório)</label>
-                        <meter id="reference-satisfactory" name="reference-satisfactory" min="0" low="50" high="90" max="100" optimum="100" value="100">
-                            90-100
-                        </meter>
-                        <label for="reference-partial">50-89 (parcial, debe mejorar)</label>
-                        <meter id="reference-partial" name="reference-partial" min="0" low="50" high="90" max="100" optimum="100" value="60">
-                            50-89
-                        </meter>
-                        <label for="reference-unsatisfactory">0-49 (insatisfactório)</label>
-                        <meter id="reference-unsatisfactory" name="reference-unsatisfactory" min="0" low="50" high="90" optimum="100" max="100" value="30">
-                            0-49
-                        </meter>
+                        <p><b>Referencia de Grados:</b></p>
+                        <div>
+                            <label for="reference-satisfactory">100 (perfecto!)</label>
+                            <meter id="reference-satisfactory" name="reference-satisfactory" min="0" low="49" high="90" max="100" optimum="100" value="100">
+                                100
+                            </meter>
+                        </div>
+                        <div>
+                            <label for="reference-satisfactory">90-99 (satisfactório)</label>
+                            <meter id="reference-satisfactory" name="reference-satisfactory" min="0" low="49" high="90" max="100" optimum="100" value="91">
+                                90-99
+                            </meter>
+                        </div>
+                        <div>
+                            <label for="reference-partial">50-89 (parcial, debe mejorar)</label>
+                            <meter id="reference-partial" name="reference-partial" min="0" low="49" high="90" max="100" optimum="100" value="60">
+                                50-89
+                            </meter>
+                        </div>
+                        <div>
+                            <label for="reference-unsatisfactory">20-49 (insatisfactório)</label>
+                            <meter id="reference-unsatisfactory" name="reference-unsatisfactory" min="0" low="49" high="90" optimum="100" max="100" value="30">
+                                20-49
+                            </meter>
+                        </div>
+                        <div>
+                            <label for="reference-unsatisfactory">0-19 (Mucho Insatisfactório!)</label>
+                            <meter id="reference-unsatisfactory" name="reference-unsatisfactory" min="0" low="49" high="90" optimum="100" max="100" value="5">
+                                0-19
+                            </meter>
+                        </div>
                     </li>
                 </ul>
-            </section>
+            </div>
             <section class="legal-obligations unsatisfactory">
                 <h3>Obligaciones Legales - Insatisfactórias</h3>
                 <div class="results-content">
@@ -197,7 +219,7 @@
                     <tr>
                         <td class="results-criteria-grade">
                             <label for="template-grade">-</label>
-                            <meter id="template-grade" name="template-grade" min="0" low="30" high="90"
+                            <meter id="template-grade" name="template-grade" min="0" low="49" high="90"
                                 max="100" optimum="100" value="0">
                                 0
                             </meter>

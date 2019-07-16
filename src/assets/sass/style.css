@@ -50,6 +50,17 @@ summary::-webkit-details-marker {
     color: #012f89;
 }
 
+#results-summary-error {
+    background-color: #FFDB1A;
+    color: #222;
+    font-weight: 600;
+    font-size: 2em;
+    padding: 2rem;
+}
+.inactive {
+    display: none;
+}
+
 /* ## Headings
 --------------------------------------------- */
 
@@ -393,6 +404,27 @@ section[aria-labelledby="evaluate-header"] input[type="submit"] {
     margin: 0 auto;
     max-width: 90%;
     padding: 2rem 0;
+}
+
+#results-summary {
+    background-color: #f0f0f0;
+    padding: 2rem;
+}
+#results-summary ul {
+    list-style: none;
+    list-style-position: inside;
+    padding: 0;
+}
+#results-summary-reference {
+    display: flex;
+    flex-basis: 100%;
+    flex-wrap: wrap;
+}
+#results-summary-reference div {
+    flex-basis: 50%;
+}
+#results-summary-reference p {
+    flex-basis: 100%;
 }
 
 .main-content section {
