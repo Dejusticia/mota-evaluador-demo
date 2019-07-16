@@ -1,5 +1,5 @@
 /*!
- * mota-evaluador v0.3.0
+ * mota-evaluador v0.4.0
  * Evaluador de Transparencia Activa en Colombia - Iniciativa MOTA
  * (c) 2019 
  * MIT License
@@ -138,12 +138,13 @@
 
     /**
     * Process a result template markup.
-    * @param  {string}  markup    The result template markup.
-    * @param  {object}  rule     The rule object.
-    * @param  {string}  markup    The processed result markup.
+    * @param  {number}  generalGrade    The general grade for this report.
     */
     var processSummaryMarkup = function ( generalGrade ) {
         var generalGradeText = '';
+
+        // coerce to number
+        generalGrade = +generalGrade;
         if ( generalGrade < 20 ) {
             generalGradeText = ' Mucho insatisfactório (' + generalGrade + ')';
         } else if (generalGrade < 50) {
@@ -231,7 +232,7 @@
             addResult(markup, rule);
         }
         generalGrade = Math.floor( generalGrade / rules.length ) ;
-        //summaryGeneralGradeElement
+        processSummaryMarkup(generalGrade);
         summaryUrlElement.innerHTML = '<span class="screen-reader-text">URL:</span>' + report.meta.entityUrl;
         summaryDateElement.innerHTML = '<span class="screen-reader-text">Fecha de Evaluación:</span>' + transformDate(summaryDate);
     };

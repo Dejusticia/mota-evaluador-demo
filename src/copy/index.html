@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="assets/css/normalize.css">
         <link rel="stylesheet" href="assets/css/style.css">
         <meta name="theme-color" content="#fafafa">
-        <meta name="version" content="0.3.0">
+        <meta name="version" content="0.4.0">
     </head>
     <body>
         <!--[if IE]>
@@ -81,10 +81,12 @@
                 <h3>Sumário de La Evaluacción</h3>
                 <div id="results-summary-error" class="inactive">
                 </div>
-                <label for="results-grade-final" class="inactive"></label>
-                <meter id="results-grade-final" name="results-grade-final" min="0" low="50" high="90" max="100" optimum="100" value="48" class="inactive">
-                    0-49
-                </meter>
+                <div class="results-grade-final">
+                    <label for="results-grade-final" class="inactive"></label>
+                    <meter id="results-grade-final" name="results-grade-final" min="0" low="50" high="90" max="100" optimum="100" value="48" class="inactive">
+                        0-49
+                    </meter>
+                </div>
                 <ul>
                     <li id="results-summary-url"><span class="screen-reader-text">URL:</span></li>
                     <li id="results-summary-date"><span class="screen-reader-text">Fecha de Evaluación:</span></li>

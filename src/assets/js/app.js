@@ -224,7 +224,7 @@
             addResult(markup, rule);
         }
         generalGrade = Math.floor( generalGrade / rules.length ) ;
-        //summaryGeneralGradeElement
+        processSummaryMarkup(generalGrade);
         summaryUrlElement.innerHTML = '<span class="screen-reader-text">URL:</span>' + report.meta.entityUrl;
         summaryDateElement.innerHTML = '<span class="screen-reader-text">Fecha de Evaluación:</span>' + transformDate(summaryDate);
     };
