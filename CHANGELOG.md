@@ -14,7 +14,7 @@ This project adheres to [Semantic Versioning](http://semver.org/)
 ## [2019-07-16] - 0.4.4
 
 ### Fixed
-- Lacking of demo link on README.md
+- missing demo link on README.md
 
 ## [2019-07-16] - 0.4.3
 
