@@ -23,10 +23,22 @@ This project adheres to [Semantic Versioning](http://semver.org/)
 	- work with multiples CSV files in a folder;
 	- Add meta information based on CSV information;
 - New field on rules items on reports JSON  : ruleSpecificationUrl;
+- Tweaked styles
+- Tweaked markup
+- results reports now are fetched from Github repository ( https://github.com/Dejusticia/mota-reports/ )
+- processMarkup method name changed to processResultMarkup
+- Grades now are categorized in 5 categories:
+    - 100 (perfecto!) 100
+    - 90-99 (satisfactório) 90-99
+    - 50-89 (parcial, debe mejorar) 50-89
+    - 20-49 (insatisfactório) 20-49
+    - 0-19 (Mucho Insatisfactório!) 0-19
+
 
 ### Fixed
 - Recommendations and Obligations results inserted in the wrong places in the page
 - Version number on index.html, CHANGELOG.md and package.json;
+- general grade was not being calculated
 
 ## [2019-05-29] - 0.3.0
 

@@ -16,8 +16,8 @@
     // Variables
     //
 
-    var obligationsUnsatisfactoryContainer, obligationsPartialContainer, obligationsSatisfactoryContainer, recommendationsUnsatisfactoryContainer, recommendationsPartialContainer, recommendationsSatisfactoryContainer, resultsContainers;
-    var form, input, report, summaryUrlElement, summaryDateElement;
+    var obligationsUnsatisfactoryContainer, obligationsPartialContainer, obligationsSatisfactoryContainer, recommendationsUnsatisfactoryContainer, recommendationsPartialContainer, recommendationsSatisfactoryContainer, resultsContainers, generalGrade = 0;
+    var form, input, report, summaryElement, summaryErrorElement, summaryGeneralGradeElement, summaryGeneralGradeLabel, summaryUrlElement, summaryDateElement;
 
     //
     // Methods
@@ -34,7 +34,9 @@
     */
     var getValidDomainInfo = function (url) {
         var domainInfo, basename, urlParameters = parseUri( sanitizeHTML( String( url ) ) );
-        if (-1 === urlParameters.host.indexOf('gov.co') ) {
+        if (-1 === urlParameters.host.indexOf('gov.co')) {
+            summaryErrorElement.classList.remove('inactive');
+            summaryErrorElement.innerHTML = '<p>El enlace que buscó no es válido!</p><p>Por favor, use una URL .gov.co de um sítio web existente.</p>';
             throw new Error('This URI is invalid');
         }
         basename = urlParameters.host.replace(/\./g, '-');
@@ -42,7 +44,7 @@
             host: urlParameters.host,
             basename: basename,
             reportBasename: 'report-' + basename,
-        }
+        };
         return domainInfo;
     };
 
@@ -60,7 +62,7 @@
         });
 
         // fetch a report from the report repository
-        atomic( 'http://localhost:3000/reports/' + urlObject.reportBasename + '.json' )//
+        atomic('https://dejusticia.github.io/mota-reports/' + urlObject.reportBasename + '.json' )//
             .then(function (response) {
                 report = response.data;
                 //console.log('success report', report); // xhr.responseText
@@ -68,9 +70,7 @@
                 return report;
             })
             .catch(function (error) {
-                console.error('error code', error.status); // xhr.status
-                console.error('error description', error.statusText); // xhr.statusText
-                throw new Error('This request returned an error with the code:' + "\n" + error.status);
+                processReportError();
             });
     };
 
@@ -111,7 +111,7 @@
     * @param  {object}  rule     The rule object.
     * @param  {string}  markup    The processed result markup.
     */
-    var processMarkup = function (markup, rule) {
+    var processResultMarkup = function (markup, rule) {
         var ruleId = rule.ruleId;
         var gradeMeter = markup.querySelector('.results-criteria-grade meter');
         var gradeLabel = markup.querySelector('.results-criteria-grade label');
@@ -126,6 +126,32 @@
         gradeMeter.setAttribute('name', 'grade-' + ruleId);
         gradeMeter.innerText =rule.gradePoints;
         return markup;
+    };
+
+    /**
+    * Process a result template markup.
+    * @param  {number}  generalGrade    The general grade for this report.
+    */
+    var processSummaryMarkup = function ( generalGrade ) {
+        var generalGradeText = '';
+
+        // coerce to number
+        generalGrade = +generalGrade;
+        if ( generalGrade < 20 ) {
+            generalGradeText = ' Mucho insatisfactório (' + generalGrade + ')';
+        } else if (generalGrade < 50) {
+            generalGradeText = ' Insatisfactório (' + generalGrade + ')';
+        } else if (generalGrade < 90) {
+            generalGradeText = ' Parcial, debe mejorar (' + generalGrade + ')';
+        } else if (generalGrade < 100) {
+            generalGradeText = ' satisfactório (' + generalGrade + ')';
+        } else {
+            generalGradeText = ' Perfecto! (' + generalGrade + ')';
+        }
+        summaryGeneralGradeElement.value =  generalGrade;
+        summaryGeneralGradeLabel.innerHTML = generalGradeText;
+        summaryGeneralGradeElement.classList.remove('inactive');
+        summaryGeneralGradeLabel.classList.remove('inactive');
     };
 
     /**
@@ -151,6 +177,10 @@
         recommendationsSatisfactoryContainer = document.querySelector('.recommendations.satisfactory .results-content');
         form = document.getElementById('evaluate-form');
         input = document.getElementById('evaluate-url');
+        summaryElement = document.getElementById('results-summary');
+        summaryErrorElement = document.getElementById('results-summary-error');
+        summaryGeneralGradeElement = document.getElementById('results-grade-final');
+        summaryGeneralGradeLabel = document.querySelector('label[for="results-grade-final"]');
         summaryUrlElement = document.getElementById('results-summary-url');
         summaryDateElement = document.getElementById('results-summary-date');
         resultsContainers = document.querySelectorAll('.results-content');
@@ -170,6 +200,9 @@
         var rules = report.rules;
         var summaryDate = report.meta.lastEvaluationDate;
 
+        summaryErrorElement.classList.add('inactive');
+        summaryGeneralGradeElement.classList.add('inactive');
+        summaryGeneralGradeLabel.classList.add('inactive');
         summaryUrlElement.innerHTML = '';
         summaryDateElement.innerHTML = '';
 
@@ -178,14 +211,35 @@
             var rule = rules[i];
             var grade = rule.grade;
             var gradePoints = '0';
+            if (0 === i) {
+                generalGrade = +rule.gradePoints;
+            } else {
+                rule.gradePoints = +rule.gradePoints
+                generalGrade = generalGrade + rule.gradePoints;
+            }
+            console.log('generalGrade =');
+            console.log(generalGrade);
             var markup = document.getElementById('template-results-criteria').content.cloneNode(true);
-            markup = processMarkup(markup, rule);
+            markup = processResultMarkup(markup, rule);
             addResult(markup, rule);
         }
-
-        summaryUrlElement.innerHTML = '<b>URL:</b>' + report.meta.entityUrl;
-        summaryDateElement.innerHTML = '<b>Fecha de Evaluación:</b>' + transformDate(summaryDate);
+        generalGrade = Math.floor( generalGrade / rules.length ) ;
+        //summaryGeneralGradeElement
+        summaryUrlElement.innerHTML = '<span class="screen-reader-text">URL:</span>' + report.meta.entityUrl;
+        summaryDateElement.innerHTML = '<span class="screen-reader-text">Fecha de Evaluación:</span>' + transformDate(summaryDate);
     };
+
+    /**
+    * Process report report error and show results to the main content area.
+    */
+    var processReportError = function () {
+        // error.status//summaryElement
+        summaryErrorElement.classList.remove('inactive');
+        summaryErrorElement.innerHTML = '<p>No se encontró el informe para esta evaluación. Estamos agregando a nuestra cola de evaluación y, si existe el sitio, tendremos la evaluación en unas pocas horas.</p>';
+        console.error('error code', error.status); // xhr.status
+        console.error('error description', error.statusText); // xhr.statusText
+        throw new Error('This request returned an error with the code:' + "\n" + error.status);
+    }
 
 
     /**
