@@ -1,5 +1,5 @@
 /*!
- * mota-evaluador v0.3.0
+ * mota-evaluador v0.4.0
  * Evaluador de Transparencia Activa en Colombia - Iniciativa MOTA
  * (c) 2019 
  * MIT License
@@ -493,9 +493,10 @@ section[aria-labelledby="evaluate-header"] input[type="submit"] {
 #results-summary ul {
   list-style: none;
   list-style-position: inside;
+  padding: 0;
 }
 
-/* line 417, src/assets/sass/style.css */
+/* line 418, src/assets/sass/style.css */
 #results-summary-reference {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -504,7 +505,6 @@ section[aria-labelledby="evaluate-header"] input[type="submit"] {
       flex-basis: 100%;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  padding: 2rem;
 }
 
 /* line 423, src/assets/sass/style.css */

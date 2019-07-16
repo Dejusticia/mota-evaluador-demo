@@ -413,12 +413,12 @@ section[aria-labelledby="evaluate-header"] input[type="submit"] {
 #results-summary ul {
     list-style: none;
     list-style-position: inside;
+    padding: 0;
 }
 #results-summary-reference {
     display: flex;
     flex-basis: 100%;
     flex-wrap: wrap;
-    padding: 2rem;
 }
 #results-summary-reference div {
     flex-basis: 50%;
