@@ -39,10 +39,13 @@
         "gulp-sass": "^4.0.2",
         "gulp-svgmin": "^2.2.0",
         "gulp-terser": "^1.2.0",
+        "js-yaml": "^3.13.1",
         "jshint": "^2.10.2",
         "jshint-stylish": "2.2.1",
         "jsonexport": "^2.4.1",
-        "lazypipe": "^1.0.2"
+        "lazypipe": "^1.0.2",
+        "lodash": "^4.17.14",
+        "lodash.merge": "^4.6.2"
     },
     "dependencies": {
         "url-parse": "^1.4.7"
