@@ -1,0 +1,160 @@
+$mdc-theme-primary: #fcd116;
+$mdc-theme-secondary: #003893;
+$mdc-theme-on-primary: #000000;
+$mdc-theme-on-secondary: #ffffff;
+$mdc-typography-font-family: unquote("Roboto,Rubik, Open Sans, -apple-syphonstem, BlinkMacSystemFont, Segoe UI, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;");
+
+$mota-theme-primary-light: #ffff58;
+$mota-theme-primary-dark: #c7a000;
+$mota-theme-secondary-light: #4d61c4;
+$mota-theme-secondary-dark: #001464;
+
+@import "./normalize.css";
+@import "@material/textfield/mdc-text-field";
+@import "@material/button/mdc-button";
+@import "@material/icon-button/mdc-icon-button";
+@import "@material/card/mdc-card";
+@import "@material/data-table/mdc-data-table";
+@import "@material/layout-grid/mdc-layout-grid";
+@import "@material/top-app-bar/mdc-top-app-bar";
+@import "@material/typography/mdc-typography";
+
+body {
+    font-family: $mdc-typography-font-family;
+}
+
+.mdc-card--free-content {
+    padding: 16px;
+}
+
+/* ## Skip Links
+--------------------------------------------- */
+
+.skip-link {
+    margin: 0;
+}
+
+.skip-link li {
+    height: 0;
+    width: 0;
+    list-style: none;
+}
+
+/* ## Screen Reader Text
+--------------------------------------------- */
+
+.screen-reader-text,
+.screen-reader-text span,
+.screen-reader-shortcut {
+    position: absolute !important;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    width: 1px;
+    border: 0;
+    overflow: hidden;
+}
+
+.screen-reader-text:focus,
+.screen-reader-shortcut:focus {
+    clip: auto !important;
+    height: auto;
+    width: auto;
+    display: block;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 15px 23px 14px;
+    color: #333;
+    background: #fff;
+    z-index: 100000;
+    /* Above WP toolbar. */
+    text-decoration: none;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, .6);
+}
+
+/* ## Main content
+--------------------------------------------- */
+
+main,
+main.mdc-layout-grid {
+    padding-top: 88px;
+}
+
+.mota-theme-primary-light-bg {
+    background-color: $mota-theme-primary-light;
+    color: $mdc-theme-on-primary;
+}
+
+.mota-theme-primary-dark-bg {
+    background-color: $mota-theme-primary-dark;
+    color: $mdc-theme-on-primary;
+}
+
+.mota-theme-secondary-light-bg {
+    background-color: $mota-theme-secondary-light;
+    color: $mdc-theme-on-secondary;
+}
+
+.mota-theme-secondary-dark-bg {
+    background-color: $mota-theme-secondary-dark;
+    color: $mdc-theme-on-secondary;
+}
+
+/* ## Forms and Forms Elements (input, textarea, etc)
+--------------------------------------------- */
+
+input {
+    -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2) inset;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2) inset;
+}
+
+/* ## Evaluate Form
+--------------------------------------------- */
+
+section[aria-labelledby="evaluate-header"]>h2,
+section[aria-labelledby="evaluate-header"]>form {
+    margin: 0 auto;
+    max-width: 90%;
+    padding: 2rem 0;
+}
+
+section[aria-labelledby="evaluate-header"] input[type="submit"] {
+    width: 17%;
+    margin-left: 5%;
+}
+
+/* # Media Queries
+---------------------------------------------------------------------------------------------------- */
+/* ## Tablet
+--------------------------------------------- */
+@media only screen and (min-width: 640px) {
+
+    main {
+        max-width: 90%;
+    }
+}
+
+/* ## Small Desktops and Laptops
+--------------------------------------------- */
+@media only screen and (min-width: 880px) {
+
+}
+
+/* ## Medium Desktops and Laptops
+--------------------------------------------- */
+@media only screen and (min-width: 1024px) {
+
+    main {
+        max-width: 80%;
+    }
+
+}
+
+/* ## Large Desktops and Laptops
+--------------------------------------------- */
+@media only screen and (min-width: 1200px) {
+
+    main {
+        max-width: 1024px;
+    }
+}
+
