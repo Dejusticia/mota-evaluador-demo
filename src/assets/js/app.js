@@ -1,3 +1,20 @@
+import { MDCTextField } from '@material/textfield';
+import * as atomic from 'atomicjs';
+import {
+    sanitizeHTML,
+    log,
+    parseUri,
+    templatePolyfill,
+    arrayForEach,
+    nodeListForEach,
+    deepAssign
+} from './modules/mota-utilities/index.js';
+templatePolyfill(document);
+arrayForEach();
+nodeListForEach();
+
+const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
+
 /*  Don't forget to load utilities.js first */
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
@@ -24,16 +41,16 @@
     //
 
     /**
-    * Parse URL, validate it and return domain info.
-    *
-    * @description Checks if URI is from a .gov.co site and return an array with (sub)domain, basename
-    *              for files, report file names and other info.
-    * @requires parseUri by Steven Levithan. @see <stevenlevithan.com>
-    * @param  {string}  url  the url for retrieving the domain info.
-    * @return {object}  domainInfo  Domain info.
-    */
+     * Parse URL, validate it and return domain info.
+     *
+     * @description Checks if URI is from a .gov.co site and return an array with (sub)domain, basename
+     *              for files, report file names and other info.
+     * @requires parseUri by Steven Levithan. @see <stevenlevithan.com>
+     * @param  {string}  url  the url for retrieving the domain info.
+     * @return {object}  domainInfo  Domain info.
+     */
     var getValidDomainInfo = function (url) {
-        var domainInfo, basename, urlParameters = parseUri( sanitizeHTML( String( url ) ) );
+        var domainInfo, basename, urlParameters = parseUri(sanitizeHTML(String(url)));
         if (-1 === urlParameters.host.indexOf('gov.co')) {
             summaryErrorElement.classList.remove('inactive');
             summaryErrorElement.innerHTML = '<p>El enlace que buscó no es válido!</p><p>Por favor, use una URL .gov.co de um sítio web existente.</p>';
@@ -49,11 +66,11 @@
     };
 
     /**
-    * Retrieves transparency report data from a given url.
-    * @requires Atomic by Chris Ferdinandi. See <https://github.com/cferdinandi/atomic/>
-    * @param  {string}  url  the url for retrieving the data from.
-    * @return {object} report object on success, error object on error.
-    */
+     * Retrieves transparency report data from a given url.
+     * @requires Atomic by Chris Ferdinandi. See <https://github.com/cferdinandi/atomic/>
+     * @param  {string}  url  the url for retrieving the data from.
+     * @return {object} report object on success, error object on error.
+     */
     var getReport = function (url) {
         var urlObject = getValidDomainInfo(url);
         // cleanup results containers and site info
@@ -62,7 +79,7 @@
         });
 
         // fetch a report from the report repository
-        atomic('https://dejusticia.github.io/mota-reports/' + urlObject.reportBasename + '.json' )//
+        atomic('https://dejusticia.github.io/mota-reports/' + urlObject.reportBasename + '.json') //
             .then(function (response) {
                 report = response.data;
                 //console.log('success report', report); // xhr.responseText
@@ -70,15 +87,17 @@
                 return report;
             })
             .catch(function (error) {
-                processReportError();
+                console.log('error:');
+                console.log(error);
+                processReportError(error);
             });
     };
 
     /**
-    * Add a result markup to one of the results container in main page.
-    * @param  {string}  markup  The result markup.
-    * @param  {object}  rule    The rule object.
-    */
+     * Add a result markup to one of the results container in main page.
+     * @param  {string}  markup  The result markup.
+     * @param  {object}  rule    The rule object.
+     */
     var addResult = function (markup, rule) {
         if ('recommendation' === rule.type) {
             switch (rule.grade) {
@@ -106,38 +125,38 @@
 
     };
     /**
-    * Process a result template markup.
-    * @param  {string}  markup    The result template markup.
-    * @param  {object}  rule     The rule object.
-    * @param  {string}  markup    The processed result markup.
-    */
+     * Process a result template markup.
+     * @param  {string}  markup    The result template markup.
+     * @param  {object}  rule     The rule object.
+     * @param  {string}  markup    The processed result markup.
+     */
     var processResultMarkup = function (markup, rule) {
         var ruleId = rule.ruleId;
         var gradeMeter = markup.querySelector('.results-criteria-grade meter');
         var gradeLabel = markup.querySelector('.results-criteria-grade label');
         var detailsElement = markup.querySelector('.results-criteria');
         markup.querySelector('summary').innerText = rule.title;
-        markup.querySelector('details p').innerHTML = '<p>' + rule.shortDescription + ' <a href="' + rule.ruleSpecificationUrl +'" class="more-link">Más Informaciones.</a></p>';
+        markup.querySelector('details p').innerHTML = '<p>' + rule.shortDescription + ' <a href="' + rule.ruleSpecificationUrl + '" class="more-link">Más Informaciones.</a></p>';
         detailsElement.setAttribute('id', 'criteria-' + ruleId);
         gradeLabel.innerText = rule.grade;
         gradeLabel.setAttribute('for', 'grade-' + ruleId);
         gradeMeter.setAttribute('value', rule.gradePoints);
         gradeMeter.setAttribute('id', 'grade-' + ruleId);
         gradeMeter.setAttribute('name', 'grade-' + ruleId);
-        gradeMeter.innerText =rule.gradePoints;
+        gradeMeter.innerText = rule.gradePoints;
         return markup;
     };
 
     /**
-    * Process a result template markup.
-    * @param  {number}  generalGrade    The general grade for this report.
-    */
-    var processSummaryMarkup = function ( generalGrade ) {
+     * Process a result template markup.
+     * @param  {number}  generalGrade    The general grade for this report.
+     */
+    var processSummaryMarkup = function (generalGrade) {
         var generalGradeText = '';
 
         // coerce to number
         generalGrade = +generalGrade;
-        if ( generalGrade < 20 ) {
+        if (generalGrade < 20) {
             generalGradeText = ' Mucho insatisfactório (' + generalGrade + ')';
         } else if (generalGrade < 50) {
             generalGradeText = ' Insatisfactório (' + generalGrade + ')';
@@ -148,17 +167,17 @@
         } else {
             generalGradeText = ' Perfecto! (' + generalGrade + ')';
         }
-        summaryGeneralGradeElement.value =  generalGrade;
+        summaryGeneralGradeElement.value = generalGrade;
         summaryGeneralGradeLabel.innerHTML = generalGradeText;
         summaryGeneralGradeElement.classList.remove('inactive');
         summaryGeneralGradeLabel.classList.remove('inactive');
     };
 
     /**
-    * Transforms an ISO formatted date in a more human friendly date.
-    * @param  {string}  date   An ISO formatted date string.
-    * @return  {return}  date   An more human friendly date string.
-    */
+     * Transforms an ISO formatted date in a more human friendly date.
+     * @param  {string}  date   An ISO formatted date string.
+     * @return  {return}  date   An more human friendly date string.
+     */
     var transformDate = function (date) {
         date = date.replace('T', ' - ');
         date = date.substring(0, date.length - 6);
@@ -166,8 +185,8 @@
     };
 
     /**
-    * Get all document DOM elements we will need to manipulate
-    */
+     * Get all document DOM elements we will need to manipulate
+     */
     var getDomElements = function () {
         obligationsUnsatisfactoryContainer = document.querySelector('.legal-obligations.unsatisfactory .results-content');
         obligationsPartialContainer = document.querySelector('.legal-obligations.partial .results-content');
@@ -187,11 +206,11 @@
     };
 
     /**
-    * Process report JSON and add results to the main content area.
-    * @requires getReport
-    * @requires addResult
-    * @param  {string}  report   A JSON object with the evaluation report.
-    */
+     * Process report JSON and add results to the main content area.
+     * @requires getReport
+     * @requires addResult
+     * @param  {string}  report   A JSON object with the evaluation report.
+     */
     var processReport = function (report) {
 
         //
@@ -223,16 +242,16 @@
             markup = processResultMarkup(markup, rule);
             addResult(markup, rule);
         }
-        generalGrade = Math.floor( generalGrade / rules.length ) ;
+        generalGrade = Math.floor(generalGrade / rules.length);
         processSummaryMarkup(generalGrade);
         summaryUrlElement.innerHTML = '<span class="screen-reader-text">URL:</span>' + report.meta.entityUrl;
         summaryDateElement.innerHTML = '<span class="screen-reader-text">Fecha de Evaluación:</span>' + transformDate(summaryDate);
     };
 
     /**
-    * Process report report error and show results to the main content area.
-    */
-    var processReportError = function () {
+     * Process report report error and show results to the main content area.
+     */
+    var processReportError = function (error) {
         // error.status//summaryElement
         summaryErrorElement.classList.remove('inactive');
         summaryErrorElement.innerHTML = '<p>No se encontró el informe para esta evaluación. Estamos agregando a nuestra cola de evaluación y, si existe el sitio, tendremos la evaluación en unas pocas horas.</p>';
@@ -243,9 +262,9 @@
 
 
     /**
-    * Handle all document submit events.
-    * @param  {object}  event   The event object.
-    */
+     * Handle all document submit events.
+     * @param  {object}  event   The event object.
+     */
     var submitHandler = function (event) {
         event.preventDefault();
         if (form === event.target) {
