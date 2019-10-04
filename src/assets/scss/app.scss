@@ -42,6 +42,38 @@ body {
     background-image: url('../img/1024/glass-building-madrid-joel-filipe-jU9VAZDGMzs-unsplash.jpg');
 }
 
+.no-js body.credits--cocora-valley {
+    background-image: url('../img/basico/cocora-valley-fernanda-fierro-XV4XUU7gWlk-unsplash.jpg');
+}
+
+.js body.credits--cocora-valley {
+    background-image: url('../img/1024/cocora-valley-fernanda-fierro-XV4XUU7gWlk-unsplash.jpg');
+}
+
+.no-js body.credits--colombia-medelllin {
+    background-image: url('../img/basico/colombia-medelllin-joel-duncan-Iqa-WlbNjqs-unsplash.jpg');
+}
+
+.js body.credits--colombia-medelllin {
+    background-image: url('../img/1024/colombia-medelllin-joel-duncan-Iqa-WlbNjqs-unsplash.jpg');
+}
+
+.no-js body.credits--medellin-milo {
+    background-image: url('../img/basico/medellin-milo-miloezger-pNArDGC_aNY-unsplash.jpg');
+}
+
+.js body.credits--medellin-milo {
+    background-image: url('../img/1024/medellin-milo-miloezger-pNArDGC_aNY-unsplash.jpg');
+}
+
+.no-js body.credits--monserrate-jorge-gardner {
+    background-image: url('../img/basico/monserrate-jorge-gardner-Exjq06SLhl4-unsplash.jpg');
+}
+
+.js body.credits--monserrate-jorge-gardner {
+    background-image: url('../img/1024/monserrate-jorge-gardner-Exjq06SLhl4-unsplash.jpg');
+}
+
 /* ## Credits
 --------------------------------------------- */
 
@@ -68,6 +100,26 @@ body.credits::after {
 
 body.credits.credits--flavia-carpio-01::after {
     content: "Fotografia por Flavia Carpo (via Unsplash)";
+}
+
+body.credits.credits--glass-building::after {
+    content: "Fotografia por Joel Filipe (via Unsplash)";
+}
+
+body.credits.credits--cocora-valley::after {
+    content: "Fotografia por Fernanda Fierro (via Unsplash)";
+}
+
+body.credits.credits--colombia-medelllin::after {
+    content: "Fotografia por Joel Duncan (via Unsplash)";
+}
+
+body.credits.credits--medellin-milo::after {
+    content: "Fotografia por Milo Ezgeer (via Unsplash)";
+}
+
+body.credits.credits--monserrate-jorge-gardner::after {
+    content: "Fotografia por Jorge Gardner (via Unsplash)";
 }
 
 .mdc-card--free-content {
@@ -211,6 +263,23 @@ input#evaluate-url {
     .js body.credits--glass-building {
         background-image: url('../img/1280/glass-building-madrid-joel-filipe-jU9VAZDGMzs-unsplash.jpg');
     }
+
+    .js body.credits--cocora-valley {
+        background-image: url('../img/1280/cocora-valley-fernanda-fierro-XV4XUU7gWlk-unsplash.jpg');
+    }
+
+    .js body.credits--colombia-medelllin {
+        background-image: url('../img/1280/colombia-medelllin-joel-duncan-Iqa-WlbNjqs-unsplash.jpg');
+    }
+
+    .js body.credits--medellin-milo {
+        background-image: url('../img/1280/medellin-milo-miloezger-pNArDGC_aNY-unsplash.jpg');
+    }
+
+    .js body.credits--monserrate-jorge-gardner {
+        background-image: url('../img/1280/monserrate-jorge-gardner-Exjq06SLhl4-unsplash.jpg');
+    }
+
 }
 
 /* ## Small Desktops and Laptops
@@ -239,6 +308,22 @@ input#evaluate-url {
         background-image: url('../img/1280/glass-building-madrid-joel-filipe-jU9VAZDGMzs-unsplash.jpg');
     }
 
+    .js body.credits--cocora-valley {
+        background-image: url('../img/1280/cocora-valley-fernanda-fierro-XV4XUU7gWlk-unsplash.jpg');
+    }
+
+    .js body.credits--colombia-medelllin {
+        background-image: url('../img/1280/colombia-medelllin-joel-duncan-Iqa-WlbNjqs-unsplash.jpg');
+    }
+
+    .js body.credits--medellin-milo {
+        background-image: url('../img/1280/medellin-milo-miloezger-pNArDGC_aNY-unsplash.jpg');
+    }
+
+    .js body.credits--monserrate-jorge-gardner {
+        background-image: url('../img/1280/monserrate-jorge-gardner-Exjq06SLhl4-unsplash.jpg');
+    }
+
     main {
         max-width: 1024px;
     }
@@ -254,16 +339,48 @@ input#evaluate-url {
     .js body.credits--glass-building {
         background-image: url('../img/2048/glass-building-madrid-joel-filipe-jU9VAZDGMzs-unsplash.jpg');
     }
+
+    .js body.credits--cocora-valley {
+        background-image: url('../img/2048/cocora-valley-fernanda-fierro-XV4XUU7gWlk-unsplash.jpg');
+    }
+
+    .js body.credits--colombia-medelllin {
+        background-image: url('../img/2048/colombia-medelllin-joel-duncan-Iqa-WlbNjqs-unsplash.jpg');
+    }
+
+    .js body.credits--medellin-milo {
+        background-image: url('../img/2048/medellin-milo-miloezger-pNArDGC_aNY-unsplash.jpg');
+    }
+
+    .js body.credits--monserrate-jorge-gardner {
+        background-image: url('../img/2048/monserrate-jorge-gardner-Exjq06SLhl4-unsplash.jpg');
+    }
 }
 
 /* ## Webpack bug
 --------------------------------------------- */
-@media only screen and (min-width: 1690px) {
+@media only screen and (min-width: 2690px) {
     .js body {
         background-image: url('../img/2048/colombia-bogota-flavia-carpio.jpg');
     }
 
     .js body.credits--glass-building {
         background-image: url('../img/2048/glass-building-madrid-joel-filipe-jU9VAZDGMzs-unsplash.jpg');
+    }
+
+    .js body.credits--cocora-valley {
+        background-image: url('../img/2048/cocora-valley-fernanda-fierro-XV4XUU7gWlk-unsplash.jpg');
+    }
+
+    .js body.credits--colombia-medelllin {
+        background-image: url('../img/2048/colombia-medelllin-joel-duncan-Iqa-WlbNjqs-unsplash.jpg');
+    }
+
+    .js body.credits--medellin-milo {
+        background-image: url('../img/2048/medellin-milo-miloezger-pNArDGC_aNY-unsplash.jpg');
+    }
+
+    .js body.credits--monserrate-jorge-gardner {
+        background-image: url('../img/2048/monserrate-jorge-gardner-Exjq06SLhl4-unsplash.jpg');
     }
 }
