@@ -1,4 +1,17 @@
 import { MDCTextField } from '@material/textfield';
+import * as atomic from 'atomicjs';
+import {
+    sanitizeHTML,
+    log,
+    parseUri,
+    templatePolyfill,
+    arrayForEach,
+    nodeListForEach,
+    deepAssign
+} from './modules/mota-utilities/index.js';
+templatePolyfill(document);
+arrayForEach();
+nodeListForEach();
 
 const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
 
@@ -74,7 +87,9 @@ const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
                 return report;
             })
             .catch(function (error) {
-                processReportError();
+                console.log('error:');
+                console.log(error);
+                processReportError(error);
             });
     };
 
@@ -236,7 +251,7 @@ const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
     /**
      * Process report report error and show results to the main content area.
      */
-    var processReportError = function () {
+    var processReportError = function (error) {
         // error.status//summaryElement
         summaryErrorElement.classList.remove('inactive');
         summaryErrorElement.innerHTML = '<p>No se encontró el informe para esta evaluación. Estamos agregando a nuestra cola de evaluación y, si existe el sitio, tendremos la evaluación en unas pocas horas.</p>';

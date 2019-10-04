@@ -1,13 +1,14 @@
+const path = require('path');
 const autoprefixer = require('autoprefixer');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = [{
     entry: {
         style: './src/assets/scss/app.scss',
-        atomic: './src/assets/js/vendor/atomic/atomic.js',
-        utilities: './src/assets/js/utilities.js',
         app: './src/assets/js/app.js'
     },
     output: {
-        filename: "[name].[chunkhash].bundle.js",
+        filename: "[name].bundle.js",
         path: __dirname + "/dist"
     },
     module: {
@@ -59,4 +60,10 @@ module.exports = [{
             }
         ]
     },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: path.join(__dirname, 'src', 'index.html'),
+            inject: 'body',
+        })
+    ]
 }];
