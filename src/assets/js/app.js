@@ -81,6 +81,8 @@ const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
         // fetch a report from the report repository
         atomic('https://dejusticia.github.io/mota-reports/' + urlObject.reportBasename + '.json') //
             .then(function (response) {
+                console.log('sucessful response:');
+                console.log(response);
                 report = response.data;
                 //console.log('success report', report); // xhr.responseText
                 processReport(report);
@@ -136,7 +138,7 @@ const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
         var gradeLabel = markup.querySelector('.results-criteria-grade label');
         var detailsElement = markup.querySelector('.results-criteria');
         markup.querySelector('summary').innerText = rule.title;
-        markup.querySelector('details p').innerHTML = '<p>' + rule.shortDescription + ' <a href="' + rule.ruleSpecificationUrl + '" class="more-link">Más Informaciones.</a></p>';
+        markup.querySelector('details p').innerHTML = rule.shortDescription + ' <a href="' + rule.ruleSpecificationUrl + '" class="more-link" target="mota-specs">Más Informaciones.</a>';
         detailsElement.setAttribute('id', 'criteria-' + ruleId);
         gradeLabel.innerText = rule.grade;
         gradeLabel.setAttribute('for', 'grade-' + ruleId);
@@ -157,20 +159,19 @@ const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
         // coerce to number
         generalGrade = +generalGrade;
         if (generalGrade < 20) {
-            generalGradeText = ' Mucho insatisfactório (' + generalGrade + ')';
+            generalGradeText = 'Deficiente (' + generalGrade + ')';
         } else if (generalGrade < 50) {
-            generalGradeText = ' Insatisfactório (' + generalGrade + ')';
+            generalGradeText = 'Insuficiente (' + generalGrade + ')';
         } else if (generalGrade < 90) {
             generalGradeText = ' Parcial, debe mejorar (' + generalGrade + ')';
         } else if (generalGrade < 100) {
-            generalGradeText = ' satisfactório (' + generalGrade + ')';
+            generalGradeText = 'Bien (' + generalGrade + ')';
         } else {
-            generalGradeText = ' Perfecto! (' + generalGrade + ')';
+            generalGradeText = 'Perfecto! (' + generalGrade + ')';
         }
         summaryGeneralGradeElement.value = generalGrade;
         summaryGeneralGradeLabel.innerHTML = generalGradeText;
-        summaryGeneralGradeElement.classList.remove('inactive');
-        summaryGeneralGradeLabel.classList.remove('inactive');
+        summaryElement.classList.remove('inactive');
     };
 
     /**
@@ -200,8 +201,8 @@ const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
         summaryErrorElement = document.getElementById('results-summary-error');
         summaryGeneralGradeElement = document.getElementById('results-grade-final');
         summaryGeneralGradeLabel = document.querySelector('label[for="results-grade-final"]');
-        summaryUrlElement = document.getElementById('results-summary-url');
-        summaryDateElement = document.getElementById('results-summary-date');
+        summaryUrlElement = document.querySelector('#results-summary-url span');
+        summaryDateElement = document.querySelector('#results-summary-date span');
         resultsContainers = document.querySelectorAll('.results-content');
     };
 
@@ -220,8 +221,7 @@ const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
         var summaryDate = report.meta.lastEvaluationDate;
 
         summaryErrorElement.classList.add('inactive');
-        summaryGeneralGradeElement.classList.add('inactive');
-        summaryGeneralGradeLabel.classList.add('inactive');
+        summaryElement.classList.add('inactive');
         summaryUrlElement.innerHTML = '';
         summaryDateElement.innerHTML = '';
 
@@ -244,8 +244,8 @@ const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
         }
         generalGrade = Math.floor(generalGrade / rules.length);
         processSummaryMarkup(generalGrade);
-        summaryUrlElement.innerHTML = '<span class="screen-reader-text">URL:</span>' + report.meta.entityUrl;
-        summaryDateElement.innerHTML = '<span class="screen-reader-text">Fecha de Evaluación:</span>' + transformDate(summaryDate);
+        summaryUrlElement.innerHTML = report.meta.entityUrl;
+        summaryDateElement.innerHTML = transformDate(summaryDate);
     };
 
     /**
