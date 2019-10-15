@@ -72,6 +72,9 @@ const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
      * @return {object} report object on success, error object on error.
      */
     var getReport = function (url) {
+
+        summaryErrorElement.classList.add('inactive');
+        summaryElement.classList.add('inactive');
         var urlObject = getValidDomainInfo(url);
         // cleanup results containers and site info
         resultsContainers.forEach(function (elem, index) {
@@ -81,14 +84,14 @@ const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
         // fetch a report from the report repository
         atomic('https://dejusticia.github.io/mota-reports/' + urlObject.reportBasename + '.json') //
             .then(function (response) {
-                console.log('sucessful response:');
+                console.log('sucessful response :');
                 console.log(response);
                 report = response.data;
                 //console.log('success report', report); // xhr.responseText
                 processReport(report);
                 return report;
             })
-            .catch(function (error) {
+            .catch(function (error, url) {
                 console.log('error:');
                 console.log(error);
                 processReportError(error);
@@ -219,9 +222,6 @@ const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
         //
         var rules = report.rules;
         var summaryDate = report.meta.lastEvaluationDate;
-
-        summaryErrorElement.classList.add('inactive');
-        summaryElement.classList.add('inactive');
         summaryUrlElement.innerHTML = '';
         summaryDateElement.innerHTML = '';
 
@@ -252,9 +252,19 @@ const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
      * Process report report error and show results to the main content area.
      */
     var processReportError = function (error) {
+        // check if URL exists
+        atomic( input.value ) //
+            .then(function (response) {
+                        summaryErrorElement.classList.remove('inactive');
+                        summaryErrorElement.innerHTML = '<p>No se encontró el informe para esta evaluación. Estamos agregando a nuestra cola de evaluación y, si existe el sitio, tendremos la evaluación en unas pocas horas.</p>';
+            })
+            .catch(function (error) {
+                        summaryErrorElement.classList.remove('inactive');
+                        summaryErrorElement.innerHTML = '<p>No se encontró el informe para esta evaluación y aparentemente este sitio está caído o es inalcanzable por nuestro sistema.</p>';
+            });
+
+
         // error.status//summaryElement
-        summaryErrorElement.classList.remove('inactive');
-        summaryErrorElement.innerHTML = '<p>No se encontró el informe para esta evaluación. Estamos agregando a nuestra cola de evaluación y, si existe el sitio, tendremos la evaluación en unas pocas horas.</p>';
         console.error('error code', error.status); // xhr.status
         console.error('error description', error.statusText); // xhr.statusText
         throw new Error('This request returned an error with the code:' + "\n" + error.status);
