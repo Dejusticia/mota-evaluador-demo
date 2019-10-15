@@ -88,24 +88,23 @@
             </div>
             <section class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12 mdc-card mdc-card--margin--2rem mdc-card--free-content mdc-layout-grid">
                 <div class="mdc-layout-grid__inner">
-                    <div id="results-summary" class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
                         <h2 id="results-header" class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
                             Resultados de
                             La Evaluacción</h2>
-                        <h3>Sumário de La Evaluacción</h3>
                         <div id="results-summary-error" class="inactive">
                         </div>
-                        <div class="results-grade-final">
-                            <label for="results-grade-final" class="inactive"></label>
-                            <meter id="results-grade-final" name="results-grade-final" min="0" low="50" high="90" max="100" optimum="100" value="48"
-                                class="inactive">
+                        <div id="results-summary" class="inactive">
+                            <h3>Sumário de La Evaluacción</h3>
+                            <ul>
+                                <li id="results-summary-url"><strong>URL:</strong> <span></span></li>
+                                <li id="results-summary-date"><strong>Fecha de Evaluación:</strong> <span></span></li>
+                            </ul>
+                            <label for="results-grade-final"></label>
+                            <meter id="results-grade-final" name="results-grade-final" min="0" low="50" high="90" max="100" optimum="100" value="48">
                                 0-49
                             </meter>
                         </div>
-                        <ul>
-                            <li id="results-summary-url"><span class="screen-reader-text">URL:</span></li>
-                            <li id="results-summary-date"><span class="screen-reader-text">Fecha de Evaluación:</span></li>
-                        </ul>
                     </div>
                     <div class="mota-theme-secondary-light-bg mdc-layout-grid__cell mdc-layout-grid__cell--span-12 results-summary-reference  mdc-card--free-content"
                         id="report-section--summary">

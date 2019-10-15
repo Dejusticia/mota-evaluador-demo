@@ -171,8 +171,7 @@ const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
         }
         summaryGeneralGradeElement.value = generalGrade;
         summaryGeneralGradeLabel.innerHTML = generalGradeText;
-        summaryGeneralGradeElement.classList.remove('inactive');
-        summaryGeneralGradeLabel.classList.remove('inactive');
+        summaryElement.classList.remove('inactive');
     };
 
     /**
@@ -202,8 +201,8 @@ const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
         summaryErrorElement = document.getElementById('results-summary-error');
         summaryGeneralGradeElement = document.getElementById('results-grade-final');
         summaryGeneralGradeLabel = document.querySelector('label[for="results-grade-final"]');
-        summaryUrlElement = document.getElementById('results-summary-url');
-        summaryDateElement = document.getElementById('results-summary-date');
+        summaryUrlElement = document.querySelector('#results-summary-url span');
+        summaryDateElement = document.querySelector('#results-summary-date span');
         resultsContainers = document.querySelectorAll('.results-content');
     };
 
@@ -222,8 +221,7 @@ const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
         var summaryDate = report.meta.lastEvaluationDate;
 
         summaryErrorElement.classList.add('inactive');
-        summaryGeneralGradeElement.classList.add('inactive');
-        summaryGeneralGradeLabel.classList.add('inactive');
+        summaryElement.classList.add('inactive');
         summaryUrlElement.innerHTML = '';
         summaryDateElement.innerHTML = '';
 
@@ -246,8 +244,8 @@ const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
         }
         generalGrade = Math.floor(generalGrade / rules.length);
         processSummaryMarkup(generalGrade);
-        summaryUrlElement.innerHTML = '<span class="screen-reader-text">URL:</span>' + report.meta.entityUrl;
-        summaryDateElement.innerHTML = '<span class="screen-reader-text">Fecha de Evaluación:</span>' + transformDate(summaryDate);
+        summaryUrlElement.innerHTML = report.meta.entityUrl;
+        summaryDateElement.innerHTML = transformDate(summaryDate);
     };
 
     /**
