@@ -11,6 +11,23 @@ This project adheres to [Semantic Versioning](http://semver.org/)
 
 ## Unreleased
 
+### Fixed
+- returned results markup
+- Sepa más link (href and open in new tab)
+- Más informaciones link (open in new tab)
+
+### Changed
+- tweaked results style
+- added version number to README files
+
+### Removed
+- old backup html files
+
+## [2019-07-15] - 0.4.5
+
+### Changed
+- tweaked order of results categories
+
 ## [2019-10-03] - 0.5.0
 
 ### Added:
