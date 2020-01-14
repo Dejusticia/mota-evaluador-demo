@@ -1,6 +1,6 @@
 {
     "name": "mota-evaluador",
-    "version": "0.5.1",
+    "version": "0.6.1",
     "description": "Evaluador de Transparencia Activa en Colombia - Iniciativa MOTA",
     "main": "./src/index.html",
     "scripts": {
@@ -34,8 +34,8 @@
         "extract-loader": "^3.1.0",
         "file-loader": "^4.2.0",
         "html-webpack-plugin": "^3.2.0",
-        "node-sass": "^4.12.0",
         "postcss-loader": "^3.0.0",
+        "sass": "^1.24.4",
         "sass-loader": "^8.0.0",
         "url-loader": "^2.1.0",
         "webpack": "^4.41.0",
