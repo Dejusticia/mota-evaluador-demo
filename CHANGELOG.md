@@ -11,6 +11,13 @@ This project adheres to [Semantic Versioning](http://semver.org/)
 
 ## Unreleased
 
+### Security
+- Replace `node-sass` for `sass` modules for security reason
+
+### Changed
+- improvement: better logic for checking existing reports
+- improvement: better logic for `getValidDomainInfo` method.
+
 ## [2019-10-14] - 0.5.1
 
 ### Fixed

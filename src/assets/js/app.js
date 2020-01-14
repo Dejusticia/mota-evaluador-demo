@@ -51,7 +51,10 @@ const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
      */
     var getValidDomainInfo = function (url) {
         var domainInfo, basename, urlParameters = parseUri(sanitizeHTML(String(url)));
-        if (-1 === urlParameters.host.indexOf('gov.co')) {
+        console.log('this is the urlParameter.host');
+        console.log(urlParameters.host);
+        console.log(urlParameters.host.match(/\.gov.co$/));
+        if ( null === urlParameters.host.match(/\.gov.co$/)) {
             summaryErrorElement.classList.remove('inactive');
             summaryErrorElement.innerHTML = '<p>El enlace que buscó no es válido!</p><p>Por favor, use una URL .gov.co de um sítio web existente.</p>';
             throw new Error('This URI is invalid');
