@@ -12,7 +12,8 @@ module.exports = [{
         path: __dirname + "/dist"
     },
     module: {
-        rules: [{
+        rules: [
+            {
                 test: /\.scss$/,
                 use: [{
                         loader: 'file-loader',
@@ -53,8 +54,8 @@ module.exports = [{
                 use: [{
                     loader: 'url-loader',
                     options: {
-                        limit: 1024, // Convert images < 8kb to base64 strings
-                        name: 'images/[hash]-[name].[ext]'
+                        limit: 1024, // Convert images < 1kb to base64 strings
+                        name: 'images/[folder]-[name]-[contenthash].[ext]'
                     }
                 }]
             }
@@ -62,8 +63,7 @@ module.exports = [{
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.join(__dirname, 'src', 'index.html'),
-            inject: 'body',
+            template: path.join(__dirname, 'index.html')
         })
     ]
 }];
