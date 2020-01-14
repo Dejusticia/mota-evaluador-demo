@@ -27,51 +27,38 @@ body {
     font-family: $mdc-typography-font-family;
 }
 
-.no-js body {
-    background-image: url('../img/basico/colombia-bogota-flavia-carpio.jpg');
-}
-.js body {
-    background-image: url('../img/1024/colombia-bogota-flavia-carpio.jpg');
+.mdc-top-app-bar__title {
+    font-size: 1rem;
 }
 
-.no-js body.credits--glass-building {
+.no-js body,
+.js body {
+    background-image: url('../img/basico/colombia-bogota-flavia-carpio.jpg');
+}
+
+.no-js body.credits--glass-building,
+.js body.credits--glass-building {
     background-image: url('../img/basico/glass-building-madrid-joel-filipe-jU9VAZDGMzs-unsplash.jpg');
 }
 
-.js body.credits--glass-building {
-    background-image: url('../img/1024/glass-building-madrid-joel-filipe-jU9VAZDGMzs-unsplash.jpg');
-}
-
-.no-js body.credits--cocora-valley {
+.no-js body.credits--cocora-valley,
+.js body.credits--cocora-valley {
     background-image: url('../img/basico/cocora-valley-fernanda-fierro-XV4XUU7gWlk-unsplash.jpg');
 }
 
-.js body.credits--cocora-valley {
-    background-image: url('../img/1024/cocora-valley-fernanda-fierro-XV4XUU7gWlk-unsplash.jpg');
-}
-
-.no-js body.credits--colombia-medelllin {
+.no-js body.credits--colombia-medelllin,
+.js body.credits--colombia-medelllin {
     background-image: url('../img/basico/colombia-medelllin-joel-duncan-Iqa-WlbNjqs-unsplash.jpg');
 }
 
-.js body.credits--colombia-medelllin {
-    background-image: url('../img/1024/colombia-medelllin-joel-duncan-Iqa-WlbNjqs-unsplash.jpg');
-}
-
-.no-js body.credits--medellin-milo {
+.no-js body.credits--medellin-milo,
+.js body.credits--medellin-milo {
     background-image: url('../img/basico/medellin-milo-miloezger-pNArDGC_aNY-unsplash.jpg');
 }
 
-.js body.credits--medellin-milo {
-    background-image: url('../img/1024/medellin-milo-miloezger-pNArDGC_aNY-unsplash.jpg');
-}
-
-.no-js body.credits--monserrate-jorge-gardner {
-    background-image: url('../img/basico/monserrate-jorge-gardner-Exjq06SLhl4-unsplash.jpg');
-}
-
+.no-js body.credits--monserrate-jorge-gardner,
 .js body.credits--monserrate-jorge-gardner {
-    background-image: url('../img/1024/monserrate-jorge-gardner-Exjq06SLhl4-unsplash.jpg');
+    background-image: url('../img/basico/monserrate-jorge-gardner-Exjq06SLhl4-unsplash.jpg');
 }
 
 /* ## Credits
@@ -246,47 +233,65 @@ input#evaluate-url {
 }
 
 
+
 /* # Media Queries
 ---------------------------------------------------------------------------------------------------- */
+
+/* ## Small Smartphones only
+--------------------------------------------- */
+@media only screen and (max-width: 640px) {
+    .hide-on-small {
+        position: absolute !important;
+        clip: rect(0, 0, 0, 0);
+        height: 1px;
+        width: 1px;
+        border: 0;
+        overflow: hidden;
+    }
+}
 /* ## Tablet
 --------------------------------------------- */
 @media only screen and (min-width: 640px) {
+
+    .mdc-top-app-bar__title {
+        font-size: 1.25rem;
+    }
 
     main {
         max-width: 90%;
     }
 }
 
-/* ## Tablet Vertical Orientation
+/* ## Tablets + Small Desktops and Laptops
 --------------------------------------------- */
-@media only screen and (min-height: 880px) and (orientation : portrait) {
+@media only screen and (min-height: 880px) and (orientation : portrait), only screen and (min-width: 880px) {
     .js body {
-        background-image: url('../img/1280/colombia-bogota-flavia-carpio.jpg');
+        background-image: url('../img/1024/colombia-bogota-flavia-carpio.jpg');
     }
 
     .js body.credits--glass-building {
-        background-image: url('../img/1280/glass-building-madrid-joel-filipe-jU9VAZDGMzs-unsplash.jpg');
+        background-image: url('../img/1024/glass-building-madrid-joel-filipe-jU9VAZDGMzs-unsplash.jpg');
     }
 
     .js body.credits--cocora-valley {
-        background-image: url('../img/1280/cocora-valley-fernanda-fierro-XV4XUU7gWlk-unsplash.jpg');
+        background-image: url('../img/1024/cocora-valley-fernanda-fierro-XV4XUU7gWlk-unsplash.jpg');
     }
 
     .js body.credits--colombia-medelllin {
-        background-image: url('../img/1280/colombia-medelllin-joel-duncan-Iqa-WlbNjqs-unsplash.jpg');
+        background-image: url('../img/1024/colombia-medelllin-joel-duncan-Iqa-WlbNjqs-unsplash.jpg');
     }
 
     .js body.credits--medellin-milo {
-        background-image: url('../img/1280/medellin-milo-miloezger-pNArDGC_aNY-unsplash.jpg');
+        background-image: url('../img/1024/medellin-milo-miloezger-pNArDGC_aNY-unsplash.jpg');
     }
 
     .js body.credits--monserrate-jorge-gardner {
-        background-image: url('../img/1280/monserrate-jorge-gardner-Exjq06SLhl4-unsplash.jpg');
+        background-image: url('../img/1024/monserrate-jorge-gardner-Exjq06SLhl4-unsplash.jpg');
     }
 
 }
 
-/* ## Small Desktops and Laptops
+/* ## Small Desktops and Laptops on
 --------------------------------------------- */
 @media only screen and (min-width: 880px) {
 
@@ -336,34 +341,6 @@ input#evaluate-url {
 /* ## Extra Large Desktops and Laptops
 --------------------------------------------- */
 @media only screen and (min-width: 1400px) {
-    .js body {
-        background-image: url('../img/2048/colombia-bogota-flavia-carpio.jpg');
-    }
-
-    .js body.credits--glass-building {
-        background-image: url('../img/2048/glass-building-madrid-joel-filipe-jU9VAZDGMzs-unsplash.jpg');
-    }
-
-    .js body.credits--cocora-valley {
-        background-image: url('../img/2048/cocora-valley-fernanda-fierro-XV4XUU7gWlk-unsplash.jpg');
-    }
-
-    .js body.credits--colombia-medelllin {
-        background-image: url('../img/2048/colombia-medelllin-joel-duncan-Iqa-WlbNjqs-unsplash.jpg');
-    }
-
-    .js body.credits--medellin-milo {
-        background-image: url('../img/2048/medellin-milo-miloezger-pNArDGC_aNY-unsplash.jpg');
-    }
-
-    .js body.credits--monserrate-jorge-gardner {
-        background-image: url('../img/2048/monserrate-jorge-gardner-Exjq06SLhl4-unsplash.jpg');
-    }
-}
-
-/* ## Webpack bug
---------------------------------------------- */
-@media only screen and (min-width: 2690px) {
     .js body {
         background-image: url('../img/2048/colombia-bogota-flavia-carpio.jpg');
     }

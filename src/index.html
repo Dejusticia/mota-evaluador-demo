@@ -9,7 +9,7 @@
         document.documentElement.className = document.documentElement.className.replace("no-js", "js");
     </script>
     <meta name="theme-color" content="#fcd116">
-    <meta name="version" content="0.5.1">
+    <meta name="version" content="0.6.1">
     <link rel="preload" href="./bundle.css" as="style" onload="this.onload=null; this.rel='stylesheet'" id="main-bundle-stylesheet">
     <noscript id="main-bundle-stylesheet--noscript">
         <link type="text/css" media="all" href="./bundle.css" rel="stylesheet" />
@@ -47,22 +47,42 @@
     <ul class="skip-link">
         <li><a href="#menubar1" class="screen-reader-shortcut">Saltar a navegación principal</a></li>
         <li><a href="#main-content" class="screen-reader-shortcut">Saltar a Contenido</a></li>
-        <li><a href="#report-section--tabla-de-contenido" class="screen-reader-shortcut">Saltar a Tabla de Contenido</a>
         </li>
     </ul>
     <header class=" mdc-top-app-bar mdc-top-app-bar--fixed">
         <nav class="mdc-top-app-bar__row"
             aria-label="Navegación Evaluador de Transparencia Activa en Colombia - Iniciativa MOTA">
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-                <button
-                    class="mdc-icon-button material-icons mdc-top-app-bar__navigation-icon--unbounded">menu</button><span
-                    class="mdc-top-app-bar__title" role="none">Evaluador de Transparencia Activa en Colombia - Iniciativa MOTA</span>
+                <span
+                    class="mdc-top-app-bar__title" role="none"><span class="hide-on-small">Evaluador de Transparencia Activa - </span>Iniciativa MOTA</span>
             </section>
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="menubar"
                 aria-label="Navegación Evaluador de Transparencia Activa en Colombia">
-                <a role="menuitem" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md"
+                <a role="menuitem"
+                    href="#main-content"
+                    aria-haspopup="true" aria-expanded="false" tabindex="0"
+                    class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
+                    aria-label="acceder al formulario de evaluación" title="Evalue un sítio"><span
+                        class="screen-reader-text">Evalue un sítio</span><span>assessment</span>
+                </a>
+                <a role="menuitem"
+                    href="http://mota.dejusticia.org"
+                    aria-haspopup="true" aria-expanded="false" tabindex="0" target="_blank"
+                    class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
+                    aria-label="Sepa más sobre la iniciativa MOTA" title="Sobre la iniciativa MOTA"><span
+                        class="screen-reader-text">Sobre la iniciativa MOTA</span><span>info</span>
+                </a>
+                <a role="menuitem"
+                    href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md"
+                    aria-haspopup="true" aria-expanded="false" tabindex="0" target="_blank"
+                    class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
+                    aria-label="Leya la Especificación" title="Especificación"><span
+                        class="screen-reader-text">Especificación</span><span>assignment</span>
+                </a>
+                <a role="menuitem" href="http://libreria.mota.dejusticia.org"
                     aria-haspopup="true" aria-expanded="false" tabindex="0" target="_blank" class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
-                        aria-label="Leya la Especificación" title="Especificación"><span class="screen-reader-text">Especificación</span><span>assignment</span>
+                        aria-label="Visite la libreria de patrones y repositiorio de códigos MOTA" title="Libreria y repositiorio de códigos MOTA"><span
+                            class="screen-reader-text">Libreria y repositiorio de códigos</span><span>code</span>
                 </a>
             </section>
         </nav>
