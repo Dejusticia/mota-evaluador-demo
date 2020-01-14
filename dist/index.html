@@ -9,7 +9,7 @@
         document.documentElement.className = document.documentElement.className.replace("no-js", "js");
     </script>
     <meta name="theme-color" content="#fcd116">
-    <meta name="version" content="0.5.1">
+    <meta name="version" content="0.6.0">
     <link rel="preload" href="./bundle.css" as="style" onload="this.onload=null; this.rel='stylesheet'" id="main-bundle-stylesheet">
     <noscript id="main-bundle-stylesheet--noscript">
         <link type="text/css" media="all" href="./bundle.css" rel="stylesheet" />
@@ -45,8 +45,8 @@
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
     <![endif]-->
     <ul class="skip-link">
-        <li><a href="#menubar1" class="screen-reader-shortcut">Saltar a navegación principal</a></li>
-        <li><a href="#main-content" class="screen-reader-shortcut">Saltar a Contenido</a></li>
+        <li><a href="#menubar1" class="screen-reader-shortcut" tabindex="0">Saltar a navegación principal</a></li>
+        <li><a href="#main-content" class="screen-reader-shortcut" tabindex="1">Saltar a Contenido</a></li>
         <li><a href="#report-section--tabla-de-contenido" class="screen-reader-shortcut">Saltar a Tabla de Contenido</a>
         </li>
     </ul>
@@ -54,15 +54,35 @@
         <nav class="mdc-top-app-bar__row"
             aria-label="Navegación Evaluador de Transparencia Activa en Colombia - Iniciativa MOTA">
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-                <button
-                    class="mdc-icon-button material-icons mdc-top-app-bar__navigation-icon--unbounded">menu</button><span
+                <span
                     class="mdc-top-app-bar__title" role="none">Evaluador de Transparencia Activa en Colombia - Iniciativa MOTA</span>
             </section>
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="menubar"
                 aria-label="Navegación Evaluador de Transparencia Activa en Colombia">
-                <a role="menuitem" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md"
-                    aria-haspopup="true" aria-expanded="false" tabindex="0" target="_blank" class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
-                        aria-label="Leya la Especificación" title="Especificación"><span class="screen-reader-text">Especificación</span><span>assignment</span>
+                <a role="menuitem" href="#main-content"
+                    tabindex="2"
+                    class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
+                    aria-label="Evalue um sítio web" title="Evalue um sítio"><span class="screen-reader-text">Evalue um sítio</span><span>find_in_page</span>
+                </a>
+                <a role="menuitem"
+                    href="http://mota.dejusticia.org"
+                    tabindex="4" target="_blank"
+                    class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
+                    aria-label="Sepa más sobre o Projeto MOTA" title="Sobre o Projeto MOTA"><span
+                        class="screen-reader-text">Sobre o Projeto MOTA</span><span>help</span>
+                </a>
+                <a role="menuitem"
+                    href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md"
+                    tabindex="3" target="_blank" class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
+                    aria-label="Leya la Especificación MOTA" title="Especificación"><span
+                        class="screen-reader-text">Especificación</span><span>assignment</span>
+                </a>
+                <a role="menuitem"
+                    href="https://github.com/Dejusticia/" tabindex="5" target="_blank"
+                    class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
+                    aria-label="repositorio de códigos MOTA y la biblioteca de mejores prácticas"
+                    title="Repositorio de Códigos MOTA"><span
+                        class="screen-reader-text">Repositorio de Códigos MOTA</span><span>code</span>
                 </a>
             </section>
         </nav>
@@ -77,11 +97,11 @@
                             <legend id="evaluate-url-legend" class="screen-reader-text">rellene el campo con la URL de lo sitio a evaluar</legend>
                             <div class="mdc-text-field mdc-text-field--fullwidth">
                                 <label for="evaluate-url" class="mdc-floating-label">rellene con la URL de lo sitio a evaluar</label>
-                                <input class="mdc-text-field__input" type="text" aria-label="rellene con la URL de lo sitio a evaluar" id="evaluate-url">
+                                <input class="mdc-text-field__input" type="text" aria-label="rellene con la URL de lo sitio a evaluar" id="evaluate-url" tabindex="6">
                                 <div class="mdc-line-ripple"></div>
                             </div>
                             <input type="submit" value="Evalue" class="mdc-button mdc-button--unelevated"
-                                aria-label="Evaluar">
+                                aria-label="Evaluar" tabindex="7">
                     </form>
                 </div>
             </div>
