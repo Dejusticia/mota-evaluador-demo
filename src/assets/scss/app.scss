@@ -125,6 +125,11 @@ body.credits.credits--monserrate-jorge-gardner::after {
     margin: 4rem;
 }
 
+.recommendations.mdc-card,
+.legal-obligations.mdc-card {
+    margin: 2rem 0;
+}
+
 
 /* ## Skip Links
 --------------------------------------------- */
@@ -215,7 +220,7 @@ input {
 /* ## Evaluate Form
 --------------------------------------------- */
 
-section[aria-labelledby="evaluate-header"]>h2,
+section[aria-labelledby="evaluate-header"]>p,
 section[aria-labelledby="evaluate-header"]>form {
     margin: 0 auto;
     max-width: 90%;
@@ -232,6 +237,10 @@ input#evaluate-url {
     padding: 1rem;
 }
 
+
+/* ## Results
+--------------------------------------------- */
+
 #results-summary-error {
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -239,7 +248,204 @@ input#evaluate-url {
     font-weight: 600;
 }
 
+meter {
+    width: 100%;
+    height: 24px;
+    height: 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
 
+/* Webkit based browsers */
+
+meter[value^="0"]::-webkit-meter-optimum-value,
+meter[value^="0"]::-webkit-meter-suboptimum-value,
+meter[value^="0"]::-webkit-meter-even-less-good-value {
+    background: red;
+}
+
+meter[value^="1"]::-webkit-meter-optimum-value,
+meter[value^="1"]::-webkit-meter-suboptimum-value,
+meter[value^="1"]::-webkit-meter-even-less-good-value {
+    background: red;
+}
+
+meter[value^="2"]::-webkit-meter-optimum-value,
+meter[value^="2"]::-webkit-meter-suboptimum-value,
+meter[value^="2"]::-webkit-meter-even-less-good-value {
+    background: orange;
+}
+
+meter[value^="3"]::-webkit-meter-optimum-value,
+meter[value^="3"]::-webkit-meter-suboptimum-value,
+meter[value^="3"]::-webkit-meter-even-less-good-value {
+    background: orange;
+}
+
+meter[value^="4"]::-webkit-meter-optimum-value,
+meter[value^="4"]::-webkit-meter-suboptimum-value,
+meter[value^="4"]::-webkit-meter-even-less-good-value {
+    background: orange;
+}
+
+meter[value^="5"]::-webkit-meter-optimum-value,
+meter[value^="5"]::-webkit-meter-suboptimum-value,
+meter[value^="5"]::-webkit-meter-even-less-good-value {
+    background: yellow;
+}
+
+meter[value^="6"]::-webkit-meter-optimum-value,
+meter[value^="6"]::-webkit-meter-suboptimum-value,
+meter[value^="6"]::-webkit-meter-even-less-good-value {
+    background: yellow;
+}
+
+meter[value^="7"]::-webkit-meter-optimum-value,
+meter[value^="7"]::-webkit-meter-suboptimum-value,
+meter[value^="7"]::-webkit-meter-even-less-good-value {
+    background: yellow;
+}
+
+meter[value^="8"]::-webkit-meter-optimum-value,
+meter[value^="8"]::-webkit-meter-suboptimum-value,
+meter[value^="8"]::-webkit-meter-even-less-good-value {
+    background: yellow;
+}
+
+meter[value^="9"]::-webkit-meter-optimum-value,
+meter[value^="9"]::-webkit-meter-suboptimum-value {
+    background: green;
+}
+
+meter[value="100"]::-webkit-meter-optimum-value,
+meter[value="100"]::-webkit-meter-suboptimum-value {
+    background: rgb(0, 80, 0);
+}
+
+meter[value="1"]::-webkit-meter-optimum-value,
+meter[value="1"]::-webkit-meter-suboptimum-value,
+meter[value="1"]::-webkit-meter-even-less-good-value {
+    background: red;
+}
+
+meter[value="2"]::-webkit-meter-optimum-value,
+meter[value="2"]::-webkit-meter-suboptimum-value,
+meter[value="2"]::-webkit-meter-even-less-good-value {
+    background: red;
+}
+
+meter[value="3"]::-webkit-meter-optimum-value,
+meter[value="3"]::-webkit-meter-suboptimum-value,
+meter[value="3"]::-webkit-meter-even-less-good-value {
+    background: red;
+}
+
+meter[value="4"]::-webkit-meter-optimum-value,
+meter[value="4"]::-webkit-meter-suboptimum-value,
+meter[value="4"]::-webkit-meter-even-less-good-value {
+    background: red;
+}
+
+meter[value="5"]::-webkit-meter-optimum-value,
+meter[value="5"]::-webkit-meter-suboptimum-value,
+meter[value="5"]::-webkit-meter-even-less-good-value {
+    background: red;
+}
+
+meter[value="6"]::-webkit-meter-optimum-value,
+meter[value="6"]::-webkit-meter-suboptimum-value,
+meter[value="6"]::-webkit-meter-even-less-good-value {
+    background: red;
+}
+
+meter[value="7"]::-webkit-meter-optimum-value,
+meter[value="7"]::-webkit-meter-suboptimum-value,
+meter[value="7"]::-webkit-meter-even-less-good-value {
+    background: red;
+}
+
+meter[value="8"]::-webkit-meter-optimum-value,
+meter[value="8"]::-webkit-meter-suboptimum-value,
+meter[value="8"]::-webkit-meter-even-less-good-value {
+    background: red;
+}
+
+meter[value="9"]::-webkit-meter-optimum-value,
+meter[value="9"]::-webkit-meter-suboptimum-value,
+meter[value="9"]::-webkit-meter-even-less-good-value {
+    background: red;
+}
+
+meter[value^="0"]::-moz-meter-bar {
+    background: red;
+}
+
+meter[valueˆ="1"]::-moz-meter-bar {
+    background: red;
+}
+
+meter[value^="2"]::-moz-meter-bar {
+    background: orange;
+}
+
+meter[value^="3"]::-moz-meter-bar {
+    background: orange;
+}
+
+meter[value^="4"]::-moz-meter-bar {
+    background: orange;
+}
+
+meter[value^="5"]::-moz-meter-bar,
+meter[value^="6"]::-moz-meter-bar,
+meter[value^="7"]::-moz-meter-bar,
+meter[value^="8"]::-moz-meter-bar {
+    background: yellow;
+}
+
+meter[value^="9"]::-moz-meter-bar {
+    background: green;
+}
+
+meter[value="100"]::-moz-meter-bar {
+    background: rgb(0, 80, 0);
+}
+
+meter[value="1"]::-moz-meter-bar {
+    background: red;
+}
+
+meter[value="2"]::-moz-meter-bar {
+    background: red;
+}
+
+meter[value="3"]::-moz-meter-bar {
+    background: red;
+}
+
+meter[value="4"]::-moz-meter-bar {
+    background: red;
+}
+
+meter[value="5"]::-moz-meter-bar {
+    background: red;
+}
+
+meter[value="6"]::-moz-meter-bar {
+    background: red;
+}
+
+meter[value="7"]::-moz-meter-bar {
+    background: red;
+}
+
+meter[value="8"]::-moz-meter-bar {
+    background: red;
+}
+
+meter[value="9"]::-moz-meter-bar {
+    background: red;
+}
 
 /* # Media Queries
 ---------------------------------------------------------------------------------------------------- */
