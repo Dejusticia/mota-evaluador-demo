@@ -130,6 +130,30 @@ body.credits.credits--monserrate-jorge-gardner::after {
     margin: 2rem 0;
 }
 
+.very-satisfactory.mdc-card {
+    border-left: 1rem solid rgba(0, 80, 0, 1);
+    border-right: 1rem solid rgba(0, 80, 0, 1);
+}
+.satisfactory.mdc-card {
+    border-left: 1rem solid green;
+    border-right: 1rem solid green;
+}
+
+.partial.mdc-card {
+    border-left: 1rem solid yellow;
+    border-right: 1rem solid yellow;
+}
+
+.unsatisfactory.mdc-card {
+    border-left: 1rem solid orange;
+    border-right: 1rem solid orange;
+}
+
+.very-unsatisfactory.mdc-card {
+    border-left: 1rem solid red;
+    border-right: 1rem solid red;
+}
+
 
 /* ## Skip Links
 --------------------------------------------- */
@@ -446,6 +470,33 @@ meter[value="8"]::-moz-meter-bar {
 meter[value="9"]::-moz-meter-bar {
     background: red;
 }
+details {
+    display: block;
+    margin: 0.5rem 0;
+    padding: 0.5rem 0;
+    border-bottom: 1px dotted #ddd;
+}
+summary {
+    font-weight: 600;
+}
+
+.results-content details div {
+    padding: 1rem;
+    justify-content: space-between;
+}
+
+.results-criteria table {
+    min-width: 200px;
+    padding: 0 1rem;
+
+    border-left: 1px solid #000;
+
+    text-align: left;
+}
+
+.results-criteria thead {
+    display: none;
+}
 
 /* # Media Queries
 ---------------------------------------------------------------------------------------------------- */
@@ -472,6 +523,10 @@ meter[value="9"]::-moz-meter-bar {
 
     main {
         max-width: 90%;
+    }
+
+    .results-content details div {
+        display: flex;
     }
 }
 
