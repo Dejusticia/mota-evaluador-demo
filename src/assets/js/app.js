@@ -34,7 +34,7 @@ const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
     //
 
     var obligationsVeryUnsatisfactoryContainer, obligationsUnsatisfactoryContainer, obligationsPartialContainer, obligationsSatisfactoryContainer, obligationsVerySatisfactoryContainer, recommendationsVeryUnsatisfactoryContainer, recommendationsUnsatisfactoryContainer, recommendationsPartialContainer, recommendationsSatisfactoryContainer, recommendationsVerySatisfactoryContainer, resultsContainers, generalGrade = 0;
-    var form, input, report, resultsDialogElement, summaryElement, summaryErrorElement, summaryGeneralGradeElement, summaryGeneralGradeLabel, summaryUrlElement, summaryDateElement;
+    var form, input, report, resultsDialogElement, summaryElement, summaryErrorElement, summaryGeneralGradeElement, summaryGeneralGradeLabel, summaryUrlElement, summaryDateElement, summaryStatusElement;
 
     //
     // Methods
@@ -84,10 +84,7 @@ const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
         // fetch a report from the report repository
         atomic('https://dejusticia.github.io/mota-reports/' + urlObject.reportBasename + '.json') //
             .then(function (response) {
-                console.log('sucessful response:');
-                console.log(response);
                 report = response.data;
-                //console.log('success report', report); // xhr.responseText
                 processReport(report);
                 return report;
             })
@@ -228,6 +225,7 @@ const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
         summaryGeneralGradeLabel = document.querySelector('label[for="results-grade-final"]');
         summaryUrlElement = document.querySelector('#results-summary-url span');
         summaryDateElement = document.querySelector('#results-summary-date span');
+        summaryStatusElement = document.querySelector('#results-summary-status span');
         resultsContainers = document.querySelectorAll('.results-content');
     };
 
@@ -249,6 +247,7 @@ const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
         summaryElement.classList.add('inactive');
         summaryUrlElement.innerHTML = '';
         summaryDateElement.innerHTML = '';
+        summaryStatusElement.innerHTML = '';
 
         for (var i = 0; i < rules.length; i++) {
 
@@ -267,8 +266,13 @@ const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
         }
         generalGrade = Math.floor(generalGrade / rules.length);
         processSummaryMarkup(generalGrade);
-        summaryUrlElement.innerHTML = report.meta.entityUrl;
-        summaryDateElement.innerHTML = transformDate(summaryDate);
+        summaryUrlElement.innerText = report.meta.entityUrl;
+        summaryDateElement.innerText = transformDate(summaryDate);
+        if (report.meta.evaluationStatus && 'updating' === report.meta.evaluationStatus ) {
+            summaryStatusElement.innerText =  'parcial (actualizando)';
+        } else {
+            summaryStatusElement.innerText = 'completada';
+        }
     };
 
     /**
