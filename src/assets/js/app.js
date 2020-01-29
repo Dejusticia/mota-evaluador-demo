@@ -33,7 +33,7 @@ const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
     // Variables
     //
 
-    var obligationsUnsatisfactoryContainer, obligationsPartialContainer, obligationsSatisfactoryContainer, recommendationsUnsatisfactoryContainer, recommendationsPartialContainer, recommendationsSatisfactoryContainer, resultsContainers, generalGrade = 0;
+    var obligationsVeryUnsatisfactoryContainer, obligationsUnsatisfactoryContainer, obligationsPartialContainer, obligationsSatisfactoryContainer, obligationsVerySatisfactoryContainer, recommendationsVeryUnsatisfactoryContainer, recommendationsUnsatisfactoryContainer, recommendationsPartialContainer, recommendationsSatisfactoryContainer, recommendationsVerySatisfactoryContainer, resultsContainers, generalGrade = 0;
     var form, input, report, resultsDialogElement, summaryElement, summaryErrorElement, summaryGeneralGradeElement, summaryGeneralGradeLabel, summaryUrlElement, summaryDateElement;
 
     //
@@ -107,24 +107,40 @@ const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
         if ('recommendation' === rule.type) {
             switch (rule.grade) {
                 case 'AAA':
-                    recommendationsSatisfactoryContainer.prepend(markup);
+                    if (100 === rule.gradePoints) {
+                        recommendationsVerySatisfactoryContainer.prepend(markup);
+                    } else {
+                        recommendationsSatisfactoryContainer.prepend(markup);
+                    }
                     break;
                 case 'AA':
                     recommendationsPartialContainer.prepend(markup);
                     break;
                 default:
-                    recommendationsUnsatisfactoryContainer.prepend(markup);
+                    if ( rule.gradePoints <= 19) {
+                        recommendationsVeryUnsatisfactoryContainer.prepend(markup);
+                    } else {
+                        recommendationsUnsatisfactoryContainer.prepend(markup);
+                    }
             }
         } else {
             switch (rule.grade) {
                 case 'AAA':
-                    obligationsSatisfactoryContainer.prepend(markup);
+                    if (100 === rule.gradePoints) {
+                        obligationsVerySatisfactoryContainer.prepend(markup);
+                    } else {
+                        obligationsSatisfactoryContainer.prepend(markup);
+                    }
                     break;
                 case 'AA':
                     obligationsPartialContainer.prepend(markup);
                     break;
                 default:
-                    obligationsUnsatisfactoryContainer.prepend(markup);
+                    if (rule.gradePoints <= 19) {
+                        obligationsVeryUnsatisfactoryContainer.prepend(markup);
+                    } else {
+                        obligationsUnsatisfactoryContainer.prepend(markup);
+                    }
             }
         }
 
@@ -193,12 +209,16 @@ const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
      * Get all document DOM elements we will need to manipulate
      */
     var getDomElements = function () {
+        obligationsVeryUnsatisfactoryContainer = document.querySelector('.legal-obligations.very-unsatisfactory .results-content');
         obligationsUnsatisfactoryContainer = document.querySelector('.legal-obligations.unsatisfactory .results-content');
         obligationsPartialContainer = document.querySelector('.legal-obligations.partial .results-content');
         obligationsSatisfactoryContainer = document.querySelector('.legal-obligations.satisfactory .results-content');
+        obligationsVerySatisfactoryContainer = document.querySelector('.legal-obligations.very-satisfactory .results-content');
+        recommendationsVeryUnsatisfactoryContainer = document.querySelector('.recommendations.very-unsatisfactory .results-content');
         recommendationsUnsatisfactoryContainer = document.querySelector('.recommendations.unsatisfactory .results-content');
         recommendationsPartialContainer = document.querySelector('.recommendations.partial .results-content');
         recommendationsSatisfactoryContainer = document.querySelector('.recommendations.satisfactory .results-content');
+        recommendationsVerySatisfactoryContainer = document.querySelector('.recommendations.very-satisfactory .results-content');
         form = document.getElementById('evaluate-form');
         input = document.getElementById('evaluate-url');
         resultsDialogElement = document.querySelector('.results-dialog');
@@ -241,8 +261,6 @@ const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
                 rule.gradePoints = +rule.gradePoints
                 generalGrade = generalGrade + rule.gradePoints;
             }
-            console.log('generalGrade =');
-            console.log(generalGrade);
             var markup = document.getElementById('template-results-criteria').content.cloneNode(true);
             markup = processResultMarkup(markup, rule);
             addResult(markup, rule);
