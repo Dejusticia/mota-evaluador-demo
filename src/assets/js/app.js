@@ -34,7 +34,7 @@ const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
     //
 
     var obligationsUnsatisfactoryContainer, obligationsPartialContainer, obligationsSatisfactoryContainer, recommendationsUnsatisfactoryContainer, recommendationsPartialContainer, recommendationsSatisfactoryContainer, resultsContainers, generalGrade = 0;
-    var form, input, report, summaryElement, summaryErrorElement, summaryGeneralGradeElement, summaryGeneralGradeLabel, summaryUrlElement, summaryDateElement;
+    var form, input, report, resultsDialogElement, summaryElement, summaryErrorElement, summaryGeneralGradeElement, summaryGeneralGradeLabel, summaryUrlElement, summaryDateElement;
 
     //
     // Methods
@@ -53,6 +53,7 @@ const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
         var domainInfo, basename, urlParameters = parseUri(sanitizeHTML(String(url)));
         if ( null === urlParameters.host.match(/\w\.gov\.co$/)) {
             summaryErrorElement.classList.remove('inactive');
+            resultsDialogElement.innerHTML = '<b>Procesado</b> con error!';
             summaryErrorElement.innerHTML = '<p>El enlace que buscó no es válido!</p><p>Por favor, use una URL .gov.co de um sítio web existente.</p>';
             throw new Error('This URI is invalid');
         }
@@ -72,6 +73,8 @@ const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
      * @return {object} report object on success, error object on error.
      */
     var getReport = function (url) {
+        summaryElement.classList.add('inactive');
+        resultsDialogElement.innerHTML = '<b>Procesando</b>: Los resultados se mostrarán aquí.';
         var urlObject = getValidDomainInfo(url);
         // cleanup results containers and site info
         resultsContainers.forEach(function (elem, index) {
@@ -172,6 +175,7 @@ const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
         summaryGeneralGradeElement.value = generalGrade;
         summaryGeneralGradeLabel.innerHTML = generalGradeText;
         summaryElement.classList.remove('inactive');
+        resultsDialogElement.innerHTML = '<b>Procesado</b> con éxito!';
     };
 
     /**
@@ -197,6 +201,7 @@ const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
         recommendationsSatisfactoryContainer = document.querySelector('.recommendations.satisfactory .results-content');
         form = document.getElementById('evaluate-form');
         input = document.getElementById('evaluate-url');
+        resultsDialogElement = document.querySelector('.results-dialog');
         summaryElement = document.getElementById('results-summary');
         summaryErrorElement = document.getElementById('results-summary-error');
         summaryGeneralGradeElement = document.getElementById('results-grade-final');
@@ -254,6 +259,7 @@ const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
     var processReportError = function (error) {
         // error.status//summaryElement
         summaryErrorElement.classList.remove('inactive');
+        resultsDialogElement.innerHTML = '<b>Procesado</b> con error!';
         summaryErrorElement.innerHTML = '<p>No se encontró el informe para esta evaluación. Estamos agregando a nuestra cola de evaluación y, si existe el sitio, tendremos la evaluación en unas pocas horas.</p>';
         console.error('error code', error.status); // xhr.status
         console.error('error description', error.statusText); // xhr.statusText
