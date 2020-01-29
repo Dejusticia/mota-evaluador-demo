@@ -84,10 +84,7 @@ const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
         // fetch a report from the report repository
         atomic('https://dejusticia.github.io/mota-reports/' + urlObject.reportBasename + '.json') //
             .then(function (response) {
-                console.log('sucessful response:');
-                console.log(response);
                 report = response.data;
-                //console.log('success report', report); // xhr.responseText
                 processReport(report);
                 return report;
             })
