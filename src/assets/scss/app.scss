@@ -1,13 +1,13 @@
-$mdc-theme-primary: #fcd116;
-$mdc-theme-secondary: #003893;
-$mdc-theme-on-primary: #000000;
-$mdc-theme-on-secondary: #ffffff;
+$mdc-theme-primary: rgb(82, 31, 132);;
+$mdc-theme-secondary: rgb(239, 214, 164);
+$mdc-theme-on-primary: rgb(215, 150, 0);
+$mdc-theme-on-secondary: #390456;
 $mdc-typography-font-family: unquote("Roboto,Rubik, Open Sans, -apple-syphonstem, BlinkMacSystemFont, Segoe UI, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;");
 
-$mota-theme-primary-light: #ffff58;
-$mota-theme-primary-dark: #c7a000;
-$mota-theme-secondary-light: #4d61c4;
-$mota-theme-secondary-dark: #001464;
+$mota-theme-primary-light: rgb(183, 177, 201);
+$mota-theme-primary-dark: #390456;
+$mota-theme-secondary-light: rgb(252, 185, 0);
+$mota-theme-secondary-dark: rgb(215, 150, 0);
 
 @import "./normalize.css";
 @import "@material/textfield/mdc-text-field";
@@ -27,6 +27,9 @@ body {
     font-family: $mdc-typography-font-family;
 }
 
+.mdc-top-app-bar {
+    color: rgb(252, 185, 0);
+}
 .mdc-top-app-bar__title {
     font-size: 1rem;
 }
@@ -135,13 +138,13 @@ body.credits.credits--monserrate-jorge-gardner::after {
     border-right: 1rem solid rgba(0, 80, 0, 1);
 }
 .satisfactory.mdc-card {
-    border-left: 1rem solid green;
-    border-right: 1rem solid green;
+    border-left: 1rem solid #090;
+    border-right: 1rem solid #090;
 }
 
 .partial.mdc-card {
-    border-left: 1rem solid yellow;
-    border-right: 1rem solid yellow;
+    border-left: 1rem solid #fd0;
+    border-right: 1rem solid #fd0;
 }
 
 .unsatisfactory.mdc-card {
@@ -150,8 +153,8 @@ body.credits.credits--monserrate-jorge-gardner::after {
 }
 
 .very-unsatisfactory.mdc-card {
-    border-left: 1rem solid red;
-    border-right: 1rem solid red;
+    border-left: 1rem solid #ee3300;
+    border-right: 1rem solid #ee3300;
 }
 
 
@@ -254,7 +257,7 @@ section[aria-labelledby="evaluate-header"]>form {
 section[aria-labelledby="evaluate-header"] input[type="submit"] {
     width: 100%;
     margin: 1rem 0;
-    color: #000000;
+    color: rgb(252, 185, 0);
 }
 
 input#evaluate-url {
@@ -285,13 +288,13 @@ meter {
 meter[value^="0"]::-webkit-meter-optimum-value,
 meter[value^="0"]::-webkit-meter-suboptimum-value,
 meter[value^="0"]::-webkit-meter-even-less-good-value {
-    background: red;
+    background: gray;
 }
 
 meter[value^="1"]::-webkit-meter-optimum-value,
 meter[value^="1"]::-webkit-meter-suboptimum-value,
 meter[value^="1"]::-webkit-meter-even-less-good-value {
-    background: red;
+    background: #ee3300;
 }
 
 meter[value^="2"]::-webkit-meter-optimum-value,
@@ -315,30 +318,30 @@ meter[value^="4"]::-webkit-meter-even-less-good-value {
 meter[value^="5"]::-webkit-meter-optimum-value,
 meter[value^="5"]::-webkit-meter-suboptimum-value,
 meter[value^="5"]::-webkit-meter-even-less-good-value {
-    background: yellow;
+    background: #fd0;
 }
 
 meter[value^="6"]::-webkit-meter-optimum-value,
 meter[value^="6"]::-webkit-meter-suboptimum-value,
 meter[value^="6"]::-webkit-meter-even-less-good-value {
-    background: yellow;
+    background: #fd0;
 }
 
 meter[value^="7"]::-webkit-meter-optimum-value,
 meter[value^="7"]::-webkit-meter-suboptimum-value,
 meter[value^="7"]::-webkit-meter-even-less-good-value {
-    background: yellow;
+    background: #fd0;
 }
 
 meter[value^="8"]::-webkit-meter-optimum-value,
 meter[value^="8"]::-webkit-meter-suboptimum-value,
 meter[value^="8"]::-webkit-meter-even-less-good-value {
-    background: yellow;
+    background: #fd0;
 }
 
 meter[value^="9"]::-webkit-meter-optimum-value,
 meter[value^="9"]::-webkit-meter-suboptimum-value {
-    background: green;
+    background: #090;
 }
 
 meter[value="100"]::-webkit-meter-optimum-value,
@@ -349,63 +352,63 @@ meter[value="100"]::-webkit-meter-suboptimum-value {
 meter[value="1"]::-webkit-meter-optimum-value,
 meter[value="1"]::-webkit-meter-suboptimum-value,
 meter[value="1"]::-webkit-meter-even-less-good-value {
-    background: red;
+    background: #ee3300;
 }
 
 meter[value="2"]::-webkit-meter-optimum-value,
 meter[value="2"]::-webkit-meter-suboptimum-value,
 meter[value="2"]::-webkit-meter-even-less-good-value {
-    background: red;
+    background: #ee3300;
 }
 
 meter[value="3"]::-webkit-meter-optimum-value,
 meter[value="3"]::-webkit-meter-suboptimum-value,
 meter[value="3"]::-webkit-meter-even-less-good-value {
-    background: red;
+    background: #ee3300;
 }
 
 meter[value="4"]::-webkit-meter-optimum-value,
 meter[value="4"]::-webkit-meter-suboptimum-value,
 meter[value="4"]::-webkit-meter-even-less-good-value {
-    background: red;
+    background: #ee3300;
 }
 
 meter[value="5"]::-webkit-meter-optimum-value,
 meter[value="5"]::-webkit-meter-suboptimum-value,
 meter[value="5"]::-webkit-meter-even-less-good-value {
-    background: red;
+    background: #ee3300;
 }
 
 meter[value="6"]::-webkit-meter-optimum-value,
 meter[value="6"]::-webkit-meter-suboptimum-value,
 meter[value="6"]::-webkit-meter-even-less-good-value {
-    background: red;
+    background: #ee3300;
 }
 
 meter[value="7"]::-webkit-meter-optimum-value,
 meter[value="7"]::-webkit-meter-suboptimum-value,
 meter[value="7"]::-webkit-meter-even-less-good-value {
-    background: red;
+    background: #ee3300;
 }
 
 meter[value="8"]::-webkit-meter-optimum-value,
 meter[value="8"]::-webkit-meter-suboptimum-value,
 meter[value="8"]::-webkit-meter-even-less-good-value {
-    background: red;
+    background: #ee3300;
 }
 
 meter[value="9"]::-webkit-meter-optimum-value,
 meter[value="9"]::-webkit-meter-suboptimum-value,
 meter[value="9"]::-webkit-meter-even-less-good-value {
-    background: red;
+    background: #ee3300;
 }
 
 meter[value^="0"]::-moz-meter-bar {
-    background: red;
+    background: gray;
 }
 
-meter[valueˆ="1"]::-moz-meter-bar {
-    background: red;
+meter[value^="1"]::-moz-meter-bar {
+    background: #ee3300;
 }
 
 meter[value^="2"]::-moz-meter-bar {
@@ -424,11 +427,11 @@ meter[value^="5"]::-moz-meter-bar,
 meter[value^="6"]::-moz-meter-bar,
 meter[value^="7"]::-moz-meter-bar,
 meter[value^="8"]::-moz-meter-bar {
-    background: yellow;
+    background: #fd0;
 }
 
 meter[value^="9"]::-moz-meter-bar {
-    background: green;
+    background: #090;
 }
 
 meter[value="100"]::-moz-meter-bar {
@@ -436,39 +439,39 @@ meter[value="100"]::-moz-meter-bar {
 }
 
 meter[value="1"]::-moz-meter-bar {
-    background: red;
+    background: #ee3300;
 }
 
 meter[value="2"]::-moz-meter-bar {
-    background: red;
+    background: #ee3300;
 }
 
 meter[value="3"]::-moz-meter-bar {
-    background: red;
+    background: #ee3300;
 }
 
 meter[value="4"]::-moz-meter-bar {
-    background: red;
+    background: #ee3300;
 }
 
 meter[value="5"]::-moz-meter-bar {
-    background: red;
+    background: #ee3300;
 }
 
 meter[value="6"]::-moz-meter-bar {
-    background: red;
+    background: #ee3300;
 }
 
 meter[value="7"]::-moz-meter-bar {
-    background: red;
+    background: #ee3300;
 }
 
 meter[value="8"]::-moz-meter-bar {
-    background: red;
+    background: #ee3300;
 }
 
 meter[value="9"]::-moz-meter-bar {
-    background: red;
+    background: #ee3300;
 }
 details {
     display: block;

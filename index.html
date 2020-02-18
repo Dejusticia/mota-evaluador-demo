@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Evaluador de Transparencia Activa en Colombia - Iniciativa MOTA</title>
-    <meta name="description" content="Una herramienta para evaluar el cumplimiento con obligaciones e mejores practicas de transparencia activa en sitios gubernamentales de Colombia. Iniciativa MOTA.">
+    <meta name="description" content="Una herramienta para evaluar el cumplimiento de obligaciones y la utilización de buenas practicas de transparencia activa en sitios del estado en Colombia. Evaluador de Transparencia Activa en Colombia - Iniciativa MOTA.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script>
         document.documentElement.className = document.documentElement.className.replace("no-js", "js");
@@ -91,8 +91,14 @@
     <main class="mdc-layout-grid main-content" id="main-content">
         <div class="mdc-layout-grid__inner">
             <section aria-labelledby="evaluate-header" class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12 mdc-card mdc-card--free-content">
-                <h1 class="screen-reader-text">MOTA - Evaluador de Transparencia Activa</h1>
+                <h1 class="screen-reader-text">Evaluador de Transparencia Activa MOTA</h1>
+                <h2>Una herramienta para evaluar el cumplimiento de obligaciones y la utilización de buenas practicas de transparencia activa en sitios del estado en Colombia.</h2>
                 <div class="form-container" id="form-container">
+                    <ol>
+                        <li>copie un enlace de un sitio web gubernamental colombiano (como www.ejemplo.gov.co)</li>
+                        <li>Pegue un enlace en el campo a continuación, y haga clic en el botón EVALUE</li>
+                        <li>Espere a que se carguen los resultados a continuación.</li>
+                    </ol>
                     <p id="evaluate-header">Complete el campo a continuación y haga clic en el botón EVALUE. Los resultados de la avaliacción se mostrará abajo.</p>
                     <form aria-labelledby="evaluate-url-legend" id="evaluate-form">
                         <legend id="evaluate-url-legend" class="screen-reader-text">rellene el campo con la URL de lo sitio a evaluar</legend>
@@ -106,7 +112,7 @@
                     </form>
                 </div>
             </section>
-            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6 mdc-card mdc-card--free-content"
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8 mdc-card mdc-card--free-content"
                 id="results-summary-area">
                 <h3>Sumário de La Evaluacción</h3>
                 <p class="results-dialog">Los resultados se mostrarán aquí.</p>
@@ -124,7 +130,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6 mdc-card mdc-card--free-content"
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4 mdc-card mdc-card--free-content"
                 id="report-section--summary">
 
                     <h3>Referencia de Grados:</h3>
@@ -166,33 +172,9 @@
 
                     </div>
                 </section>
-                <section class="recommendations very-satisfactory mdc-card mdc-card--free-content">
-                    <h3>Recomendaciones - Perfecto</h3>
-                    <div class="results-content">
-
-                    </div>
-                </section>
                 <section
                     class="legal-obligations satisfactory mdc-card mdc-card--free-content">
                     <h3>Obligaciones Legales - Satisfactórias</h3>
-                    <div class="results-content">
-
-                    </div>
-                </section>
-                <section class="recommendations satisfactory mdc-card mdc-card--free-content">
-                    <h3>Recomendaciones - Satisfactórias</h3>
-                    <div class="results-content">
-
-                    </div>
-                </section>
-                <section class="legal-obligations very-unsatisfactory mdc-card mdc-card--free-content">
-                    <h3>Obligaciones Legales - Mucho Insatisfactório</h3>
-                    <div class="results-content">
-
-                    </div>
-                </section>
-                <section class="legal-obligations unsatisfactory mdc-card mdc-card--free-content">
-                    <h3>Obligaciones Legales - Insatisfactório</h3>
                     <div class="results-content">
 
                     </div>
@@ -203,8 +185,32 @@
 
                     </div>
                 </section>
-                <section class="recommendations very-unsatisfactory mdc-card mdc-card--free-content">
-                    <h3>Recommendaciones - Mucho Insatisfactório</h3>
+                <section class="legal-obligations unsatisfactory mdc-card mdc-card--free-content">
+                    <h3>Obligaciones Legales - Insatisfactório</h3>
+                    <div class="results-content">
+
+                    </div>
+                </section>
+                <section class="legal-obligations very-unsatisfactory mdc-card mdc-card--free-content">
+                    <h3>Obligaciones Legales - Mucho Insatisfactório</h3>
+                    <div class="results-content">
+
+                    </div>
+                </section>
+                <section class="recommendations very-satisfactory mdc-card mdc-card--free-content">
+                    <h3>Recomendaciones - Perfecto</h3>
+                    <div class="results-content">
+
+                    </div>
+                </section>
+                <section class="recommendations satisfactory mdc-card mdc-card--free-content">
+                    <h3>Recomendaciones - Satisfactórias</h3>
+                    <div class="results-content">
+
+                    </div>
+                </section>
+                <section class="recommendations partial mdc-card mdc-card--free-content">
+                    <h3>Recommendaciones - Parciales</h3>
                     <div class="results-content">
 
                     </div>
@@ -215,8 +221,8 @@
 
                     </div>
                 </section>
-                <section class="recommendations partial mdc-card mdc-card--free-content">
-                    <h3>Recommendaciones - Parciales</h3>
+                <section class="recommendations very-unsatisfactory mdc-card mdc-card--free-content">
+                    <h3>Recommendaciones - Mucho Insatisfactório</h3>
                     <div class="results-content">
 
                     </div>

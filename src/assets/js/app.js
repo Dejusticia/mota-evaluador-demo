@@ -169,7 +169,7 @@ const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
      * Process a result template markup.
      * @param  {number}  generalGrade    The general grade for this report.
      */
-    var processSummaryMarkup = function (generalGrade) {
+    var processSummaryMarkup = function (generalGrade, report) {
         var generalGradeText = '';
 
         // coerce to number
@@ -187,8 +187,13 @@ const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
         }
         summaryGeneralGradeElement.value = generalGrade;
         summaryGeneralGradeLabel.innerHTML = generalGradeText;
+        if (report.meta.evaluationStatus && 'updating' === report.meta.evaluationStatus) {
+            resultsDialogElement.innerHTML = '<b>Procesando</b>.';
+        } else {
+            resultsDialogElement.innerHTML = '<b>Procesado</b> con éxito!';
+        }
         summaryElement.classList.remove('inactive');
-        resultsDialogElement.innerHTML = '<b>Procesado</b> con éxito!';
+
     };
 
     /**
@@ -265,11 +270,11 @@ const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
             addResult(markup, rule);
         }
         generalGrade = Math.floor(generalGrade / rules.length);
-        processSummaryMarkup(generalGrade);
+        processSummaryMarkup(generalGrade, report);
         summaryUrlElement.innerText = report.meta.entityUrl;
         summaryDateElement.innerText = transformDate(summaryDate);
         if (report.meta.evaluationStatus && 'updating' === report.meta.evaluationStatus ) {
-            summaryStatusElement.innerText =  'parcial (actualizando)';
+            summaryStatusElement.innerText =  'actualización Por favor regrese en unas horas.';
         } else {
             summaryStatusElement.innerText = 'completada';
         }
