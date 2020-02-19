@@ -269,7 +269,11 @@ const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
             markup = processResultMarkup(markup, rule);
             addResult(markup, rule);
         }
+        console.log('generalGrade brute');
+        console.log(generalGrade);
         generalGrade = Math.floor(generalGrade / rules.length);
+        console.log('generalGrade Normalized');
+        console.log(generalGrade);
         processSummaryMarkup(generalGrade, report);
         summaryUrlElement.innerText = report.meta.entityUrl;
         summaryDateElement.innerText = transformDate(summaryDate);
