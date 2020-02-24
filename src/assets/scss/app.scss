@@ -47,6 +47,54 @@ body {
     background-size: cover;
 }
 
+.no-js body.background-dual-tone,
+.js body.background-dual-tone {
+    background-image: url('../img/background-dual-tone.svg');
+    background-position: right top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.no-js body.background-edificio,
+.js body.background-edificio {
+    background-image: url('../img/background-edificio.svg');
+    background-position: right top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.no-js body.background-map-points-1,
+.js body.background-map-points-1 {
+    background-image: url('../img/background-map-points-1.svg');
+    background-position: right top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.no-js body.background-map-points-2,
+.js body.background-map-points-2 {
+    background-image: url('../img/background-map-points-2.svg');
+    background-position: right top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.no-js body.background-map-points-3,
+.js body.background-map-points-3 {
+    background-image: url('../img/background-map-points-3.svg');
+    background-position: right top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.no-js body.background-transparency,
+.js body.background-transparency {
+    background-image: url('../img/background-transparency.svg');
+    background-position: right top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .no-js body.credits--glass-building,
 .js body.credits--glass-building {
     background-image: url('../img/basico/glass-building-madrid-joel-filipe-jU9VAZDGMzs-unsplash.jpg');
@@ -142,11 +190,11 @@ body.credits.credits--monserrate-jorge-gardner::after {
     left: 5%;
     /*top: 35%;
     transform: translateY(-35%);*/
-    background-color: #112a42;
+    background-color: $mdc-theme-primary;
     padding: 30px;
     color: #eceef2;
     box-shadow: -1px 3px 3px 0 rgba(0, 0, 0, .22);
-    border: 2px solid #ffb100;
+    border: 2px solid $mdc-theme-secondary;
     margin-bottom: 20px;
     font-size: 18px;
 }

@@ -146,14 +146,16 @@ const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
 
         // coerce to number
         generalGrade = +generalGrade;
-        if (generalGrade < 20) {
+        if (generalGrade < 1) {
+            generalGradeText = 'no conformidad (' + generalGrade + ')';
+        } else if (generalGrade <= 20) {
             generalGradeText = 'Deficiente (' + generalGrade + ')';
-        } else if (generalGrade < 50) {
+        } else if (generalGrade <= 50) {
             generalGradeText = 'Insuficiente (' + generalGrade + ')';
-        } else if (generalGrade < 90) {
-            generalGradeText = ' Parcial, debe mejorar (' + generalGrade + ')';
+        } else if (generalGrade <= 80) {
+            generalGradeText = ' conformidad parcial (' + generalGrade + ')';
         } else if (generalGrade < 100) {
-            generalGradeText = 'Bien (' + generalGrade + ')';
+            generalGradeText = 'Conformidad (' + generalGrade + ')';
         } else {
             generalGradeText = 'Perfecto! (' + generalGrade + ')';
         }
