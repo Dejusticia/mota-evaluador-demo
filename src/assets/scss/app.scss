@@ -1,13 +1,13 @@
-$mdc-theme-primary: #fcd116;
-$mdc-theme-secondary: #003893;
-$mdc-theme-on-primary: #000000;
-$mdc-theme-on-secondary: #ffffff;
+$mdc-theme-primary: rgb(82, 31, 132);;
+$mdc-theme-secondary: rgb(239, 214, 164);
+$mdc-theme-on-primary: rgb(215, 150, 0);
+$mdc-theme-on-secondary: #390456;
 $mdc-typography-font-family: unquote("Roboto,Rubik, Open Sans, -apple-syphonstem, BlinkMacSystemFont, Segoe UI, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;");
 
-$mota-theme-primary-light: #ffff58;
-$mota-theme-primary-dark: #c7a000;
-$mota-theme-secondary-light: #4d61c4;
-$mota-theme-secondary-dark: #001464;
+$mota-theme-primary-light: rgb(183, 177, 201);
+$mota-theme-primary-dark: #390456;
+$mota-theme-secondary-light: rgb(252, 185, 0);
+$mota-theme-secondary-dark: rgb(215, 150, 0);
 
 @import "./normalize.css";
 @import "@material/textfield/mdc-text-field";
@@ -27,6 +27,9 @@ body {
     font-family: $mdc-typography-font-family;
 }
 
+.mdc-top-app-bar {
+    color: rgb(252, 185, 0);
+}
 .mdc-top-app-bar__title {
     font-size: 1rem;
 }
@@ -34,6 +37,62 @@ body {
 .no-js body,
 .js body {
     background-image: url('../img/basico/colombia-bogota-flavia-carpio.jpg');
+}
+
+.no-js body.iceberg,
+.js body.iceberg {
+    background-image: url('../img/iceberg.svg');
+    background-position: right top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.no-js body.background-dual-tone,
+.js body.background-dual-tone {
+    background-image: url('../img/background-dual-tone.svg');
+    background-position: right top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.no-js body.background-edificio,
+.js body.background-edificio {
+    background-image: url('../img/background-edificio.svg');
+    background-position: right top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.no-js body.background-map-points-1,
+.js body.background-map-points-1 {
+    background-image: url('../img/background-map-points-1.svg');
+    background-position: right top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.no-js body.background-map-points-2,
+.js body.background-map-points-2 {
+    background-image: url('../img/background-map-points-2.svg');
+    background-position: right top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.no-js body.background-map-points-3,
+.js body.background-map-points-3 {
+    background-image: url('../img/background-map-points-3.svg');
+    background-position: right top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.no-js body.background-transparency,
+.js body.background-transparency {
+    background-image: url('../img/background-transparency.svg');
+    background-position: right top;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .no-js body.credits--glass-building,
@@ -125,33 +184,47 @@ body.credits.credits--monserrate-jorge-gardner::after {
     margin: 4rem;
 }
 
-.recommendations.mdc-card,
+.hero-container {
+}
+.hero-content {
+    left: 5%;
+    /*top: 35%;
+    transform: translateY(-35%);*/
+    background-color: $mdc-theme-primary;
+    padding: 30px;
+    color: #eceef2;
+    box-shadow: -1px 3px 3px 0 rgba(0, 0, 0, .22);
+    border: 2px solid $mdc-theme-secondary;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
 .legal-obligations.mdc-card {
     margin: 2rem 0;
 }
 
-.very-satisfactory.mdc-card {
+.compliant.mdc-card {
     border-left: 1rem solid rgba(0, 80, 0, 1);
     border-right: 1rem solid rgba(0, 80, 0, 1);
 }
-.satisfactory.mdc-card {
-    border-left: 1rem solid green;
-    border-right: 1rem solid green;
+.partial-compliant.mdc-card {
+    border-left: 1rem solid #fd0;
+    border-right: 1rem solid #fd0;
 }
 
-.partial.mdc-card {
-    border-left: 1rem solid yellow;
-    border-right: 1rem solid yellow;
-}
-
-.unsatisfactory.mdc-card {
+.unsufficient.mdc-card {
     border-left: 1rem solid orange;
     border-right: 1rem solid orange;
 }
 
-.very-unsatisfactory.mdc-card {
-    border-left: 1rem solid red;
-    border-right: 1rem solid red;
+.deficient.mdc-card {
+    border-left: 1rem solid #ee3300;
+    border-right: 1rem solid #ee3300;
+}
+
+.not-compliant.mdc-card {
+    border-left: 1rem solid gray;
+    border-right: 1rem solid gray;
 }
 
 
@@ -244,21 +317,39 @@ input {
 /* ## Evaluate Form
 --------------------------------------------- */
 
-section[aria-labelledby="evaluate-header"]>p,
-section[aria-labelledby="evaluate-header"]>form {
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+section[aria-labelledby="evaluate-header"]>p {
     margin: 0 auto;
     max-width: 90%;
     padding: 2rem 0;
 }
 
-section[aria-labelledby="evaluate-header"] input[type="submit"] {
-    width: 100%;
-    margin: 1rem 0;
-    color: #000000;
+input#evaluate-url {
+    background-color: #fff;
+    padding: 1rem;
+    margin-bottom: 1rem;
 }
 
-input#evaluate-url {
-    padding: 1rem;
+.form-container input[type="submit"] {
+    display: inline-block;
+    width: 330px;
+    margin-top: 10px;
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center;
+    font-weight: 600;
+    /*background-color: #ffb100;
+    color: #09233c;
+    border: none;
+    text-shadow: none;
+    box-shadow: none;
+    */
 }
 
 
@@ -285,13 +376,13 @@ meter {
 meter[value^="0"]::-webkit-meter-optimum-value,
 meter[value^="0"]::-webkit-meter-suboptimum-value,
 meter[value^="0"]::-webkit-meter-even-less-good-value {
-    background: red;
+    background: gray;
 }
 
 meter[value^="1"]::-webkit-meter-optimum-value,
 meter[value^="1"]::-webkit-meter-suboptimum-value,
 meter[value^="1"]::-webkit-meter-even-less-good-value {
-    background: red;
+    background: #ee3300;
 }
 
 meter[value^="2"]::-webkit-meter-optimum-value,
@@ -315,30 +406,30 @@ meter[value^="4"]::-webkit-meter-even-less-good-value {
 meter[value^="5"]::-webkit-meter-optimum-value,
 meter[value^="5"]::-webkit-meter-suboptimum-value,
 meter[value^="5"]::-webkit-meter-even-less-good-value {
-    background: yellow;
+    background: #fd0;
 }
 
 meter[value^="6"]::-webkit-meter-optimum-value,
 meter[value^="6"]::-webkit-meter-suboptimum-value,
 meter[value^="6"]::-webkit-meter-even-less-good-value {
-    background: yellow;
+    background: #fd0;
 }
 
 meter[value^="7"]::-webkit-meter-optimum-value,
 meter[value^="7"]::-webkit-meter-suboptimum-value,
 meter[value^="7"]::-webkit-meter-even-less-good-value {
-    background: yellow;
+    background: #fd0;
 }
 
 meter[value^="8"]::-webkit-meter-optimum-value,
 meter[value^="8"]::-webkit-meter-suboptimum-value,
 meter[value^="8"]::-webkit-meter-even-less-good-value {
-    background: yellow;
+    background: #090;
 }
 
 meter[value^="9"]::-webkit-meter-optimum-value,
 meter[value^="9"]::-webkit-meter-suboptimum-value {
-    background: green;
+    background: rgb(0, 80, 0);
 }
 
 meter[value="100"]::-webkit-meter-optimum-value,
@@ -349,63 +440,82 @@ meter[value="100"]::-webkit-meter-suboptimum-value {
 meter[value="1"]::-webkit-meter-optimum-value,
 meter[value="1"]::-webkit-meter-suboptimum-value,
 meter[value="1"]::-webkit-meter-even-less-good-value {
-    background: red;
+    background: #ee3300;
 }
 
 meter[value="2"]::-webkit-meter-optimum-value,
 meter[value="2"]::-webkit-meter-suboptimum-value,
 meter[value="2"]::-webkit-meter-even-less-good-value {
-    background: red;
+    background: #ee3300;
 }
 
 meter[value="3"]::-webkit-meter-optimum-value,
 meter[value="3"]::-webkit-meter-suboptimum-value,
 meter[value="3"]::-webkit-meter-even-less-good-value {
-    background: red;
+    background: #ee3300;
 }
 
 meter[value="4"]::-webkit-meter-optimum-value,
 meter[value="4"]::-webkit-meter-suboptimum-value,
 meter[value="4"]::-webkit-meter-even-less-good-value {
-    background: red;
+    background: #ee3300;
 }
 
 meter[value="5"]::-webkit-meter-optimum-value,
 meter[value="5"]::-webkit-meter-suboptimum-value,
 meter[value="5"]::-webkit-meter-even-less-good-value {
-    background: red;
+    background: #ee3300;
 }
 
 meter[value="6"]::-webkit-meter-optimum-value,
 meter[value="6"]::-webkit-meter-suboptimum-value,
 meter[value="6"]::-webkit-meter-even-less-good-value {
-    background: red;
+    background: #ee3300;
 }
 
 meter[value="7"]::-webkit-meter-optimum-value,
 meter[value="7"]::-webkit-meter-suboptimum-value,
 meter[value="7"]::-webkit-meter-even-less-good-value {
-    background: red;
+    background: #ee3300;
 }
 
 meter[value="8"]::-webkit-meter-optimum-value,
 meter[value="8"]::-webkit-meter-suboptimum-value,
 meter[value="8"]::-webkit-meter-even-less-good-value {
-    background: red;
+    background: #ee3300;
 }
 
 meter[value="9"]::-webkit-meter-optimum-value,
 meter[value="9"]::-webkit-meter-suboptimum-value,
 meter[value="9"]::-webkit-meter-even-less-good-value {
-    background: red;
+    background: #ee3300;
+}
+
+meter[value="20"]::-webkit-meter-optimum-value,
+meter[value="20"]::-webkit-meter-suboptimum-value,
+meter[value="20"]::-webkit-meter-even-less-good-value {
+    background: #ee3300;
+}
+
+meter[value="50"]::-webkit-meter-optimum-value,
+meter[value="50"]::-webkit-meter-suboptimum-value,
+meter[value="50"]::-webkit-meter-even-less-good-value {
+    background: orange;
+}
+
+meter[value="80"]::-webkit-meter-optimum-value,
+meter[value="80"]::-webkit-meter-suboptimum-value,
+meter[value="80"]::-webkit-meter-even-less-good-value {
+    background: #fd0;
+    ;
 }
 
 meter[value^="0"]::-moz-meter-bar {
-    background: red;
+    background: gray;
 }
 
-meter[valueˆ="1"]::-moz-meter-bar {
-    background: red;
+meter[value^="1"]::-moz-meter-bar {
+    background: #ee3300;
 }
 
 meter[value^="2"]::-moz-meter-bar {
@@ -422,13 +532,16 @@ meter[value^="4"]::-moz-meter-bar {
 
 meter[value^="5"]::-moz-meter-bar,
 meter[value^="6"]::-moz-meter-bar,
-meter[value^="7"]::-moz-meter-bar,
+meter[value^="7"]::-moz-meter-bar {
+    background: #fd0;
+}
+
 meter[value^="8"]::-moz-meter-bar {
-    background: yellow;
+    background: rgb(0, 80, 0);
 }
 
 meter[value^="9"]::-moz-meter-bar {
-    background: green;
+    background: rgb(0, 80, 0);
 }
 
 meter[value="100"]::-moz-meter-bar {
@@ -436,39 +549,51 @@ meter[value="100"]::-moz-meter-bar {
 }
 
 meter[value="1"]::-moz-meter-bar {
-    background: red;
+    background: #ee3300;
 }
 
 meter[value="2"]::-moz-meter-bar {
-    background: red;
+    background: #ee3300;
 }
 
 meter[value="3"]::-moz-meter-bar {
-    background: red;
+    background: #ee3300;
 }
 
 meter[value="4"]::-moz-meter-bar {
-    background: red;
+    background: #ee3300;
 }
 
 meter[value="5"]::-moz-meter-bar {
-    background: red;
+    background: #ee3300;
 }
 
 meter[value="6"]::-moz-meter-bar {
-    background: red;
+    background: #ee3300;
 }
 
 meter[value="7"]::-moz-meter-bar {
-    background: red;
+    background: #ee3300;
 }
 
 meter[value="8"]::-moz-meter-bar {
-    background: red;
+    background: #ee3300;
 }
 
 meter[value="9"]::-moz-meter-bar {
-    background: red;
+    background: #ee3300;
+}
+
+meter[value="20"]::-moz-meter-bar {
+    background: #ee3300;
+}
+
+meter[value="50"]::-moz-meter-bar {
+    background: orange;
+}
+
+meter[value="80"]::-moz-meter-bar {
+    background: #fd0;
 }
 details {
     display: block;
@@ -602,7 +727,7 @@ summary {
     }
 
     main {
-        max-width: 1024px;
+        max-width: 1200px;
     }
 }
 

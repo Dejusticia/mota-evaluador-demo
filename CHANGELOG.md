@@ -11,6 +11,13 @@ This project adheres to [Semantic Versioning](http://semver.org/)
 
 ## Unreleased
 
+### Changed
+- some refactoring to the app
+- simplified logic and interface
+- new grades reference and points logic, following specification 0.4.0
+- style improvements
+- improved copy
+
 ## [2020-01-29] - 0.7.4
 
 ### Fixed
