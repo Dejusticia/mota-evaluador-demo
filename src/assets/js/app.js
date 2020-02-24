@@ -33,7 +33,7 @@ const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
     // Variables
     //
 
-    var obligationsVeryUnsatisfactoryContainer, obligationsUnsatisfactoryContainer, obligationsPartialContainer, obligationsSatisfactoryContainer, obligationsVerySatisfactoryContainer, recommendationsVeryUnsatisfactoryContainer, recommendationsUnsatisfactoryContainer, recommendationsPartialContainer, recommendationsSatisfactoryContainer, recommendationsVerySatisfactoryContainer, resultsContainers, generalGrade = 0;
+    var obligationsNotCompliantContainer, obligationsDeficientContainer, obligationsUnsufficientContainer, obligationsPartialCompliantContainer, obligationsCompliantContainer, resultsContainers, generalGrade = 0;
     var form, input, report, resultsDialogElement, summaryElement, summaryErrorElement, summaryGeneralGradeElement, summaryGeneralGradeLabel, summaryUrlElement, summaryDateElement, summaryStatusElement;
 
     //
@@ -101,45 +101,17 @@ const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
      * @param  {object}  rule    The rule object.
      */
     var addResult = function (markup, rule) {
-        if ('recommendation' === rule.type) {
-            switch (rule.grade) {
-                case 'AAA':
-                    if (100 === rule.gradePoints) {
-                        recommendationsVerySatisfactoryContainer.prepend(markup);
-                    } else {
-                        recommendationsSatisfactoryContainer.prepend(markup);
-                    }
-                    break;
-                case 'AA':
-                    recommendationsPartialContainer.prepend(markup);
-                    break;
-                default:
-                    if ( rule.gradePoints <= 19) {
-                        recommendationsVeryUnsatisfactoryContainer.prepend(markup);
-                    } else {
-                        recommendationsUnsatisfactoryContainer.prepend(markup);
-                    }
+            if (rule.gradePoints >= 81) {
+                obligationsCompliantContainer.prepend(markup);
+            } else if (rule.gradePoints >= 51) {
+                obligationsPartialCompliantContainer.prepend(markup);
+            } else if (rule.gradePoints >= 21) {
+                obligationsUnsufficientContainer.prepend(markup);
+            } else if (rule.gradePoints >= 1) {
+                obligationsDeficientContainer.prepend(markup);
+            } else {
+                obligationsNotCompliantContainer.prepend(markup);
             }
-        } else {
-            switch (rule.grade) {
-                case 'AAA':
-                    if (100 === rule.gradePoints) {
-                        obligationsVerySatisfactoryContainer.prepend(markup);
-                    } else {
-                        obligationsSatisfactoryContainer.prepend(markup);
-                    }
-                    break;
-                case 'AA':
-                    obligationsPartialContainer.prepend(markup);
-                    break;
-                default:
-                    if (rule.gradePoints <= 19) {
-                        obligationsVeryUnsatisfactoryContainer.prepend(markup);
-                    } else {
-                        obligationsUnsatisfactoryContainer.prepend(markup);
-                    }
-            }
-        }
 
     };
     /**
@@ -211,16 +183,11 @@ const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
      * Get all document DOM elements we will need to manipulate
      */
     var getDomElements = function () {
-        obligationsVeryUnsatisfactoryContainer = document.querySelector('.legal-obligations.very-unsatisfactory .results-content');
-        obligationsUnsatisfactoryContainer = document.querySelector('.legal-obligations.unsatisfactory .results-content');
-        obligationsPartialContainer = document.querySelector('.legal-obligations.partial .results-content');
-        obligationsSatisfactoryContainer = document.querySelector('.legal-obligations.satisfactory .results-content');
-        obligationsVerySatisfactoryContainer = document.querySelector('.legal-obligations.very-satisfactory .results-content');
-        recommendationsVeryUnsatisfactoryContainer = document.querySelector('.recommendations.very-unsatisfactory .results-content');
-        recommendationsUnsatisfactoryContainer = document.querySelector('.recommendations.unsatisfactory .results-content');
-        recommendationsPartialContainer = document.querySelector('.recommendations.partial .results-content');
-        recommendationsSatisfactoryContainer = document.querySelector('.recommendations.satisfactory .results-content');
-        recommendationsVerySatisfactoryContainer = document.querySelector('.recommendations.very-satisfactory .results-content');
+        obligationsNotCompliantContainer = document.querySelector('.legal-obligations.not-compliant .results-content');
+        obligationsDeficientContainer = document.querySelector('.legal-obligations.deficient .results-content');
+        obligationsUnsufficientContainer = document.querySelector('.legal-obligations.unsufficient .results-content');
+        obligationsPartialCompliantContainer = document.querySelector('.legal-obligations.partial-compliant .results-content');
+        obligationsCompliantContainer = document.querySelector('.legal-obligations.compliant .results-content');
         form = document.getElementById('evaluate-form');
         input = document.getElementById('evaluate-url');
         resultsDialogElement = document.querySelector('.results-dialog');

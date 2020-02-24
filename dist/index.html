@@ -11,10 +11,10 @@
     <meta name="theme-color" content="#fcd116">
     <meta name="version" content="0.7.4">
     <link type="text/css" media="all" href="./dist/bundle.css" rel="stylesheet" />
-    <link rel="preload" href="./dist/bundle.css" as="style" onload="this.onload=null; this.rel='stylesheet'" id="main-bundle-stylesheet">
+    <!--<link rel="preload" href="./dist/bundle.css" as="style" onload="this.onload=null; this.rel='stylesheet'" id="main-bundle-stylesheet">
     <noscript id="main-bundle-stylesheet--noscript">
         <link type="text/css" media="all" href="./dist/bundle.css" rel="stylesheet" />
-    </noscript>
+    </noscript>-->
     <script data-cfasync="false" id="gfonts_config" type="text/javascript">
         WebFontConfig = {
             google: {
@@ -41,7 +41,7 @@
 
 </head>
 
-<body class="mdc-typography credits">
+<body class="mdc-typography credits iceberg">
     <!--[if IE]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
     <![endif]-->
@@ -90,27 +90,31 @@
     </header>
     <main class="mdc-layout-grid main-content" id="main-content">
         <div class="mdc-layout-grid__inner">
-            <section aria-labelledby="evaluate-header" class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12 mdc-card mdc-card--free-content">
-                <h1 class="screen-reader-text">Evaluador de Transparencia Activa MOTA</h1>
-                <h2>Una herramienta para evaluar el cumplimiento de obligaciones y la utilización de buenas practicas de transparencia activa en sitios del estado en Colombia.</h2>
-                <div class="form-container" id="form-container">
+            <section aria-labelledby="evaluate-header"
+                class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6 hero-container">
+                <div class="hero-content">
+                    <h1 class="screen-reader-text">Evaluador de Transparencia Activa MOTA</h1>
+                    <h2>Una herramienta para evaluar el cumplimiento de obligaciones de transparencia en sitios del estado en Colombia.</h2>
                     <ol>
                         <li>copie un enlace de un sitio web gubernamental colombiano (como www.ejemplo.gov.co)</li>
                         <li>Pegue un enlace en el campo a continuación, y haga clic en el botón EVALUE</li>
-                        <li>Espere a que se carguen los resultados a continuación.</li>
+                        <li>Espere a que se carguen los resultados en el espacio abajo.</li>
                     </ol>
-                    <p id="evaluate-header">Complete el campo a continuación y haga clic en el botón EVALUE. Los resultados de la avaliacción se mostrará abajo.</p>
-                    <form aria-labelledby="evaluate-url-legend" id="evaluate-form">
-                        <legend id="evaluate-url-legend" class="screen-reader-text">rellene el campo con la URL de lo sitio a evaluar</legend>
-                        <div class="mdc-text-field mdc-text-field--fullwidth">
-                            <label for="evaluate-url" class="mdc-floating-label">rellene con la URL de lo sitio a evaluar</label>
-                            <input class="mdc-text-field__input" type="text" aria-label="rellene con la URL de lo sitio a evaluar" id="evaluate-url">
-                            <div class="mdc-line-ripple"></div>
-                        </div>
-                        <input type="submit" value="Evalue" class="mdc-button mdc-button--unelevated"
-                            aria-label="Evaluar">
-                    </form>
+                    <p id="evaluate-header">Complete el campo a continuación y haga clic en el botón EVALUE. Los
+                        resultados de la avaliacción se mostrará abajo.</p>
                 </div>
+            </section>
+            <section class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6 form-container" id="form-container">
+                <form aria-labelledby="evaluate-url-legend" id="evaluate-form">
+                    <legend id="evaluate-url-legend" class="screen-reader-text">rellene el campo con la URL de lo sitio a evaluar</legend>
+                    <div class="mdc-text-field mdc-text-field--fullwidth">
+                        <label for="evaluate-url" class="mdc-floating-label">rellene con la URL de lo sitio a evaluar</label>
+                        <input class="mdc-text-field__input" type="text" aria-label="rellene con la URL de lo sitio a evaluar" id="evaluate-url">
+                        <div class="mdc-line-ripple"></div>
+                    </div>
+                    <input type="submit" value="Evalue" class="mdc-button mdc-button--unelevated"
+                        aria-label="Evaluar">
+                </form>
             </section>
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8 mdc-card mdc-card--free-content"
                 id="results-summary-area">
@@ -135,94 +139,61 @@
 
                     <h3>Referencia de Grados:</h3>
                     <div>
-                        <label for="reference-satisfactory">100 (perfecto!)</label>
-                        <meter id="reference-satisfactory" name="reference-satisfactory" min="0" low="49" high="90" max="100" optimum="100" value="100">100
+                        <label for="reference-compliant">81-100 (Conformidad)</label>
+                        <meter id="reference-compliant" name="reference-compliant" min="0" low="19" high="81" max="100" optimum="91" value="100">100
                         </meter>
                     </div>
                     <div>
-                        <label for="reference-satisfactory">90-99 (satisfactório)</label>
-                        <meter id="reference-satisfactory" name="reference-satisfactory" min="0" low="49" high="90" max="100" optimum="100" value="91">
-                            90-99
+                        <label for="reference-partial-compliant">51-80 (Conformidad parcial)</label>
+                        <meter id="reference-partial-compliant" name="reference-partial-compliant" min="0" low="19" high="81" max="100" optimum="91" value="80">80
                         </meter>
                     </div>
                     <div>
-                        <label for="reference-partial">50-89 (parcial, debe mejorar)</label>
-                        <meter id="reference-partial" name="reference-partial" min="0" low="49" high="90" max="100" optimum="100" value="60">
-                            50-89
+                        <label for="reference-unsufficient">21-50 (Insuficiente)</label>
+                        <meter id="reference-unsufficient" name="reference-unsufficient" min="0" low="19" high="81" max="100" optimum="91" value="50">50
                         </meter>
                     </div>
                     <div>
-                        <label for="reference-unsatisfactory">20-49 (insatisfactório)</label>
-                        <meter id="reference-unsatisfactory" name="reference-unsatisfactory" min="0" low="49" high="90" optimum="100" max="100" value="30">
-                            20-49
+                        <label for="reference-deficient">1-20 (Deficiente)</label>
+                        <meter id="reference-deficient" name="reference-deficient" min="0" low="19" high="81" max="100" optimum="91" value="20">20
                         </meter>
                     </div>
                     <div>
-                        <label for="reference-unsatisfactory">0-19 (Mucho Insatisfactório!)</label>
-                        <meter id="reference-unsatisfactory" name="reference-unsatisfactory" min="0" low="49" high="90" optimum="100" max="100" value="5">
-                            0-19
+                        <label for="reference-not-compliant">0 (No conformidad)</label>
+                        <meter id="reference-not-compliant" name="reference-not-compliant" min="0" low="19" high="81" max="100" optimum="91" value="0">
+                            0
                         </meter>
                     </div>
             </div>
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
                 <section
-                    class="legal-obligations very-satisfactory mdc-card mdc-card--free-content">
-                    <h3>Obligaciones Legales - Perfecto</h3>
+                    class="legal-obligations compliant mdc-card mdc-card--free-content">
+                    <h3>Conformidad</h3>
                     <div class="results-content">
 
                     </div>
                 </section>
                 <section
-                    class="legal-obligations satisfactory mdc-card mdc-card--free-content">
-                    <h3>Obligaciones Legales - Satisfactórias</h3>
+                    class="legal-obligations partial-compliant mdc-card mdc-card--free-content">
+                    <h3>Conformidad Parcial</h3>
                     <div class="results-content">
 
                     </div>
                 </section>
-                <section class="legal-obligations partial mdc-card mdc-card--free-content">
-                    <h3>Obligaciones Legales - Parciales</h3>
+                <section class="legal-obligations unsufficient mdc-card mdc-card--free-content">
+                    <h3>Insuficiente</h3>
                     <div class="results-content">
 
                     </div>
                 </section>
-                <section class="legal-obligations unsatisfactory mdc-card mdc-card--free-content">
-                    <h3>Obligaciones Legales - Insatisfactório</h3>
+                <section class="legal-obligations deficient mdc-card mdc-card--free-content">
+                    <h3>Deficiente</h3>
                     <div class="results-content">
 
                     </div>
                 </section>
-                <section class="legal-obligations very-unsatisfactory mdc-card mdc-card--free-content">
-                    <h3>Obligaciones Legales - Mucho Insatisfactório</h3>
-                    <div class="results-content">
-
-                    </div>
-                </section>
-                <section class="recommendations very-satisfactory mdc-card mdc-card--free-content">
-                    <h3>Recomendaciones - Perfecto</h3>
-                    <div class="results-content">
-
-                    </div>
-                </section>
-                <section class="recommendations satisfactory mdc-card mdc-card--free-content">
-                    <h3>Recomendaciones - Satisfactórias</h3>
-                    <div class="results-content">
-
-                    </div>
-                </section>
-                <section class="recommendations partial mdc-card mdc-card--free-content">
-                    <h3>Recommendaciones - Parciales</h3>
-                    <div class="results-content">
-
-                    </div>
-                </section>
-                <section class="recommendations unsatisfactory mdc-card mdc-card--free-content">
-                    <h3>Recommendaciones - Insatisfactório</h3>
-                    <div class="results-content">
-
-                    </div>
-                </section>
-                <section class="recommendations very-unsatisfactory mdc-card mdc-card--free-content">
-                    <h3>Recommendaciones - Mucho Insatisfactório</h3>
+                <section class="legal-obligations not-compliant mdc-card mdc-card--free-content">
+                    <h3>No Conformidad (incumplimiento)</h3>
                     <div class="results-content">
 
                     </div>
@@ -374,6 +345,6 @@
 	}
 }( typeof global !== "undefined" ? global : this ) );
     </script>
-    <script type="text/javascript" src="./dist/app.bundle.js"></script>
+    <!--<script type="text/javascript" src="./dist/app.bundle.js"></script>-->
 <script type="text/javascript" src="style.bundle.js"></script><script type="text/javascript" src="app.bundle.js"></script></body>
 </html>

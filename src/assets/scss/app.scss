@@ -39,6 +39,14 @@ body {
     background-image: url('../img/basico/colombia-bogota-flavia-carpio.jpg');
 }
 
+.no-js body.iceberg,
+.js body.iceberg {
+    background-image: url('../img/iceberg.svg');
+    background-position: right top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .no-js body.credits--glass-building,
 .js body.credits--glass-building {
     background-image: url('../img/basico/glass-building-madrid-joel-filipe-jU9VAZDGMzs-unsplash.jpg');
@@ -128,33 +136,47 @@ body.credits.credits--monserrate-jorge-gardner::after {
     margin: 4rem;
 }
 
-.recommendations.mdc-card,
+.hero-container {
+}
+.hero-content {
+    left: 5%;
+    /*top: 35%;
+    transform: translateY(-35%);*/
+    background-color: #112a42;
+    padding: 30px;
+    color: #eceef2;
+    box-shadow: -1px 3px 3px 0 rgba(0, 0, 0, .22);
+    border: 2px solid #ffb100;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
 .legal-obligations.mdc-card {
     margin: 2rem 0;
 }
 
-.very-satisfactory.mdc-card {
+.compliant.mdc-card {
     border-left: 1rem solid rgba(0, 80, 0, 1);
     border-right: 1rem solid rgba(0, 80, 0, 1);
 }
-.satisfactory.mdc-card {
-    border-left: 1rem solid #090;
-    border-right: 1rem solid #090;
-}
-
-.partial.mdc-card {
+.partial-compliant.mdc-card {
     border-left: 1rem solid #fd0;
     border-right: 1rem solid #fd0;
 }
 
-.unsatisfactory.mdc-card {
+.unsufficient.mdc-card {
     border-left: 1rem solid orange;
     border-right: 1rem solid orange;
 }
 
-.very-unsatisfactory.mdc-card {
+.deficient.mdc-card {
     border-left: 1rem solid #ee3300;
     border-right: 1rem solid #ee3300;
+}
+
+.not-compliant.mdc-card {
+    border-left: 1rem solid gray;
+    border-right: 1rem solid gray;
 }
 
 
@@ -247,21 +269,39 @@ input {
 /* ## Evaluate Form
 --------------------------------------------- */
 
-section[aria-labelledby="evaluate-header"]>p,
-section[aria-labelledby="evaluate-header"]>form {
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+section[aria-labelledby="evaluate-header"]>p {
     margin: 0 auto;
     max-width: 90%;
     padding: 2rem 0;
 }
 
-section[aria-labelledby="evaluate-header"] input[type="submit"] {
-    width: 100%;
-    margin: 1rem 0;
-    color: rgb(252, 185, 0);
+input#evaluate-url {
+    background-color: #fff;
+    padding: 1rem;
+    margin-bottom: 1rem;
 }
 
-input#evaluate-url {
-    padding: 1rem;
+.form-container input[type="submit"] {
+    display: inline-block;
+    width: 330px;
+    margin-top: 10px;
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center;
+    font-weight: 600;
+    /*background-color: #ffb100;
+    color: #09233c;
+    border: none;
+    text-shadow: none;
+    box-shadow: none;
+    */
 }
 
 
@@ -336,12 +376,12 @@ meter[value^="7"]::-webkit-meter-even-less-good-value {
 meter[value^="8"]::-webkit-meter-optimum-value,
 meter[value^="8"]::-webkit-meter-suboptimum-value,
 meter[value^="8"]::-webkit-meter-even-less-good-value {
-    background: #fd0;
+    background: #090;
 }
 
 meter[value^="9"]::-webkit-meter-optimum-value,
 meter[value^="9"]::-webkit-meter-suboptimum-value {
-    background: #090;
+    background: rgb(0, 80, 0);
 }
 
 meter[value="100"]::-webkit-meter-optimum-value,
@@ -403,6 +443,25 @@ meter[value="9"]::-webkit-meter-even-less-good-value {
     background: #ee3300;
 }
 
+meter[value="20"]::-webkit-meter-optimum-value,
+meter[value="20"]::-webkit-meter-suboptimum-value,
+meter[value="20"]::-webkit-meter-even-less-good-value {
+    background: #ee3300;
+}
+
+meter[value="50"]::-webkit-meter-optimum-value,
+meter[value="50"]::-webkit-meter-suboptimum-value,
+meter[value="50"]::-webkit-meter-even-less-good-value {
+    background: orange;
+}
+
+meter[value="80"]::-webkit-meter-optimum-value,
+meter[value="80"]::-webkit-meter-suboptimum-value,
+meter[value="80"]::-webkit-meter-even-less-good-value {
+    background: #fd0;
+    ;
+}
+
 meter[value^="0"]::-moz-meter-bar {
     background: gray;
 }
@@ -425,13 +484,16 @@ meter[value^="4"]::-moz-meter-bar {
 
 meter[value^="5"]::-moz-meter-bar,
 meter[value^="6"]::-moz-meter-bar,
-meter[value^="7"]::-moz-meter-bar,
-meter[value^="8"]::-moz-meter-bar {
+meter[value^="7"]::-moz-meter-bar {
     background: #fd0;
 }
 
+meter[value^="8"]::-moz-meter-bar {
+    background: rgb(0, 80, 0);
+}
+
 meter[value^="9"]::-moz-meter-bar {
-    background: #090;
+    background: rgb(0, 80, 0);
 }
 
 meter[value="100"]::-moz-meter-bar {
@@ -472,6 +534,18 @@ meter[value="8"]::-moz-meter-bar {
 
 meter[value="9"]::-moz-meter-bar {
     background: #ee3300;
+}
+
+meter[value="20"]::-moz-meter-bar {
+    background: #ee3300;
+}
+
+meter[value="50"]::-moz-meter-bar {
+    background: orange;
+}
+
+meter[value="80"]::-moz-meter-bar {
+    background: #fd0;
 }
 details {
     display: block;
@@ -605,7 +679,7 @@ summary {
     }
 
     main {
-        max-width: 1024px;
+        max-width: 1200px;
     }
 }
 
