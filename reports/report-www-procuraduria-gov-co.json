@@ -1,15 +1,16 @@
 {
     "meta": {
-        "entityName": "Institución Ejemplo",
+        "entityName": "Procuraduría General de la Nación, República de Colombia",
         "entityUrl": "www.procuradoria.gov.co",
-        "lastEvaluationDate": "2020-02-26T14:00:01+00:00",
+        "lastEvaluationDate": "2020-03-02T14:00:01+00:00",
         "lastEvaluationEpoch": "1580216400",
-        "evaluationStatus": "done","protocolSpeficicationURI": "https://github.com/Dejusticia/mota-active-transparency-specification/",
-        "protocolSpeficicationVersion": "0.3.1",
+        "evaluationStatus": "done",
+        "protocolSpeficicationURI": "https://github.com/Dejusticia/mota-active-transparency-specification/",
+        "protocolSpeficicationVersion": "0.4.0",
         "sitemap": "not found",
         "transparencyConfig": "not found",
-        "generalGrade": "3044",
-        "generalGradeNormalized": "60"
+        "generalGrade": "2795",
+        "generalGradeNormalized": "55"
     },
     "rules": [{
         "ruleId": "websiteExistence",
@@ -39,8 +40,8 @@
         "ruleId": "universalidadPatronesDeAcessibilidadeYWebStandards",
         "title": "Universalidad: Patrones de Acesibilidad y Web Standards",
         "shortDescription": "Los sitios deben permitir acesso tecnologias asistivas como lectores de tela, asistentes por voz, etc;aceso sin uso de javascript, dispositivos variados y en condiciones variadas de conexiones.",
-        "grade": "AA",
-        "gradePoints": "80",
+        "grade": "",
+        "gradePoints": "",
         "type": "recommendation",
         "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#523---universalidad-patrones-de-acesibilidad-y-web-standards"
     }, {
@@ -79,8 +80,8 @@
         "ruleId": "funcionesYDeberes",
         "title": "Funciones y deberes",
         "shortDescription": "Descripción de funciones y deberes de la entidad en general y no tan sólo la cabeza o principal órgano que lo compone.",
-        "grade": "AA",
-        "gradePoints": "80",
+        "grade": "A",
+        "gradePoints": "50",
         "type": "obligation",
         "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#62-funciones-y-deberes"
     }, {
@@ -126,7 +127,7 @@
     }, {
         "ruleId": "planesDeGastoPublicoPorAnoFiscal",
         "title": "Planes de gasto público por año fiscal",
-        "shortDescription": "",
+        "shortDescription": "El sujeto obligado publica su plan de gasto público para cada año fiscal, en el cual se especifican los objetivos, las estrategias, los proyectos, las metas, los responsables, los planes generales de compras y la distribución presupuestal de sus proyectos de inversión junto a los indicadores de gestión. Asimismo, el plan deberá estar acompañado del informe de gestión del año inmediatamente anterior.",
         "grade": "A",
         "gradePoints": "50",
         "type": "obligation",
@@ -135,16 +136,16 @@
         "ruleId": "directorioDeFuncionariosBasico",
         "title": "Directorio de funcionarios - Básico",
         "shortDescription": "El sitio web contiene un directorio de funcionarios con sus informaciones básicas: Nombres y apellidos; correo electrónico; Teléfono del despacho y dependencia.",
-        "grade": "AA",
-        "gradePoints": "80",
+        "grade": "A",
+        "gradePoints": "50",
         "type": "obligation",
         "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#68-directorio-de-funcionarios---b%C3%A1sico"
     }, {
         "ruleId": "directorioDeFuncionariosCompleto",
         "title": "Directorio de funcionarios - Completo",
         "shortDescription": "El sitio web contiene un directorio de funcionarios con informaciones completas: Nombres y apellidos; correo electrónico; Teléfono del despacho y dependencia; Formación académica; Experiencia laboral y profesional; Sanciones aplicadas.",
-        "grade": "AA",
-        "gradePoints": "80",
+        "grade": "A",
+        "gradePoints": "50",
         "type": "obligation",
         "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#69-directorio-de-funcionarios---completo"
     }, {
@@ -158,49 +159,41 @@
     }, {
         "ruleId": "sancionesAplicadasAServidoresPublicos",
         "title": "Sanciones aplicadas a servidores públicos",
-        "shortDescription": "Es posible encontrar informaciones sobre sanciones disciplinarias o de otro tipo que hayan sido impuestas  a funcionarios de la entidad.",
-        "grade": "",
-        "gradePoints": "0",
+        "shortDescription": "Es posible encontrar informaciones sobre sanciones disciplinarias o de otro tipo que hayan sido impuestas a funcionarios de la entidad.",
+        "grade": "A",
+        "gradePoints": "50",
         "type": "obligation",
         "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#611-sanciones-aplicadas-a-servidores-p%C3%BAblicos"
     }, {
-        "ruleId": "directorioConInformacionesDeContratosConContratistasBasico",
-        "title": "Directorio con Informaciones de Contratos de Contratistas - Básico",
+        "ruleId": "directorioConInformacionesDeContratosConContratistas",
+        "title": "Directorio con Informaciones de Contratos de Contratistas",
         "shortDescription": "Es posible encontrar informaciones sobre los contratos de contratistas en formatos abiertos: Nombres y apellidos; correo electrónico; Teléfono del despacho y dependencia; Objeto del contrato.",
-        "grade": "",
-        "gradePoints": "",
+        "grade": "A",
+        "gradePoints": "25",
         "type": "obligation",
         "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#612-directorio-con-informaciones-de-contratos-de-contratistas---b%C3%A1sico"
-    }, {
-        "ruleId": "directorioConInformacionesDeContratosConContratistasCompleto",
-        "title": "Directorio con Informaciones de Contratos de Contratistas - Completo",
-        "shortDescription": "El sitio web contiene contiene un directorio de funcionarios de informaciones completas: Nombres y apellidos; correo electrónico; Teléfono del despacho y dependencia; Formación académica; Experiencia laboral y profesional; Sanciones aplicadas;Objeto del contrato.",
-        "grade": "",
-        "gradePoints": "",
-        "type": "obligation",
-        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#613-directorio-con-informaciones-de-contratos-de-contratistas---completo"
     }, {
         "ruleId": "normasGenerales",
         "title": "Normas generales",
         "shortDescription": "Existencia de una sección con normas y reglamentos pertinentes para la entidad: decretos, circulares, leyes, etc. relativas a creacción e reglamentos de la entidad.",
-        "grade": "AA",
-        "gradePoints": "80",
+        "grade": "A",
+        "gradePoints": "50",
         "type": "obligation",
         "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#614-normas-generales"
     }, {
         "ruleId": "normasReglamentarias",
         "title": "Normas Reglamentarias",
         "shortDescription": "Existencia de información sobrenormas reglamentarias pertinentes a la entidad: resoluciones y directivas.",
-        "grade": "AA",
-        "gradePoints": "80",
+        "grade": "A",
+        "gradePoints": "50",
         "type": "obligation",
         "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#614-normas-reglamentarias"
     }, {
         "ruleId": "manuales",
         "title": "Manuales",
         "shortDescription": "",
-        "grade": "AA",
-        "gradePoints": "80",
+        "grade": "A",
+        "gradePoints": "50",
         "type": "obligation",
         "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#615-manuales"
     }, {
@@ -210,7 +203,7 @@
         "grade": "A",
         "gradePoints": "50",
         "type": "obligation",
-        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#616-metas-y-objetivos"
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#617-metas-y-objetivos"
     }, {
         "ruleId": "resultadoDeAuditorias",
         "title": "Resultado de Auditorías",
@@ -327,24 +320,24 @@
         "ruleId": "informesDeAuditoria",
         "title": "Informes de Auditoría",
         "shortDescription": "",
-        "grade": "AA",
-        "gradePoints": "80",
+        "grade": "A",
+        "gradePoints": "50",
         "type": "obligation",
         "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#79-informes-de-auditor%C3%ADa"
     }, {
         "ruleId": "mecanismosInternosDeSupervisionOficinaDeControlInterno",
         "title": "Mecanismos Internos de Supervisión - Oficina de Control Interno",
         "shortDescription": "Informaciones acerca de la Oficina de Control Interno, de manera que los funcionarios o la ciudadanía tengan claro que hay una dependencia a la que se puede acudir para presentar denuncias u observaciones acerca del funcionamiento de la entidad.",
-        "grade": "AA",
-        "gradePoints": "80",
+        "grade": "A",
+        "gradePoints": "50",
         "type": "obligation",
         "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#710-mecanismos-internos-de-supervisi%C3%B3n---oficina-de-control-interno"
     }, {
         "ruleId": "mecanismosExternosDeSupervision",
         "title": "Mecanismos Externos de Supervisión",
         "shortDescription": "El sujeto obligado publica información relacionada con los informes, planes de mejoramiento, entes y mecanismos de supervisión y control externo.",
-        "grade": "AA",
-        "gradePoints": "80",
+        "grade": "A",
+        "gradePoints": "50",
         "type": "obligation",
         "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#711-mecanismos-externos-de-supervisi%C3%B3n"
     }, {
