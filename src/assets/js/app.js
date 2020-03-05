@@ -225,6 +225,11 @@ if ( 'production' !== environment){
         summaryUrlElement.innerHTML = '';
         summaryDateElement.innerHTML = '';
         summaryStatusElement.innerHTML = '';
+        obligationsCompliantContainer.innerHTML = '';
+        obligationsPartialCompliantContainer.innerHTML = '';
+        obligationsUnsufficientContainer.innerHTML = '';
+        obligationsDeficientContainer.innerHTML = '';
+        obligationsNotCompliantContainer.innerHTML = '';
 
         for (var i = 0; i < rules.length; i++) {
 
