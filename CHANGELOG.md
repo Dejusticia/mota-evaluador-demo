@@ -1,7 +1,7 @@
 # Evaluador de Transparencia Activa en Colombia - Iniciativa MOTA
 
 Project: Evaluador de Transparencia Activa en Colombia - Iniciativa MOTA
-Description: Una herramienta para evaluar el cumplimiento con obligaciones e mejores prácticas de transparencia activa en sitios gubernamentales de Colombia. Iniciativa MOTA.
+Description: Una herramienta para evaluar el cumplimiento con obligaciones e mejores practicas de transparencia activa en sitios gubernamentales de Colombia. Iniciativa MOTA.
 Version: 0.8.6
 URL: https://github.com/Dejusticia/mota-evaluador-publico
 Keywords: transparency, transparencia, transparencia activa, active transparency, monitor, veeduria, Colombia
