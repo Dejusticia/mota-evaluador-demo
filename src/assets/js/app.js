@@ -12,9 +12,12 @@ import {
 templatePolyfill(document);
 arrayForEach();
 nodeListForEach();
-
+const environment = 'production';
 const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
-
+var reportsRepositoryURI = 'https://dejusticia.github.io/mota-reports/'
+if ( 'production' !== environment){
+    reportsRepositoryURI = './reports/';
+}
 /*  Don't forget to load utilities.js first */
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
@@ -82,7 +85,7 @@ const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
         });
 
         // fetch a report from the report repository
-        atomic('https://dejusticia.github.io/mota-reports/' + urlObject.reportBasename + '.json') //
+        atomic( reportsRepositoryURI + urlObject.reportBasename + '.json') //
             .then(function (response) {
                 report = response.data;
                 processReport(report);
