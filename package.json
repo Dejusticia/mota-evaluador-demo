@@ -1,6 +1,6 @@
 {
     "name": "mota-evaluador",
-    "version": "0.8.4",
+    "version": "0.8.5",
     "description": "Evaluador de Transparencia Activa en Colombia - Iniciativa MOTA",
     "main": "index.html",
     "scripts": {
