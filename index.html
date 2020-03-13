@@ -167,32 +167,32 @@
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
                 <section
                     class="legal-obligations compliant mdc-card mdc-card--free-content">
-                    <h3>Conformidad</h3>
+                    <h2>Conformidad</h2>
                     <div class="results-content">
 
                     </div>
                 </section>
                 <section
                     class="legal-obligations partial-compliant mdc-card mdc-card--free-content">
-                    <h3>Conformidad Parcial</h3>
+                    <h2>Conformidad Parcial</h2>
                     <div class="results-content">
 
                     </div>
                 </section>
                 <section class="legal-obligations unsufficient mdc-card mdc-card--free-content">
-                    <h3>Insuficiente</h3>
+                    <h2>Insuficiente</h2>
                     <div class="results-content">
 
                     </div>
                 </section>
                 <section class="legal-obligations deficient mdc-card mdc-card--free-content">
-                    <h3>Deficiente</h3>
+                    <h2>Deficiente</h2>
                     <div class="results-content">
 
                     </div>
                 </section>
                 <section class="legal-obligations not-compliant mdc-card mdc-card--free-content">
-                    <h3>No Conformidad (incumplimiento)</h3>
+                    <h2>No Conformidad (incumplimiento)</h2>
                     <div class="results-content">
 
                     </div>
@@ -222,34 +222,17 @@
         </div>
     </main>
     <template id="template-results-criteria">
-        <details id="results-template" class="results-criteria" open>
-            <summary>Estructura orgánica - La forma en que se compone y se organiza la entidade</summary>
-            <div>
-                <p>Descripción de la forma en que se compone y se organiza la entidade y no tan sólo la cabeza o principal
-                    órgano
-                    que se trate. <a href="#" class="more-link">Más Informaciones.</a></p>
-                <table>
-                    <thead>
-                        <tr>
-                            <th class="results-criteria-grade">
-                                Grado
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="results-criteria-grade">
-                                <label for="template-grade">-</label>
-                                <meter id="template-grade" name="template-grade" min="0" low="20" high="90" max="100" optimum="100"
-                                    value="0">
-                                    0
-                                </meter>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </details>
+        <div id="results-template" class="results-criteria">
+            <h3>Estructura orgánica - La forma en que se compone y se organiza la entidade <span
+                    class="results-criteria--tags"><span id="grade-freeAccess" id="grade-freeAccess" class="faux-meter"
+                        data-gradePoints="0"></span><span
+                            class="results-criteria-type results-criteria-type--">tipo: obligación</span></span></h3>
+
+            <p class="results-criteria--description">Descripción de la forma en que se compone y se organiza la
+                entidade y no tan sólo la cabeza o principal
+                órgano
+                que se trate. <a href="#" class="more-link">Más Informaciones.</a></p>
+        </div>
     </template>
     <script>
         /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */

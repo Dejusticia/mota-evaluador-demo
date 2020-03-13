@@ -125,18 +125,14 @@ if ( 'production' !== environment){
      */
     var processResultMarkup = function (markup, rule) {
         var ruleId = rule.ruleId;
-        var gradeMeter = markup.querySelector('.results-criteria-grade meter');
-        var gradeLabel = markup.querySelector('.results-criteria-grade label');
         var detailsElement = markup.querySelector('.results-criteria');
-        markup.querySelector('summary').innerText = rule.title;
-        markup.querySelector('details p').innerHTML = rule.shortDescription + ' <a href="' + rule.ruleSpecificationUrl + '" class="more-link" target="mota-specs">Más Informaciones.</a>';
+        var ruleTypeName = 'obligación';
+        if ( 'recommendation' ===  rule.type ){
+            ruleTypeName = 'recomendación';
+        }
+        markup.querySelector('.results-criteria h3').innerHTML = rule.title + '<span class = "results-criteria--tags"> <span id="grade-freeAccess" id="grade-' + rule.ruleId + '" class="faux-meter" data-gradePoints="' + rule.gradePoints + '">grado: ' + rule.grade + '</span><span class= "results-criteria-type results-criteria-type--' + rule.type + '"> tipo: ' + ruleTypeName + ' </span></span>';
+        markup.querySelector('.results-criteria--description').innerHTML = rule.shortDescription + ' <a href="' + rule.ruleSpecificationUrl + '" class="more-link" target="mota-specs">Más Informaciones.</a>';
         detailsElement.setAttribute('id', 'criteria-' + ruleId);
-        gradeLabel.innerText = rule.grade;
-        gradeLabel.setAttribute('for', 'grade-' + ruleId);
-        gradeMeter.setAttribute('value', rule.gradePoints);
-        gradeMeter.setAttribute('id', 'grade-' + ruleId);
-        gradeMeter.setAttribute('name', 'grade-' + ruleId);
-        gradeMeter.innerText = rule.gradePoints;
         return markup;
     };
 
