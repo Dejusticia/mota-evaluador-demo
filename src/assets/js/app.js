@@ -79,6 +79,8 @@ if ( 'production' !== environment){
         summaryElement.classList.add('inactive');
         resultsDialogElement.innerHTML = '<b>Procesando</b>: Los resultados se mostrarán aquí.';
         var urlObject = getValidDomainInfo(url);
+        console.log('urlObject');
+        console.log(urlObject);
         // cleanup results containers and site info
         resultsContainers.forEach(function (elem, index) {
             elem.innerHTML = '<div role="progressbar" class="mdc-linear-progress mdc-linear-progress--indeterminate"><div class="mdc-linear-progress__buffering-dots"></div><div class="mdc-linear-progress__buffer"></div><div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar"><span class="mdc-linear-progress__bar-inner"></span></div><div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar"><span class="mdc-linear-progress__bar-inner"></span></div></div>';
@@ -94,7 +96,7 @@ if ( 'production' !== environment){
             .catch(function (error) {
                 console.log('error:');
                 console.log(error);
-                processReportError(error);
+                processReportError(error, urlObject);
             });
     };
 
@@ -125,18 +127,14 @@ if ( 'production' !== environment){
      */
     var processResultMarkup = function (markup, rule) {
         var ruleId = rule.ruleId;
-        var gradeMeter = markup.querySelector('.results-criteria-grade meter');
-        var gradeLabel = markup.querySelector('.results-criteria-grade label');
         var detailsElement = markup.querySelector('.results-criteria');
-        markup.querySelector('summary').innerText = rule.title;
-        markup.querySelector('details p').innerHTML = rule.shortDescription + ' <a href="' + rule.ruleSpecificationUrl + '" class="more-link" target="mota-specs">Más Informaciones.</a>';
+        var ruleTypeName = 'obligación';
+        if ( 'recommendation' ===  rule.type ){
+            ruleTypeName = 'recomendación';
+        }
+        markup.querySelector('.results-criteria h3').innerHTML = rule.title + '<span class = "results-criteria--tags"> <span id="grade-freeAccess" id="grade-' + rule.ruleId + '" class="faux-meter" data-gradePoints="' + rule.gradePoints + '">grado: ' + rule.grade + '</span><span class= "results-criteria-type results-criteria-type--' + rule.type + '"> tipo: ' + ruleTypeName + ' </span></span>';
+        markup.querySelector('.results-criteria--description').innerHTML = rule.shortDescription + ' <a href="' + rule.ruleSpecificationUrl + '" class="more-link" target="mota-specs">Más Informaciones.</a>';
         detailsElement.setAttribute('id', 'criteria-' + ruleId);
-        gradeLabel.innerText = rule.grade;
-        gradeLabel.setAttribute('for', 'grade-' + ruleId);
-        gradeMeter.setAttribute('value', rule.gradePoints);
-        gradeMeter.setAttribute('id', 'grade-' + ruleId);
-        gradeMeter.setAttribute('name', 'grade-' + ruleId);
-        gradeMeter.innerText = rule.gradePoints;
         return markup;
     };
 
@@ -264,14 +262,23 @@ if ( 'production' !== environment){
     /**
      * Process report report error and show results to the main content area.
      */
-    var processReportError = function (error) {
-        // error.status//summaryElement
-        summaryErrorElement.classList.remove('inactive');
-        resultsDialogElement.innerHTML = '<b>Procesado</b> con error!';
-        summaryErrorElement.innerHTML = '<p>No se encontró el informe para esta evaluación. Estamos agregando a nuestra cola de evaluación y, si existe el sitio, tendremos la evaluación en unas pocas horas.</p>';
-        console.error('error code', error.status); // xhr.status
-        console.error('error description', error.statusText); // xhr.statusText
-        throw new Error('This request returned an error with the code:' + "\n" + error.status);
+    var processReportError = function (error, urlObject) {
+        if (404 === error.status) {
+            console.error('error code 404, buscar nova página', error.status);
+
+            // check if domain exists
+            atomic('https://' + urlObject.host, {
+                timeout: 30000
+                }) //
+                .then(function (response) {
+                    console.log('found page, response');
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log('page not found, error:');
+                    console.log(error);
+                });
+        }
     }
 
 

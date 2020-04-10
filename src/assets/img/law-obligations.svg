@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   data-name="Layer 1"
+   viewBox="0 0 24 24"
+   x="0px"
+   y="0px"
+   version="1.1"
+   id="svg18"
+   sodipodi:docname="law-obligations.svg"
+   width="24"
+   height="24"
+   inkscape:version="1.0beta2 (2b71d25, 2019-12-03)">
+  <metadata
+     id="metadata24">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>88all</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs22" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     inkscape:document-rotation="0"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1252"
+     inkscape:window-height="701"
+     id="namedview20"
+     showgrid="false"
+     inkscape:zoom="5.376"
+     inkscape:cx="49.627976"
+     inkscape:cy="34.942883"
+     inkscape:window-x="0"
+     inkscape:window-y="23"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg18" />
+  <title
+     id="title10">88all</title>
+  <path
+     d="M 19.294558,15.982034 H 18.04579 V 4.9376541 A 2.6861632,2.9896359 0 0 0 15.362015,1.9533333 H 4.5218547 a 0.71631017,0.79723625 0 0 0 -0.1504251,0.0186 2.6813877,2.984321 0 0 0 0,5.934095 0.71631017,0.79723625 0 0 0 0.1504251,0.0186 H 4.6746672 V 18.990267 c 0,0 0,0.01329 0,0.02126 a 2.6837755,2.9869785 0 0 0 2.6813875,2.941808 h 11.7522623 0.06208 0.124161 a 2.6825816,2.9856497 0 1 0 0,-5.971299 z M 4.6627286,6.3301599 a 1.2499612,1.3911772 0 1 1 0,-2.7823541 h 8.3282994 a 2.6670615,2.9683763 0 0 0 0,2.7823541 z M 16.123691,17.225722 H 6.3341191 V 15.63125 h 9.7895719 z m 0,-3.188945 H 6.3341191 v -1.594472 h 9.7895719 z m 0,-3.188945 H 6.3341191 V 9.2533599 h 9.7895719 z m 3.17803,9.513686 A 1.2511551,1.392506 0 0 1 18.052953,18.97167 v -1.395164 h 1.248768 a 1.2499612,1.3911772 0 1 1 0,2.782354 z"
+     id="path12"
+     inkscape:connector-curvature="0"
+     style="stroke-width:0.251897" />
+</svg>
