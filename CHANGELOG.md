@@ -11,6 +11,9 @@ This project adheres to [Semantic Versioning](http://semver.org/)
 
 ## Unreleased
 
+### Changed
+- improved results design and style;
+
 ## [2020-03-05] - 0.8.8
 
 ### Changed

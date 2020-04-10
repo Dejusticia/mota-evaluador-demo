@@ -376,11 +376,22 @@ input#evaluate-url {
 }
 
 meter {
-    width: 100%;
+    width: 300px;
     height: 24px;
     height: 1.5rem;
     border: 1px solid #ccc;
     border-radius: 3px;
+}
+
+.faux-meter {
+    border: 1px solid #666;
+    color: #eee;
+    display: inline-block;
+    font-size: 14px;
+    font-size: 0.9rem;
+    padding: 0.25rem 0.5rem;
+    text-align: center;
+    min-width: 80px;
 }
 
 /* Webkit based browsers */
@@ -607,6 +618,100 @@ meter[value="50"]::-moz-meter-bar {
 meter[value="80"]::-moz-meter-bar {
     background: #fd0;
 }
+
+.faux-meter[data-gradePoints^="0"] {
+    background: gray;
+    color: #000;
+}
+
+.faux-meter[data-gradePoints^="1"] {
+    background: #ee3300;
+}
+
+.faux-meter[data-gradePoints^="2"] {
+    background: orange;
+    color: #000;
+}
+
+.faux-meter[data-gradePoints^="3"] {
+    background: orange;
+    color: #000;
+}
+
+.faux-meter[data-gradePoints^="4"] {
+    background: orange;
+    color: #000;
+}
+
+.faux-meter[data-gradePoints^="5"],
+.faux-meter[data-gradePoints^="6"],
+.faux-meter[data-gradePoints^="7"] {
+    background: #fd0;
+    color: #000;
+}
+
+.faux-meter[data-gradePoints^="8"] {
+    background: rgb(0, 80, 0);
+}
+
+.faux-meter[data-gradePoints^="9"] {
+    background: rgb(0, 80, 0);
+}
+
+.faux-meter[data-gradePoints="100"] {
+    background: rgb(0, 80, 0);
+}
+
+.faux-meter[data-gradePoints="1"] {
+    background: #ee3300;
+}
+
+.faux-meter[data-gradePoints="2"] {
+    background: #ee3300;
+}
+
+.faux-meter[data-gradePoints="3"] {
+    background: #ee3300;
+}
+
+.faux-meter[data-gradePoints="4"] {
+    background: #ee3300;
+}
+
+.faux-meter[data-gradePoints="5"] {
+    background: #ee3300;
+}
+
+.faux-meter[data-gradePoints="6"] {
+    background: #ee3300;
+}
+
+.faux-meter[data-gradePoints="7"] {
+    background: #ee3300;
+}
+
+.faux-meter[data-gradePoints="8"] {
+    background: #ee3300;
+}
+
+.faux-meter[data-gradePoints="9"] {
+    background: #ee3300;
+}
+
+.faux-meter[data-gradePoints="20"] {
+    background: #ee3300;
+}
+
+.faux-meter[data-gradePoints="50"] {
+    background: orange;
+    color: #000;
+}
+
+.faux-meter[data-gradePoints="80"] {
+    background: #fd0;
+    color: #000;
+}
+
 details {
     display: block;
     margin: 0.5rem 0;
@@ -620,6 +725,44 @@ summary {
 .results-content details div {
     padding: 1rem;
     justify-content: space-between;
+}
+
+.results-criteria {
+    margin-bottom: 1rem;
+    padding: 1rem 1rem 2rem 1rem;
+}
+
+.results-criteria:nth-of-type(2n+1) {
+
+    background-color:
+
+        #eee;
+
+}
+.results-criteria h3 {
+
+    border-bottom: 1px solid #666;
+    margin: 0.25rem 0 2rem 0;
+    padding: 0.25rem 0;
+
+}
+.results-criteria--tags {
+    float: right;
+}
+.results-criteria-type {
+    background-color: #666;
+    border: 1px solid #666;
+    color: #eee;
+    display: inline-block;
+    font-size: 14px;
+    font-size: 0.9rem;
+    padding: 0.25rem 0.5rem;
+    text-align: center;
+    min-width: 180px;
+}
+
+.results-criteria-type.results-criteria-type--recommendation {
+    background-color: rgb(107, 75, 248);
 }
 
 .results-criteria table {
