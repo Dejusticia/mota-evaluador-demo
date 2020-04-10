@@ -79,6 +79,8 @@ if ( 'production' !== environment){
         summaryElement.classList.add('inactive');
         resultsDialogElement.innerHTML = '<b>Procesando</b>: Los resultados se mostrarán aquí.';
         var urlObject = getValidDomainInfo(url);
+        console.log('urlObject');
+        console.log(urlObject);
         // cleanup results containers and site info
         resultsContainers.forEach(function (elem, index) {
             elem.innerHTML = '<div role="progressbar" class="mdc-linear-progress mdc-linear-progress--indeterminate"><div class="mdc-linear-progress__buffering-dots"></div><div class="mdc-linear-progress__buffer"></div><div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar"><span class="mdc-linear-progress__bar-inner"></span></div><div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar"><span class="mdc-linear-progress__bar-inner"></span></div></div>';
@@ -94,7 +96,7 @@ if ( 'production' !== environment){
             .catch(function (error) {
                 console.log('error:');
                 console.log(error);
-                processReportError(error);
+                processReportError(error, urlObject);
             });
     };
 
@@ -260,14 +262,23 @@ if ( 'production' !== environment){
     /**
      * Process report report error and show results to the main content area.
      */
-    var processReportError = function (error) {
-        // error.status//summaryElement
-        summaryErrorElement.classList.remove('inactive');
-        resultsDialogElement.innerHTML = '<b>Procesado</b> con error!';
-        summaryErrorElement.innerHTML = '<p>No se encontró el informe para esta evaluación. Estamos agregando a nuestra cola de evaluación y, si existe el sitio, tendremos la evaluación en unas pocas horas.</p>';
-        console.error('error code', error.status); // xhr.status
-        console.error('error description', error.statusText); // xhr.statusText
-        throw new Error('This request returned an error with the code:' + "\n" + error.status);
+    var processReportError = function (error, urlObject) {
+        if (404 === error.status) {
+            console.error('error code 404, buscar nova página', error.status);
+
+            // check if domain exists
+            atomic('https://' + urlObject.host, {
+                timeout: 30000
+                }) //
+                .then(function (response) {
+                    console.log('found page, response');
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log('page not found, error:');
+                    console.log(error);
+                });
+        }
     }
 
 
