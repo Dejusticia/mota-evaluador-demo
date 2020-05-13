@@ -9,8 +9,9 @@
         document.documentElement.className = document.documentElement.className.replace("no-js", "js");
     </script>
     <meta name="theme-color" content="#fcd116">
-    <meta name="version" content="0.9.0">
+    <meta name="version" content="0.10.0">
     <link type="text/css" media="all" href="./bundle.css" rel="stylesheet" />
+    <link type="text/css" media="all" href="./javaScript-autoComplete/auto-complete.css" rel="stylesheet" />
     <link rel="preload" href="./bundle.css" as="style" onload="this.onload=null; this.rel='stylesheet'" id="main-bundle-stylesheet">
     <noscript id="main-bundle-stylesheet--noscript">
         <link type="text/css" media="all" href="./bundle.css" rel="stylesheet" />
@@ -94,25 +95,26 @@
                 class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6 hero-container">
                 <div class="hero-content">
                     <h1 class="screen-reader-text">Evaluador de Transparencia Activa MOTA</h1>
-                    <h2>Una herramienta para evaluar el cumplimiento de obligaciones de transparencia activa en sitios web del Estado colombiano.</h2>
+                    <h2>El Evaluador MOTA és una herramienta para evaluar el cumplimiento de obligaciones de transparencia activa en sitios web del Estado colombiano.</h2>
+                    <h3>Para ver uno de los informes de evaluación:</h3>
                     <ol>
                         <li>Copie un enlace de un sitio web gubernamental colombiano (como www.ejemplo.gov.co)</li>
-                        <li>Pegue el enlace en el campo a continuación y haga clic en el botón EVALUAR</li>
-                        <li>Espere a que se carguen los resultados en el espacio de abajo.</li>
+                        <li>Pegue el enlace en el campo a continuación y haga clic en el botón BUSCAR</li>
+                        <li>Espere a que se carguen el reporte en el espacio de abajo.</li>
                     </ol>
-                    <p id="evaluate-header">Complete el campo a continuación y haga clic en el botón EVALUAR. Los resultados de la evaluación se mostrarán abajo.</p>
+                    <p id="evaluate-header">Complete el campo a continuación y haga clic en el botón BUSCAR.</p>
                 </div>
             </section>
             <section class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6 form-container" id="form-container">
                 <form aria-labelledby="evaluate-url-legend" id="evaluate-form">
-                    <legend id="evaluate-url-legend" class="screen-reader-text">Rellene el campo con la URL del sitio web a evaluar</legend>
+                    <legend id="evaluate-url-legend" class="screen-reader-text">Rellene el campo con la URL del sitio web</legend>
                     <div class="mdc-text-field mdc-text-field--fullwidth">
-                        <label for="evaluate-url" class="mdc-floating-label">Rellene el campo con la URL del sitio web a evaluar</label>
-                        <input class="mdc-text-field__input" type="text" aria-label="rellene con la URL del o sitio a evaluar" id="evaluate-url">
+                        <label for="evaluate-url" class="mdc-floating-label">Rellene el campo con la URL del sitio web</label>
+                        <input class="mdc-text-field__input" type="text" aria-label="rellene con la URL del o sitio que quieres ver la evaluación" id="evaluate-url">
                         <div class="mdc-line-ripple"></div>
                     </div>
-                    <input type="submit" value="Evaluar" class="mdc-button mdc-button--unelevated"
-                        aria-label="Evaluar">
+                    <input type="submit" value="BUSCAR" class="mdc-button mdc-button--unelevated"
+                        aria-label="BUSCAR">
                 </form>
             </section>
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8 mdc-card mdc-card--free-content"
@@ -348,7 +350,7 @@
 	}
 }( typeof global !== "undefined" ? global : this ) );
     </script>
-    <script type="text/javascript" src="./src/assets/js/vendor/javaScript-autoComplete/auto-complete.min.js"></script>
+    <script type="text/javascript" src="./javaScript-autoComplete/auto-complete.min.js"></script>
     <script type="text/javascript" src="./app.bundle.js"></script>
 <script type="text/javascript" src="style.bundle.js"></script><script type="text/javascript" src="app.bundle.js"></script></body>
 </html>
