@@ -2,10 +2,10 @@
     "meta": {
         "entityName": "Institución Ejemplo",
         "entityUrl": "centroderelevo.gov.co",
-        "lastEvaluationDate": "2020-02-26T14:00:01+00:00",
+        "lastEvaluationDate": "2020-05-06T14:00:01+00:00",
         "lastEvaluationEpoch": "1580216400",
         "evaluationStatus": "done","protocolSpeficicationURI": "https://github.com/Dejusticia/mota-active-transparency-specification/",
-        "protocolSpeficicationVersion": "0.3.1",
+        "protocolSpeficicationVersion": "0.4.0",
         "sitemap": "not found",
         "transparencyConfig": "not found",
         "generalGrade": "3044",
