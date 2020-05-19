@@ -598,8 +598,8 @@ if ( 'production' !== environment){
         }
         summaryGeneralGradeElement.value = generalGrade;
         summaryGeneralGradeLabel.innerHTML = generalGradeText;
-        if (report.meta.evaluationStatus && 'updating' === report.meta.evaluationStatus) {
-            resultsDialogElement.innerHTML = '<b>Procesando</b>.';
+        if (report.meta.evaluationStatus && 'analyzing' === report.meta.evaluationStatus) {
+            resultsDialogElement.innerHTML = '<b>En la cola para actualización</b>.';
         } else {
             resultsDialogElement.innerHTML = '<b>Procesado</b> con éxito!';
         }
@@ -688,8 +688,8 @@ if ( 'production' !== environment){
         processSummaryMarkup(generalGrade, report);
         summaryUrlElement.innerText = report.meta.entityUrl;
         summaryDateElement.innerText = transformDate(summaryDate);
-        if (report.meta.evaluationStatus && 'updating' === report.meta.evaluationStatus ) {
-            summaryStatusElement.innerText =  'actualización Por favor regrese en unas horas.';
+        if (report.meta.evaluationStatus && 'analyzing' === report.meta.evaluationStatus ) {
+            summaryStatusElement.innerText = 'En la cola para actualización. Por favor regrese en unas horas.';
         } else {
             summaryStatusElement.innerText = 'completada';
         }

@@ -2,9 +2,9 @@
     "meta": {
         "entityName": "Institución Ejemplo",
         "entityUrl": "www.caroycuervo.gov.co",
-        "lastEvaluationDate": "2020-05-06T14:00:01+00:00",
+        "lastEvaluationDate": "2020-03-14T14:00:01+00:00",
         "lastEvaluationEpoch": "1580216400",
-        "evaluationStatus": "done","protocolSpeficicationURI": "https://github.com/Dejusticia/mota-active-transparency-specification/",
+        "evaluationStatus": "analyzing","protocolSpeficicationURI": "https://github.com/Dejusticia/mota-active-transparency-specification/",
         "protocolSpeficicationVersion": "0.4.0",
         "sitemap": "not found",
         "transparencyConfig": "not found",
@@ -126,7 +126,7 @@
     }, {
         "ruleId": "planesDeGastoPublicoPorAnoFiscal",
         "title": "Planes de gasto público por año fiscal",
-        "shortDescription": "",
+        "shortDescription": "El sujeto obligado publica su plan de gasto público para cada año fiscal, en el cual se especifican los objetivos, las estrategias, los proyectos, las metas, los responsables, los planes generales de compras y la distribución presupuestal de sus proyectos de inversión junto a los indicadores de gestión. Asimismo, el plan deberá estar acompañado del informe de gestión del año inmediatamente anterior.",
         "grade": "A",
         "gradePoints": "50",
         "type": "obligation",
@@ -198,23 +198,23 @@
     }, {
         "ruleId": "manuales",
         "title": "Manuales",
-        "shortDescription": "",
+        "shortDescription": "El sujeto obligado publica sus lineamientos, manuales y toda política que haya adoptado y afecte al público, junto con sus fundamentos y toda interpretación autorizada de ellas.",
         "grade": "A",
         "gradePoints": "50",
         "type": "obligation",
-        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#615-manuales"
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#616-pol%C3%ADticas-lineamientos-o-manuales"
     }, {
         "ruleId": "metasYObjectivos",
         "title": "Metas y Objetivos",
-        "shortDescription": "",
+        "shortDescription": "El sujeto obligado y sus unidades administrativas publican la información relacionada con sus metas y objetivos, de conformidad con sus programas operativos y los demás planes exigidos por la normatividad. Se debe publicar su estado de avance, mínimo cada tres (3) meses.",
         "grade": "A",
         "gradePoints": "50",
         "type": "obligation",
         "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#616-metas-y-objetivos"
     }, {
-        "ruleId": "resultadoDeAuditorias",
-        "title": "Resultado de Auditorías",
-        "shortDescription": "",
+        "ruleId": "informeDeAuditorias",
+        "title": "Informe de Auditorías",
+        "shortDescription": "El sitio de la entidad debe contener Informes de Auditoría del período vigente y de los anteriores, sobre contratación, entre otros.",
         "grade": "A",
         "gradePoints": "50",
         "type": "obligation",
@@ -222,7 +222,7 @@
     }, {
         "ruleId": "indicadoresDeDesempeno",
         "title": "Indicadores de Desempeño",
-        "shortDescription": "Las entidades deben proveer información sobre los indicadores de desempeño que utilizan y reportes con estadísticas y análisis del desempeño de la entidad (en relación a _________) y de sus funcionarios.",
+        "shortDescription": "Las entidades deben proveer información sobre los indicadores de desempeño que utilizan y reportes con estadísticas y análisis del desempeño de la entidad y de sus funcionarios.",
         "grade": "",
         "gradePoints": "0",
         "type": "obligation",
@@ -230,7 +230,7 @@
     }, {
         "ruleId": "planAnticorrupcionYDeAtencionAlCiudadano",
         "title": "Plan Anticorrupción y de Atención al Ciudadano",
-        "shortDescription": "",
+        "shortDescription": "El sujeto obligado publica anualmente una estrategia de lucha contra la corrupción y de atención al ciudadano. Dicha estrategia contempla, entre otras cosas: el mapa de riesgos de corrupción en la respectiva entidad;las medidas concretas para mitigar esos riesgos;las estrategias anticorrupción;los mecanismos para mejorar la atención al ciudadano.",
         "grade": "A",
         "gradePoints": "50",
         "type": "obligation",
@@ -326,7 +326,7 @@
     }, {
         "ruleId": "informesDeAuditoria",
         "title": "Informes de Auditoría",
-        "shortDescription": "",
+        "shortDescription": "El sitio de la entidad debe contener Informes de Auditoría del período vigente y de los anteriores, sobre contratación, entre otros.Idealmente, los informes deben ser presentados en páginas HTML, pero archivos también son válidos.",
         "grade": "",
         "gradePoints": "0",
         "type": "obligation",
@@ -366,7 +366,7 @@
     }, {
         "ruleId": "procedimientosYLineamientosDeContratacion",
         "title": "Procedimientos y Lineamientos de Contratación",
-        "shortDescription": "",
+        "shortDescription": "El sitio de la entidad debe contener una o más páginas con los procedimientos y lineamientos de contratación. Documentos ex - ante(de planeación o tipo manual) que den guía sobre cómo se va a proceder para hacer algo, formulado por la entidad.",
         "grade": "A",
         "gradePoints": "50",
         "type": "obligation",
