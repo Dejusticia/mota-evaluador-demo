@@ -13,6 +13,10 @@ This project adheres to [Semantic Versioning](http://semver.org/)
 
 ## [2020-04-09] - 0.9.1
 
+## Added
+- auto suggestions for domains;
+-
+
 ### Security
 - removed webpack-dev-server from dev dependencies for security reasons;
 
