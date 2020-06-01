@@ -76,6 +76,7 @@ if ( 'production' !== environment){
             summaryErrorElement.innerHTML = '<p>El enlace que buscó no es válido!</p><p>Por favor, use una URL .gov.co de um sítio web existente.</p>';
             throw new Error('This URI is invalid');
         }
+        basename = urlParameters.host.replace(/^www[0-9]?\./g, '');
         basename = urlParameters.host.replace(/\./g, '-');
         domainInfo = {
             host: urlParameters.host,
