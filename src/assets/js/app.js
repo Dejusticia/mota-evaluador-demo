@@ -15,7 +15,7 @@ import {
 templatePolyfill(document);
 arrayForEach();
 nodeListForEach();
-const environment = 'production';
+const environment = 'development';
 const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
 let domains = motaResultsAutoSuggest;
 var my_autoComplete = new autoComplete({
@@ -76,8 +76,8 @@ if ( 'production' !== environment){
             summaryErrorElement.innerHTML = '<p>El enlace que buscó no es válido!</p><p>Por favor, use una URL .gov.co de um sítio web existente.</p>';
             throw new Error('This URI is invalid');
         }
-        basename = urlParameters.host.replace(/^www[0-9]?\./g, '');
-        basename = urlParameters.host.replace(/\./g, '-');
+        basename = urlParameters.host.replace(/^www\./g, '');
+        basename = basename.replace(/\./g, '-');
         domainInfo = {
             host: urlParameters.host,
             basename: basename,
@@ -111,8 +111,6 @@ if ( 'production' !== environment){
                 return report;
             })
             .catch(function (error) {
-                console.log('error, ojo:');
-                console.log(error);
                 processReportError(error, urlObject);
             });
     };
@@ -186,6 +184,8 @@ if ( 'production' !== environment){
         }
         summaryElement.classList.remove('inactive');
         summaryUrlElement.innerText = report.meta.entityUrl;
+        console.error('summaryDate = ');
+        console.log(summaryDate);
         summaryDateElement.innerText = transformDate(summaryDate);
 
     };

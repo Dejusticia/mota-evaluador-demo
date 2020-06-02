@@ -1,0 +1,436 @@
+{
+    "meta": {
+        "entityName": "Institución Ejemplo",
+        "entityUrl": "hospifusa.gov.co",
+        "lastEvaluationDate": "2020-05-15T03:00:56+00:00",
+        "lastEvaluationEpoch": "1589511656",
+        "evaluationStatus": "analyzing","protocolSpeficicationURI": "https://github.com/Dejusticia/mota-active-transparency-specification/",
+        "protocolSpeficicationVersion": "0.4.0",
+        "sitemap": "not found",
+        "transparencyConfig": "not found",
+        "generalGrade": "3044",
+        "generalGradeNormalized": "60",
+        "validDomains": [
+            "subdomain1.ejemplo.gov.co",
+            "subdomain2.ejemplo.gov.co",
+            "www.externalejemplo.gov.co"
+        ],
+        "synonymDomains": [
+            "ejemplo.gov.co"
+        ],
+        "mispelledDomains": [
+            "www.exemplo.gov.co",
+            "www.egemplo.gov.co",
+            "www.ejemplo.gob.co"
+        ]
+    },
+    "rules": [{
+        "ruleId": "websiteExistence",
+        "title": "Existencia de sitio Web",
+        "shortDescription": "Para fomentar la transparencia activa y la participación ciudadana, y cumplir con las obligaciones legales colombianas, la entidade deberá mantener um sítio web, que deberá estar disponible para acesso via una URL oficial por personas y sistemas automáticos (e.g. robots).",
+        "grade": "AAA",
+        "gradePoints": "100",
+        "type": "obligation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#511-disponibilidad"
+    }, {
+        "ruleId": "freeAccess",
+        "title": "Régimen de Acceso - Gratuidad",
+        "shortDescription": "El sítio debe tener aceso gratuidad a los servicios judiciales informáticos que presta la Corte, exceto para casos previstos en ley e reglamentos.",
+        "grade": "AAA",
+        "gradePoints": "100",
+        "type": "obligation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#521-gratuidad"
+    }, {
+        "ruleId": "universalityDirectAccess",
+        "title": "Universalidad: Acceso Directo",
+        "shortDescription": "Los servicios informáticos que presta la Corte deben ser abiertos a todo el público que desee acceder a ellos y no deben estar restringidos a ciertos usuarios previo registro y recepción de una clave de acceso.",
+        "grade": "AAA",
+        "gradePoints": "100",
+        "type": "recommendation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#522---universalidad-acceso-directo"
+    }, {
+        "ruleId": "universalidadPatronesDeAcessibilidadeYWebStandards",
+        "title": "Universalidad: Patrones de Acesibilidad y Web Standards",
+        "shortDescription": "Los sitios deben permitir acesso tecnologias asistivas como lectores de tela, asistentes por voz, etc; Así como desde dispositivos.",
+        "grade": "",
+        "gradePoints": "0",
+        "type": "recommendation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#523---universalidad-patrones-de-acesibilidad-y-web-standards"
+    }, {
+        "ruleId": "universalityPerformance",
+        "title": "Universalidad: Performance",
+        "shortDescription": "Los sitios deben permitir acesso con velocidade rasonable y estable mismo em malas condiciones de aceso, como conexión por dispositivos móbiles en conexión de baja velocidad o inestables.",
+        "grade": "",
+        "gradePoints": "0",
+        "type": "recommendation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#524---universalidad-performance"
+    }, {
+        "ruleId": "seguridadConexionEncriptada",
+        "title": "Seguridad: Conexión Encriptada",
+        "shortDescription": "El sitio és acessible en conexión encriptada. és decir, utiliza certificados SSL/TLS, caracterizados por URLs que empiezam con https, que aumenta el nivel de proteción de  los datos en la conexión entre el dispositivo del usuário y el sitio web.",
+        "grade": "AAA",
+        "gradePoints": "100",
+        "type": "recommendation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#525---seguridad-conexi%C3%B3n-encriptada"
+    }, {
+        "ruleId": "dadosAbiertosAcesoViaApiRest",
+        "title": "Dados Abiertos: Acceso vía API REST",
+        "shortDescription": "Los contenidos del sitio son acesibles por una API REST con datos estructurados, incluso meta-dados. Esta recomendación busca facilitar acesso a información por robots y sistemas automatizados, aumentando las capacidades de veeduría ciudadana.",
+        "grade": "",
+        "gradePoints": "0",
+        "type": "recommendation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#526---dados-abiertos-acceso-v%C3%ADa-api-rest"
+    }, {
+        "ruleId": "estructuraOrganica",
+        "title": "Estructura orgánica",
+        "shortDescription": "Para que la ciudadanía conozca la jerarquía de empleados y departamentos disponibles en la entidad, y pueda realizar el sitio web debe contener descripción de la forma en que se compone y se organiza la entidade y no tan sólo la cabeza o principal órgano que se trate.",
+        "grade": "",
+        "gradePoints": "0",
+        "type": "obligation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#61-estructura-org%C3%A1nica"
+    }, {
+        "ruleId": "funcionesYDeberes",
+        "title": "Funciones y deberes",
+        "shortDescription": "Descripción de funciones y deberes de la entidad en general y no tan sólo la cabeza o principal órgano que lo compone.",
+        "grade": "",
+        "gradePoints": "0",
+        "type": "obligation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#62-funciones-y-deberes"
+    }, {
+        "ruleId": "ubicacionDeSusSedesYAreas",
+        "title": "Ubicación de sus sedes y áreas",
+        "shortDescription": "Descripción de ubicación de sedes y áreas de la entidad en general y no tan sólo la cabeza o principal órgano que lo compone.",
+        "grade": "",
+        "gradePoints": "0",
+        "type": "obligation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#63-ubicaci%C3%B3n-de-sus-sedes-y-%C3%A1reas"
+    }, {
+        "ruleId": "divisionesODepartamentos",
+        "title": "Divisiones o departamentos",
+        "shortDescription": "Informaciones sobre la totalidad de divisiones territoriales.",
+        "grade": "AA",
+        "gradePoints": "80",
+        "type": "obligation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#64-divisiones-o-departamentos"
+    }, {
+        "ruleId": "horarioDeAtencionAlPublico",
+        "title": "Horario de Atención al Público",
+        "shortDescription": "Informaciones sobre horarios de atención al público de la entidad y sus divisiones en diferentes medios: en la sede, teléfono, correo electrónico, etc.",
+        "grade": "AA",
+        "gradePoints": "80",
+        "type": "obligation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#65-horario-de-atenci%C3%B3n-al-p%C3%BAblico"
+    }, {
+        "ruleId": "presupuesto",
+        "title": "Presupuesto",
+        "shortDescription": "El presupuesto de la entidad para la respectiva vigencia debe estar disponible para verificación del público. Puede ser el presupuesto inicial o final. Eo presupuesto debe ofrecer datos (valores, ingresos, gastos) de forma clara, organizada y desagregado.",
+        "grade": "",
+        "gradePoints": "0",
+        "type": "obligation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#66-presupuesto"
+    }, {
+        "ruleId": "ejecucionHistoricaAnual",
+        "title": "Ejecución Histórica Anual",
+        "shortDescription": "Información relativa al presupuesto ejecutado en el año en curso, idealmente con porcentajes de ejecución, y deben ofrecer datos de forma clara, organizada y encontrarse desagregados.",
+        "grade": "",
+        "gradePoints": "0",
+        "type": "obligation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#66-ejecuci%C3%B3n-hist%C3%B3rica-anual"
+    }, {
+        "ruleId": "planesDeGastoPublicoPorAnoFiscal",
+        "title": "Planes de gasto público por año fiscal",
+        "shortDescription": "El sujeto obligado publica su plan de gasto público para cada año fiscal, en el cual se especifican los objetivos, las estrategias, los proyectos, las metas, los responsables, los planes generales de compras y la distribución presupuestal de sus proyectos de inversión junto a los indicadores de gestión. Asimismo, el plan deberá estar acompañado del informe de gestión del año inmediatamente anterior.",
+        "grade": "",
+        "gradePoints": "0",
+        "type": "obligation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#67-planes-de-gasto-p%C3%BAblico-por-a%C3%B1o-fiscal"
+    }, {
+        "ruleId": "directorioDeFuncionariosBasico",
+        "title": "Directorio de funcionarios - Básico",
+        "shortDescription": "El sitio web contiene un directorio de funcionarios con sus informaciones básicas: Nombres y apellidos; correo electrónico; Teléfono del despacho y dependencia.",
+        "grade": "A",
+        "gradePoints": "50",
+        "type": "obligation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#68-directorio-de-funcionarios---b%C3%A1sico"
+    }, {
+        "ruleId": "directorioDeFuncionariosCompleto",
+        "title": "Directorio de funcionarios - Completo",
+        "shortDescription": "El sitio web contiene un directorio de funcionarios con informaciones completas: Nombres y apellidos; correo electrónico; Teléfono del despacho y dependencia; Formación académica; Experiencia laboral y profesional; Sanciones aplicadas.",
+        "grade": "",
+        "gradePoints": "0",
+        "type": "obligation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#69-directorio-de-funcionarios---completo"
+    }, {
+        "ruleId": "escalasSalariales",
+        "title": "Escalas salariales",
+        "shortDescription": "Es posible encontrar una tabla con los rangos de salarios de la entidad, identificado por el título \"Rangos de salario por nivel\", y el decreto de asignaciones salariales de la entidad en un lugar visible.",
+        "grade": "A",
+        "gradePoints": "50",
+        "type": "obligation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#610-escalas-salariales"
+    }, {
+        "ruleId": "sancionesAplicadasAServidoresPublicos",
+        "title": "Sanciones aplicadas a servidores públicos",
+        "shortDescription": "Es posible encontrar informaciones sobre sanciones disciplinarias o de otro tipo que hayan sido impuestas  a funcionarios de la entidad.",
+        "grade": "",
+        "gradePoints": "0",
+        "type": "obligation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#611-sanciones-aplicadas-a-servidores-p%C3%BAblicos"
+    }, {
+        "ruleId": "directorioConInformacionesDeContratosConContratistasBasico",
+        "title": "Directorio con Informaciones de Contratos de Contratistas - Básico",
+        "shortDescription": "Es posible encontrar informaciones sobre los contratos de contratistas en formatos abiertos: Nombres y apellidos; correo electrónico; Teléfono del despacho y dependencia; Objeto del contrato.",
+        "grade": "A",
+        "gradePoints": "50",
+        "type": "obligation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#612-directorio-con-informaciones-de-contratos-de-contratistas---b%C3%A1sico"
+    }, {
+        "ruleId": "directorioConInformacionesDeContratosConContratistasCompleto",
+        "title": "Directorio con Informaciones de Contratos de Contratistas - Completo",
+        "shortDescription": "El sitio web contiene contiene un directorio de funcionarios de informaciones completas: Nombres y apellidos; correo electrónico; Teléfono del despacho y dependencia; Formación académica; Experiencia laboral y profesional; Sanciones aplicadas;Objeto del contrato.",
+        "grade": "A",
+        "gradePoints": "50",
+        "type": "obligation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#613-directorio-con-informaciones-de-contratos-de-contratistas---completo"
+    }, {
+        "ruleId": "normasGenerales",
+        "title": "Normas generales",
+        "shortDescription": "Existencia de una sección con normas y reglamentos pertinentes para la entidad: decretos, circulares, leyes, etc. relativas a creacción e reglamentos de la entidad.",
+        "grade": "A",
+        "gradePoints": "50",
+        "type": "obligation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#614-normas-generales"
+    }, {
+        "ruleId": "normasReglamentarias",
+        "title": "Normas Reglamentarias",
+        "shortDescription": "Existencia de información sobrenormas reglamentarias pertinentes a la entidad: resoluciones y directivas.",
+        "grade": "A",
+        "gradePoints": "50",
+        "type": "obligation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#614-normas-reglamentarias"
+    }, {
+        "ruleId": "manuales",
+        "title": "Manuales",
+        "shortDescription": "El sujeto obligado publica sus lineamientos, manuales y toda política que haya adoptado y afecte al público, junto con sus fundamentos y toda interpretación autorizada de ellas.",
+        "grade": "A",
+        "gradePoints": "50",
+        "type": "obligation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#616-pol%C3%ADticas-lineamientos-o-manuales"
+    }, {
+        "ruleId": "metasYObjectivos",
+        "title": "Metas y Objetivos",
+        "shortDescription": "El sujeto obligado y sus unidades administrativas publican la información relacionada con sus metas y objetivos, de conformidad con sus programas operativos y los demás planes exigidos por la normatividad. Se debe publicar su estado de avance, mínimo cada tres (3) meses.",
+        "grade": "A",
+        "gradePoints": "50",
+        "type": "obligation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#616-metas-y-objetivos"
+    }, {
+        "ruleId": "informeDeAuditorias",
+        "title": "Informe de Auditorías",
+        "shortDescription": "El sitio de la entidad debe contener Informes de Auditoría del período vigente y de los anteriores, sobre contratación, entre otros.",
+        "grade": "A",
+        "gradePoints": "50",
+        "type": "obligation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#617-resultado-de-auditor%C3%ADas"
+    }, {
+        "ruleId": "indicadoresDeDesempeno",
+        "title": "Indicadores de Desempeño",
+        "shortDescription": "Las entidades deben proveer información sobre los indicadores de desempeño que utilizan y reportes con estadísticas y análisis del desempeño de la entidad y de sus funcionarios.",
+        "grade": "A",
+        "gradePoints": "50",
+        "type": "obligation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#618-indicadores-de-desempe%C3%B1o"
+    }, {
+        "ruleId": "planAnticorrupcionYDeAtencionAlCiudadano",
+        "title": "Plan Anticorrupción y de Atención al Ciudadano",
+        "shortDescription": "El sujeto obligado publica anualmente una estrategia de lucha contra la corrupción y de atención al ciudadano. Dicha estrategia contempla, entre otras cosas: el mapa de riesgos de corrupción en la respectiva entidad;las medidas concretas para mitigar esos riesgos;las estrategias anticorrupción;los mecanismos para mejorar la atención al ciudadano.",
+        "grade": "A",
+        "gradePoints": "50",
+        "type": "obligation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#619-plan-anticorrupci%C3%B3n-y-de-atenci%C3%B3n-al-ciudadano"
+    }, {
+        "ruleId": "planDeComprasYAdquisicion",
+        "title": "Plan anual de compras y adquisiciones",
+        "shortDescription": "La entidad debe ofrecer informaciones de su Plan de Compras Anual. El documento MOTA - Reglas Contextuales especifica normas necesarias por entidad, o clases de entidad.",
+        "grade": "A",
+        "gradePoints": "50",
+        "type": "obligation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#620-plan-de-compras-y-adquisici%C3%B3n"
+    }, {
+        "ruleId": "atencionAlCiudadano",
+        "title": "Atención al ciudadano",
+        "shortDescription": "El sitio de la entidad debe contener una o más páginas con información de los servicios que brinda directamente al público, incluyendo i) normas ii) formularios y formatos y, iii) protocolos de atención a diferentes públicos.",
+        "grade": "A",
+        "gradePoints": "50",
+        "type": "obligation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#71-atenci%C3%B3n-al-ciudadano"
+    }, {
+        "ruleId": "tramites",
+        "title": "Trámites",
+        "shortDescription": "El sitio de la entidad debe contener una o más páginas con informaciones de los trámites que se pueden agotar en la entidad, incluyendo i) normativa(s) relacionada(s) ii) proceso a seguir, incluso formularios y formatos y, iii) costos asociados.",
+        "grade": "AA",
+        "gradePoints": "80",
+        "type": "obligation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#72-tr%C3%A1mites"
+    }, {
+        "ruleId": "procedimientos",
+        "title": "Procedimientos",
+        "shortDescription": "El sitio de la entidad debe contener una o más páginas con informaciones sobre los procedimientos que se siguen para tomar decisiones en diferentes áreas y procesos.",
+        "grade": "A",
+        "gradePoints": "50",
+        "type": "obligation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#73-procedimientos"
+    }, {
+        "ruleId": "decisiones",
+        "title": "Decisiones",
+        "shortDescription": "El sitio de la entidad debe contener una o más páginas con los contenidos de las decisiones adoptadas que afecten al público, junto con sus fundamentos e interpretaciones.",
+        "grade": "A",
+        "gradePoints": "50",
+        "type": "obligation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#74-decisiones"
+    }, {
+        "ruleId": "politicas",
+        "title": "Políticas",
+        "shortDescription": "El sitio de la entidad debe contener una o más páginas con los contenidos de las políticas adoptadas que afecten al público, junto con sus fundamentos e interpretaciones.",
+        "grade": "A",
+        "gradePoints": "50",
+        "type": "obligation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#75-pol%C3%ADticas"
+    }, {
+        "ruleId": "participacionCiudadanaMecanismosDePresentacionDirecta",
+        "title": "Participación Ciudadana - Mecanismos de Presentación Directa",
+        "shortDescription": "El sitio de la entidad debe ofrecer mecanismos de presentación directa de solicitudes, quejas y reclamos a disposición del público.",
+        "grade": "A",
+        "gradePoints": "50",
+        "type": "obligation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#74-participaci%C3%B3n-ciudadana---mecanismos-de-presentaci%C3%B3n-directa"
+    }, {
+        "ruleId": "reporteDeParticipacionCiudadana",
+        "title": "Reporte de Participación Ciudadana",
+        "shortDescription": "El sitio de la entidad debe contener una o más páginas con reportes generales y agregados de datos de quejas y reclamos de la entidad, correspondientes a la respectiva vigencia y a años anteriores.",
+        "grade": "A",
+        "gradePoints": "50",
+        "type": "obligation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#75-reporte-de-participaci%C3%B3n-ciudadana"
+    }, {
+        "ruleId": "mecanismosDeParticipacionCiudadanaEmFormulacionDePoliticas",
+        "title": "Mecanismos de Participación Ciudadana en Formulación de Políticas",
+        "shortDescription": "Descrición de los mecanismos de participación ciudadana para la formulación de políticas o ejercicios de facultades del sujeto obligado, incluyendo publicidad de invitaciones públicas, convocatorias o procesos de participación pública.",
+        "grade": "A",
+        "gradePoints": "50",
+        "type": "obligation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#76-mecanismos-de-participaci%C3%B3n-ciudadana-en-formulaci%C3%B3n-de-pol%C3%ADticas"
+    }, {
+        "ruleId": "informesDeGestion",
+        "title": "Informes de Gestión",
+        "shortDescription": "Informes de Gestión del periodo vigente y de períodos anteriores. Los informes resumen los resultados de la entidad por un período determinado, así como la administración hecha a sus recursos, contratación, entre otros.",
+        "grade": "A",
+        "gradePoints": "50",
+        "type": "obligation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#77-informes-de-gesti%C3%B3n"
+    }, {
+        "ruleId": "informesDeEvaluacion",
+        "title": "Informes de Evaluación",
+        "shortDescription": "El sitio de la entidad debe contener Informes de Evaluación del periodo vigente y de los períodos anteriores. contratación, entre otros.",
+        "grade": "A",
+        "gradePoints": "50",
+        "type": "obligation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#78-informes-de-evaluaci%C3%B3n"
+    }, {
+        "ruleId": "informesDeAuditoria",
+        "title": "Informes de Auditoría",
+        "shortDescription": "El sitio de la entidad debe contener Informes de Auditoría del período vigente y de los anteriores, sobre contratación, entre otros.Idealmente, los informes deben ser presentados en páginas HTML, pero archivos también son válidos.",
+        "grade": "A",
+        "gradePoints": "50",
+        "type": "obligation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#79-informes-de-auditor%C3%ADa"
+    }, {
+        "ruleId": "mecanismosInternosDeSupervisionOficinaDeControlInterno",
+        "title": "Mecanismos Internos de Supervisión - Oficina de Control Interno",
+        "shortDescription": "Informaciones acerca de la Oficina de Control Interno, de manera que los funcionarios o la ciudadanía tengan claro que hay una dependencia a la que se puede acudir para presentar denuncias u observaciones acerca del funcionamiento de la entidad.",
+        "grade": "A",
+        "gradePoints": "50",
+        "type": "obligation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#710-mecanismos-internos-de-supervisi%C3%B3n---oficina-de-control-interno"
+    }, {
+        "ruleId": "mecanismosExternosDeSupervision",
+        "title": "Mecanismos Externos de Supervisión",
+        "shortDescription": "La entidad publica información relacionada con los entes de control externo y mecanismos de supervisión, notificación y vigilancia: la relación de todas las entidades que lo vigilan, tipo de control que se ejecuta, planes de mejoramiento, un enlace al sitio web del organismo de control en donde se encuentren los informes que éste ha elaborado, a manera como un particular puede comunicar una irregularidad ante los entes que ejercen supervisión y control.",
+        "grade": "A",
+        "gradePoints": "50",
+        "type": "obligation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#711-mecanismos-externos-de-supervisi%C3%B3n"
+    }, {
+        "ruleId": "CorreoNotificaciones",
+        "title": "Correo electrónico para notificaciones judiciales",
+        "shortDescription": "El sujeto obligado publica la dirección de correo electrónico para notificaciones judiciales, la cual debe estar disponible en el pie de página de la página principal del sitio del sujeto obligado, así como en la sección de Atención al Ciudadano.",
+        "grade": "A",
+        "gradePoints": "50",
+        "type": "obligation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#712-mecanismos-notificaci%C3%B3n"
+    }, {
+        "ruleId": "mecanismosDeVigilancia",
+        "title": "Mecanismos de Vigilancia",
+        "shortDescription": "",
+        "grade": "A",
+        "gradePoints": "50",
+        "type": "obligation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#713-mecanismos-de-vigilancia"
+    }, {
+        "ruleId": "procedimientosYLineamientosDeContratacion",
+        "title": "Procedimientos y Lineamientos de Contratación",
+        "shortDescription": "El sitio de la entidad debe contener una o más páginas con los procedimientos y lineamientos de contratación. Documentos ex - ante(de planeación o tipo manual) que den guía sobre cómo se va a proceder para hacer algo, formulado por la entidad.",
+        "grade": "A",
+        "gradePoints": "50",
+        "type": "obligation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#714-procedimientos-y-lineamientos-de-contrataci%C3%B3n"
+    }, {
+        "ruleId": "politicasEnMateriaDeAdquisicionesYCompras",
+        "title": "Políticas en materia de adquisiciones y compras",
+        "shortDescription": "PARA HACER: aclarar. La entidad debe ofrecer informaciones de su Plan de adquisiciones. El documento MOTA - Reglas Contextuales especifica normas necesarias por entidad, o clases de entidad.",
+        "grade": "A",
+        "gradePoints": "50",
+        "type": "obligation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#715-pol%C3%ADticas-en-materia-de-adquisiciones-y-compras"
+    }, {
+        "ruleId": "esquemasDePublicacionDeInformacion",
+        "title": "Esquemas de Publicación de información",
+        "shortDescription": "El sitio de la entidad debe contener una o más páginas con informaciones de Esquemas de Publicación de información, publicadas en una página denominada \"Acceso a información pública\".",
+        "grade": "A",
+        "gradePoints": "50",
+        "type": "obligation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#81-esquemas-de-publicaci%C3%B3n-de-informaci%C3%B3n"
+    }, {
+        "ruleId": "programaDeGestionDocumental",
+        "title": "Programa de Gestión Documental",
+        "shortDescription": "Informaciones de Programa de Gestión Documental, publicadas en una página Gestión Documental e informar procedimientos y lineamientos para la producción, distribución, organización, consulta y conservación de los documentos públicos.",
+        "grade": "AA",
+        "gradePoints": "80",
+        "type": "obligation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#82-programa-de-gesti%C3%B3n-documental"
+    }, {
+        "ruleId": "tablasDeRetencionDocumental",
+        "title": "Tablas De Retención Documental",
+        "shortDescription": "",
+        "grade": "A",
+        "gradePoints": "50",
+        "type": "obligation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#83-tablas-de-retenci%C3%B3n-documental"
+    }, {
+        "ruleId": "informacionPublicadaAntesDeLaLey1712De2014",
+        "title": "Información Publicada Antes De La Ley 1712 De 2014",
+        "shortDescription": "",
+        "grade": "",
+        "gradePoints": "0",
+        "type": "obligation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#84-informaci%C3%B3n-publicada-antes-de-la-ley-1712-de-2014"
+    }, {
+        "ruleId": "respuestasASolicitudesDeInformacionRecibidas",
+        "title": "Respuestas A Solicitudes De Información Recibidas",
+        "shortDescription": "",
+        "grade": "",
+        "gradePoints": "0",
+        "type": "obligation",
+        "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#85-respuestas-a-solicitudes-de-informaci%C3%B3n-recibidas"
+    }]
+}
