@@ -15,7 +15,7 @@ import {
 templatePolyfill(document);
 arrayForEach();
 nodeListForEach();
-const environment = 'development';
+const environment = 'production';
 const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
 let domains = motaResultsAutoSuggest;
 var my_autoComplete = new autoComplete({
@@ -53,7 +53,39 @@ if ( 'production' !== environment){
     //
 
     var obligationsNotCompliantContainer, obligationsDeficientContainer, obligationsUnsufficientContainer, obligationsPartialCompliantContainer, obligationsCompliantContainer, resultsContainers, generalGrade = 0;
-    var form, input, report, resultsDialogElement, summaryElement, summaryErrorElement, summaryGeneralGradeElement, summaryGeneralGradeLabel, summaryUrlElement, summaryDate, summaryDateElement, summaryStatusElement;
+    var form, input, report, resultsDialogElement, summaryElement, summaryErrorElement, summaryGeneralGradeElement, summaryGeneralGradeLabel, summaryUrlElement, summaryDate, summaryDateElement;
+    var containers = {
+        notCompliant: {
+            selector: '',
+            node: '',
+            state: 'waiting', // states: waiting, empty, noResults, hasResults
+            criteriaNumber: 0
+        },
+        unsufficient:  {
+            selector: '',
+            node: '',
+            state: 'waiting', // states: waiting, empty, noResults, hasResults
+            criteriaNumber: 0
+        },
+        partialCompliant:  {
+            selector: '',
+            node: '',
+            state: 'waiting', // states: waiting, empty, noResults, hasResults
+            criteriaNumber: 0
+        },
+        compliant:  {
+            selector: '',
+            node: '',
+            state: 'waiting', // states: waiting, empty, noResults, hasResults
+            criteriaNumber: 0
+        }
+    };
+    var containersStates = {
+        notCompliant: 'waiting', // states: waiting, empty, noResults, hasResults
+        unsufficient: 'waiting',
+        partialCompliant: 'waiting',
+        compliant: 'waiting'
+    };
 
     //
     // Methods
@@ -87,21 +119,55 @@ if ( 'production' !== environment){
     };
 
     /**
+     * Checks criteria containers states
+     * @return {object} report object on success, error object on error.
+     */
+    var checkContainersStates = function () {
+        /*notCompliant: 'waiting', // states: waiting, empty, noResults, hasResults
+        unsufficient: 'waiting',
+        partialCompliant: 'waiting',
+        compliant: 'waiting'*/
+        var criteriaNumber = 0;
+        for (var key of Object.keys(containers)) {
+            criteriaNumber = containers[key].node.querySelectorAll('.results-criteria').length
+            console.log(key + " -> " + criteriaNumber );
+            if( criteriaNumber >= 0 ) {
+                containers[key].state = 'hasResults';
+            }
+            console.log(key + " status -> " + containers[key].state );
+        }
+    };
+
+    /**
      * Retrieves transparency report data from a given url.
      * @requires Atomic by Chris Ferdinandi. See <https://github.com/cferdinandi/atomic/>
      * @param  {string}  url  the url for retrieving the data from.
      * @return {object} report object on success, error object on error.
      */
     var getReport = function (url) {
+        var compliantNumber = 0,partialComplianNumber = 0,unsufficientNumber = 0, notCompliantNumber;
+            /*notCompliantNumber++;
+            unsufficientNumber++
+            unsufficientNumber++;
+            partialCompliantNumber++;
+            compliantNumber++;
+            compliantNumber++;*/
+         containers.compliant.node.innerHTML = '<p>Aquí se mostrarán los criterios individuales calificados como en <code>conformidad</code>.</p>';
+         containers.partialCompliant.node.innerHTML = '<p>Aquí se mostrarán los criterios individuales calificados como <code>conformidad parcial</code>.</p>';
+         containers.unsufficient.node.innerHTML = '<p>Aquí se mostrarán los criterios individuales calificados como <code>insuficiente</code>.</p>';
+       // obligationsDeficientContainer.innerHTML = '';
+        containers.notCompliant.node.innerHTML = '<p>Aquí se mostrarán los criterios individuales calificados como en <code> no conformidad</code>.</p>';
+
+        containers.compliant.node.classList.remove('has-results');
+        containers.partialCompliant.node.classList.remove('has-results');
+        containers.unsufficient.node.classList.remove('has-results');
+        containers.notCompliant.node.classList.remove('has-results');
         summaryElement.classList.add('inactive');
         resultsDialogElement.innerHTML = '<b>Procesando</b>: Los resultados se mostrarán aquí.';
         var urlObject = getValidDomainInfo(url);
         console.log('urlObject');
         console.log(urlObject);
         // cleanup results containers and site info
-        resultsContainers.forEach(function (elem, index) {
-            elem.innerHTML = '<div role="progressbar" class="mdc-linear-progress mdc-linear-progress--indeterminate"><div class="mdc-linear-progress__buffering-dots"></div><div class="mdc-linear-progress__buffer"></div><div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar"><span class="mdc-linear-progress__bar-inner"></span></div><div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar"><span class="mdc-linear-progress__bar-inner"></span></div></div>';
-        });
 
         // fetch a report from the report repository
         atomic( reportsRepositoryURI + urlObject.reportBasename + '.json') //
@@ -122,15 +188,16 @@ if ( 'production' !== environment){
      */
     var addResult = function (markup, rule) {
             if (rule.gradePoints >= 81) {
-                obligationsCompliantContainer.prepend(markup);
+                containers.compliant.node.prepend(markup);
             } else if (rule.gradePoints >= 51) {
-                obligationsPartialCompliantContainer.prepend(markup);
+                containers.partialCompliant.node.prepend(markup);
             } else if (rule.gradePoints >= 21) {
-                obligationsUnsufficientContainer.prepend(markup);
+                containers.unsufficient.node.prepend(markup);
             } else if (rule.gradePoints >= 1) {
-                obligationsDeficientContainer.prepend(markup);
+                containers.unsufficient.node.prepend(markup);
+                //obligationsDeficientContainer.prepend(markup);
             } else {
-                obligationsNotCompliantContainer.prepend(markup);
+                containers.notCompliant.node.prepend(markup);
             }
 
     };
@@ -159,6 +226,15 @@ if ( 'production' !== environment){
      */
     var processSummaryMarkup = function (generalGrade, report) {
         var generalGradeText = '';
+        console.warn('report 2');
+        console.log(report);
+        console.warn('report.meta 2');
+        console.log(report.meta);
+        console.warn('report.meta.entityUrl 2 ');
+        console.log(report.meta.entityUrl);
+        console.warn('report.meta.lastEvaluationDate 2');
+        console.log(report.meta.lastEvaluationDate);
+        console.log(report.meta.entityUrl);
 
         // coerce to number
         generalGrade = +generalGrade;
@@ -184,9 +260,11 @@ if ( 'production' !== environment){
         }
         summaryElement.classList.remove('inactive');
         summaryUrlElement.innerText = report.meta.entityUrl;
-        console.error('summaryDate = ');
-        console.log(summaryDate);
-        summaryDateElement.innerText = transformDate(summaryDate);
+        console.error('report.meta.lastEvaluationDate 3 = ');
+        console.log(report.meta.lastEvaluationDate);
+        summaryDateElement.innerText = transformDate(report.meta.lastEvaluationDate);
+        console.error('summaryDateElement.innerText = ');
+        console.log(summaryDateElement.innerText);
 
     };
 
@@ -205,11 +283,12 @@ if ( 'production' !== environment){
      * Get all document DOM elements we will need to manipulate
      */
     var getDomElements = function () {
-        obligationsNotCompliantContainer = document.querySelector('.legal-obligations.not-compliant .results-content');
-        obligationsDeficientContainer = document.querySelector('.legal-obligations.deficient .results-content');
-        obligationsUnsufficientContainer = document.querySelector('.legal-obligations.unsufficient .results-content');
-        obligationsPartialCompliantContainer = document.querySelector('.legal-obligations.partial-compliant .results-content');
-        obligationsCompliantContainer = document.querySelector('.legal-obligations.compliant .results-content');
+
+        containers.notCompliant.node = document.querySelector('.legal-obligations.not-compliant .results-content');
+        //obligationsDeficientContainer = document.querySelector('.legal-obligations.deficient .results-content');
+        containers.unsufficient.node  = document.querySelector('.legal-obligations.unsufficient .results-content');
+        containers.partialCompliant.node  = document.querySelector('.legal-obligations.partial-compliant .results-content');
+        containers.compliant.node  = document.querySelector('.legal-obligations.compliant .results-content');
         form = document.getElementById('evaluate-form');
         input = document.getElementById('evaluate-url');
         resultsDialogElement = document.querySelector('.results-dialog');
@@ -219,7 +298,6 @@ if ( 'production' !== environment){
         summaryGeneralGradeLabel = document.querySelector('label[for="results-grade-final"]');
         summaryUrlElement = document.querySelector('#results-summary-url span');
         summaryDateElement = document.querySelector('#results-summary-date span');
-        summaryStatusElement = document.querySelector('#results-summary-status span');
         resultsContainers = document.querySelectorAll('.results-content');
     };
 
@@ -235,18 +313,23 @@ if ( 'production' !== environment){
         // Variables
         //
         var rules = report.rules;
+        console.warn('report');
+        console.log(report);
+        console.warn('report.meta');
+        console.log(report.meta);
+        console.warn('report.meta.entityUrl');
+        console.log(report.meta.entityUrl);
+        console.warn('report.meta.lastEvaluationDate');
+        console.log(report.meta.lastEvaluationDate);
+        console.log(report.meta.entityUrl);
         var summaryDate = report.meta.lastEvaluationDate;
+        console.warn('summaryDate');
+        console.log(summaryDate);
 
         summaryErrorElement.classList.add('inactive');
         summaryElement.classList.add('inactive');
         summaryUrlElement.innerHTML = '';
         summaryDateElement.innerHTML = '';
-        summaryStatusElement.innerHTML = '';
-        obligationsCompliantContainer.innerHTML = '';
-        obligationsPartialCompliantContainer.innerHTML = '';
-        obligationsUnsufficientContainer.innerHTML = '';
-        obligationsDeficientContainer.innerHTML = '';
-        obligationsNotCompliantContainer.innerHTML = '';
 
         for (var i = 0; i < rules.length; i++) {
 
@@ -266,9 +349,17 @@ if ( 'production' !== environment){
         console.log('generalGrade brute');
         console.log(generalGrade);
         generalGrade = Math.floor(generalGrade / rules.length);
-        console.log('generalGrade Normalized');
+        console.log('generalGrade Normalizede');
         console.log(generalGrade);
+        console.log('checkContainersStates 1');
+        checkContainersStates();
         processSummaryMarkup(generalGrade, report);
+
+        containers.compliant.node.classList.add('has-results');
+        containers.partialCompliant.node.classList.add('has-results');
+        containers.unsufficient.node.classList.add('has-results');
+        containers.notCompliant.node.classList.add('has-results');
+
     };
 
     /**
