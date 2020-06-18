@@ -80,12 +80,6 @@ if ( 'production' !== environment){
             criteriaNumber: 0
         }
     };
-    var containersStates = {
-        notCompliant: 'waiting', // states: waiting, empty, noResults, hasResults
-        unsufficient: 'waiting',
-        partialCompliant: 'waiting',
-        compliant: 'waiting'
-    };
 
     //
     // Methods
@@ -157,11 +151,6 @@ if ( 'production' !== environment){
          containers.unsufficient.node.innerHTML = '<p>Aquí se mostrarán los criterios individuales calificados como <code>insuficiente</code>.</p>';
        // obligationsDeficientContainer.innerHTML = '';
         containers.notCompliant.node.innerHTML = '<p>Aquí se mostrarán los criterios individuales calificados como en <code> no conformidad</code>.</p>';
-
-        containers.compliant.node.classList.remove('has-results');
-        containers.partialCompliant.node.classList.remove('has-results');
-        containers.unsufficient.node.classList.remove('has-results');
-        containers.notCompliant.node.classList.remove('has-results');
         summaryElement.classList.add('inactive');
         resultsDialogElement.innerHTML = '<b>Procesando</b>: Los resultados se mostrarán aquí.';
         var urlObject = getValidDomainInfo(url);
@@ -353,12 +342,19 @@ if ( 'production' !== environment){
         console.log(generalGrade);
         console.log('checkContainersStates 1');
         checkContainersStates();
+        if ('hasResults' !== containers.compliant.state ) {
+            containers.compliant.node.innerHTML = '<p>Ninguno de los criterios individuales fue calificado como en <code>conformidad</code>.</p>';
+        }
+        if ('hasResults' !== containers.partialCompliant.state) {
+            containers.partialCompliant.node.innerHTML = '<p>Ninguno de los criterios individuales fue calificado como en <code>conformidad parcial</code>.</p>';
+        }
+        if ('hasResults' !== containers.unsufficient.state) {
+            containers.unsufficient.node.innerHTML = '<p>Ninguno de los criterios individuales fue calificado como en <code>insuficiente</code>.</p>';
+        }
+        if ('hasResults' !== containers.notCompliant.state) {
+            containers.notCompliant.node.innerHTML = '<p>Ninguno de los criterios individuales fue calificado como en <code>no conformidad</code>.</p>';
+        }
         processSummaryMarkup(generalGrade, report);
-
-        containers.compliant.node.classList.add('has-results');
-        containers.partialCompliant.node.classList.add('has-results');
-        containers.unsufficient.node.classList.add('has-results');
-        containers.notCompliant.node.classList.add('has-results');
 
     };
 
