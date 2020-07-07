@@ -204,7 +204,7 @@ if ( 'production' !== environment){
             ruleTypeName = 'recomendación';
         }
         markup.querySelector('.results-criteria h3').innerHTML = rule.title + '<span class = "results-criteria--tags"> <span id="grade-' + rule.ruleId + '" class="faux-meter" data-gradePoints="' + rule.gradePoints + '">Grado: ' + rule.grade + '</span><span class= "results-criteria-type results-criteria-type--' + rule.type + '"> Tipo: ' + ruleTypeName + ' </span></span>';
-        markup.querySelector('.results-criteria--description').innerHTML = rule.shortDescription + ' <a href="' + rule.ruleSpecificationUrl + '" class="more-link" target="mota-specs">Más información.</a>';
+        markup.querySelector('.results-criteria--description').innerHTML = rule.shortDescription + ' <a href="criteria.html#criteria-' + rule.ruleId + '" class="more-link">Más información.</a>';
         detailsElement.setAttribute('id', 'criteria-' + ruleId);
         return markup;
     };
@@ -328,7 +328,7 @@ if ( 'production' !== environment){
             if (0 === i) {
                 generalGrade = +rule.gradePoints;
             } else {
-                rule.gradePoints = +rule.gradePoints
+                rule.gradePoints = +rule.gradePoints;
                 generalGrade = generalGrade + rule.gradePoints;
             }
             var markup = document.getElementById('template-results-criteria').content.cloneNode(true);

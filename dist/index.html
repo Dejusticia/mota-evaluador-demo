@@ -11,7 +11,7 @@
     <meta name="theme-color" content="#fcd116">
     <meta name="version" content="0.10.1">
     <link type="text/css" media="all" href="./bundle.css" rel="stylesheet" />
-    <link type="text/css" media="all" href="./dist/javaScript-autoComplete/auto-complete.css" rel="stylesheet" />
+    <link type="text/css" media="all" href="./javaScript-autoComplete/auto-complete.css" rel="stylesheet" />
     <link rel="preload" href="./bundle.css" as="style" onload="this.onload=null; this.rel='stylesheet'" id="main-bundle-stylesheet">
     <noscript id="main-bundle-stylesheet--noscript">
         <link type="text/css" media="all" href="./bundle.css" rel="stylesheet" />
@@ -54,22 +54,31 @@
     <header class=" mdc-top-app-bar mdc-top-app-bar--fixed">
         <nav class="mdc-top-app-bar__row"
             aria-label="Navegación Evaluador de Transparencia Activa en Colombia - Iniciativa MOTA">
-            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start"><a role="menuitem"
+                    href="#main-content"
+                    aria-haspopup="true" aria-expanded="false" tabindex="0"
+                    class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
+                    aria-label="acceder al formulario de evaluación" title="Evalue un sítio">
                 <span
-                    class="mdc-top-app-bar__title" role="none"><span class="hide-on-small">Evaluador de Transparencia Activa - </span>Iniciativa MOTA</span>
+                    class="mdc-top-app-bar__title" role="none"><span class="hide-on-small"><span class="screen-reader-text">Evaluador de Transparencia Activa - </span></span>Iniciativa MOTA</span></a>
             </section>
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="menubar"
                 aria-label="Navegación Evaluador de Transparencia Activa en Colombia">
-                <!--<a role="menuitem"
+                <a role="menuitem"
                     href="#main-content"
                     aria-haspopup="true" aria-expanded="false" tabindex="0"
                     class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
                     aria-label="acceder al formulario de evaluación" title="Evalue un sítio"><span
                         class="screen-reader-text">Evalue un sítio</span><span>assessment</span>
-                </a>-->
+                </a>
+                <a role="menuitem" href="criteria.html" aria-haspopup="true" aria-expanded="false" tabindex="0" class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
+                    aria-label="Leya los criterios" title="Criterios"><span
+                        class="screen-reader-text">Criterios</span><span>assignment</span>
+                </a>
+                <!--
                 <a role="menuitem"
                     href="http://mota.dejusticia.org"
-                    aria-haspopup="true" aria-expanded="false" tabindex="0" target="_blank"
+                    aria-haspopup="true" aria-expanded="false" tabindex="0"
                     class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
                     aria-label="Sepa más sobre la iniciativa MOTA" title="Sobre la iniciativa MOTA"><span
                         class="screen-reader-text">Sobre la iniciativa MOTA</span><span>info</span>
@@ -81,7 +90,7 @@
                     aria-label="Leya la Especificación" title="Especificación"><span
                         class="screen-reader-text">Especificación</span><span>assignment</span>
                 </a>
-                <!--<a role="menuitem" href="http://libreria.mota.dejusticia.org"
+                <a role="menuitem" href="http://libreria.mota.dejusticia.org"
                     aria-haspopup="true" aria-expanded="false" tabindex="0" target="_blank" class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
                         aria-label="Visite la libreria de patrones y repositiorio de códigos MOTA" title="Libreria y repositiorio de códigos MOTA"><span
                             class="screen-reader-text">Libreria y repositiorio de códigos</span><span>code</span>
@@ -99,7 +108,10 @@
                     <p class="highlight">La iniciativa <em>Monitoreo de Obligaciones de Transparencia Activa – MOTA</em> de busca aumentar la
                         transparencia efectiva de los sujetos obligados por la <strong>Ley 1712 de 2014</strong> y el
                     escrutinio ciudadano a esta labor.</p>
-                    <h2>La herramienta de evaluación MOTA estará en mantenimiento los días 18 y 19 de Junio.</h2>
+                    <h2>Atención:</h2>
+                        <p><small>Debido al cambio en la estructura de varios sitios gubernamentales debido a la crisis de salud COVID-19, la cola para
+                        actualizar los informes es más larga y los análisis tardan más de lo habitual. Por esta razón, los informes que se
+                        muestran en nuestra búsqueda pueden estar desactualizados.</small></p>
                     <h3 id="evaluate-header">Para ver uno de los informes de evaluación:</h3>
                     <ol>
                         <li>Copie un enlace de un sitio web gubernamental colombiano (como www.ejemplo.gov.co)</li>
@@ -125,9 +137,13 @@
                 </section>
                 <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6 mdc-card mdc-card--free-content"
                     id="results-summary-area">
-                    <h2>La herramienta de evaluación MOTA estará en mantenimiento los días 18 y 19 de Junio.</h2>
+                    <p><small><strong>Atención:</strong>Debido al cambio en la estructura de varios sitios gubernamentales debido a la crisis de salud COVID-19, la
+                            cola para
+                            actualizar los informes es más larga y los análisis tardan más de lo habitual. Por esta razón, los informes que
+                            se
+                            muestran en nuestra búsqueda pueden estar desactualizados.</small></p>
                     <h3>Resumen de la evaluación</h3>
-                    <p class="results-dialog">El resumén de la evaluación se mostrará aquí. Los criterios individuales se mostrarán abajo.</p>
+                    <p class="results-dialog">El resumén de la evaluación se mostrará aquí. Los criterios individuales se mostrarán abajo. Para obtener más información sobre los criterios, haga <a href="criteria.html">clic aquí</a>.</p>
                     <div id="results-summary-error" class="inactive mota-theme-primary-light-bg">
                     </div>
                     <div id="results-summary" class="inactive">
@@ -374,7 +390,7 @@
 	}
 }( typeof global !== "undefined" ? global : this ) );
     </script>
-    <script type="text/javascript" src="./dist/javaScript-autoComplete/auto-complete.min.js"></script>
+    <script type="text/javascript" src="./javaScript-autoComplete/auto-complete.min.js"></script>
     <script type="text/javascript" src="./app.bundle.js"></script>
 <script type="text/javascript" src="style.bundle.js"></script><script type="text/javascript" src="app.bundle.js"></script></body>
 </html>

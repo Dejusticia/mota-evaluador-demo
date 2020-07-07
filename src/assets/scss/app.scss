@@ -25,14 +25,11 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     font-family: $mdc-typography-font-family;
+    padding-top: 88px;
 }
 
-.mdc-top-app-bar {
-    color: rgb(252, 185, 0);
-}
-.mdc-top-app-bar__title {
-    font-size: 1rem;
-}
+/* ## General
+--------------------------------------------- */
 
 .no-js body,
 .js body {
@@ -118,6 +115,24 @@ body {
 .no-js body.credits--monserrate-jorge-gardner,
 .js body.credits--monserrate-jorge-gardner {
     background-image: url('../img/basico/monserrate-jorge-gardner-Exjq06SLhl4-unsplash.jpg');
+}
+
+/* ## Top Bar
+--------------------------------------------- */
+
+.mdc-top-app-bar {
+    color: rgb(252, 185, 0);
+}
+.mdc-top-app-bar--fixed {
+    top:0;
+}
+.mdc-top-app-bar__title {
+    font-size: 1rem;
+}
+
+.mdc-top-app-bar__row {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /* ## Credits
@@ -312,11 +327,6 @@ body.credits.credits--monserrate-jorge-gardner::after {
 
 /* ## Main content
 --------------------------------------------- */
-
-main,
-main.mdc-layout-grid {
-    padding-top: 88px;
-}
 
 .mota-theme-primary-light-bg {
     background-color: $mota-theme-primary-light;
@@ -767,7 +777,7 @@ summary {
 
 .results-criteria {
     margin-bottom: 1rem;
-    padding: 1rem 1rem 2rem 1rem;
+    padding: 2rem 1rem 2rem 1rem;
 }
 
 .results-criteria:nth-of-type(2n+1) {
