@@ -30,9 +30,11 @@ var my_autoComplete = new autoComplete({
         suggest(matches);
     }
 });
-var reportsRepositoryURI = 'https://dejusticia.github.io/mota-reports/';
-if ( 'production' !== environment){
+var reportsRepositoryURI = 'https://api.mota.dejusticia.org/v1/reports/';
+if ( 'development' === environment){
     reportsRepositoryURI = './reports/';
+} else if( 'fallback' === environment ){
+    reportsRepositoryURI = 'https://dejusticia.github.io/mota-reports/'
 }
 /*  Don't forget to load utilities.js first */
 (function (root, factory) {
@@ -96,10 +98,10 @@ if ( 'production' !== environment){
      */
     var getValidDomainInfo = function (url) {
         var domainInfo, basename, urlParameters = parseUri(sanitizeHTML(String(url)));
-        if ( null === urlParameters.host.match(/\w\.gov\.co$/)) {
+        if ( null === urlParameters.host.match(/\S+\.(gov|mil)\.co$/)) {
             summaryErrorElement.classList.remove('inactive');
             resultsDialogElement.innerHTML = '<b>Procesado</b> con error!';
-            summaryErrorElement.innerHTML = '<p>El enlace que buscó no es válido!</p><p>Por favor, use una URL .gov.co de um sítio web existente.</p>';
+            summaryErrorElement.innerHTML = '<p>El enlace que buscó no es válido!</p><p>Por favor, use una URL .gov.co o mil.co de um sítio web activo.</p>';
             throw new Error('This URI is invalid');
         }
         basename = urlParameters.host.replace(/^www\./g, '');
@@ -139,7 +141,7 @@ if ( 'production' !== environment){
      * @return {object} report object on success, error object on error.
      */
     var getReport = function (url) {
-        var compliantNumber = 0,partialComplianNumber = 0,unsufficientNumber = 0, notCompliantNumber;
+        var compliantNumber = 0,partialComplianNumber = 0,unsufficientNumber = 0, notCompliantNumber, reportURI = reportsRepositoryURI + encodeURI(url);
             /*notCompliantNumber++;
             unsufficientNumber++
             unsufficientNumber++;
@@ -158,8 +160,12 @@ if ( 'production' !== environment){
         console.log(urlObject);
         // cleanup results containers and site info
 
+        if ( 'development' === environment || 'fallback' === environment ){
+            reportURI = reportsRepositoryURI + urlObject.reportBasename + '.json';
+        }
+
         // fetch a report from the report repository
-        atomic( reportsRepositoryURI + urlObject.reportBasename + '.json') //
+        atomic( reportURI ) //
             .then(function (response) {
                 report = response.data;
                 processReport(report);
@@ -389,6 +395,7 @@ if ( 'production' !== environment){
     }
 
 
+
     /**
      * Handle all document submit events.
      * @param  {object}  event   The event object.
@@ -397,7 +404,9 @@ if ( 'production' !== environment){
         event.preventDefault();
         if (form === event.target) {
             console.log(input.value);
-            getReport(input.value);
+            console.log('sanitized input')
+            console.log(sanitizeHTML(input.value));
+            getReport(sanitizeHTML(input.value));
         }
     };
 

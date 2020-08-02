@@ -9,7 +9,7 @@
         document.documentElement.className = document.documentElement.className.replace("no-js", "js");
     </script>
     <meta name="theme-color" content="#fcd116">
-    <meta name="version" content="0.10.0">
+    <meta name="version" content="0.12.0">
     <link type="text/css" media="all" href="./bundle.css" rel="stylesheet" />
     <link rel="preload" href="./bundle.css" as="style" onload="this.onload=null; this.rel='stylesheet'" id="main-bundle-stylesheet">
     <noscript id="main-bundle-stylesheet--noscript">
@@ -52,35 +52,38 @@
     </ul>
     <header class=" mdc-top-app-bar mdc-top-app-bar--fixed">
         <nav class="mdc-top-app-bar__row"
-            aria-label="Navegación Evaluador de Transparencia Activa en Colombia - Iniciativa MOTA">
+            aria-label="Navegación Criterios Evaluador de Transparencia Activa MOTA">
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-                <span
-                    class="mdc-top-app-bar__title" role="none"><span class="hide-on-small">Evaluador de Transparencia Activa - </span>Iniciativa MOTA</span>
+                <a role="menuitem"
+                    href="index.html"
+                    aria-haspopup="true" aria-expanded="false" tabindex="0"
+                    class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
+                    aria-label="acceder al formulario de evaluación" title="Evalue un sítio"><span
+                    class="mdc-top-app-bar__title" role="none"><span class="hide-on-small"><span class="screen-reader-text">Criterios de Evaluación - </span></span>Iniciativa MOTA</span></a>
             </section>
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="menubar"
                 aria-label="Navegación Evaluador de Transparencia Activa en Colombia">
-                <!--<a role="menuitem"
-                    href="#main-content"
+                <a role="menuitem"
+                    href="index.html"
                     aria-haspopup="true" aria-expanded="false" tabindex="0"
                     class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
                     aria-label="acceder al formulario de evaluación" title="Evalue un sítio"><span
                         class="screen-reader-text">Evalue un sítio</span><span>assessment</span>
-                </a>-->
-                <a role="menuitem"
-                    href="http://mota.dejusticia.org"
-                    aria-haspopup="true" aria-expanded="false" tabindex="0" target="_blank"
-                    class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
-                    aria-label="Sepa más sobre la iniciativa MOTA" title="Sobre la iniciativa MOTA"><span
-                        class="screen-reader-text">Sobre la iniciativa MOTA</span><span>info</span>
                 </a>
                 <a role="menuitem"
+                    href="#main-content"
+                    aria-haspopup="true" aria-expanded="false" tabindex="0"
+                    class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Leya los criterios"
+                    title="Criterios"><span class="screen-reader-text">Criterios</span><span>assignment</span>
+                </a>
+                <!--<a role="menuitem"
                     href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md"
                     aria-haspopup="true" aria-expanded="false" tabindex="0" target="_blank"
                     class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
                     aria-label="Leya la Especificación" title="Especificación"><span
                         class="screen-reader-text">Especificación</span><span>assignment</span>
                 </a>
-                <!--<a role="menuitem" href="http://libreria.mota.dejusticia.org"
+                <a role="menuitem" href="http://libreria.mota.dejusticia.org"
                     aria-haspopup="true" aria-expanded="false" tabindex="0" target="_blank" class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
                         aria-label="Visite la libreria de patrones y repositiorio de códigos MOTA" title="Libreria y repositiorio de códigos MOTA"><span
                             class="screen-reader-text">Libreria y repositiorio de códigos</span><span>code</span>
@@ -92,88 +95,401 @@
         <div class="mdc-layout-grid__inner">
             <section aria-labelledby="evaluate-header"
                 class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12 hero-container">
-                <div class="hero-content">
-                    <h1 class="screen-reader-text">Criterios Evaluador de Transparencia Activa MOTA</h1>
+                <div class="hero-content" id="introduccion">
+                    <h1>Criterios Evaluador de Transparencia Activa MOTA</h1>
                     <h2>El Evaluador MOTA és una herramienta para evaluar el cumplimiento de obligaciones de transparencia activa en sitios web del Estado colombiano.</h2>
-                    <h3>Entenda los criterios</h3>
+                    <ul>
+                        <li><a href="#introduccion">Introducción</a></li>
+                        <li><a href="#listado-de-criterios">Listado de Criterios</a></li>
+                        <li><a href="#obligacion-y-recomendacion">Obligación y Recomendación</a></li>
+                        <li><a href="#nivel-de-exito-en-criterios-de-evaluacion">Niveles de Éxito</a></li>
+                    </ul>
+                    <p>Los criterios descritos a continuación son versiones simplificadas e introductorias de los criterios definidos en la especificación MOTA. Si está interesado en aprender en profundidad la evaluación, le recomendamos comenzar con los criterios a continuación y luego leer la especificación completa en el <a href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md" target="_blank">repositorio de Github</a>.</p>
+
                 </div>
             </section>
-            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8 mdc-card mdc-card--free-content"
-                id="results-summary-area">
-                <h3>Puntaje General</h3>
-                <p class="results-dialog">Los resultados se mostrarán aquí.</p>
-                <div id="results-summary-error" class="inactive mota-theme-primary-light-bg">
-                </div>
-                <div id="results-summary">
-                </div>
-            </div>
-            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4 mdc-card mdc-card--free-content"
-                id="report-section--summary">
-
-                    <h3>Escala de puntos:</h3>
-                    <div>
-                        <label for="reference-compliant">81-100 (Conformidad)</label>
-                        <meter id="reference-compliant" name="reference-compliant" min="0" low="19" high="81" max="100" optimum="91" value="100">100
-                        </meter>
-                    </div>
-                    <div>
-                        <label for="reference-partial-compliant">51-80 (Conformidad parcial)</label>
-                        <meter id="reference-partial-compliant" name="reference-partial-compliant" min="0" low="19" high="81" max="100" optimum="91" value="80">80
-                        </meter>
-                    </div>
-                    <div>
-                        <label for="reference-unsufficient">21-50 (Insuficiente)</label>
-                        <meter id="reference-unsufficient" name="reference-unsufficient" min="0" low="19" high="81" max="100" optimum="91" value="50">50
-                        </meter>
-                    </div>
-                    <div>
-                        <label for="reference-deficient">1-20 (Deficiente)</label>
-                        <meter id="reference-deficient" name="reference-deficient" min="0" low="19" high="81" max="100" optimum="91" value="20">20
-                        </meter>
-                    </div>
-                    <div>
-                        <label for="reference-not-compliant">0 (No conformidad)</label>
-                        <meter id="reference-not-compliant" name="reference-not-compliant" min="0" low="19" high="81" max="100" optimum="91" value="0">
-                            0
-                        </meter>
-                    </div>
-            </div>
-            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12" id="listado-de-criterios">
                 <section class="legal-obligations compliant mdc-card mdc-card--free-content">
-                    <h2>Obligaciones</h2>
+                    <h2>Categoría - Disponibilidad de Acceso</h2>
+                    <p>Esta categoría reúne criterios de evaluación sobre la disponibilidad de acceso al sitio web del sujeto obligado. Incluye obligaciones y recomendaciones básicas como la existencia de un sitio web, acceso gratuito, uso de contraseñas para acceder y seguimiento de buenas prácticas de accesibilidad que permiten el acceso a personas con discapacidades físicas, cognitivas o que no tienen conexiones o dispositivos rápidos baja capacidad.</p>
                     <div class="results-content">
-                        <div class="results-criteria">
-                            <h3>Estructura orgánicaa - La forma en que se compone y se organiza la entidade <span
+                        <div class="results-criteria" id="criteria-websiteExistence">
+                            <h3>Existencia de sitio Web <span
                                     class="results-criteria--tags"><span
                                         class="results-criteria-type results-criteria-type--obligation">tipo:
                                         obligación</span></span></h3>
-                            <p class="results-criteria--description">Descripción de la forma en que se compone y
-                                se organiza la
-                                entidade y no tan sólo la cabeza o principal
-                                órgano
-                                que se trate. <a href="#" class="more-link">Más Informaciones.</a></p>
+                            <p class="results-criteria--description">Para fomentar la transparencia activa y la participación ciudadana, y cumplir con las obligaciones legales colombianas, la entidade deberá mantener um sítio web, que deberá estar disponible para acesso via una URL oficial por personas y sistemas automáticos (e.g. robots). Preferencialmente en dos formatos: página web y archivos en formato estructurado y abierto. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#51-existencia-de-sitio-web" class="more-link">Obtenga más información en la especificación.</a></p>
+                        </div>
+                        <div class="results-criteria" id="criteria-freeAccess">
+                            <h3>Gratuidad <span
+                                    class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--obligation">tipo:
+                                        obligación</span></span></h3>
+                            <p class="results-criteria--description">El sítio debe tener aceso gratuito a los servicios judiciales informáticos que presta la entidad, exceto para casos previstos en ley e reglamentos. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#52-gratuidad" class="more-link">Obtenga más información en la especificación.</a></p>
+                        </div>
+                        <div class="results-criteria" id="criteria-universalityDirectAccess">
+                            <h3>Universalidad: Acceso directo <span
+                                    class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--recommendation">tipo:
+                                        recomendación</span></span></h3>
+                            <p class="results-criteria--description">El sitio web debe tener aceso gratuito a los servicios judiciales informáticos que presta la entidad, y no deben estar restringidos a ciertos usuarios previo registro y recepción de una clave de acceso, exceto para casos previstos en ley e reglamentos. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#53-universalidad-acceso-directo" class="more-link">Obtenga más información en la especificación.</a></p>
+                        </div>
+                        <div class="results-criteria" id="criteria-universalidadPatronesDeAcessibilidadeYWebStandards">
+                            <h3>Universalidad: Patrones de accesibilidad y web standards <span
+                                    class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--recommendation">tipo:
+                                        recomendación</span></span></h3>
+                            <p class="results-criteria--description">Para garantizar el acceso a la mayor cantidad posible de ciudadanos, independientemente de sus circunstancias físicas, cognitivas, sociales o económicas, los sitios web deben desarrollarse siguiendo los estándares web y las mejores prácticas de accesibilidadlos sitios deben permitir acesso tecnologias asistivas como lectores de tela, asistentes por voz, etc; Así como desde dispositivos de baja capacidad y conexión de baja velocidad. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#54-universalidad-patrones-de accesibilidad-y-web-standards" class="more-link">Obtenga más información en la especificación.</a></p>
+                        </div>
+                        <div class="results-criteria" id="criteria-universalityPerformance">
+                            <h3>Universalidad: Rendimiento <span
+                                    class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--recommendation">tipo:
+                                        recomendación</span></span></h3>
+                            <p class="results-criteria--description">Para garantizar el acceso del mayor número de ciudadanos, incluidos aquellos con dispositivos de baja capacidad y
+                            conexiones de baja velocidad, los sitios web deben desarrollarse siguiendo los estándares web y con velocidade rasonable
+                            y estable mismo em malas condiciones de aceso, como conexión por dispositivos móbiles en conexión de baja velocidad o
+                            inestables. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#55-rendimiento" class="more-link">Obtenga más información en la especificación.</a></p>
+                        </div>
+                        <div class="results-criteria" id="criteria-seguridadConexionEncriptada">
+                            <h3>Seguridad: Conexión encriptada <span
+                                    class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--recommendation">tipo:
+                                        recomendación</span></span></h3>
+                            <p class="results-criteria--description">Para garantizar una mayor privacidad y seguridad de la información de los ciudadanos, los sitios web deben ofrecer acceso encriptado, utilizando certificados de seguridad y versiones modernas del protocolo TLS. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#56-seguridad-conexión-encriptada" class="more-link">Obtenga más información en la especificación.</a></p>
+                        </div>
+                        <div class="results-criteria" id="criteria-dadosAbiertosAcesoViaApiRest">
+                            <h3>Dados Abiertos: Acceso vía API REST <span
+                                    class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--recommendation">tipo:
+                                        recomendación</span></span></h3>
+                            <p class="results-criteria--description">Los contenidos del sitio son acesibles por una API
+                                REST con datos estructurados, incluso meta-dados. Esta recomendación busca facilitar
+                                acesso a información por robots y sistemas automatizados, aumentando las capacidades de
+                                veeduría ciudadana. <a target="especification-mota"
+                                    href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#57-dados-abiertos-acceso-v%C3%Aa-api-rest"
+                                    class="more-link">Obtenga más información en la especificación.</a></p>
                         </div>
 
                     </div>
                 </section>
                 <section
                     class="legal-recommendations compliant mdc-card mdc-card--free-content">
-                    <h2>Recomendaciones</h2>
+                    <h2>Información Mínima Obligatoria sobre la Estructura</h2>
+                    <p>Información sobre la estructura del sujeto obligado, de acuerdo con el artículo 9 de la Ley 1712 de 2014.</p>
                     <div class="results-content">
-                        <div class="results-criteria">
-                            <h3>Estructura orgánica - La forma en que se compone y se organiza la entidade <span class="results-criteria--tags"><span
-                                        class="results-criteria-type results-criteria-type--recommendation">tipo:
-                                        recomedación</span></span></h3>
-                            <p class="results-criteria--description">Descripción de la forma en que se compone y
-                                se organiza la
-                                entidade y no tan sólo la cabeza o principal
-                                órgano
-                                que se trate. <a href="#" class="more-link">Más Informaciones.</a></p>
+                        <div class="results-criteria" id="criteria-estructuraOrganica">
+                            <h3>Estructura orgánica / Organigrama <span class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--obligation">tipo:
+                                        obligación</span></span></h3>
+                            <p class="results-criteria--description">Para que la ciudadanía conozca la jerarquía de empleados y departamentos disponibles en la entidad, esta publica su estructura orgánica de manera gráfica (ejemplo: organigrama), y tambíen publica una descripción de la estructura orgánica, donde se ofrezca información general de cada división o dependencia, y no tan sólo la cabeza o principal órgano que se trate.  Preferencialmente en dos formatos: description textual en la página y imagem o archivos en formato estructurado y abierto. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#61-estructura-orgánica-organigrama" class="more-link">Obtenga más información en la especificación.</a></p>
+                        </div>
+                        <div class="results-criteria" id="criteria-funcionesYDeberes">
+                            <h3>Funciones y deberes <span class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--obligation">tipo:
+                                        obligación</span></span></h3>
+                            <p class="results-criteria--description">Para que la ciudadanía conozca la jerarquía de empleados y departamentos disponibles en la entidad, esta publica su estructura orgánica de manera gráfica (ejemplo: organigrama), y tambíen publica una descripción de la estructura orgánica, donde se ofrezca información general de cada división o dependencia, y no tan sólo la cabeza o principal órgano que se trate.  Preferencialmente en dos formatos: description textual en la página y imagem o archivos en formato estructurado y abierto. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#62-funciones-y-deberes" class="more-link">Obtenga más información en la especificación.</a></p>
+                        </div>
+                        <div class="results-criteria" id="criteria-ubicacionDeSusSedesYAreas">
+                            <h3>Ubicación de sus sedes y áreas, divisiones o departamentos / Localización física, sucursales o regionales <span class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--obligation">tipo:
+                                        obligación</span></span></h3>
+                            <p class="results-criteria--description">Para que la ciudadanía conozca la jerarquía de empleados y departamentos disponibles en la entidad, esta publica su estructura orgánica de manera gráfica (ejemplo: organigrama), y tambíen publica una descripción de la estructura orgánica, donde se ofrezca información general de cada división o dependencia, y no tan sólo la cabeza o principal órgano que se trate.  Preferencialmente en dos formatos: description textual en la página y imagem o archivos en formato estructurado y abierto. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#63-ubicación-de-sus-sedes-y-áreas-divisiones-o-departamentos--localización-física-sucursales-o-regionales" class="more-link">Obtenga más información en la especificación.</a></p>
+                        </div>
+                        <div class="results-criteria" id="criteria-divisionesODepartamentos">
+                            <h3>Divisiones o departamentos <span class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--obligation">tipo:
+                                        obligación</span></span></h3>
+                            <p class="results-criteria--description">Información general sobre las divisiones territoriales de el sujeto obligado: indicación de cuales son las divisiones, direcciones, etc. Preferencialmente en dos formatos: página web y archivos en formato estructurado y abierto. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#64-divisiones-o-departamentos" class="more-link">Obtenga más información en la especificación.</a></p>
+                        </div>
+                        <div class="results-criteria" id="criteria-horarioDeAtencionAlPublico">
+                            <h3>Horario de Atención al Público <span class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--obligation">tipo:
+                                        obligación</span></span></h3>
+                            <p class="results-criteria--description">La entidade debe publicar información sobre horarios y días de atención al público de la entidad y sus divisiones o sucursales en diferentes medios: en la sede, teléfono, correo electrónico, etc. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#65-horario-de-atención-al-público" class="more-link">Obtenga más información en la especificación.</a></p>
+                        </div>
+                        <div class="results-criteria" id="criteria-presupuesto">
+                            <h3>Presupuesto general <span class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--obligation">tipo:
+                                        obligación</span></span></h3>
+                            <p class="results-criteria--description">El presupuesto de la entidad para la respectiva vigencia debe estar disponible para verificación del público. Puede ser el presupuesto inicial o final. Eo presupuesto debe ofrecer datos (valores, ingresos, gastos) de forma clara, organizada y desagregado. Preferencialmente en dos formatos: página web y archivos en formato estructurado y abierto. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#66-presupuesto-general" class="more-link">Obtenga más información en la especificación.</a></p>
+                        </div>
+                        <div class="results-criteria" id="criteria-ejecucionHistoricaAnual">
+                            <h3>Ejecución histórica anual <span class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--obligation">tipo:
+                                        obligación</span></span></h3>
+                            <p class="results-criteria--description">El sujeto obligado publica la información histórica detallada de la ejecución presupuestal aprobada y ejecutada de ingresos y gastos anuales, idealmente con porcentajes de ejecución, y deben ofrecer datos (gastos, valores, ingresos) de forma clara, organizada. Preferencialmente en dos formatos: página web y archivos en formato estructurado y abierto. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#67-ejecución-histórica-anual" class="more-link">Obtenga más información en la especificación.</a></p>
+                        </div>
+                        <div class="results-criteria" id="criteria-planesDeGastoPublicoPorAnoFiscal">
+                            <h3>Planes de gasto público por año fiscal <span class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--obligation">tipo:
+                                        obligación</span></span></h3>
+                            <p class="results-criteria--description">El sujeto obligado publica su plan de gasto público para cada año fiscal, en el cual se especifican los objetivos, las estrategias, los proyectos, las metas, los responsables, los planes generales de compras y la distribución presupuestal de sus proyectos de inversión junto a los indicadores de gestión. Preferencialmente en dos formatos: página web y archivos en formato estructurado y abierto. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#68-planes-de-gasto-público-por-año-fiscal" class="more-link">Obtenga más información en la especificación.</a></p>
+                        </div>
+                        <div class="results-criteria" id="criteria-directorioDeFuncionario">
+                            <h3>Directorio de servidores públicos, empleados (i.e. funcionários)<span class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--obligation">tipo:
+                                        obligación</span></span></h3>
+                            <p class="results-criteria--description">El sujeto obligado publica en formato accesible y reutilizable el directorio de información de los servidores públicos empleados, incluyendo aquellos que laboran en las sedes, áreas, divisiones, departamentos y/o regionales. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#69-directorio-de-servidores-públicos-empleados-ie-funcionários" class="more-link">Obtenga más información en la especificación.</a></p>
+                        </div>
+                        <div class="results-criteria" id="criteria-directorioDeContratistas">
+                            <h3>Directorio de servidores públicos contratistas <span class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--obligation">tipo:
+                                        obligación</span></span></h3>
+                            <p class="results-criteria--description">Para que la ciudadanía conozca la jerarquía de empleados y departamentos disponibles en la entidad, esta publica su estructura orgánica de manera gráfica (ejemplo: organigrama), y tambíen publica una descripción de la estructura orgánica, donde se ofrezca información general de cada división o dependencia, y no tan sólo la cabeza o principal órgano que se trate.  Preferencialmente en dos formatos: description textual en la página y imagem o archivos en formato estructurado y abierto. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#610-directorio-de-servidores públicos-contratistas" class="more-link">Obtenga más información en la especificación.</a></p>
+                        </div>
+                        <div class="results-criteria" id="criteria-escalasSalariales">
+                            <h3>Escalas salariales <span class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--obligation">tipo:
+                                        obligación</span></span></h3>
+                            <p class="results-criteria--description">Es posible encontrar una tabla con los rangos de salarios de la entidad, identificado por el título "Rangos de salario por nivel", y el decreto de asignaciones salariales de la entidad en un lugar visible. Preferencialmente en dos formatos: página web y archivos en formato estructurado y abierto. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#611-escalas-salariales" class="more-link">Obtenga más información en la especificación.</a></p>
+                        </div>
+                        <div class="results-criteria" id="criteria-sancionesAplicadasAServidoresPublicos">
+                            <h3>Sanciones aplicadas a servidores públicos <span class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--obligation">tipo:
+                                        obligación</span></span></h3>
+                            <p class="results-criteria--description">Es posible encontrar información sobre sanciones disciplinarias o de otro tipo que hayan sido impuestas a funcionarios de la entidad, así como estadísticas sobre las sanciones impuestas. Preferencialmente en dos formatos: página web y archivos en formato estructurado y abierto. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#612-sanciones-aplicadas-a-servidores-públicos" class="more-link">Obtenga más información en la especificación.</a></p>
+                        </div>
+                        <div class="results-criteria" id="criteria-informacionDeContratos">
+                            <h3>Información de contratos <span class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--obligation">tipo:
+                                        obligación</span></span></h3>
+                            <p class="results-criteria--description">Es posible encontrar información sobre los contratos realizados por la entidad, disponible en formatos abiertos. Preferencialmente en dos formatos: página web y archivos en formato estructurado y abierto. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#613-información-de-contratos" class="more-link">Obtenga más información en la especificación.</a></p>
+                        </div>
+                        <div class="results-criteria" id="criteria-normasGenerales">
+                            <h3>Normas generales <span class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--obligation">tipo:
+                                        obligación</span></span></h3>
+                            <p class="results-criteria--description">Para que la ciudadanía conozca la jerarquía de empleados y departamentos disponibles en la entidad, esta publica su estructura orgánica de manera gráfica (ejemplo: organigrama), y tambíen publica una descripción de la estructura orgánica, donde se ofrezca información general de cada división o dependencia, y no tan sólo la cabeza o principal órgano que se trate.  Preferencialmente en dos formatos: description textual en la página y imagem o archivos en formato estructurado y abierto. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#614-normas-generales" class="more-link">Obtenga más información en la especificación.</a></p>
+                        </div>
+                        <div class="results-criteria" id="criteria-normasReglamentarias">
+                            <h3>Normas Reglamentarias <span class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--obligation">tipo:
+                                        obligación</span></span></h3>
+                            <p class="results-criteria--description">La entidad publica el decreto único reglamentario sectorial, que compila todas las normas reglamentarias vigentes del sector administrativo del que hace parte. Por medio de este decreto se debe generar el acceso a las normas compiladas a través de hipervínculos. Preferencialmente en dos formatos: página web y archivos en formato estructurado y abierto. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#615-normas-reglamentarias" class="more-link">Obtenga más información en la especificación.</a></p>
+                        </div>
+                        <div class="results-criteria" id="criteria-manuales">
+                            <h3>Políticas, lineamientos o manuales <span class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--obligation">tipo:
+                                        obligación</span></span></h3>
+                            <p class="results-criteria--description">Para que a cidadania esteja bem informada sobre o funcionamento institucional. El sujeto obligado publica sus lineamientos, manuales y toda política que haya adoptado y afecte al público, junto con sus fundamentos y toda interpretación autorizada de ellas. Preferencialmente en dos formatos: página web y archivos en formato estructurado y abierto. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#616-pol%C3%Aticas-lineamientos-o-manuales" class="more-link">Obtenga más información en la especificación.</a></p>
+                        </div>
+                        <div class="results-criteria" id="criteria-metasYObjectivos">
+                            <h3>Metas y Objetivos <span class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--obligation">tipo:
+                                        obligación</span></span></h3>
+                            <p class="results-criteria--description">La entidad y sus unidades administrativas publican la información relacionada con sus metas y objetivos, de conformidad
+                            con sus programas operativos y los demás planes exigidos, y publicar su estado de avance, mínimo cada tres (3) meses.
+                            Preferencialmente en dos formatos: página web y archivos en formato estructurado y abierto. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#617-metas-y-objectivos" class="more-link">Obtenga más información en la especificación.</a></p>
+                        </div>
+                        <div class="results-criteria" id="criteria-indicadoresDeDesempeno">
+                            <h3>Indicadores de gestión y/o desempeño <span class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--obligation">tipo:
+                                        obligación</span></span></h3>
+                            <p class="results-criteria--description">Las entidades deben proveer información sobre los indicadores de gestión o desempeño que utilizan, así como reportes con estadísticas y análisis del desempeño en relación con sus programas operativos y los demás planes. Preferencialmente en dos formatos: página web y archivos en formato estructurado y abierto. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#618-indicadores-de-gestión-y-o-desempeño" class="more-link">Obtenga más información en la especificación.</a></p>
+                        </div>
+                        <div class="results-criteria" id="criteria-planAnticorrupcionYDeAtencionAlCiudadano">
+                            <h3>Plan anticorrupción y de atención al ciudadano <span class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--obligation">tipo:
+                                        obligación</span></span></h3>
+                            <p class="results-criteria--description">El sujeto obligado publica anualmente una estrategia de lucha contra la corrupción y de atención al ciudadano contemplando mapa de riesgos de corrupción, estrategias y medidas concretas para mitigar esos riesgos y mejorar atención al ciudadano. Preferencialmente en dos formatos: página web y archivos en formato estructurado y abierto. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#619-plan-anticorrupción-y-de-atención-al-ciudadano" class="more-link">Obtenga más información en la especificación.</a></p>
+                        </div>
+                        <div class="results-criteria" id="criteria-planDeComprasYAdquisicion">
+                            <h3>Plan anual de compras y adquisiciones <span class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--obligation">tipo:
+                                        obligación</span></span></h3>
+                            <p class="results-criteria--description">La entidad publica en su sitio web y en el sistema SECOP su plan general de compras, entendido como un instrumento de planeación contractual que las entidades estatales deben diligenciar, publicar y actualizar por lo menos una vez durante su vigencia y hay ajustes según lo establecido en la ley y otras normativas. Preferencialmente en dos formatos: página web y archivos en formato estructurado y abierto. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#620-plan-anual-de-compras-y-adquisiciones" class="more-link">Obtenga más información en la especificación.</a></p>
+                        </div>
+
+                    </div>
+                </section>
+                <section
+                    class="legal-recommendations compliant mdc-card mdc-card--free-content">
+                    <h2>Información Mínima Obligatoria respecto a Servicios, Procedimientos y Funcionamiento</h2>
+                        <p>Información Mínima Obligatoria respecto a servicios, procedimientos y funcionamiento, de acuerdo con el artículo 11 de la Ley 1712 de 2014.</p>
+                    <div class="results-content">
+                        <div class="results-criteria" id="criteria-atencionAlCiudadano">
+                            <h3>Servicios <span class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--obligation">tipo:
+                                        obligación</span></span></h3>
+                            <p class="results-criteria--description">El sitio web de la entidad obligado contiene una o más páginas con información de los servicios que brinda directamente al público, incluyendo i) normas ii) formularios y formatos y, iii) protocolos de atención a diferentes públicos. Preferencialmente en dos formatos: página web y archivos en formato estructurado y abierto. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#71-servicios" class="more-link">Obtenga más información en la especificación.</a></p>
+                        </div>
+                        <div class="results-criteria" id="criteria-tramites">
+                            <h3>Trámites <span class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--obligation">tipo:
+                                        obligación</span></span></h3>
+                            <p class="results-criteria--description">El sitio web contiene informaciones de los trámites que se pueden agotar en la entidad, incluyendo i) normativa(s) relacionada(s) ii) proceso a seguir, incluso formularios y formatos y, iii) costos asociados. iv) aquellos que se encuentren disponibles en línea. Preferencialmente en dos formatos: página web y archivos en formato estructurado y abierto. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#72-tramites" class="more-link">Obtenga más información en la especificación.</a></p>
+                        </div>
+                        <div class="results-criteria" id="criteria-procedimientos">
+                            <h3>Procedimientos de toma de decisiones <span class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--obligation">tipo:
+                                        obligación</span></span></h3>
+                            <p class="results-criteria--description">El sitio web de la entidad contiene la descripción de los procesos y procedimientos que se siguen para tomar decisiones en las diferentes áreas. Preferencialmente en dos formatos: página web y archivos en formato estructurado y abierto. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#73-procedimientos-de-toma-de-decisiones" class="more-link">Obtenga más información en la especificación.</a></p>
+                        </div>
+                        <div class="results-criteria" id="criteria-decisiones">
+                            <h3>Decisiones <span class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--obligation">tipo:
+                                        obligación</span></span></h3>
+                            <p class="results-criteria--description">En el sitio web de la entidad se encuentra publicado los contenidos de las decisiones adoptadas que afecten al público, junto con sus fundamentos e interpretaciones. Preferencialmente en dos formatos: página web y archivos en formato estructurado y abierto. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#74-decisiones" class="more-link">Obtenga más información en la especificación.</a></p>
+                        </div>
+                        <div class="results-criteria" id="criteria-politicas">
+                            <h3>Políticas <span class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--obligation">tipo:
+                                        obligación</span></span></h3>
+                            <p class="results-criteria--description">La entidad publica en su sitio web las políticas adoptadas que afecten al público, junto con sus fundamentos e interpretaciones. Preferencialmente en dos formatos: página web y archivos en formato estructurado y abierto. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#75-politicas" class="more-link">Obtenga más información en la especificación.</a></p>
+                        </div>
+                        <div class="results-criteria" id="criteria-participacionCiudadanaMecanismosDePresentacionDirecta">
+                            <h3>Mecanismos de participación ciudadana <span class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--obligation">tipo:
+                                        obligación</span></span></h3>
+                            <p class="results-criteria--description">El sitio de la entidad debe ofrecer mecanismos de presentación directa de solicitudes, quejas, denuncias y reclamos a disposición del público: teléfonos fijos y móviles, con líneas gratuitas y fax, correo electrónico institucional, correo físico o postal, formulario electrónico de solicitudes, peticiones, quejas, reclamos. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#76-mecanismos-de-participación-ciudadana" class="more-link">Obtenga más información en la especificación.</a></p>
+                        </div>
+                        <div class="results-criteria" id="criteria-reporteDeParticipacionCiudadana">
+                            <h3>Informe de participación ciudadana <span class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--obligation">tipo:
+                                        obligación</span></span></h3>
+                            <p class="results-criteria--description">El sitio de la entidad debe contener informe de todas las peticiones, quejas, reclamos, denuncias y solicitudes de acceso a información pública recibidas, los tiempos de respuesta del sujeto obligado y un análisis resumido de este tema. Preferencialmente en dos formatos: página web y archivos en formato estructurado y abierto. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#77-informe-de-participación-ciudadana" class="more-link">Obtenga más información en la especificación.</a></p>
+                        </div>
+                        <div class="results-criteria" id="criteria-mecanismosDeParticipacionCiudadanaEmFormulacionDePoliticas">
+                            <h3>Mecanismos de participación ciudadana en formulación de políticas <span class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--obligation">tipo:
+                                        obligación</span></span></h3>
+                            <p class="results-criteria--description">El sitio de la entidad debe contener información sobre todo mecanismo o procedimiento al que deben sujetarse los ciudadanos, usuarios o interesados en participar en la formulación de la política, en el ejercicio de las facultades de ese sujeto obligado, o en el control o evaluación de la gestión institucional. Preferencialmente en dos formatos: página web y archivos en formato estructurado y abierto. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#78-mecanismos-de-participación-ciudadana-en-formulación-de-políticas" class="more-link">Obtenga más información en la especificación.</a></p>
+                        </div>
+                        <div class="results-criteria" id="criteria-informesDeGestion">
+                            <h3>Informes de gestión <span class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--obligation">tipo:
+                                        obligación</span></span></h3>
+                            <p class="results-criteria--description">La entidad publica todos los informes de gestión enviado al Congreso / Asamblea / Consejo. Preferencialmente en dos formatos: página web y archivos en formato estructurado y abierto. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#791-informes-de-gestión" class="more-link">Obtenga más información en la especificación.</a></p>
+                        </div>
+                        <div class="results-criteria" id="criteria-informeDeRendicionDeLaCuentaFiscal">
+                            <h3>Informe de rendición de la cuenta fiscal <span class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--obligation">tipo:
+                                        obligación</span></span></h3>
+                            <p class="results-criteria--description">La entidad publica todos los informes de rendición de la cuenta fiscal a la Contraloría General de la República o a las Contralorías Territoriales, según corresponda. Preferencialmente en dos formatos: página web y archivos en formato estructurado y abierto. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#792-informe-de-rendición-de-la-cuenta-fiscal" class="more-link">Obtenga más información en la especificación.</a></p>
+                        </div>
+                        <div class="results-criteria" id="criteria-informeDeRendicionDeCuentasALosCiudadanos">
+                            <h3>Informe de rendición de cuentas a los ciudadanos <span class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--obligation">tipo:
+                                        obligación</span></span></h3>
+                            <p class="results-criteria--description">La entidad publica todos los informes de rendición de cuentas a los ciudadanos, incluyendo la respuesta a las solicitudes de los ciudadanos antes y durante el ejercicio de rendición. Preferencialmente en dos formatos: página web y archivos en formato estructurado y abierto. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#793-informe-de-rendición-de-cuentas-a-los-ciudadanos" class="more-link">Obtenga más información en la especificación.</a></p>
+                        </div>
+                        <div class="results-criteria" id="criteria-informesDeAuditoria">
+                            <h3>Informes de Auditoría <span class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--obligation">tipo:
+                                        obligación</span></span></h3>
+                            <p class="results-criteria--description">La entidad publica todos los informes de la auditoría al ejercicio presupuestal enviados a organismos de inspección, vigilancia y control. Preferencialmente en dos formatos: página web y archivos en formato estructurado y abierto. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#794-informes-de-auditor%C3%Aa" class="more-link">Obtenga más información en la especificación.</a></p>
+                        </div>
+                        <div class="results-criteria" id="criteria-mecanismosInternosDeSupervisionOficinaDeControlInterno">
+                            <h3>Mecanismos internos de supervisión <span class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--obligation">tipo:
+                                        obligación</span></span></h3>
+                            <p class="results-criteria--description">La entidad publica información relacionada con los informes, planes de mejoramiento, entes y mecanismos de supervisión y control que existen al interior del sujeto obligado, incluyendo como mínimo: ente de control interno que vigila al sujeto obligado y reportes de control interno. Preferencialmente en dos formatos: página web y archivos en formato estructurado y abierto. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#710-mecanismos-internos-de-supervisión" class="more-link">Obtenga más información en la especificación.</a></p>
+                        </div>
+                        <div class="results-criteria" id="criteria-mecanismosExternosDeSupervision">
+                            <h3>Mecanismos externos de supervisión <span class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--obligation">tipo:
+                                        obligación</span></span></h3>
+                            <p class="results-criteria--description">La entidad publica información relacionada con los informes, planes de mejoramiento, entes y mecanismos de supervisión y control externo, incluyendo como mínimo: Entes de control externo que vigilan al sujeto obligado,  mecanismos de supervisión y la manera como un particular puede comunicar una irregularidad ante los entes que ejercen supervisión y control. Preferencialmente en dos formatos: página web y archivos en formato estructurado y abierto. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#711-mecanismos-externos-de-supervisión" class="more-link">Obtenga más información en la especificación.</a></p>
+                        </div>
+                        <div class="results-criteria" id="criteria-correoNotificaciones">
+                            <h3>Correo electrónico para notificaciones judiciales <span class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--obligation">tipo:
+                                        obligación</span></span></h3>
+                            <p class="results-criteria--description">La entidad publica la dirección de correo electrónico para notificaciones judiciales. Idealmente en el pie de página de todas las páginas del sitio web, y al menos en la página principal del sitio web del sujeto obligado  así como en la sección de atención al ciudadano. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#712-correo-electrónico-para-notificaciones-judiciales" class="more-link">Obtenga más información en la especificación.</a></p>
+                        </div>
+                        <div class="results-criteria" id="criteria-procedimientosYLineamientosDeContratacion">
+                            <h3>Procedimientos y Lineamientos de Contratación <span class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--obligation">tipo:
+                                        obligación</span></span></h3>
+                            <p class="results-criteria--description">El sitio web de la entidad debe contener información de procedimientos y lineamientos de contratación. Documentos ex - ante(de planeación o tipo manual) que den guía sobre cómo se va a proceder para hacer algo, formulado por la entidad. Preferencialmente en dos formatos: página web y archivos en formato estructurado y abierto. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#713-procedimientos-y-lineamientos-de-contratación" class="more-link">Obtenga más información en la especificación.</a></p>
+                        </div>
+                        <div class="results-criteria" id="criteria-politicasEnMateriaDeAdquisicionesYCompras">
+                            <h3>Políticas en materia de adquisiciones y compras <span class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--obligation">tipo:
+                                        obligación</span></span></h3>
+                            <p class="results-criteria--description">El sitio web de la entidad debe contener información de su plan de adquisiciones: proceso de gestión contractual, plan anual de adquisiciones; datos y processos y ejecución de los contratos. Preferencialmente en dos formatos: página web y archivos en formato estructurado y abierto. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#714-pol%C3%Aticas-en-materia-de-adquisiciones-y-compras" class="more-link">Obtenga más información en la especificación.</a></p>
+                        </div>
+
+                    </div>
+                </section>
+                <section
+                    class="legal-recommendations compliant mdc-card mdc-card--free-content">
+                    <h2>Instrumentos De Gestión De la Información Pública</h2>
+                    <div class="results-content">
+                        <div class="results-criteria" id="criteria-esquemasDePublicacionDeInformacion">
+                            <h3>Esquemas de publicación de información <span class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--obligation">tipo:
+                                        obligación</span></span></h3>
+                            <p class="results-criteria--description">El sitio de la entidad debe contener una o más páginas con informaciones de Esquemas de Publicación de información, publicadas en una página denominada "Acceso a información pública". Preferencialmente en dos formatos: página web y archivos en formato estructurado y abierto. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#81-esquemas-de-publicación-de-información" class="more-link">Obtenga más información en la especificación.</a></p>
+                        </div>
+                        <div class="results-criteria" id="criteria-programaDeGestionDocumental">
+                            <h3>Programa de gestión documental <span class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--obligation">tipo:
+                                        obligación</span></span></h3>
+                            <p class="results-criteria--description">El sitio de la entidad debe contener una o más páginas con informaciones del Programa de Gestión Documental, publicadas en una página denominada "Gestión Documental" y informar procedimientos y lineamientos necesarios para la producción, distribución, organización, consulta y conservación de los documentos públicos. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#82-programa-de-gestión-documental" class="more-link">Obtenga más información en la especificación.</a></p>
+                        </div>
+                        <div class="results-criteria" id="criteria-tablasDeRetencionDocumental">
+                            <h3>Tablas de retención documental <span class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--obligation">tipo:
+                                        obligación</span></span></h3>
+                            <p class="results-criteria--description">El sitio de la entidad debe contener una o más páginas con información acerca de las Tablas de Retención Documental, en una sección identificada con el nombre "Transparencia y acceso a información pública". Preferencialmente en dos formatos: página web y archivos en formato estructurado y abierto. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#83-tablas-de-retención-documental" class="more-link">Obtenga más información en la especificación.</a></p>
+                        </div>
+                        <div class="results-criteria" id="criteria-respuestasASolicitudesDeInformacionRecibidas">
+                            <h3>Respuestas a solicitudes de información recibidas <span class="results-criteria--tags"><span
+                                        class="results-criteria-type results-criteria-type--obligation">tipo:
+                                        obligación</span></span></h3>
+                            <p class="results-criteria--description">El sitio de la entidad debe contener una o más páginas con las respuestas a solicitudes de acceso a información pública anterior a la entrada en vigencia de la Ley 1712 de 2014. Preferencialmente en dos formatos: página web y archivos en formato estructurado y abierto. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#84-respuestas-a-solicitudes-de-información-recibidas" class="more-link">Obtenga más información en la especificación.</a></p>
                         </div>
 
                     </div>
                 </section>
             </div>
+            <section class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+                <div class="hero-content" id="introduccion">
+                    <h3 id="obligacion-y-recomendacion">Obligación y Recomendación</h3>
+                    <p>Clasificamos cada criterio como OBLIGACIÓN o RECOMENDACIÓN. El primero significa que el criterio de evaluación es obligatorio y DEBE ser implementado, pués es REQUERIDO de acuerdo con el marco legal colombiano. Mientras que el segundo significa que el criterio no es OPCIONAL, y el sujeto obligado DEBERÍA implementarlo para que i) el acceso y la comprensión de la información sean efectivos y/o ii) se mejore la experiencia del usuario, especialmente aquellos en condiciones donde el acceso a la información es más difícil debido a discapacidades físicas, cognitivas, neuronales o condiciones técnicas y económicas tales como acceso restringido a conexiones de datos, o baja velocidad de conexiones, o dispositivos con capacidades de procesamiento más bajas.</p>
+                    <h3 id="nivel-de-exito-en-criterios-de-evaluacion">Nivel de Éxito en Critérios de Evaluación</h3>
+                    <p>Con algunas excepciones, cada criterio se evalúa en 3 niveles diferentes, equivalentes a los rangos de puntuación definidos en <a href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md" target="_blank">la especificación MOTA</a>. Las directrices relacionadas con la disponibilidad de información, como regla general, mide el cumplimiento de las mejores prácticas delineadas por Open Knowledge Foundation en El manual de Open Data <a href="http://opendatahandbook.org/guide/es/">(Open Data Handbook)</a> y las recomendaciones de W3C en <a href="https://www.w3.org/TR/gov-data/">publicación de datos de gobierno abierto</a>. La escala de puntos varía de 0 a 100, y se correlaciona con el marco <a href="https://5stardata.info/es/">5 estrellas para Datos Abiertos</a>, con las siguientes reglas base de puntuación.</p>
+                    <h4 id="nivel-a">Nivel A: Información disponible en archivo</h4>
+                    <p>La información está disponible en archivo, de acuerdo a una de las opciones a seguir:</p>
+                    <ul>
+                        <li>en formato propietario (docx, xlsx, pdf): 20 puntos</li>
+                        <li>en formato abierto y libre, pero no legible/acesible por máquina (e.g. texto o tabla digitalizado): 35 puntos</li>
+                        <li>en formato abierto y libre, con datos estructurados (e.g. en caso de tablas) y
+                            legible/acesible por máquina: 50 puntos</li>
+                    </ul>
+                    <p>Los puntos no son acumulativos.</p>
+                    <p><strong>Importante:</strong> si los datos están solamente en otros sitios (e.g. SICOP, Datos
+                        Abiertos, etc), la puntuación es reducida a la mitad.</p>
+                    <h4 id="nivel-aa">Nivel AA: Información disponible para personas disponibles en la misma página</h4>
+                    <p>La información está disponibles en la sitio web, de acuerdo a una de las opciones a seguir:</p>
+                    <ul>
+                        <li>en formato HTML en la misma página: 15 puntos</li>
+                        <li>en HTML5 estructurado, semántico y en la misma página: 30 puntos
+                            <ul>
+                                <li>ejemplo: tabla para datos estructurados; H2, h3, etc para subtítulos</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p>Los puntos se pueden acumular con los puntos del nivel A.</p>
+                    <h4 id="nivel-aaa">Nível AAA: Información disponible como meta-datos estructurados legible por máquina</h4>
+                    <p>Además de conformidad con el nivel AA, la información está disponible como meta-datos
+                        estructurados legible por máquina.</p>
+                    <ul>
+                        <li>datos estructurados (<a href="https://schema.org">schema.org</a>, json, meta-datos, etc) en
+                            la misma página: 20 puntos</li>
+                    </ul>
+                    <p>Los puntos se pueden acumular con los puntos del nivel AA.</p>
+                    <ul>
+                        <li><a href="#introduccion">Introducción</a></li>
+                        <li><a href="#listado-de-criterios">Listado de Criterios</a></li>
+                        <li><a href="#obligacion-y-recomendacion">Obligación y Recomendación</a></li>
+                        <li><a href="#nivel-de-exito-en-criterios-de-evaluacion">Niveles de Éxito</a></li>
+                    </ul>
+                </div>
+
+            </section>
             <section
                 class="report-section mdc-layout-grid__cell mdc-layout-grid__cell--span-12 mdc-card mdc-card--free-content"
                 id="report-section--criterio-entidades">
@@ -207,7 +523,7 @@
             <p class="results-criteria--description">Descripción de la forma en que se compone y se organiza la
                 entidade y no tan sólo la cabeza o principal
                 órgano
-                que se trate. <a href="#" class="more-link">Más Informaciones.</a></p>
+                que se trate. <a target="especification-mota" href="https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md" class="more-link">Obtenga más información en la especificación.</a></p>
         </div>
     </template>
     <script>
