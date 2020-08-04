@@ -1,1 +1,1 @@
-# Avaliador de Transparência Ativa em Colombia - Iniciativa MOTA 0.12.0
+# Avaliador de Transparência Ativa em Colombia - Iniciativa MOTA
