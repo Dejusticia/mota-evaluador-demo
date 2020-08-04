@@ -9,8 +9,9 @@
         document.documentElement.className = document.documentElement.className.replace("no-js", "js");
     </script>
     <meta name="theme-color" content="#fcd116">
-    <meta name="version" content="0.9.0">
+    <meta name="version" content="0.12.0">
     <link type="text/css" media="all" href="./bundle.css" rel="stylesheet" />
+    <link type="text/css" media="all" href="./javaScript-autoComplete/auto-complete.css" rel="stylesheet" />
     <link rel="preload" href="./bundle.css" as="style" onload="this.onload=null; this.rel='stylesheet'" id="main-bundle-stylesheet">
     <noscript id="main-bundle-stylesheet--noscript">
         <link type="text/css" media="all" href="./bundle.css" rel="stylesheet" />
@@ -53,22 +54,31 @@
     <header class=" mdc-top-app-bar mdc-top-app-bar--fixed">
         <nav class="mdc-top-app-bar__row"
             aria-label="Navegación Evaluador de Transparencia Activa en Colombia - Iniciativa MOTA">
-            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start"><a role="menuitem"
+                    href="#main-content"
+                    aria-haspopup="true" aria-expanded="false" tabindex="0"
+                    class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
+                    aria-label="acceder al formulario de evaluación" title="Evalue un sítio">
                 <span
-                    class="mdc-top-app-bar__title" role="none"><span class="hide-on-small">Evaluador de Transparencia Activa - </span>Iniciativa MOTA</span>
+                    class="mdc-top-app-bar__title" role="none"><span class="hide-on-small"><span class="screen-reader-text">Evaluador de Transparencia Activa - </span></span>Iniciativa MOTA</span></a>
             </section>
             <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="menubar"
                 aria-label="Navegación Evaluador de Transparencia Activa en Colombia">
-                <!--<a role="menuitem"
+                <a role="menuitem"
                     href="#main-content"
                     aria-haspopup="true" aria-expanded="false" tabindex="0"
                     class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
                     aria-label="acceder al formulario de evaluación" title="Evalue un sítio"><span
                         class="screen-reader-text">Evalue un sítio</span><span>assessment</span>
-                </a>-->
+                </a>
+                <a role="menuitem" href="criteria.html" aria-haspopup="true" aria-expanded="false" tabindex="0" class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
+                    aria-label="Leya los criterios" title="Criterios"><span
+                        class="screen-reader-text">Criterios</span><span>assignment</span>
+                </a>
+                <!--
                 <a role="menuitem"
                     href="http://mota.dejusticia.org"
-                    aria-haspopup="true" aria-expanded="false" tabindex="0" target="_blank"
+                    aria-haspopup="true" aria-expanded="false" tabindex="0"
                     class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
                     aria-label="Sepa más sobre la iniciativa MOTA" title="Sobre la iniciativa MOTA"><span
                         class="screen-reader-text">Sobre la iniciativa MOTA</span><span>info</span>
@@ -80,7 +90,7 @@
                     aria-label="Leya la Especificación" title="Especificación"><span
                         class="screen-reader-text">Especificación</span><span>assignment</span>
                 </a>
-                <!--<a role="menuitem" href="http://libreria.mota.dejusticia.org"
+                <a role="menuitem" href="http://libreria.mota.dejusticia.org"
                     aria-haspopup="true" aria-expanded="false" tabindex="0" target="_blank" class="material-icons mdc-top-app-bar__action-item mdc-icon-button"
                         aria-label="Visite la libreria de patrones y repositiorio de códigos MOTA" title="Libreria y repositiorio de códigos MOTA"><span
                             class="screen-reader-text">Libreria y repositiorio de códigos</span><span>code</span>
@@ -91,126 +101,140 @@
     <main class="mdc-layout-grid main-content" id="main-content">
         <div class="mdc-layout-grid__inner">
             <section aria-labelledby="evaluate-header"
-                class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6 hero-container">
+                class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12 hero-container text-align--justify">
                 <div class="hero-content">
-                    <h1 class="screen-reader-text">Evaluador de Transparencia Activa MOTA</h1>
-                    <h2>Una herramienta para evaluar el cumplimiento de obligaciones de transparencia activa en sitios web del Estado colombiano.</h2>
+                    <h1 class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">MOTA - Monitoreo de Obligaciones de
+                        Transparencia Activa</h1>
+                    <p class="highlight">La iniciativa <em>Monitoreo de Obligaciones de Transparencia Activa – MOTA</em> busca aumentar la transparencia activa de las entidades públicas colombianas (sujetos obligados por la <strong>Ley 1712 de 2014</strong>)
+                    y fomentar la veeduría ciudadana al respecto.</p>
+                    <h3 id="evaluate-header">Para ver uno de los informes de evaluación:</h3>
                     <ol>
-                        <li>Copie un enlace de un sitio web gubernamental colombiano (como www.ejemplo.gov.co)</li>
-                        <li>Pegue el enlace en el campo a continuación y haga clic en el botón EVALUAR</li>
-                        <li>Espere a que se carguen los resultados en el espacio de abajo.</li>
+                        <li>Copie un enlace de un sitio web gubernamental colombiano (como www.ejemplo.gov.co o ejemplo.mil.co)</li>
+                        <li>Pegue el enlace en el campo de búsqueda y haga clic en el botón BUSCAR</li>
+                        <li>Espere a que se cargue el reporte en el espacio de abajo.</li>
                     </ol>
-                    <p id="evaluate-header">Complete el campo a continuación y haga clic en el botón EVALUAR. Los resultados de la evaluación se mostrarán abajo.</p>
-                </div>
-            </section>
-            <section class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6 form-container" id="form-container">
-                <form aria-labelledby="evaluate-url-legend" id="evaluate-form">
-                    <legend id="evaluate-url-legend" class="screen-reader-text">Rellene el campo con la URL del sitio web a evaluar</legend>
-                    <div class="mdc-text-field mdc-text-field--fullwidth">
-                        <label for="evaluate-url" class="mdc-floating-label">Rellene el campo con la URL del sitio web a evaluar</label>
-                        <input class="mdc-text-field__input" type="text" aria-label="rellene con la URL del o sitio a evaluar" id="evaluate-url">
-                        <div class="mdc-line-ripple"></div>
-                    </div>
-                    <input type="submit" value="Evaluar" class="mdc-button mdc-button--unelevated"
-                        aria-label="Evaluar">
-                </form>
-            </section>
-            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8 mdc-card mdc-card--free-content"
-                id="results-summary-area">
-                <h3>Resumen de la evaluación</h3>
-                <p class="results-dialog">Los resultados se mostrarán aquí.</p>
-                <div id="results-summary-error" class="inactive mota-theme-primary-light-bg">
-                </div>
-                <div id="results-summary" class="inactive">
-                    <label for="results-grade-final"></label>
-                    <meter id="results-grade-final" name="results-grade-final" min="0" low="50" high="90" max="100" optimum="100" value="48">
-                        0-49
-                    </meter>
-                    <ul>
-                        <li id="results-summary-url"><strong>URL:</strong> <span></span></li>
-                        <li id="results-summary-date"><strong>Fecha de la evaluación:</strong> <span></span></li>
-                        <li id="results-summary-status"><strong>Estado de la evaluación:</strong> <span></span></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4 mdc-card mdc-card--free-content"
-                id="report-section--summary">
 
-                    <h3>Escala de puntos:</h3>
-                    <div>
-                        <label for="reference-compliant">81-100 (Conformidad)</label>
-                        <meter id="reference-compliant" name="reference-compliant" min="0" low="19" high="81" max="100" optimum="91" value="100">100
-                        </meter>
+                </div>
+            </section>
+
+            <section class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12 mdc-layout-grid__inner invert-flex-direction">
+                <section class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6 form-container" id="form-container">
+                    <form aria-labelledby="evaluate-url-legend" id="evaluate-form">
+                        <legend id="evaluate-url-legend" class="screen-reader-text">Rellene el campo con la URL del sitio web</legend>
+                        <div class="mdc-text-field mdc-text-field--fullwidth">
+                            <label for="evaluate-url" class="mdc-floating-label">Rellene el campo con la URL del sitio web</label>
+                            <input class="mdc-text-field__input" type="text" aria-label="rellene con la URL del o sitio que quieres ver la evaluación" id="evaluate-url">
+                            <div class="mdc-line-ripple"></div>
+                        </div>
+                        <input type="submit" value="BUSCAR" class="mdc-button mdc-button--unelevated"
+                            aria-label="BUSCAR">
+                    </form>
+                </section>
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6 mdc-card mdc-card--free-content text-align--justify"
+                    id="results-summary-area">
+                    <h3>Resumen de la evaluación</h3>
+                    <p class="results-dialog">El resumén de la evaluación se mostrará aquí. Los criterios individuales se mostrarán abajo. Para obtener más información sobre los criterios, haga <a href="criteria.html">clic aquí</a>.</p>
+                    <div id="results-summary-error" class="inactive mota-theme-primary-light-bg">
                     </div>
-                    <div>
-                        <label for="reference-partial-compliant">51-80 (Conformidad parcial)</label>
-                        <meter id="reference-partial-compliant" name="reference-partial-compliant" min="0" low="19" high="81" max="100" optimum="91" value="80">80
+                    <div id="results-summary" class="inactive">
+                        <label for="results-grade-final"></label>
+                        <meter id="results-grade-final" name="results-grade-final" min="0" low="50" high="90" max="100" optimum="100" value="48">
+                            0-49
                         </meter>
+                        <ul>
+                            <li id="results-summary-url"><strong>URL:</strong> <span></span></li>
+                            <li id="results-summary-date"><strong>Fecha de la evaluación más reciente:</strong> <span></span></li>
+                        </ul>
                     </div>
-                    <div>
-                        <label for="reference-unsufficient">21-50 (Insuficiente)</label>
-                        <meter id="reference-unsufficient" name="reference-unsufficient" min="0" low="19" high="81" max="100" optimum="91" value="50">50
-                        </meter>
-                    </div>
-                    <div>
-                        <label for="reference-deficient">1-20 (Deficiente)</label>
-                        <meter id="reference-deficient" name="reference-deficient" min="0" low="19" high="81" max="100" optimum="91" value="20">20
-                        </meter>
-                    </div>
-                    <div>
-                        <label for="reference-not-compliant">0 (No conformidad)</label>
-                        <meter id="reference-not-compliant" name="reference-not-compliant" min="0" low="19" high="81" max="100" optimum="91" value="0">
-                            0
-                        </meter>
-                    </div>
-            </div>
+                </div>
+                <!--<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3 mdc-card mdc-card--free-content"
+                    id="report-section--summary">
+
+                        <h3>Escala de puntos:</h3>
+                        <div>
+                            <label for="reference-compliant">81-100</label>
+                            <meter id="reference-compliant" name="reference-compliant" min="0" low="19" high="81" max="100" optimum="91" value="100">100
+                            </meter>
+                        </div>
+                        <div>
+                            <label for="reference-partial-compliant">51-80</label>
+                            <meter id="reference-partial-compliant" name="reference-partial-compliant" min="0" low="19" high="81" max="100" optimum="91" value="80">80
+                            </meter>
+                        </div>
+                        <div>
+                            <label for="reference-unsufficient">01-50</label>
+                            <meter id="reference-unsufficient" name="reference-unsufficient" min="0" low="19" high="81" max="100" optimum="91" value="50">50
+                            </meter>
+                        </div>
+                        <div>
+                            <label for="reference-deficient">1-20</label>
+                            <meter id="reference-deficient" name="reference-deficient" min="0" low="19" high="81" max="100" optimum="91" value="20">20
+                            </meter>
+                        </div>
+                        <div>
+                            <label for="reference-not-compliant">0</label>
+                            <meter id="reference-not-compliant" name="reference-not-compliant" min="0" low="19" high="81" max="100" optimum="91" value="0">
+                                0
+                            </meter>
+                        </div>
+                </div>-->
+            </section>
             <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
                 <section
                     class="legal-obligations compliant mdc-card mdc-card--free-content">
                     <h2>Conformidad</h2>
                     <div class="results-content">
-
+                        <p>Aquí se mostrarán los criterios individuales calificados como en <code>conformidad</code>.</p>
                     </div>
                 </section>
                 <section
                     class="legal-obligations partial-compliant mdc-card mdc-card--free-content">
                     <h2>Conformidad Parcial</h2>
                     <div class="results-content">
-
+                        <p>Aquí se mostrarán los criterios individuales calificados como <code>conformidad parcial</code>.</p>
                     </div>
                 </section>
                 <section class="legal-obligations unsufficient mdc-card mdc-card--free-content">
                     <h2>Insuficiente</h2>
                     <div class="results-content">
+                        <p>Aquí se mostrarán los criterios individuales calificados como <code>insuficiente</code>.</p>
 
                     </div>
                 </section>
-                <section class="legal-obligations deficient mdc-card mdc-card--free-content">
+                <!--<section class="legal-obligations deficient mdc-card mdc-card--free-content">
                     <h2>Deficiente</h2>
                     <div class="results-content">
 
                     </div>
-                </section>
+                </section>-->
                 <section class="legal-obligations not-compliant mdc-card mdc-card--free-content">
                     <h2>No Conformidad (incumplimiento)</h2>
                     <div class="results-content">
-
+                        <p>Aquí se mostrarán los criterios individuales calificados como en <code> no conformidad</code>.</p>
                     </div>
                 </section>
             </div>
             <section
-                class="report-section mdc-layout-grid__cell mdc-layout-grid__cell--span-12 mdc-card mdc-card--free-content"
-                id="report-section--criterio-entidades">
-                <h3>¿Dudas o sugerencias?</h3>
+                class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12 mdc-card mdc-card--free-content hero-content text-align--justify">
+
+
+                <h2>El Evaluador MOTA es una herramienta para evaluar el cumplimiento de obligaciones de
+                        transparencia activa en los sitios web del Estado colombiano.</h2>
+
+                <p>La iniciativa <em>Monitoreo de Obligaciones de Transparencia Activa – MOTA</em> busca aumentar la transparencia activa de las entidades públicas colombianas (sujetos obligados por la <strong>Ley 1712 de 2014</strong>y fomentar la veeduría ciudadana al respecto. Específicamente, MOTA es <strong>un conjunto de herramientas tecnológicas, protocolos de acción y criterios normativos para evaluar e incentivar el cumplimiento de las obligaciones legales</strong> y de estándares de mejores prácticas sobre disponibilidad de la información en la web.
+                </p>
                 <div class="report-section--content">
+                    <h3>¿Dudas o sugerencias?</h3>
                     <p><b>Estamos agradecidos de que quieras ayudar a mejorar este proyecto</b>. La mejor manera de
-                        hacerlo es creando un mensaje en la sessión "issues" en el <a
-                            href="https://github.com/Dejusticia/mota-evaluador-demo/"
-                            target="_blank">repositorio oficial en Github</a>. Esto facilita tu contribución y ayuda a
+                        hacerlo es creando un mensaje en la sesión "issues" en el <a
+                            href="https://github.com/Dejusticia/mota-evaluador-demo/" target="_blank">repositorio
+                            oficial en Github</a>. Esto facilita tu contribución y ayuda a
                         todos los usuarios. Si tienes experiencia contribuyendo en proyectos de código abierto, puedes
-                        bifurcar el repositorio oficial, editar los archivos en la rama "develop" y luego enviar un "pull
+                        bifurcar el repositorio oficial, editar los archivos en la rama "develop" y luego enviar un
+                        "pull
                         request".</p>
-                    <p>Otra forma de colaborar es enviar un mensaje al correo <i>cbessa (arroba) dejusticia punto org</i>. Pero
+                    <p>Otra forma de colaborar es enviar un mensaje al correo <i>mota (arroba) dejusticia punto org</i>.
+                        Pero
                         en razón del volumen de mensajes, no podemos garantizar respuestas rápidas. Por esto,
                         recomendamos enviar mensaje al repositorio, así garantizas que tu mensaje sea leído por todos
                         los miembros del proyecto y otros usuarios que podrán responder más rápido.</p>
@@ -225,13 +249,13 @@
         <div id="results-template" class="results-criteria">
             <h3>Estructura orgánica - La forma en que se compone y se organiza la entidade <span
                     class="results-criteria--tags"><span id="grade-freeAccess" id="grade-freeAccess" class="faux-meter"
-                        data-gradePoints="0"></span><span
-                            class="results-criteria-type results-criteria-type--">tipo: obligación</span></span></h3>
+                        data-gradePoints="0">Grado:</span><span
+                            class="results-criteria-type results-criteria-type--">Tipo: obligación</span></span></h3>
 
             <p class="results-criteria--description">Descripción de la forma en que se compone y se organiza la
                 entidade y no tan sólo la cabeza o principal
                 órgano
-                que se trate. <a href="#" class="more-link">Más Informaciones.</a></p>
+                que se trate. <a href="#" class="more-link">Más información.</a></p>
         </div>
     </template>
     <script>
@@ -348,6 +372,7 @@
 	}
 }( typeof global !== "undefined" ? global : this ) );
     </script>
+    <script type="text/javascript" src="./javaScript-autoComplete/auto-complete.min.js"></script>
     <script type="text/javascript" src="./app.bundle.js"></script>
 </body>
 </html>

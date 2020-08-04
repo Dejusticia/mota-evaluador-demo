@@ -2,7 +2,7 @@
     "meta": {
         "entityName": "Fiscalia General de La Nación",
         "entityUrl": "www.fiscalia.gov.co",
-        "lastEvaluationDate": "2020-02-26T22:44:57+00:00",
+        "lastEvaluationDate": "2020-05-04T22:44:57+00:00",
         "lastEvaluationEpoch": "1558478697",
         "protocolSpeficication": "https://mota.dejusticia.org/specs/mota-active-transparency-specificiation/",
         "specificationUri": "https://mota.dejusticia.org/specs/colombia-corte-constitucional/",
@@ -226,7 +226,7 @@
             "grade": "A",
             "gradePoints": "50",
             "type": "obligation",
-            "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#615-manuales"
+            "ruleSpecificationUrl": "https://github.com/Dejusticia/mota-active-transparency-specification/blob/master/mota-active-transparency-specification.md#616-pol%C3%ADticas-lineamientos-o-manuales"
         },
         {
             "ruleId": "metasYObjectivos",
@@ -249,7 +249,7 @@
         {
             "ruleId": "indicadoresDeDesempeno",
             "title": "Indicadores de Desempeño",
-            "shortDescription": "Las entidades deben proveer información sobre los indicadores de desempeño que utilizan y reportes con estadísticas y análisis del desempeño de la entidad (en relación a _________) y de sus funcionarios.",
+            "shortDescription": "Las entidades deben proveer información sobre los indicadores de desempeño que utilizan y reportes con estadísticas y análisis del desempeño de la entidad y de sus funcionarios.",
             "grade": "A",
             "gradePoints": "50",
             "type": "obligation",
