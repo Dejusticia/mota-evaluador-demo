@@ -2,7 +2,7 @@
 
 Project: Evaluador de Transparencia Activa en Colombia - Iniciativa MOTA
 Description: Una herramienta para evaluar el cumplimiento con obligaciones e mejores prácticas de transparencia activa en sitios gubernamentales de Colombia. Iniciativa MOTA.
-Version: 0.9.1
+Version: 0.12.0
 URL: https://github.com/Dejusticia/mota-evaluador-publico
 Keywords: transparency, transparencia, transparencia activa, active transparency, monitor, veeduria, Colombia
 
@@ -11,11 +11,19 @@ This project adheres to [Semantic Versioning](http://semver.org/)
 
 ## Unreleased
 
+## [2020-07-03] - 0.12.0
+
+## Fixed
+- copy corrections;
+- wrong encoding in some files;
+
+## Changed
+- updated dependencies
+
 ## [2020-04-09] - 0.9.1
 
 ## Added
 - auto suggestions for domains;
--
 
 ### Security
 - removed webpack-dev-server from dev dependencies for security reasons;
