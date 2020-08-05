@@ -15,7 +15,7 @@ import {
 templatePolyfill(document);
 arrayForEach();
 nodeListForEach();
-const environment = 'production';
+const environment = 'local';
 const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
 let domains = motaResultsAutoSuggest;
 var my_autoComplete = new autoComplete({
@@ -33,7 +33,9 @@ var my_autoComplete = new autoComplete({
 var reportsRepositoryURI = 'https://api.mota.dejusticia.org/v1/reports/';
 if ( 'development' === environment){
     reportsRepositoryURI = './reports/';
-} else if( 'fallback' === environment ){
+} else if( 'local' === environment ){
+    reportsRepositoryURI = 'http://localhost:3000/v1/reports/'
+}else if( 'fallback' === environment ){
     reportsRepositoryURI = 'https://dejusticia.github.io/mota-reports/'
 }
 /*  Don't forget to load utilities.js first */
@@ -141,6 +143,8 @@ if ( 'development' === environment){
      * @return {object} report object on success, error object on error.
      */
     var getReport = function (url) {
+        console.log('getReport url');
+        console.log(url);
         var compliantNumber = 0,partialComplianNumber = 0,unsufficientNumber = 0, notCompliantNumber, reportURI = reportsRepositoryURI + encodeURI(url);
             /*notCompliantNumber++;
             unsufficientNumber++
@@ -155,6 +159,8 @@ if ( 'development' === environment){
         containers.notCompliant.node.innerHTML = '<p>Aquí se mostrarán los criterios individuales calificados como en <code> no conformidad</code>.</p>';
         summaryElement.classList.add('inactive');
         resultsDialogElement.innerHTML = '<b>Procesando</b>: Los resultados se mostrarán aquí.';
+        console.log('getReport reportURI');
+        console.log(reportURI);
         var urlObject = getValidDomainInfo(url);
         console.log('urlObject');
         console.log(urlObject);
@@ -172,6 +178,8 @@ if ( 'development' === environment){
                 return report;
             })
             .catch(function (error) {
+                console.log('error do atomic');
+                console.log(error);
                 processReportError(error, urlObject);
             });
     };
@@ -368,6 +376,10 @@ if ( 'development' === environment){
      * Process report report error and show results to the main content area.
      */
     var processReportError = function (error, urlObject) {
+            console.log('processReportError initial error');
+            console.log(error);
+            console.log('processReportError initial urlObject');
+            console.log(urlObject);
         if (404 === error.status) {
             console.error('error code 404, buscar nova página', error.status);
 
@@ -381,7 +393,7 @@ if ( 'development' === environment){
                     summaryErrorElement.classList.remove('inactive');
                     resultsDialogElement.innerHTML = '<b>Procesado</b> con error!';
                     summaryErrorElement.innerHTML = '<p>No encontramos el informe que estaba buscando, pero aparentemente el sitio es válido y está en línea. Lo estamos agregando a nuestra cola de evaluación y debería estar listo dentro de las 12 horas.</p>';
-                    throw new Error('Report not found, but domains exists.');
+                    console.error('Report not found, but domain exists.');
                 })
                 .catch(function (error) {
                     console.log('page not found, error:');
@@ -389,8 +401,16 @@ if ( 'development' === environment){
                     summaryErrorElement.classList.remove('inactive');
                     resultsDialogElement.innerHTML = '<b>Procesado</b> con error!';
                     summaryErrorElement.innerHTML = '<p>No encontramos el informe que estaba buscando, y aparentemente el sitio que busca no está en línea. Por favor, verifique que haya ingresado la dirección (URL) correctamente y que el sitio esté activo.</p>';
-                    throw new Error('Report not found, but domains exists.');
+                    console.error('Report not found, and domain DOES NOT exist.');
                 });
+        } else if (400 === error.status) {
+            console.error('error code 400. Status:', error.status);
+            console.error('error code 400. Message:', error.message);
+            console.log(error);
+            summaryErrorElement.classList.remove('inactive');
+            resultsDialogElement.innerHTML = '<b>Procesado</b> con error!';
+            summaryErrorElement.innerHTML = '<p>No encontramos el informe que estaba buscando, y aparentemente el sitio que busca no está en línea en la dirección que solicitaste. Por favor, verifique que haya ingresado la dirección (URL) correctamente y que el sitio esté activo.</p>';
+            console.error('Report not found, but domain DO exists.');
         }
     }
 
