@@ -16,7 +16,7 @@ import {
 templatePolyfill(document);
 arrayForEach();
 nodeListForEach();
-const environment = 'local';
+const environment = 'production';
 const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
 let domains = motaResultsAutoSuggest;
 var my_autoComplete = new autoComplete({
@@ -36,7 +36,7 @@ if ( 'development' === environment){
     reportsRepositoryURI = './reports/';
 } else if( 'local' === environment ){
     reportsRepositoryURI = 'http://localhost:3000/v1/reports/'
-}else if( 'fallback' === environment ){
+} else if( 'fallback' === environment ){
     reportsRepositoryURI = 'https://dejusticia.github.io/mota-reports/'
 }
 /*  Don't forget to load utilities.js first */
