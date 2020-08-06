@@ -1,5 +1,6 @@
 import { MDCTextField } from '@material/textfield';
 import * as atomic from 'atomicjs';
+import DOMPurify from 'dompurify';
 import {
     sanitizeHTML,
     log,
@@ -15,7 +16,7 @@ import {
 templatePolyfill(document);
 arrayForEach();
 nodeListForEach();
-const environment = 'production';
+const environment = 'local';
 const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
 let domains = motaResultsAutoSuggest;
 var my_autoComplete = new autoComplete({
@@ -33,7 +34,9 @@ var my_autoComplete = new autoComplete({
 var reportsRepositoryURI = 'https://api.mota.dejusticia.org/v1/reports/';
 if ( 'development' === environment){
     reportsRepositoryURI = './reports/';
-} else if( 'fallback' === environment ){
+} else if( 'local' === environment ){
+    reportsRepositoryURI = 'http://localhost:3000/v1/reports/'
+}else if( 'fallback' === environment ){
     reportsRepositoryURI = 'https://dejusticia.github.io/mota-reports/'
 }
 /*  Don't forget to load utilities.js first */
@@ -100,8 +103,8 @@ if ( 'development' === environment){
         var domainInfo, basename, urlParameters = parseUri(sanitizeHTML(String(url)));
         if ( null === urlParameters.host.match(/\S+\.(gov|mil)\.co$/)) {
             summaryErrorElement.classList.remove('inactive');
-            resultsDialogElement.innerHTML = '<b>Procesado</b> con error!';
-            summaryErrorElement.innerHTML = '<p>El enlace que buscó no es válido!</p><p>Por favor, use una URL .gov.co o mil.co de um sítio web activo.</p>';
+            resultsDialogElement.innerHTML =  DOMPurify.sanitize(`<b>Procesado</b> con error!`);
+            summaryErrorElement.innerHTML =  DOMPurify.sanitize(`<p>El enlace que buscó no es válido!</p><p>Por favor, use una URL .gov.co o mil.co de um sítio web activo.</p>`);
             throw new Error('This URI is invalid');
         }
         basename = urlParameters.host.replace(/^www\./g, '');
@@ -141,6 +144,8 @@ if ( 'development' === environment){
      * @return {object} report object on success, error object on error.
      */
     var getReport = function (url) {
+        console.log('getReport url');
+        console.log(url);
         var compliantNumber = 0,partialComplianNumber = 0,unsufficientNumber = 0, notCompliantNumber, reportURI = reportsRepositoryURI + encodeURI(url);
             /*notCompliantNumber++;
             unsufficientNumber++
@@ -148,13 +153,14 @@ if ( 'development' === environment){
             partialCompliantNumber++;
             compliantNumber++;
             compliantNumber++;*/
-         containers.compliant.node.innerHTML = '<p>Aquí se mostrarán los criterios individuales calificados como en <code>conformidad</code>.</p>';
-         containers.partialCompliant.node.innerHTML = '<p>Aquí se mostrarán los criterios individuales calificados como <code>conformidad parcial</code>.</p>';
-         containers.unsufficient.node.innerHTML = '<p>Aquí se mostrarán los criterios individuales calificados como <code>insuficiente</code>.</p>';
-       // obligationsDeficientContainer.innerHTML = '';
-        containers.notCompliant.node.innerHTML = '<p>Aquí se mostrarán los criterios individuales calificados como en <code> no conformidad</code>.</p>';
+         containers.compliant.node.innerHTML =  DOMPurify.sanitize(`<p>Aquí se mostrarán los criterios individuales calificados como en <code>conformidad</code>.</p>`);
+         containers.partialCompliant.node.innerHTML =  DOMPurify.sanitize(`<p>Aquí se mostrarán los criterios individuales calificados como <code>conformidad parcial</code>.</p>`);
+         containers.unsufficient.node.innerHTML =  DOMPurify.sanitize(`<p>Aquí se mostrarán los criterios individuales calificados como <code>insuficiente</code>.</p>`);
+        containers.notCompliant.node.innerHTML =  DOMPurify.sanitize(`<p>Aquí se mostrarán los criterios individuales calificados como en <code> no conformidad</code>.</p>`);
         summaryElement.classList.add('inactive');
-        resultsDialogElement.innerHTML = '<b>Procesando</b>: Los resultados se mostrarán aquí.';
+        resultsDialogElement.innerHTML = DOMPurify.sanitize(`<b>Procesando</b>: Los resultados se mostrarán aquí.`);
+        console.log('getReport reportURI');
+        console.log(reportURI);
         var urlObject = getValidDomainInfo(url);
         console.log('urlObject');
         console.log(urlObject);
@@ -168,11 +174,20 @@ if ( 'development' === environment){
         atomic( reportURI ) //
             .then(function (response) {
                 report = response.data;
-                processReport(report);
-                return report;
+                console.log('response');
+                console.log(response);
+                if (!response.data.error) {
+                    processReport(report);
+                } else {
+                    console.log('response com error');
+                    processReportError(response.data.error);
+                }
+                return;
             })
             .catch(function (error) {
-                processReportError(error, urlObject);
+                console.log('error do atomic');
+                console.log(error);
+                apiError();
             });
     };
 
@@ -209,9 +224,9 @@ if ( 'development' === environment){
         if ( 'recommendation' ===  rule.type ){
             ruleTypeName = 'recomendación';
         }
-        markup.querySelector('.results-criteria h3').innerHTML = rule.title + '<span class = "results-criteria--tags"> <span id="grade-' + rule.ruleId + '" class="faux-meter" data-gradePoints="' + rule.gradePoints + '">Grado: ' + rule.grade + '</span><span class= "results-criteria-type results-criteria-type--' + rule.type + '"> Tipo: ' + ruleTypeName + ' </span></span>';
-        markup.querySelector('.results-criteria--description').innerHTML = rule.shortDescription + ' <a href="criteria.html#criteria-' + rule.ruleId + '" class="more-link">Más información.</a>';
-        detailsElement.setAttribute('id', 'criteria-' + ruleId);
+        markup.querySelector('.results-criteria h3').innerHTML = DOMPurify.sanitize(`${rule.title}<span class= "results-criteria--tags"> <span id="grade-${rule.ruleId}" class="faux-meter" data-gradePoints="${rule.gradePoints}">Grado: ${rule.grade}</span><span class= "results-criteria-type results-criteria-type--${rule.type}">Tipo: ${ruleTypeName}</span></span>`);
+        markup.querySelector('.results-criteria--description').innerHTML = DOMPurify.sanitize(`${rule.shortDescription} <a href="criteria.html#criteria-${rule.ruleId}" class="more-link">Más información.</a>`);
+        detailsElement.setAttribute('id', DOMPurify.sanitize(`criteria-${ruleId}`) );
         return markup;
     };
 
@@ -234,24 +249,24 @@ if ( 'development' === environment){
         // coerce to number
         generalGrade = +generalGrade;
         if (generalGrade < 1) {
-            generalGradeText = 'no conformidad (' + generalGrade + ')';
+            generalGradeText = DOMPurify.sanitize( `no conformidad (${generalGrade})` );
         } else if (generalGrade <= 20) {
-            generalGradeText = 'Deficiente (' + generalGrade + ')';
+            generalGradeText = DOMPurify.sanitize( `deficiente (${generalGrade})`);
         } else if (generalGrade <= 50) {
-            generalGradeText = 'Insuficiente (' + generalGrade + ')';
+            generalGradeText = DOMPurify.sanitize( `Insuficiente (${generalGrade})`);
         } else if (generalGrade <= 80) {
-            generalGradeText = ' conformidad parcial (' + generalGrade + ')';
+            generalGradeText = DOMPurify.sanitize( `conformidad parcial (${generalGrade})`);
         } else if (generalGrade < 100) {
-            generalGradeText = 'Conformidad (' + generalGrade + ')';
+            generalGradeText = DOMPurify.sanitize(`conformidad (${generalGrade})`);
         } else {
-            generalGradeText = 'Perfecto! (' + generalGrade + ')';
+            generalGradeText = DOMPurify.sanitize( `perfecto! (${generalGrade})`);
         }
         summaryGeneralGradeElement.value = generalGrade;
-        summaryGeneralGradeLabel.innerHTML = generalGradeText;
+        summaryGeneralGradeLabel.innerHTML = DOMPurify.sanitize(generalGradeText);
         if (report.meta.evaluationStatus && 'analyzing' === report.meta.evaluationStatus) {
-            resultsDialogElement.innerHTML = 'Encontramos una <b>evaluación desactualizada.</b> Añadimos el sitio a la cola para actualización. Por favor regrese en unas horas.';
+            resultsDialogElement.innerHTML = DOMPurify.sanitize(`Encontramos una <b>evaluación desactualizada.</b> Añadimos el sitio a la cola para actualización. Por favor regrese en unas horas.`);
         } else {
-            resultsDialogElement.innerHTML = '<b>Encontramos una evaluación.</b> El puntaje obtenido fue:';
+            resultsDialogElement.innerHTML = DOMPurify.sanitize('<b>Encontramos una evaluación.</b> El puntaje obtenido fue:');
         }
         summaryElement.classList.remove('inactive');
         summaryUrlElement.innerText = report.meta.entityUrl;
@@ -326,6 +341,11 @@ if ( 'development' === environment){
         summaryUrlElement.innerHTML = '';
         summaryDateElement.innerHTML = '';
 
+        containers.compliant.node.innerHTML = '';
+        containers.partialCompliant.node.innerHTML = '';
+        containers.unsufficient.node.innerHTML = '';
+        containers.notCompliant.node.innerHTML = '';
+
         for (var i = 0; i < rules.length; i++) {
 
             var rule = rules[i];
@@ -349,49 +369,45 @@ if ( 'development' === environment){
         console.log('checkContainersStates 1');
         checkContainersStates();
         if ('hasResults' !== containers.compliant.state ) {
-            containers.compliant.node.innerHTML = '<p>Ninguno de los criterios individuales fue calificado como en <code>conformidad</code>.</p>';
+            containers.compliant.node.innerHTML =  DOMPurify.sanitize('<p>Ninguno de los criterios individuales fue calificado como en <code>conformidad</code>.</p>');
         }
         if ('hasResults' !== containers.partialCompliant.state) {
-            containers.partialCompliant.node.innerHTML = '<p>Ninguno de los criterios individuales fue calificado como en <code>conformidad parcial</code>.</p>';
+            containers.partialCompliant.node.innerHTML =  DOMPurify.sanitize('<p>Ninguno de los criterios individuales fue calificado como en <code>conformidad parcial</code>.</p>');
         }
         if ('hasResults' !== containers.unsufficient.state) {
-            containers.unsufficient.node.innerHTML = '<p>Ninguno de los criterios individuales fue calificado como en <code>insuficiente</code>.</p>';
+            containers.unsufficient.node.innerHTML =  DOMPurify.sanitize('<p>Ninguno de los criterios individuales fue calificado como en <code>insuficiente</code>.</p>');
         }
         if ('hasResults' !== containers.notCompliant.state) {
-            containers.notCompliant.node.innerHTML = '<p>Ninguno de los criterios individuales fue calificado como en <code>no conformidad</code>.</p>';
+            containers.notCompliant.node.innerHTML =  DOMPurify.sanitize('<p>Ninguno de los criterios individuales fue calificado como en <code>no conformidad</code>.</p>');
         }
         processSummaryMarkup(generalGrade, report);
 
     };
 
     /**
-     * Process report report error and show results to the main content area.
+     * Process report error and show results to the main content area.
      */
     var processReportError = function (error, urlObject) {
-        if (404 === error.status) {
-            console.error('error code 404, buscar nova página', error.status);
+            console.log('processReportError initial error');
+            console.log(error);
+            console.log('processReportError initial urlObject');
+            console.log(urlObject);
+            summaryErrorElement.classList.remove('inactive');
+            resultsDialogElement.innerHTML =  DOMPurify.sanitize(`<b>Procesado</b> con error!`);
+            summaryErrorElement.innerHTML =  DOMPurify.sanitize(`<p>${sanitizeHTML(error.message)}</p>`);
+            return;
+    }
 
-            // check if domain exists
-            atomic('https://' + urlObject.host, {
-                timeout: 30000
-                }) //
-                .then(function (response) {
-                    console.log('found page, response');
-                    console.log(response);
-                    summaryErrorElement.classList.remove('inactive');
-                    resultsDialogElement.innerHTML = '<b>Procesado</b> con error!';
-                    summaryErrorElement.innerHTML = '<p>No encontramos el informe que estaba buscando, pero aparentemente el sitio es válido y está en línea. Lo estamos agregando a nuestra cola de evaluación y debería estar listo dentro de las 12 horas.</p>';
-                    throw new Error('Report not found, but domains exists.');
-                })
-                .catch(function (error) {
-                    console.log('page not found, error:');
-                    console.log(error);
-                    summaryErrorElement.classList.remove('inactive');
-                    resultsDialogElement.innerHTML = '<b>Procesado</b> con error!';
-                    summaryErrorElement.innerHTML = '<p>No encontramos el informe que estaba buscando, y aparentemente el sitio que busca no está en línea. Por favor, verifique que haya ingresado la dirección (URL) correctamente y que el sitio esté activo.</p>';
-                    throw new Error('Report not found, but domains exists.');
-                });
-        }
+    /**
+     * show an error message when API is unavailable.
+     */
+    var apiError = function (error, urlObject) {
+            console.log('processReportError initial error');
+            console.log(error);
+            summaryErrorElement.classList.remove('inactive');
+            resultsDialogElement.innerHTML =  DOMPurify.sanitize(`<b>Procesado</b> con error!`);
+            summaryErrorElement.innerHTML =  DOMPurify.sanitize(`<p>Lamentablemente, no pudimos acceder a nuestra base de datos de informes. Por favor, intente nuevamente más tarde mientras verificamos qué está sucediendo y lo arreglamos.</p>`);
+            return;
     }
 
 
@@ -403,9 +419,6 @@ if ( 'development' === environment){
     var submitHandler = function (event) {
         event.preventDefault();
         if (form === event.target) {
-            console.log(input.value);
-            console.log('sanitized input')
-            console.log(sanitizeHTML(input.value));
             getReport(sanitizeHTML(input.value));
         }
     };
