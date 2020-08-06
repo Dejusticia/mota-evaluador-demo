@@ -128,12 +128,10 @@ if ( 'development' === environment){
         compliant: 'waiting'*/
         var criteriaNumber = 0;
         for (var key of Object.keys(containers)) {
-            criteriaNumber = containers[key].node.querySelectorAll('.results-criteria').length
-            console.log(key + " -> " + criteriaNumber );
+            criteriaNumber = containers[key].node.querySelectorAll('.results-criteria').length;
             if( criteriaNumber >= 0 ) {
                 containers[key].state = 'hasResults';
             }
-            console.log(key + " status -> " + containers[key].state );
         }
     };
 
@@ -144,8 +142,6 @@ if ( 'development' === environment){
      * @return {object} report object on success, error object on error.
      */
     var getReport = function (url) {
-        console.log('getReport url');
-        console.log(url);
         var compliantNumber = 0,partialComplianNumber = 0,unsufficientNumber = 0, notCompliantNumber, reportURI = reportsRepositoryURI + encodeURI(url);
             /*notCompliantNumber++;
             unsufficientNumber++
@@ -159,11 +155,7 @@ if ( 'development' === environment){
         containers.notCompliant.node.innerHTML =  DOMPurify.sanitize(`<p>Aquí se mostrarán los criterios individuales calificados como en <code> no conformidad</code>.</p>`);
         summaryElement.classList.add('inactive');
         resultsDialogElement.innerHTML = DOMPurify.sanitize(`<b>Procesando</b>: Los resultados se mostrarán aquí.`);
-        console.log('getReport reportURI');
-        console.log(reportURI);
         var urlObject = getValidDomainInfo(url);
-        console.log('urlObject');
-        console.log(urlObject);
         // cleanup results containers and site info
 
         if ( 'development' === environment || 'fallback' === environment ){
@@ -174,19 +166,14 @@ if ( 'development' === environment){
         atomic( reportURI ) //
             .then(function (response) {
                 report = response.data;
-                console.log('response');
-                console.log(response);
                 if (!response.data.error) {
                     processReport(report);
                 } else {
-                    console.log('response com error');
                     processReportError(response.data.error);
                 }
                 return;
             })
             .catch(function (error) {
-                console.log('error do atomic');
-                console.log(error);
                 apiError();
             });
     };
@@ -236,15 +223,6 @@ if ( 'development' === environment){
      */
     var processSummaryMarkup = function (generalGrade, report) {
         var generalGradeText = '';
-        console.warn('report 2');
-        console.log(report);
-        console.warn('report.meta 2');
-        console.log(report.meta);
-        console.warn('report.meta.entityUrl 2 ');
-        console.log(report.meta.entityUrl);
-        console.warn('report.meta.lastEvaluationDate 2');
-        console.log(report.meta.lastEvaluationDate);
-        console.log(report.meta.entityUrl);
 
         // coerce to number
         generalGrade = +generalGrade;
@@ -270,11 +248,7 @@ if ( 'development' === environment){
         }
         summaryElement.classList.remove('inactive');
         summaryUrlElement.innerText = report.meta.entityUrl;
-        console.error('report.meta.lastEvaluationDate 3 = ');
-        console.log(report.meta.lastEvaluationDate);
         summaryDateElement.innerText = transformDate(report.meta.lastEvaluationDate);
-        console.error('summaryDateElement.innerText = ');
-        console.log(summaryDateElement.innerText);
 
     };
 
@@ -323,18 +297,7 @@ if ( 'development' === environment){
         // Variables
         //
         var rules = report.rules;
-        console.warn('report');
-        console.log(report);
-        console.warn('report.meta');
-        console.log(report.meta);
-        console.warn('report.meta.entityUrl');
-        console.log(report.meta.entityUrl);
-        console.warn('report.meta.lastEvaluationDate');
-        console.log(report.meta.lastEvaluationDate);
-        console.log(report.meta.entityUrl);
         var summaryDate = report.meta.lastEvaluationDate;
-        console.warn('summaryDate');
-        console.log(summaryDate);
 
         summaryErrorElement.classList.add('inactive');
         summaryElement.classList.add('inactive');
@@ -361,12 +324,7 @@ if ( 'development' === environment){
             markup = processResultMarkup(markup, rule);
             addResult(markup, rule);
         }
-        console.log('generalGrade brute');
-        console.log(generalGrade);
         generalGrade = Math.floor(generalGrade / rules.length);
-        console.log('generalGrade Normalizede');
-        console.log(generalGrade);
-        console.log('checkContainersStates 1');
         checkContainersStates();
         if ('hasResults' !== containers.compliant.state ) {
             containers.compliant.node.innerHTML =  DOMPurify.sanitize('<p>Ninguno de los criterios individuales fue calificado como en <code>conformidad</code>.</p>');
@@ -388,10 +346,6 @@ if ( 'development' === environment){
      * Process report error and show results to the main content area.
      */
     var processReportError = function (error, urlObject) {
-            console.log('processReportError initial error');
-            console.log(error);
-            console.log('processReportError initial urlObject');
-            console.log(urlObject);
             summaryErrorElement.classList.remove('inactive');
             resultsDialogElement.innerHTML =  DOMPurify.sanitize(`<b>Procesado</b> con error!`);
             summaryErrorElement.innerHTML =  DOMPurify.sanitize(`<p>${sanitizeHTML(error.message)}</p>`);
@@ -402,8 +356,6 @@ if ( 'development' === environment){
      * show an error message when API is unavailable.
      */
     var apiError = function (error, urlObject) {
-            console.log('processReportError initial error');
-            console.log(error);
             summaryErrorElement.classList.remove('inactive');
             resultsDialogElement.innerHTML =  DOMPurify.sanitize(`<b>Procesado</b> con error!`);
             summaryErrorElement.innerHTML =  DOMPurify.sanitize(`<p>Lamentablemente, no pudimos acceder a nuestra base de datos de informes. Por favor, intente nuevamente más tarde mientras verificamos qué está sucediendo y lo arreglamos.</p>`);
